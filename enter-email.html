@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AZ Studio - استرجاع كلمة المرور</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/auth.css">
+</head>
+<body>
+
+  <div class="auth-page-wrapper">
+    <div class="auth-card">
+      <!-- Card Header with Logo -->
+      <div class="auth-card-header">
+        <img src="./assets/az-studio-logo.svg" alt="AZ Studio - Audiovisual Production" />
+      </div>
+
+      <!-- Card Body -->
+      <div class="auth-card-body">
+        <h1 class="auth-title">استرجاع كلمة المرور 🔑</h1>
+        <p class="auth-subtitle">أدخل بريدك وسنرسل إليك تعليمات لإعادة تعيين كلمة المرور الخاصة بك</p>
+
+        <form class="auth-form" action="otp.html" method="GET">
+          <!-- Email Field -->
+          <div class="auth-field-group">
+            <label class="auth-label">البريد الإلكتروني</label>
+            <div class="auth-input-wrap">
+              <input type="email" class="auth-input auth-input-email" placeholder="example@azstudio.com" required autocomplete="email" />
+              <div class="input-icon-left">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Continue Button -->
+          <button type="submit" class="btn-auth-submit">
+            <span>استمرار</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

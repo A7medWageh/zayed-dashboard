@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AZ Studio - لوحة التحكم</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="./css/dashboard.css">
+</head>
+<body>
+
+    <!-- =========================================================================
+       SIDEBAR (RIGHT)
+       ========================================================================= -->
+  <aside class="sidebar">
+    <!-- Sidebar Close Button (Mobile) -->
+    <button type="button" class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="إغلاق القائمة">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+
+    <!-- Logo Area -->
+    <div class="sidebar-logo-area">
+      <img src="./assets/az-studio-logo.svg" alt="AZ Studio Logo" />
+    </div>
+
+    <!-- Menu Navigation -->
+    <nav class="sidebar-menu">
+      <!-- 1. لوحة التحكم -->
+      <a href="index.html" class="sidebar-item active">
+        <div class="sidebar-item-content">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect></svg>
+          <span>لوحة التحكم</span>
+        </div>
+      </a>
+
+      <!-- 2. الطلبات (Accordion Submenu) -->
+      <div class="sidebar-group ">
+        <button type="button" class="sidebar-item sidebar-accordion-toggle ">
+          <div class="sidebar-item-content">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+            <span>الطلبات</span>
+          </div>
+          <svg class="sidebar-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <div class="sidebar-submenu">
+          <a href="orders.html" class="sidebar-subitem">طلبات الخدمات</a>
+          <a href="orders.html?tab=quotations" class="sidebar-subitem">طلبات عروض الاسعار</a>
+          <a href="orders.html?tab=packages" class="sidebar-subitem">طلبات الاشتراك في باقة</a>
+        </div>
+      </div>
+
+      <!-- 3. الخدمات -->
+      <a href="services.html" class="sidebar-item ">
+        <div class="sidebar-item-content">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          <span>الخدمات</span>
+        </div>
+      </a>
+
+      <!-- 4. الباقات (Accordion Submenu) -->
+      <div class="sidebar-group ">
+        <button type="button" class="sidebar-item sidebar-accordion-toggle ">
+          <div class="sidebar-item-content">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+            <span>الباقات</span>
+          </div>
+          <svg class="sidebar-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <div class="sidebar-submenu">
+          <a href="packages.html?category=social" class="sidebar-subitem">السوشيال ميديا</a>
+          <a href="packages.html?category=studio" class="sidebar-subitem">الاستوديو والإنتاج</a>
+          <a href="packages.html?category=podcast" class="sidebar-subitem">البودكاست</a>
+          <a href="packages.html?category=audio" class="sidebar-subitem">استوديو الصوت</a>
+        </div>
+      </div>
+
+      <!-- 5. المشرفين -->
+      <a href="supervisors.html" class="sidebar-item ">
+        <div class="sidebar-item-content">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          <span>المشرفين</span>
+        </div>
+      </a>
+
+      <!-- 6. الأدوار -->
+      <a href="roles.html" class="sidebar-item ">
+        <div class="sidebar-item-content">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          <span>الأدوار</span>
+        </div>
+      </a>
+
+      <!-- 7. تواصل معانا -->
+      <a href="contact.html" class="sidebar-item ">
+        <div class="sidebar-item-content">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          <span>تواصل معانا</span>
+        </div>
+      </a>
+
+      <!-- 8. اعدادات الموقع الالكتروني (Accordion Submenu) -->
+      <div class="sidebar-group ">
+        <button type="button" class="sidebar-item sidebar-accordion-toggle ">
+          <div class="sidebar-item-content">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            <span>اعدادات الموقع الالكتروني</span>
+          </div>
+          <svg class="sidebar-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <div class="sidebar-submenu">
+          <a href="settings.html?tab=home" class="sidebar-subitem">الصفحة الرئيسية</a>
+          <a href="settings.html?tab=seo" class="sidebar-subitem">قسم SEO</a>
+          <a href="settings.html?tab=about" class="sidebar-subitem">من نحن</a>
+          <a href="settings.html?tab=workflow" class="sidebar-subitem">آلية العمل</a>
+          <a href="settings.html?tab=outputs" class="sidebar-subitem">المخرجات</a>
+          <a href="settings.html?tab=sectors" class="sidebar-subitem">القطاعات</a>
+          <a href="settings.html?tab=faq" class="sidebar-subitem">الأسئلة الشائعة</a>
+          <a href="settings.html?tab=terms" class="sidebar-subitem">شروط الاستخدام</a>
+          <a href="settings.html?tab=privacy" class="sidebar-subitem">سياسة الخصوصية</a>
+          <a href="settings.html?tab=footer" class="sidebar-subitem">الفوتر</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Logout Button -->
+    <button type="button" class="sidebar-logout" data-modal-target="logoutModal" style="border: none; cursor: pointer; width: 100%;">
+      <span>تسجيل الخروج</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+    </button>
+  </aside>
+
+  <!-- =========================================================================
+       MAIN CONTENT (LEFT)
+       ========================================================================= -->
+  <main class="main-content">
+        <!-- Header -->
+    <header class="header-bar">
+      <!-- Right Side: Hamburger Toggle (Mobile) + Welcome Title -->
+      <div class="header-right-side">
+        <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="فتح القائمة">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+        <div class="header-welcome">
+          <h1>مرحبا بك في لوحة التحكم</h1>
+          <p>نظرة عامة على أداء شركة AZ Studio والأعمال</p>
+        </div>
+      </div>
+
+      <!-- Left Side: User Actions (Notifications & Avatar Dropdown) -->
+      <div class="header-user-actions">
+        <!-- Theme Toggle (Sun / Moon) -->
+        <button type="button" class="theme-toggle-btn" id="themeToggleBtn" title="تبديل الوضع الليلي / النهاري" aria-label="تبديل الوضع">
+          <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+
+        <!-- Notification Bell -->
+        <div class="notif-bell-btn" id="notifBtn" style="cursor: pointer;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+        </div>
+
+        <!-- User Profile Trigger -->
+        <div class="user-profile-widget" id="userProfileBtn" style="cursor: pointer;">
+          <img class="user-avatar-img" src="./assets/images/Ellipse 3255.png" alt="User Profile" />
+          <div class="user-text-meta">
+            <span class="user-name-text">محمد المعتصم باللة السيد</span>
+            <span class="user-email-text">mohamedmoatasembalbol@icloud.com</span>
+          </div>
+          <svg class="user-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </div>
+
+        <!-- Floating Notification Dropdown -->
+        <div class="custom-dropdown-panel" id="notifDropdown">
+          <div style="padding: 12px 16px; border-bottom: 1px solid #EAECF0; font-weight: 700; font-size: 13px; color: #111827; display: flex; justify-content: space-between; align-items: center;">
+            <span>الإشعارات</span>
+            <span style="font-size: 11px; background: #FEF3C7; color: #D97706; padding: 2px 8px; border-radius: 999px; font-weight: 600;">3 جديدة</span>
+          </div>
+          <div style="max-height: 260px; overflow-y: auto;">
+            <a href="orders.html" class="dropdown-item" style="border-bottom: 1px solid #F3F4F6; padding: 10px 14px; display: flex; gap: 10px; align-items: flex-start;">
+              <div style="width: 8px; height: 8px; border-radius: 50%; background: #10B981; margin-top: 6px; flex-shrink: 0;"></div>
+              <div>
+                <div style="font-weight: 600; font-size: 12px; color: #111827;">طلب خدمة جديد #1025</div>
+                <div style="font-size: 11px; color: #6B7280;">قام محمد السيد بطلب انتاج فيديو مؤسسي</div>
+                <div style="font-size: 10px; color: #9CA3AF; margin-top: 2px;">منذ 5 دقائق</div>
+              </div>
+            </a>
+            <a href="orders.html" class="dropdown-item" style="border-bottom: 1px solid #F3F4F6; padding: 10px 14px; display: flex; gap: 10px; align-items: flex-start;">
+              <div style="width: 8px; height: 8px; border-radius: 50%; background: #3B82F6; margin-top: 6px; flex-shrink: 0;"></div>
+              <div>
+                <div style="font-weight: 600; font-size: 12px; color: #111827;">طلب اشتراك باقة جديد #1024</div>
+                <div style="font-size: 11px; color: #6B7280;">قام أحمد علي بطلب باقة السوشيال ميديا</div>
+                <div style="font-size: 10px; color: #9CA3AF; margin-top: 2px;">منذ ساعة</div>
+              </div>
+            </a>
+            <a href="contact.html" class="dropdown-item" style="padding: 10px 14px; display: flex; gap: 10px; align-items: flex-start;">
+              <div style="width: 8px; height: 8px; border-radius: 50%; background: #F59E0B; margin-top: 6px; flex-shrink: 0;"></div>
+              <div>
+                <div style="font-weight: 600; font-size: 12px; color: #111827;">رسالة تواصل جديدة</div>
+                <div style="font-size: 11px; color: #6B7280;">استفسار بخصوص خدمات البودكاست</div>
+                <div style="font-size: 10px; color: #9CA3AF; margin-top: 2px;">منذ 3 ساعات</div>
+              </div>
+            </a>
+          </div>
+          <a href="orders.html" style="display: block; padding: 10px; text-align: center; font-size: 11.5px; color: #D97706; font-weight: 600; text-decoration: none; border-top: 1px solid #EAECF0; background: #FFFDF5;">عرض جميع الطلبات</a>
+        </div>
+
+        <!-- Floating User Dropdown -->
+        <div class="user-dropdown-card" id="userDropdown">
+          <div class="user-dropdown-header">
+            <img class="avatar-thumb" style="object-fit: cover;" src="./assets/images/Ellipse 3255.png" alt="User Profile" />
+            <div class="user-dropdown-meta">
+              <span class="user-dropdown-name">محمد المعتصم باللة السيد</span>
+              <span class="user-dropdown-email">mohamedmoatasembalbol@icloud.com</span>
+            </div>
+          </div>
+          <button type="button" class="user-dropdown-item" data-modal-target="viewProfileModal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            <span>عرض الملف الشخصي</span>
+          </button>
+          <button type="button" class="user-dropdown-item logout-item" data-modal-target="logoutModal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+            <span>تسجيل الخروج</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- 4 KPI Cards (Right to Left in RTL - Matching Image 1:1) -->
+    <section class="kpi-row">
+      <!-- Card 1 (Right): اجمالي العملاء -->
+      <div class="kpi-card">
+        <div class="kpi-card-head">
+          <div class="kpi-icon-wrap icon-gold">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          </div>
+          <div class="kpi-title-block">
+            <span class="kpi-title">اجمالي العملاء</span>
+            <span class="kpi-count">50</span>
+          </div>
+        </div>
+        <div class="kpi-card-footer">
+          <div class="kpi-meta-left">
+            <span class="kpi-meta-num">32</span>
+            <span class="kpi-meta-label">عدد العملاء هذا الشهر</span>
+          </div>
+          <span class="kpi-badge-green">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            <span>92.8% اعلي من الشهر الماضي</span>
+          </span>
+        </div>
+      </div>
+
+      <!-- Card 2: اجمالي الطلبات ( عروض الاسعار + الخدمة ) -->
+      <div class="kpi-card">
+        <div class="kpi-card-head">
+          <div class="kpi-icon-wrap icon-blue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h6"></path><path d="M14 2v6h6"></path><path d="M9 13h6"></path><path d="M9 17h3"></path><circle cx="17.5" cy="17.5" r="2.5"></circle><path d="M19.5 19.5L21.5 21.5"></path></svg>
+          </div>
+          <div class="kpi-title-block">
+            <span class="kpi-title">اجمالي الطلبات ( عروض الاسعار + الخدمة )</span>
+            <span class="kpi-count">10</span>
+          </div>
+        </div>
+        <div class="kpi-card-footer">
+          <div class="kpi-meta-left">
+            <span class="kpi-meta-num">20</span>
+            <span class="kpi-meta-label">عدد الطلبات هذا الشهر</span>
+          </div>
+          <span class="kpi-badge-green">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            <span>92.8% اعلي من الشهر الماضي</span>
+          </span>
+        </div>
+      </div>
+
+      <!-- Card 3: اجمالي المخرجات -->
+      <div class="kpi-card">
+        <div class="kpi-card-head">
+          <div class="kpi-icon-wrap icon-purple">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+          </div>
+          <div class="kpi-title-block">
+            <span class="kpi-title">اجمالي المخرجات</span>
+            <span class="kpi-count">150</span>
+          </div>
+        </div>
+        <div class="kpi-card-footer">
+          <div class="kpi-meta-left">
+            <span class="kpi-meta-num">20</span>
+            <span class="kpi-meta-label">اجمالي المخرجات هذا الشهر</span>
+          </div>
+          <span class="kpi-badge-green">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            <span>92.8% اعلي من الشهر الماضي</span>
+          </span>
+        </div>
+      </div>
+
+      <!-- Card 4 (Left): اجمالي عروض الاسعار -->
+      <div class="kpi-card">
+        <div class="kpi-card-head">
+          <div class="kpi-icon-wrap icon-green">
+            <span style="font-size: 26px; font-weight: 700; line-height: 1; color: inherit; font-family: inherit;">$</span>
+          </div>
+          <div class="kpi-title-block">
+            <span class="kpi-title">اجمالي عروض الاسعار</span>
+            <span class="kpi-count">250</span>
+          </div>
+        </div>
+        <div class="kpi-card-footer">
+          <div class="kpi-meta-left">
+            <span class="kpi-meta-num">20</span>
+            <span class="kpi-meta-label">اجمالي عروض الاسعار هذا الشهر</span>
+          </div>
+          <span class="kpi-badge-green">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            <span>92.8% اعلي من الشهر الماضي</span>
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Middle Section: 2 Charts Row -->
+    <section class="charts-row">
+      <!-- Right: معدل انجاز المشاريع (Figma Accurate Stacked Chart with Y-Axis Grid) -->
+      <div class="chart-card">
+        <div class="chart-head" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+          <h3 style="font-size: 14px; font-weight: 700; color: #1E293B; margin: 0;">معدل انجاز المشاريع</h3>
+          <button class="card-dropdown-btn" style="background: transparent; border: none; font-size: 11.5px; color: #8F9BB3; display: flex; align-items: center; gap: 4px; cursor: pointer; padding: 2px 4px;">
+            <span>هذا الشهر</span>
+            <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#8F9BB3" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+        </div>
+
+        <div class="figma-chart-outer">
+          <!-- Y-Axis Scale (Left) -->
+          <div class="chart-y-axis">
+            <span>100</span>
+            <span>80</span>
+            <span>60</span>
+            <span>40</span>
+            <span>20</span>
+            <span>0</span>
+          </div>
+
+          <!-- Chart Plot Area with Grid Lines -->
+          <div class="chart-plot-area">
+            <!-- Background Grid Lines -->
+            <div class="chart-grid-line" style="bottom: 100%;"></div>
+            <div class="chart-grid-line" style="bottom: 80%;"></div>
+            <div class="chart-grid-line" style="bottom: 60%;"></div>
+            <div class="chart-grid-line" style="bottom: 40%;"></div>
+            <div class="chart-grid-line" style="bottom: 20%;"></div>
+            <div class="chart-grid-line baseline" style="bottom: 0%;"></div>
+
+            <!-- Vertical Dashed Grid Lines -->
+            <div class="chart-vgrid-container">
+              <div class="chart-vgrid-line" style="left: 15.625%;"></div>
+              <div class="chart-vgrid-line" style="left: 34.375%;"></div>
+              <div class="chart-vgrid-line" style="left: 53.125%;"></div>
+              <div class="chart-vgrid-line" style="left: 71.875%;"></div>
+              <div class="chart-vgrid-line" style="left: 90.625%;"></div>
+            </div>
+
+            <!-- Spline Curve Overlay -->
+            <svg class="chart-spline-svg" viewBox="0 0 1000 200" preserveAspectRatio="none">
+              <path d="M 31.25 30 C 90 30, 140 70, 218.75 70 C 295 70, 330 120, 406.25 120 C 480 120, 520 60, 593.75 58 C 665 56, 715 36, 781.25 38 C 850 40, 905 92, 968.75 92" 
+                    fill="none" stroke="#6EE7B7" stroke-width="2.5" opacity="0.4" />
+              <path d="M 31.25 30 C 90 30, 140 70, 218.75 70 C 295 70, 330 120, 406.25 120 C 480 120, 520 60, 593.75 58 C 665 56, 715 36, 781.25 38 C 850 40, 905 92, 968.75 92" 
+                    fill="none" stroke="#52C48A" stroke-width="1.8" />
+              <!-- Marker Dots with Glow Halo -->
+              <circle cx="31.25" cy="30" r="9" fill="#52C48A" fill-opacity="0.18" />
+              <circle cx="31.25" cy="30" r="4.5" fill="#52C48A" stroke="#FFFFFF" stroke-width="1.8" />
+
+              <circle cx="218.75" cy="70" r="9" fill="#52C48A" fill-opacity="0.18" />
+              <circle cx="218.75" cy="70" r="4.5" fill="#52C48A" stroke="#FFFFFF" stroke-width="1.8" />
+
+              <circle cx="406.25" cy="120" r="9" fill="#52C48A" fill-opacity="0.18" />
+              <circle cx="406.25" cy="120" r="4.5" fill="#52C48A" stroke="#FFFFFF" stroke-width="1.8" />
+
+              <circle cx="593.75" cy="58" r="9" fill="#52C48A" fill-opacity="0.18" />
+              <circle cx="593.75" cy="58" r="4.5" fill="#52C48A" stroke="#FFFFFF" stroke-width="1.8" />
+
+              <circle cx="781.25" cy="38" r="9" fill="#52C48A" fill-opacity="0.18" />
+              <circle cx="781.25" cy="38" r="4.5" fill="#52C48A" stroke="#FFFFFF" stroke-width="1.8" />
+
+              <circle cx="968.75" cy="92" r="9" fill="#52C48A" fill-opacity="0.18" />
+              <circle cx="968.75" cy="92" r="4.5" fill="#52C48A" stroke="#FFFFFF" stroke-width="1.8" />
+            </svg>
+
+            <!-- 16 Stacked Column Bars matching Screenshot -->
+            <div class="bars-container">
+              <!-- Col 1 -->
+              <div class="figma-bar-col">
+                <div class="figma-bar-stack" style="height: 56.5%;">
+                  <div class="bar-segment-cap"></div>
+                  <div class="bar-segment-gold" style="flex: 20;"></div>
+                  <div class="bar-segment-khaki" style="flex: 5.5;"></div>
+                  <div class="bar-segment-slate" style="flex: 29;"></div>
+                </div>
+                <span class="bar-name-lbl"></span>
+              </div>
+              <!-- Col 2 -->
+              <div class="figma-bar-col">
+                <div class="figma-bar-stack" style="height: 64.5%;">
+                  <div class="bar-segment-cap"></div>
+                  <div class="bar-segment-gold" style="flex: 20;"></div>
+                  <div class="bar-segment-khaki" style="flex: 5.5;"></div>
+                  <div class="bar-segment-slate" style="flex: 37;"></div>
+                </div>
+                <span class="bar-name-lbl">اسم</span>
+              </div>
+              <!-- Col 3 -->
+              <div class="figma-bar-col">
+                <div class="figma-bar-stack" style="height: 76.5%;">
+                  <div class="bar-segment-cap"></div>
+                  <div class="bar-segment-gold" style="flex: 51.5;"></div>
+                  <div class="bar-segment-khaki" style="flex: 7;"></div>
+                  <div class="bar-segment-slate" style="flex: 16;"></div>
+                </div>
+                <span class="bar-name-lbl"></span>
+              </div>
+              <!-- Col 4 -->
+              <div class="figma-bar-col">
+                <div class="figma-bar-stack" style="height: 78.5%;">
+                  <div class="bar-segment-cap"></div>
+                  <div class="bar-segment-gold" style="flex: 24.5;"></div>
+                  <div class="bar-segment-khaki" style="flex: 7.5;"></div>
+                  <div class="bar-segment-slate" style="flex: 44.5;"></div>
+                </div>
+                <span class="bar-name-lbl">اسم</span>
+              </div>
+              <!-- Col 5 -->
+              <div class="figma-bar-col">
+                <div class="figma-bar-stack" style="height: 70.5%;">
+                  <div class="bar-segment-cap"></div>
+                  <div class="bar-segment-gold" style="flex: 44.5;"></div>
+                  <div class="bar-segment-khaki" style="flex: 6.5;"></div>
+                  <div class="bar-segment-slate" style="flex: 17.5;"></div>
+                </div>
+                <span class="bar-name-lbl"></span>
+              </div>
+              <!-- Col 6 -->
+              <div class="figma-bar-col">
+                <div class="figma-bar-stack" style="height: 37.5%;">
+                  <div class="bar-segment-cap"></div>
+                  <div class="bar-segment-gold" style="flex: 29.5;"></div>
+                  <div class="bar-segment-khaki" style="flex: 3.5;"></div>
+                  <div class="bar-segment-slate" style="flex: 2.5;"></div>
+                </div>
+                <span class="bar-name-lbl"></span>
+              </div>
+              <!-- Col 7 -->
+              <div class="figma-bar-col">
+                <div class="figma-bar-stack" style="height: 56.5%;">
+                  <div class="bar-segment-cap"></div>
+                  <div class="bar-segment-gold" style="flex: 21.5;"></div>
+                  <div class="bar-segment-slate" style="flex: 33;"></div>
+                </div>
+                <span class="bar-name-lbl">اسم</span>
+              </div>
+              <!-- Col 8 -->
+              <div class="figma-bar-col">
+                <div class="figma-bar-stack" style="height: 64.5%;">
+                  <div class="bar-segment-cap"></div>
+                  <div class="bar-segment-gold" style="flex: 18.5;"></div>
+                  <div class="bar-segment-khaki" style="flex: 25.5;"></div>
+                  <div class="bar-segment-slate" style="flex: 18.5;"></div>
+                </div>
+                <span class="bar-name-lbl"></span>
+              </div>
+              <!-- Col 9 -->
+              <div class="figma-bar-col">
+                <div class="figma-bar-stack" style="height: 76.5%;">
+                  <div class="bar-segment-cap"></div>
+                  <div class="bar-segment-gold" style="flex: 54;"></div>
+                  <div class="bar-segment-khaki" style="flex: 7;"></div>
+                  <div class="bar-segment-slate" style="flex: 13.5;"></div>
+                </div>
+                <span class="bar-name-lbl"></span>
+              </div>
+              <!-- Col 10 -->
+              <div class="figma-bar-col">
+                <div class="figma-bar-stack" style="height: 78.5%;">
+                  <div class="bar-segment-cap"></div>
+                  <div class="bar-segment-gold" style="flex: 36;"></div>
+                  <div class="bar-segment-khaki" style="flex: 7.5;"></div>
+                  <div class="bar-segment-slate" style="flex: 33;"></div>
+                </div>
+                <span class="bar-name-lbl">اسم</span>
+              </div>
+              <!-- Col 11 -->
+              <div class="figma-bar-col">
+                <div class="figma-bar-stack" style="height: 70.5%;">
+                  <div class="bar-segment-cap"></div>
+                  <div class="bar-segment-gold" style="flex: 45.5;"></div>
+                  <div class="bar-segment-khaki" style="flex: 6.5;"></div>
+                  <div class="bar-segment-slate" style="flex: 16.5;"></div>
+                </div>
+                <span class="bar-name-lbl"></span>
+              </div>
+              <!-- Col 12 -->
+              <div class="figma-bar-col">
+                <div class="figma-bar-stack" style="height: 37.5%;">
+                  <div class="bar-segment-cap"></div>
+                  <div class="bar-segment-gold" style="flex: 28;"></div>
+                  <div class="bar-segment-khaki" style="flex: 3.5;"></div>
+                  <div class="bar-segment-slate" style="flex: 4;"></div>
+                </div>
+                <span class="bar-name-lbl"></span>
+              </div>
+              <!-- Col 13 -->
+              <div class="figma-bar-col">
+                <div class="figma-bar-stack" style="height: 37.5%;">
+                  <div class="bar-segment-cap"></div>
+                  <div class="bar-segment-gold" style="flex: 29.5;"></div>
+                  <div class="bar-segment-khaki" style="flex: 3.5;"></div>
+                  <div class="bar-segment-slate" style="flex: 2.5;"></div>
+                </div>
+                <span class="bar-name-lbl">اسم</span>
+              </div>
+              <!-- Col 14 -->
+              <div class="figma-bar-col">
+                <div class="figma-bar-stack" style="height: 56.5%;">
+                  <div class="bar-segment-cap"></div>
+                  <div class="bar-segment-gold" style="flex: 16;"></div>
+                  <div class="bar-segment-khaki" style="flex: 5.5;"></div>
+                  <div class="bar-segment-slate" style="flex: 33;"></div>
+                </div>
+                <span class="bar-name-lbl"></span>
+              </div>
+              <!-- Col 15 -->
+              <div class="figma-bar-col">
+                <div class="figma-bar-stack" style="height: 64.5%;">
+                  <div class="bar-segment-cap"></div>
+                  <div class="bar-segment-gold" style="flex: 18.5;"></div>
+                  <div class="bar-segment-khaki" style="flex: 25.5;"></div>
+                  <div class="bar-segment-slate" style="flex: 18.5;"></div>
+                </div>
+                <span class="bar-name-lbl"></span>
+              </div>
+              <!-- Col 16 -->
+              <div class="figma-bar-col">
+                <div class="figma-bar-stack" style="height: 76.5%;">
+                  <div class="bar-segment-cap"></div>
+                  <div class="bar-segment-gold" style="flex: 54;"></div>
+                  <div class="bar-segment-khaki" style="flex: 7;"></div>
+                  <div class="bar-segment-slate" style="flex: 13.5;"></div>
+                </div>
+                <span class="bar-name-lbl">اسم</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="chart-legend-row">
+          <div class="legend-item">
+            <span class="legend-box navy"></span>
+            <span>نسبة الانتهاء من المشروع</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-box gold"></span>
+            <span>مراحل اكتمال المشروع</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-dot-line">
+              <span class="line"></span>
+              <span class="dot"></span>
+            </span>
+            <span>معدل الانتهاء من المشروع</span>
+          </div>
+        </div>
+      </div>
+
+            <!-- Left: المشاريع المنفذة (Speedometer / Radial Gauge matching User Screenshot) -->
+      <div class="chart-card">
+        <div class="chart-head" style="display: flex; align-items: center; justify-content: space-between; padding-bottom: 12px; border-bottom: 1px solid #F3F4F6; margin-bottom: 12px;">
+          <h3 style="font-size: 14px; font-weight: 700; color: #111827; margin: 0;">المشاريع المنفذة</h3>
+          <button type="button" class="card-dropdown-btn" style="display: flex; align-items: center; gap: 6px; font-size: 11.5px; color: #6B7280; background: #FFFFFF; border: 1px solid #E5E7EB; padding: 4px 10px; border-radius: 6px; cursor: pointer;">
+            <span>شهر</span>
+            <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+        </div>
+
+        <div class="gauge-wrapper" style="position: relative; display: flex; align-items: center; justify-content: center; height: 160px; width: 100%; margin: 8px 0 16px 0;">
+          <svg class="radial-gauge-svg" viewBox="0 0 280 155" style="width: 100%; max-width: 280px; height: 155px;">
+            <!-- Outer Track Background -->
+            <path d="M 25,145 A 115,115 0 0,1 255,145" fill="none" stroke="#F8FAFC" stroke-width="24" stroke-linecap="butt" />
+            <!-- Outer Gold Arc -->
+            <path d="M 25,145 A 115,115 0 0,1 234.2,79" fill="none" stroke="#FDBA33" stroke-width="24" stroke-linecap="butt" />
+
+            <!-- Middle Track Background -->
+            <path d="M 50,145 A 90,90 0 0,1 230,145" fill="none" stroke="#F8FAFC" stroke-width="24" stroke-linecap="butt" />
+            <!-- Middle Charcoal Arc -->
+            <path d="M 50,145 A 90,90 0 0,1 140,55" fill="none" stroke="#33373B" stroke-width="24" stroke-linecap="butt" />
+
+            <!-- Inner Dashed Baseline Ring -->
+            <path d="M 78,145 A 62,62 0 0,1 202,145" fill="none" stroke="#94A3B8" stroke-width="1.2" stroke-dasharray="2,3" />
+
+            <!-- Radial Ticks -->
+            <line x1="78.0" y1="145.0" x2="66.0" y2="145.0" stroke="#2C425F" stroke-width="1.6" stroke-linecap="round" />
+            <line x1="78.3" y1="138.5" x2="66.4" y2="137.3" stroke="#2C425F" stroke-width="1.6" stroke-linecap="round" />
+            <line x1="79.4" y1="132.1" x2="67.6" y2="129.6" stroke="#2C425F" stroke-width="1.6" stroke-linecap="round" />
+            <line x1="81.0" y1="125.8" x2="69.6" y2="122.1" stroke="#2C425F" stroke-width="1.6" stroke-linecap="round" />
+            <line x1="83.4" y1="119.8" x2="72.4" y2="114.9" stroke="#2C425F" stroke-width="1.6" stroke-linecap="round" />
+            <line x1="86.3" y1="114.0" x2="75.9" y2="108.0" stroke="#2C425F" stroke-width="1.6" stroke-linecap="round" />
+            <line x1="89.8" y1="108.6" x2="80.1" y2="101.5" stroke="#2C425F" stroke-width="1.6" stroke-linecap="round" />
+            <line x1="93.9" y1="103.5" x2="85.0" y2="95.5" stroke="#2C425F" stroke-width="1.6" stroke-linecap="round" />
+            <line x1="98.5" y1="98.9" x2="90.5" y2="90.0" stroke="#2C425F" stroke-width="1.6" stroke-linecap="round" />
+            <line x1="103.6" y1="94.8" x2="96.5" y2="85.1" stroke="#2C425F" stroke-width="1.6" stroke-linecap="round" />
+            <line x1="109.0" y1="91.3" x2="103.0" y2="80.9" stroke="#2C425F" stroke-width="1.6" stroke-linecap="round" />
+            <line x1="114.8" y1="88.4" x2="109.9" y2="77.4" stroke="#2C425F" stroke-width="1.6" stroke-linecap="round" />
+            <line x1="120.8" y1="86.0" x2="117.1" y2="74.6" stroke="#2C425F" stroke-width="1.6" stroke-linecap="round" />
+            <line x1="127.1" y1="84.4" x2="124.6" y2="72.6" stroke="#2C425F" stroke-width="1.6" stroke-linecap="round" />
+            <line x1="133.5" y1="83.3" x2="132.3" y2="71.4" stroke="#2C425F" stroke-width="1.6" stroke-linecap="round" />
+            <line x1="140.0" y1="83.0" x2="140.0" y2="71.0" stroke="#2C425F" stroke-width="1.6" stroke-linecap="round" />
+            <line x1="146.5" y1="83.3" x2="147.7" y2="71.4" stroke="#EEF2F6" stroke-width="1.6" stroke-linecap="round" />
+            <line x1="152.9" y1="84.4" x2="155.4" y2="72.6" stroke="#EEF2F6" stroke-width="1.6" stroke-linecap="round" />
+            <line x1="159.2" y1="86.0" x2="162.9" y2="74.6" stroke="#EEF2F6" stroke-width="1.6" stroke-linecap="round" />
+            <line x1="165.2" y1="88.4" x2="170.1" y2="77.4" stroke="#EEF2F6" stroke-width="1.6" stroke-linecap="round" />
+            <line x1="171.0" y1="91.3" x2="177.0" y2="80.9" stroke="#EEF2F6" stroke-width="1.6" stroke-linecap="round" />
+            <line x1="176.4" y1="94.8" x2="183.5" y2="85.1" stroke="#EEF2F6" stroke-width="1.6" stroke-linecap="round" />
+            <line x1="181.5" y1="98.9" x2="189.5" y2="90.0" stroke="#EEF2F6" stroke-width="1.6" stroke-linecap="round" />
+            <line x1="186.1" y1="103.5" x2="195.0" y2="95.5" stroke="#EEF2F6" stroke-width="1.6" stroke-linecap="round" />
+            <line x1="190.2" y1="108.6" x2="199.9" y2="101.5" stroke="#EEF2F6" stroke-width="1.6" stroke-linecap="round" />
+            <line x1="193.7" y1="114.0" x2="204.1" y2="108.0" stroke="#EEF2F6" stroke-width="1.6" stroke-linecap="round" />
+            <line x1="196.6" y1="119.8" x2="207.6" y2="114.9" stroke="#EEF2F6" stroke-width="1.6" stroke-linecap="round" />
+            <line x1="199.0" y1="125.8" x2="210.4" y2="122.1" stroke="#EEF2F6" stroke-width="1.6" stroke-linecap="round" />
+            <line x1="200.6" y1="132.1" x2="212.4" y2="129.6" stroke="#EEF2F6" stroke-width="1.6" stroke-linecap="round" />
+            <line x1="201.7" y1="138.5" x2="213.6" y2="137.3" stroke="#EEF2F6" stroke-width="1.6" stroke-linecap="round" />
+            <line x1="202.0" y1="145.0" x2="214.0" y2="145.0" stroke="#EEF2F6" stroke-width="1.6" stroke-linecap="round" />
+          </svg>
+
+          <!-- Gauge Center Text -->
+          <div class="gauge-center-content" style="position: absolute; bottom: 6px; left: 0; right: 0; margin: auto; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+            <span class="gauge-value" style="font-size: 20px; font-weight: 800; color: #111827; line-height: 1.1;">123,456</span>
+            <span class="gauge-label" style="font-size: 11px; color: #9CA3AF; margin-top: 4px; font-weight: 500;">اجمالي المشاريع</span>
+          </div>
+        </div>
+
+        <!-- Gauge Legend Values (3 Rows: 150, 250, 20 matching user image) -->
+        <div class="gauge-legend-list" style="display: flex; flex-direction: column; gap: 12px; padding-top: 14px; border-top: 1px solid #F3F4F6;">
+          <div class="gauge-stat-row" style="display: flex; align-items: center; justify-content: space-between;">
+            <div class="gauge-stat-title" style="display: flex; flex-direction: row-reverse; align-items: center; gap: 8px;">
+              <span class="stat-dot" style="width: 8px; height: 8px; border-radius: 50%; background: #FDBA33; display: inline-block;"></span>
+              <span style="font-size: 13px; font-weight: 600; color: #4B5563;">المشاريع المنفذة</span>
+            </div>
+            <span class="gauge-stat-num" style="font-size: 16px; font-weight: 800; color: #111827;">150</span>
+          </div>
+          <div class="gauge-stat-row" style="display: flex; align-items: center; justify-content: space-between;">
+            <div class="gauge-stat-title" style="display: flex; flex-direction: row-reverse; align-items: center; gap: 8px;">
+              <span class="stat-dot" style="width: 8px; height: 8px; border-radius: 50%; background: #374151; display: inline-block;"></span>
+              <span style="font-size: 13px; font-weight: 600; color: #4B5563;">المشاريع الجاري العمل عليها</span>
+            </div>
+            <span class="gauge-stat-num" style="font-size: 16px; font-weight: 800; color: #111827;">250</span>
+          </div>
+          <div class="gauge-stat-row" style="display: flex; align-items: center; justify-content: space-between;">
+            <div class="gauge-stat-title" style="display: flex; flex-direction: row-reverse; align-items: center; gap: 8px;">
+              <span class="stat-dot" style="width: 8px; height: 8px; border-radius: 50%; background: #2563EB; display: inline-block;"></span>
+              <span style="font-size: 13px; font-weight: 600; color: #4B5563;">المشاريع القادمة</span>
+            </div>
+            <span class="gauge-stat-num" style="font-size: 16px; font-weight: 800; color: #111827;">20</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom Section: الطلبات Table -->
+    <section class="table-card-container">
+      <div class="card-head">
+        <h2>الطلبات</h2>
+        <button class="card-dropdown-btn">
+          <span>اليوم</span>
+          <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+      </div>
+
+      <div class="table-responsive-box">
+        <table class="figma-table">
+          <thead>
+            <tr>
+              <th>رقم الطلب</th>
+              <th>اسم العميل</th>
+              <th>رقم الجوال</th>
+              <th>البريد الالكتروني</th>
+              <th>نوع المشروع</th>
+              <th>تاريخ الطلب</th>
+              <th>الخدمة</th>
+              <th>الرسالة</th>
+              <th>الميزانية</th>
+              <th>الحالة</th>
+              <th>الاجراء</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Row 1 -->
+            <tr>
+              <td><span class="table-code">#1020</span></td>
+              <td>محمد السيد</td>
+              <td style="direction: ltr; text-align: right;">01210229016</td>
+              <td style="direction: ltr; text-align: right;">mohamed@icloud.com</td>
+              <td>استوديو وإنتاج</td>
+              <td>10/2/2025</td>
+              <td>انتاج فديو مؤسسي</td>
+              <td><span class="table-msg-trunc">هذا النص يمكن ان يستبدل بنص بديل يعبر عن المعني</span></td>
+              <td>3000 ر.س</td>
+              <td>
+                <span class="pill-review">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                  <span>قيد المراجعة</span>
+                </span>
+              </td>
+              <td>
+                <div style="display: flex; gap: 6px; align-items: center;">
+                  <button class="btn-table-del" data-modal-target="deleteModal" aria-label="حذف">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                  </button>
+                  <button class="btn-table-eye" data-modal-target="viewOrderModal" aria-label="عرض">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Row 2 -->
+            <tr>
+              <td><span class="table-code">#1020</span></td>
+              <td>محمد السيد</td>
+              <td style="direction: ltr; text-align: right;">01210229016</td>
+              <td style="direction: ltr; text-align: right;">mohamed@icloud.com</td>
+              <td>استوديو وإنتاج</td>
+              <td>10/2/2025</td>
+              <td>انتاج فديو مؤسسي</td>
+              <td><span class="table-msg-trunc">هذا النص يمكن ان يستبدل بنص بديل يعبر عن المعني</span></td>
+              <td>لم يحدد بعد</td>
+              <td>
+                <span class="pill-review">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                  <span>قيد المراجعة</span>
+                </span>
+              </td>
+              <td>
+                <div style="display: flex; gap: 6px; align-items: center;">
+                  <button class="btn-table-del" data-modal-target="deleteModal" aria-label="حذف">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                  </button>
+                  <button class="btn-table-eye" data-modal-target="viewOrderModal" aria-label="عرض">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Row 3 -->
+            <tr>
+              <td><span class="table-code">#1020</span></td>
+              <td>محمد السيد</td>
+              <td style="direction: ltr; text-align: right;">01210229016</td>
+              <td style="direction: ltr; text-align: right;">mohamed@icloud.com</td>
+              <td>استوديو وإنتاج</td>
+              <td>10/2/2025</td>
+              <td>انتاج فديو مؤسسي</td>
+              <td><span class="table-msg-trunc">هذا النص يمكن ان يستبدل بنص بديل يعبر عن المعني</span></td>
+              <td>3000 ر.س</td>
+              <td>
+                <span class="pill-review">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                  <span>قيد المراجعة</span>
+                </span>
+              </td>
+              <td>
+                <div style="display: flex; gap: 6px; align-items: center;">
+                  <button class="btn-table-del" data-modal-target="deleteModal" aria-label="حذف">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                  </button>
+                  <button class="btn-table-eye" data-modal-target="viewOrderModal" aria-label="عرض">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Row 4 -->
+            <tr>
+              <td><span class="table-code">#1020</span></td>
+              <td>محمد السيد</td>
+              <td style="direction: ltr; text-align: right;">01210229016</td>
+              <td style="direction: ltr; text-align: right;">mohamed@icloud.com</td>
+              <td>استوديو وإنتاج</td>
+              <td>10/2/2025</td>
+              <td>انتاج فديو مؤسسي</td>
+              <td><span class="table-msg-trunc">هذا النص يمكن ان يستبدل بنص بديل يعبر عن المعني</span></td>
+              <td>لم يحدد بعد</td>
+              <td>
+                <span class="pill-review">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                  <span>قيد المراجعة</span>
+                </span>
+              </td>
+              <td>
+                <div style="display: flex; gap: 6px; align-items: center;">
+                  <button class="btn-table-del" data-modal-target="deleteModal" aria-label="حذف">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                  </button>
+                  <button class="btn-table-eye" data-modal-target="viewOrderModal" aria-label="عرض">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================================
+       MODALS SYSTEM (Exact matching Screenshots 3, 4, 5)
+       ========================================================================= -->
+
+  <!-- 1. View Profile Modal (عرض الملف الشخصي - Screenshot 3) -->
+  <div class="modal-overlay" id="viewProfileModal">
+    <div class="modal-dialog" style="max-width: 580px;">
+      <div class="modal-header">
+        <h3 class="modal-title">عرض الملف الشخصي</h3>
+        <button class="modal-close-btn" data-modal-close aria-label="إغلاق">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+
+      <div class="modal-body" style="padding: 20px 24px;">
+        <div class="profile-view-box">
+          <!-- Section Bar -->
+          <div class="profile-section-title-bar">
+            <span>بيانات الملف الشخصي</span>
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"><polyline points="18 15 12 9 6 15"></polyline></svg>
+          </div>
+
+          <!-- Studio Image Center Avatar -->
+          <div class="profile-avatar-banner">
+            <img src="./assets/images/Ellipse 3255.png" alt="Profile Picture" />
+          </div>
+
+          <!-- 2-Column Info Grid matching Screenshot 3 -->
+          <div class="profile-info-two-col">
+            <div class="profile-info-row">
+              <span class="profile-info-label">الاسم :</span>
+              <span class="profile-info-val">محمد السيد</span>
+            </div>
+            <div class="profile-info-row">
+              <span class="profile-info-label">رقم الجوال :</span>
+              <span class="profile-info-val" style="direction: ltr;">112345689</span>
+            </div>
+
+            <div class="profile-info-row">
+              <span class="profile-info-label">رقم الهوية :</span>
+              <span class="profile-info-val">10203050</span>
+            </div>
+            <div class="profile-info-row">
+              <span class="profile-info-label">المسمي الوظيفي :</span>
+              <span class="profile-info-val">مسؤال</span>
+            </div>
+
+            <div class="profile-info-row">
+              <span class="profile-info-label">البريد الالكتروني :</span>
+              <span class="profile-info-val" style="direction: ltr;">moahme@icloud.com</span>
+            </div>
+            <div class="profile-info-row">
+              <span class="profile-info-label">العنوان :</span>
+              <span class="profile-info-val">الرياض حي العليا</span>
+            </div>
+
+            <div class="profile-info-row">
+              <span class="profile-info-label">الرقم الوظيفي :</span>
+              <span class="profile-info-val">123</span>
+            </div>
+            <div class="profile-info-row">
+              <span class="profile-info-label">الصلاحيات :</span>
+              <span class="profile-info-val"><a href="#" style="color: #FDBA33; font-weight: 700; text-decoration: none;">كل الصلاحيات</a></span>
+            </div>
+
+            <div class="profile-info-row">
+              <span class="profile-info-label">الرسالة :</span>
+              <span class="profile-info-val">نص بديل</span>
+            </div>
+            <div class="profile-info-row">
+              <span class="profile-info-label">تاريخ التوظيف :</span>
+              <span class="profile-info-val">20/10/2025</span>
+            </div>
+
+            <div class="profile-info-row" style="grid-column: span 2;">
+              <span class="profile-info-label">الحالة :</span>
+              <span class="profile-info-val" style="color: #10B981; font-weight: 700;">حساب فعال</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer" style="justify-content: flex-start; gap: 10px;">
+        <button type="button" class="btn-modal-primary" data-modal-target="editProfileModal">تعديل</button>
+        <button type="button" class="btn-modal-cancel" data-modal-close>إلغاء</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Edit Profile Modal (تعديل الملف الشخصي - Screenshot 4) -->
+  <div class="modal-overlay" id="editProfileModal">
+    <div class="modal-dialog" style="max-width: 580px;">
+      <div class="modal-header">
+        <h3 class="modal-title">تعديل الملف الشخصي</h3>
+        <button class="modal-close-btn" data-modal-close aria-label="إغلاق">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+
+      <form id="editProfileForm">
+        <div class="modal-body" style="padding: 20px 24px;">
+          <!-- Upload Image Box matching Screenshot 4 -->
+          <div class="profile-upload-zone">
+            <div class="upload-icon-box">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+            </div>
+            <button type="button" class="btn-upload-pic">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+              <span>تحميل الصورة</span>
+            </button>
+            <p class="upload-helper-text">يجب أن يكون حجم الصورة أقل من 5 ميجا بايت<br>ويجب أن تكون بنسبة 1:1</p>
+          </div>
+
+          <!-- Input Fields 2-Columns matching Screenshot 4 -->
+          <div class="modal-form-row">
+            <div class="modal-form-group">
+              <label class="modal-label">الاسم</label>
+              <input type="text" class="modal-input" placeholder="ادخل الاسم" value="محمد السيد">
+            </div>
+            <div class="modal-form-group">
+              <label class="modal-label">البريد الالكتروني</label>
+              <input type="email" class="modal-input" placeholder="ادخل البريد الالكتروني" value="moahme@icloud.com">
+            </div>
+          </div>
+
+          <div class="modal-form-row" style="margin-top: 10px;">
+            <div class="modal-form-group">
+              <label class="modal-label">رقم الجوال</label>
+              <input type="tel" class="modal-input" placeholder="ادخل الرقم" value="112345689">
+            </div>
+            <div class="modal-form-group">
+              <label class="modal-label">رقم الهوية</label>
+              <input type="text" class="modal-input" placeholder="ادخل الرقم" value="10203050">
+            </div>
+          </div>
+
+          <div class="modal-form-row" style="margin-top: 10px;">
+            <div class="modal-form-group">
+              <label class="modal-label">المسمي الوظيفي</label>
+              <input type="text" class="modal-input" placeholder="ادخل المسمي الوظيفي" value="مسؤال">
+            </div>
+            <div class="modal-form-group">
+              <label class="modal-label">الرقم الوظيفي</label>
+              <input type="text" class="modal-input" placeholder="ادخل الرقم" value="123">
+            </div>
+          </div>
+
+          <div class="modal-form-group" style="margin-top: 10px;">
+            <label class="modal-label">العنوان</label>
+            <input type="text" class="modal-input" placeholder="ادخل العنوان" value="الرياض حي العليا">
+          </div>
+        </div>
+
+        <div class="modal-footer" style="justify-content: flex-start; gap: 10px;">
+          <button type="submit" class="btn-modal-primary">حفظ</button>
+          <button type="button" class="btn-modal-cancel" data-modal-close>إلغاء</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 3. Change Password Modal (تعديل كلمة المرور - Screenshot 5) -->
+  <div class="modal-overlay" id="changePasswordModal">
+    <div class="modal-dialog" style="max-width: 460px;">
+      <div class="modal-header">
+        <h3 class="modal-title">تعديل كلمة المرور</h3>
+        <button class="modal-close-btn" data-modal-close aria-label="إغلاق">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+
+      <form id="changePasswordForm">
+        <div class="modal-body" style="padding: 20px 24px; gap: 14px;">
+          <div class="modal-form-group">
+            <label class="modal-label">كلمة المرور الحالية</label>
+            <div class="modal-input-eye-wrap">
+              <input type="password" class="modal-input" id="currPassInput" placeholder="ادخل كلمة المرور الحالية" required>
+              <button type="button" class="eye-btn" onclick="toggleInputPass('currPassInput')">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="modal-form-group">
+            <label class="modal-label">كلمة المرور الجديدة</label>
+            <div class="modal-input-eye-wrap">
+              <input type="password" class="modal-input" id="newPass1Input" placeholder="ادخل كلمة المرور الجديدة" required>
+              <button type="button" class="eye-btn" onclick="toggleInputPass('newPass1Input')">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="modal-form-group">
+            <label class="modal-label">تأكيد كلمة المرور الجديدة</label>
+            <div class="modal-input-eye-wrap">
+              <input type="password" class="modal-input" id="newPass2Input" placeholder="ادخل كلمة المرور الجديدة" required>
+              <button type="button" class="eye-btn" onclick="toggleInputPass('newPass2Input')">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+              </button>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-modal-primary" style="width: 100%; height: 44px; margin-top: 6px;">حفظ</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 4. Universal Delete Modal -->
+  <div class="modal-overlay" id="deleteModal">
+    <div class="modal-dialog" style="max-width: 440px; text-align: center;">
+      <div class="modal-body" style="padding: 32px 24px 20px 24px; text-align: center;">
+        <div class="delete-icon-wrap">
+          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+        </div>
+        <h3 style="font-size: 18px; font-weight: 700; color: #111827; margin-bottom: 8px;">تأكيد الحذف</h3>
+        <p style="font-size: 13px; color: #6B7280; line-height: 1.6;">هل أنت متأكد من رغبتك في حذف <strong class="delete-item-name">هذا العنصر</strong>؟ لن تتمكن من التراجع عن هذه الخطوة.</p>
+      </div>
+      <div class="modal-footer" style="justify-content: center; gap: 12px; padding-bottom: 24px;">
+        <button type="button" class="btn-modal-cancel" data-modal-close style="min-width: 110px;">إلغاء</button>
+        <button type="button" class="btn-modal-danger" id="btnConfirmDelete" style="min-width: 130px;">نعم، حذف</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. View Order / Quotation Modal -->
+  <div class="modal-overlay" id="viewOrderModal">
+    <div class="modal-dialog modal-dialog-lg">
+      <div class="modal-header">
+        <h3 class="modal-title">تفاصيل الطلب وإنشاء عرض السعر</h3>
+        <button class="modal-close-btn" data-modal-close aria-label="إغلاق">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div class="modal-info-grid">
+          <div class="info-item">
+            <span class="info-item-label">رقم الطلب</span>
+            <span class="info-item-val" id="modalOrderCode">#1020</span>
+          </div>
+          <div class="info-item">
+            <span class="info-item-label">اسم العميل</span>
+            <span class="info-item-val" id="modalOrderClient">محمد السيد</span>
+          </div>
+          <div class="info-item">
+            <span class="info-item-label">رقم الجوال</span>
+            <span class="info-item-val" id="modalOrderPhone" style="direction: ltr; text-align: right;">01210229016</span>
+          </div>
+          <div class="info-item">
+            <span class="info-item-label">البريد الإلكتروني</span>
+            <span class="info-item-val" id="modalOrderEmail" style="direction: ltr; text-align: right;">mohamed@icloud.com</span>
+          </div>
+          <div class="info-item">
+            <span class="info-item-label">الخدمة المطلوبة</span>
+            <span class="info-item-val" id="modalOrderService">انتاج فديو مؤسسي</span>
+          </div>
+          <div class="info-item">
+            <span class="info-item-label">الميزانية المقترحة</span>
+            <span class="info-item-val" id="modalOrderBudget">3000 ر.س</span>
+          </div>
+        </div>
+
+        <div class="modal-form-group" style="margin-top: 10px;">
+          <label class="modal-label">تفاصيل رسالة العميل</label>
+          <div style="background: #F3F4F6; padding: 10px 14px; border-radius: 8px; font-size: 12px; color: #4B5563; line-height: 1.6;">
+            نرغب في إنتاج فيديو تسويقي وثائقي للشركة مدته 90 ثانية، مع إضافة مؤثرات موشن جرافيك وتصوير جوي، وتسليم بدقة 4K.
+          </div>
+        </div>
+
+        <div class="modal-divider"></div>
+
+        <h4 style="font-size: 14px; font-weight: 700; color: #111827;">إنشاء عرض السعر (Quotation)</h4>
+        
+        <form id="createQuoteForm">
+          <div class="modal-form-row">
+            <div class="modal-form-group">
+              <label class="modal-label">السعر المقترح (ر.س) *</label>
+              <input type="number" class="modal-input" placeholder="مثال: 3500" required value="3500">
+            </div>
+            <div class="modal-form-group">
+              <label class="modal-label">مدة التنفيذ المقترحة *</label>
+              <input type="text" class="modal-input" placeholder="مثال: 7 أيام عمل" required value="7 أيام عمل">
+            </div>
+          </div>
+
+          <div class="modal-form-group" style="margin-top: 10px;">
+            <label class="modal-label">بنود وتفاصيل العرض الموجه للعميل</label>
+            <textarea class="modal-textarea" rows="3" placeholder="اكتب تفاصيل ومراحل تنفيذ العمل...">يشمل العرض: كتابة السيناريو، التصوير الداخلي والخارجي بجودة 4K، المؤثرات الصوتية والموسيقى المرخصة، التعديل والمونتاج النهائي مع جولتين من التعديلات المجانية.</textarea>
+          </div>
+
+          <div class="modal-footer" style="padding: 16px 0 0 0; margin-top: 16px;">
+            <button type="button" class="btn-modal-danger" id="btnRejectOrder">رفض الطلب</button>
+            <button type="button" class="btn-modal-cancel" data-modal-close>إلغاء</button>
+            <button type="submit" class="btn-modal-primary">إرسال عرض السعر للعميل</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. Logout Modal (Matching Figma Screenshot 2) -->
+  <div class="modal-overlay" id="logoutModal">
+    <div class="modal-dialog" style="max-width: 420px; text-align: center;">
+      <div class="modal-header">
+        <h3 class="modal-title">تسجيل الخروج</h3>
+        <button class="modal-close-btn" data-modal-close aria-label="إغلاق">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <div class="modal-body" style="padding: 28px 24px 20px 24px; text-align: center;">
+        <div class="logout-icon-gold-circle">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+        </div>
+        <h3 style="font-size: 16px; font-weight: 700; color: #111827; margin-bottom: 6px;">تسجيل الخروج</h3>
+        <p style="font-size: 12.5px; color: #6B7280; line-height: 1.5;">هل أنت متأكد أنك تريد تسجيل الخروج من حسابك؟</p>
+      </div>
+      <div class="modal-footer" style="display: flex; gap: 10px; padding: 14px 24px 20px 24px; border-top: none;">
+        <a href="login.html" class="btn-modal-primary" style="flex: 1; text-align: center; text-decoration: none; height: 42px; display: flex; align-items: center; justify-content: center;">تأكيد</a>
+        <button type="button" class="btn-modal-cancel" data-modal-close style="flex: 1; height: 42px;">إلغاء</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="./js/dashboard.js"></script>
+  <script>
+    function toggleInputPass(id) {
+      const el = document.getElementById(id);
+      if (el) el.type = el.type === 'password' ? 'text' : 'password';
+    }
+  </script>
+</body>
+</html>

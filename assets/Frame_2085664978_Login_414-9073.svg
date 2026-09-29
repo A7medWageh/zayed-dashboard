@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <defs>
+    <!-- Studio Background Lighting -->
+    <radialGradient id="ceilingLight" cx="50%" cy="15%" r="65%">
+      <stop offset="0%" stop-color="#2D3035" />
+      <stop offset="40%" stop-color="#191B1F" />
+      <stop offset="80%" stop-color="#0F1012" />
+      <stop offset="100%" stop-color="#080809" />
+    </radialGradient>
+
+    <!-- Floor Spotlight -->
+    <radialGradient id="floorReflection" cx="50%" cy="85%" rx="55%" ry="25%">
+      <stop offset="0%" stop-color="#22252A" stop-opacity="0.7"/>
+      <stop offset="60%" stop-color="#111215" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#080809" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Softbox Glow -->
+    <radialGradient id="softboxGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.25"/>
+      <stop offset="40%" stop-color="#A0AEC0" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Wall & Ceiling Environment -->
+  <rect width="1920" height="1080" fill="url(#ceilingLight)"/>
+
+  <!-- Studio Ceiling Grid & Trusses -->
+  <g stroke="#1F2328" stroke-width="1.5" opacity="0.4">
+    <line x1="200" y1="0" x2="200" y2="350"/>
+    <line x1="500" y1="0" x2="500" y2="350"/>
+    <line x1="960" y1="0" x2="960" y2="300"/>
+    <line x1="1420" y1="0" x2="1420" y2="350"/>
+    <line x1="1720" y1="0" x2="1720" y2="350"/>
+    <line x1="0" y1="120" x2="1920" y2="120"/>
+    <line x1="0" y1="240" x2="1920" y2="240"/>
+  </g>
+
+  <!-- Studio Floor Horizon Line -->
+  <line x1="0" y1="720" x2="1920" y2="720" stroke="#181A1D" stroke-width="2"/>
+  <rect x="0" y="720" width="1920" height="360" fill="#0D0E10"/>
+  <rect x="0" y="720" width="1920" height="360" fill="url(#floorReflection)"/>
+
+  <!-- Floor Perspective Planks/Tiles -->
+  <g stroke="#141619" stroke-width="1" opacity="0.5">
+    <line x1="960" y1="720" x2="100" y2="1080"/>
+    <line x1="960" y1="720" x2="450" y2="1080"/>
+    <line x1="960" y1="720" x2="750" y2="1080"/>
+    <line x1="960" y1="720" x2="1170" y2="1080"/>
+    <line x1="960" y1="720" x2="1470" y2="1080"/>
+    <line x1="960" y1="720" x2="1820" y2="1080"/>
+  </g>
+
+  <!-- LEFT STUDIO SOFTBOX LIGHT ON TRIPOD -->
+  <g opacity="0.6">
+    <!-- Glow -->
+    <ellipse cx="280" cy="460" rx="200" ry="260" fill="url(#softboxGlow)"/>
+    <!-- Tripod Stand -->
+    <line x1="280" y1="520" x2="280" y2="820" stroke="#121316" stroke-width="6"/>
+    <line x1="280" y1="820" x2="180" y2="920" stroke="#121316" stroke-width="5"/>
+    <line x1="280" y1="820" x2="380" y2="920" stroke="#121316" stroke-width="5"/>
+    <line x1="280" y1="820" x2="280" y2="930" stroke="#121316" stroke-width="4"/>
+    <!-- Rectangular Softbox Head -->
+    <polygon points="210,340 350,320 370,540 230,580" fill="#1C1E22" stroke="#2B2E34" stroke-width="3"/>
+    <polygon points="225,355 340,338 355,525 240,560" fill="#E2E8F0" fill-opacity="0.12"/>
+  </g>
+
+  <!-- RIGHT STUDIO SOFTBOX LIGHT ON TRIPOD -->
+  <g opacity="0.6">
+    <!-- Glow -->
+    <ellipse cx="1640" cy="460" rx="200" ry="260" fill="url(#softboxGlow)"/>
+    <!-- Tripod Stand -->
+    <line x1="1640" y1="520" x2="1640" y2="820" stroke="#121316" stroke-width="6"/>
+    <line x1="1640" y1="820" x2="1540" y2="920" stroke="#121316" stroke-width="5"/>
+    <line x1="1640" y1="820" x2="1740" y2="920" stroke="#121316" stroke-width="5"/>
+    <line x1="1640" y1="820" x2="1640" y2="930" stroke="#121316" stroke-width="4"/>
+    <!-- Rectangular Softbox Head -->
+    <polygon points="1570,320 1710,340 1690,580 1550,540" fill="#1C1E22" stroke="#2B2E34" stroke-width="3"/>
+    <polygon points="1580,338 1695,355 1680,560 1565,525" fill="#E2E8F0" fill-opacity="0.12"/>
+  </g>
+</svg>

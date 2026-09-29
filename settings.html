@@ -1,0 +1,2271 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AZ Studio - إعدادات الموقع الإلكتروني</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="./css/dashboard.css">
+</head>
+<body>
+
+  <!-- =========================================================================
+       SIDEBAR (RIGHT)
+       ========================================================================= -->
+  <aside class="sidebar">
+    <!-- Sidebar Close Button (Mobile) -->
+    <button type="button" class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="إغلاق القائمة">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+
+    <!-- Logo Area -->
+    <div class="sidebar-logo-area">
+      <img src="./assets/az-studio-logo.svg" alt="AZ Studio Logo" />
+    </div>
+
+    <!-- Menu Navigation -->
+    <nav class="sidebar-menu">
+      <!-- 1. لوحة التحكم -->
+      <a href="index.html" class="sidebar-item">
+        <div class="sidebar-item-content">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect></svg>
+          <span>لوحة التحكم</span>
+        </div>
+      </a>
+
+      <!-- 2. الطلبات -->
+      <div class="sidebar-group">
+        <button type="button" class="sidebar-item sidebar-accordion-toggle">
+          <div class="sidebar-item-content">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+            <span>الطلبات</span>
+          </div>
+          <svg class="sidebar-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <div class="sidebar-submenu">
+          <a href="orders.html" class="sidebar-subitem">طلبات الخدمات</a>
+          <a href="orders.html?tab=quotations" class="sidebar-subitem">طلبات عروض الاسعار</a>
+          <a href="orders.html?tab=packages" class="sidebar-subitem">طلبات الاشتراك في باقة</a>
+        </div>
+      </div>
+
+      <!-- 3. الخدمات -->
+      <a href="services.html" class="sidebar-item">
+        <div class="sidebar-item-content">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          <span>الخدمات</span>
+        </div>
+      </a>
+
+      <!-- 4. الباقات -->
+      <div class="sidebar-group">
+        <button type="button" class="sidebar-item sidebar-accordion-toggle">
+          <div class="sidebar-item-content">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+            <span>الباقات</span>
+          </div>
+          <svg class="sidebar-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <div class="sidebar-submenu">
+          <a href="packages.html?category=social" class="sidebar-subitem">السوشيال ميديا</a>
+          <a href="packages.html?category=studio" class="sidebar-subitem">الاستوديو والإنتاج</a>
+          <a href="packages.html?category=podcast" class="sidebar-subitem">البودكاست</a>
+          <a href="packages.html?category=audio" class="sidebar-subitem">استوديو الصوت</a>
+        </div>
+      </div>
+
+      <!-- 5. المشرفين -->
+      <a href="supervisors.html" class="sidebar-item">
+        <div class="sidebar-item-content">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          <span>المشرفين</span>
+        </div>
+      </a>
+
+      <!-- 6. الأدوار -->
+      <a href="roles.html" class="sidebar-item">
+        <div class="sidebar-item-content">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          <span>الأدوار</span>
+        </div>
+      </a>
+
+      <!-- 7. تواصل معانا -->
+      <a href="contact.html" class="sidebar-item">
+        <div class="sidebar-item-content">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          <span>تواصل معانا</span>
+        </div>
+      </a>
+
+      <!-- 8. اعدادات الموقع الالكتروني (Submenu with 10 Tabs matching Figma) -->
+      <div class="sidebar-group open">
+        <button type="button" class="sidebar-item sidebar-accordion-toggle active">
+          <div class="sidebar-item-content">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            <span>اعدادات الموقع الالكتروني</span>
+          </div>
+          <svg class="sidebar-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <div class="sidebar-submenu">
+          <a href="settings.html?tab=home" class="sidebar-subitem active" data-tab-link="tab-home">الصفحة الرئيسية</a>
+          <a href="settings.html?tab=seo" class="sidebar-subitem" data-tab-link="tab-seo">قسم SEO</a>
+          <a href="settings.html?tab=about" class="sidebar-subitem" data-tab-link="tab-about">من نحن</a>
+          <a href="settings.html?tab=workflow" class="sidebar-subitem" data-tab-link="tab-workflow">آلية العمل</a>
+          <a href="settings.html?tab=outputs" class="sidebar-subitem" data-tab-link="tab-outputs">المخرجات</a>
+          <a href="settings.html?tab=sectors" class="sidebar-subitem" data-tab-link="tab-sectors">القطاعات</a>
+          <a href="settings.html?tab=faq" class="sidebar-subitem" data-tab-link="tab-faq">الأسئلة الشائعة</a>
+          <a href="settings.html?tab=terms" class="sidebar-subitem" data-tab-link="tab-terms">شروط الاستخدام</a>
+          <a href="settings.html?tab=privacy" class="sidebar-subitem" data-tab-link="tab-privacy">سياسة الخصوصية</a>
+          <a href="settings.html?tab=footer" class="sidebar-subitem" data-tab-link="tab-footer">الفوتر</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Logout Button -->
+    <button type="button" class="sidebar-logout" data-modal-target="logoutModal" style="border: none; cursor: pointer; width: 100%;">
+      <span>تسجيل الخروج</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+    </button>
+  </aside>
+
+  <!-- =========================================================================
+       MAIN CONTENT
+       ========================================================================= -->
+  <main class="main-content">
+    <!-- Header Bar -->
+    <header class="header-bar">
+      <div class="header-right-side">
+        <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="فتح القائمة">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+        <div class="header-welcome">
+          <h1>إعدادات الموقع الإلكتروني</h1>
+          <p>إدارة محتوى الموقع الإلكتروني</p>
+        </div>
+      </div>
+
+      <div class="header-user-actions">
+        <!-- Theme Toggle (Sun / Moon) -->
+        <button type="button" class="theme-toggle-btn" id="themeToggleBtn" title="تبديل الوضع الليلي / النهاري" aria-label="تبديل الوضع">
+          <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+
+        <!-- Notification Bell -->
+        <div class="notif-bell-btn" id="notifBtn" style="cursor: pointer;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+        </div>
+
+        <!-- User Profile Widget -->
+        <div class="user-profile-widget" id="userProfileBtn" style="cursor: pointer;">
+          <img class="user-avatar-img" src="./assets/images/Ellipse 3255.png" alt="User Profile" />
+          <div class="user-text-meta">
+            <span class="user-name-text">محمد المعتصم باللة السيد</span>
+            <span class="user-email-text">mohamedmoatasembalbol@icloud.com</span>
+          </div>
+          <svg class="user-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </div>
+
+        <!-- Notification Dropdown -->
+        <div class="custom-dropdown-panel" id="notifDropdown">
+          <div style="padding: 12px 16px; border-bottom: 1px solid #EAECF0; font-weight: 700; font-size: 13px; color: #111827; display: flex; justify-content: space-between; align-items: center;">
+            <span>الإشعارات</span>
+            <span style="font-size: 11px; background: #FEF3C7; color: #D97706; padding: 2px 8px; border-radius: 999px; font-weight: 600;">3 جديدة</span>
+          </div>
+          <div style="max-height: 260px; overflow-y: auto;">
+            <a href="orders.html" class="dropdown-item" style="border-bottom: 1px solid #F3F4F6; padding: 10px 14px; display: flex; gap: 10px; align-items: flex-start;">
+              <div style="width: 8px; height: 8px; border-radius: 50%; background: #10B981; margin-top: 6px; flex-shrink: 0;"></div>
+              <div>
+                <div style="font-weight: 600; font-size: 12px; color: #111827;">طلب خدمة جديد #1025</div>
+                <div style="font-size: 11px; color: #6B7280;">قام محمد السيد بطلب انتاج فيديو مؤسسي</div>
+                <div style="font-size: 10px; color: #9CA3AF; margin-top: 2px;">منذ 5 دقائق</div>
+              </div>
+            </a>
+          </div>
+          <a href="orders.html" style="display: block; padding: 10px; text-align: center; font-size: 11.5px; color: #D97706; font-weight: 600; text-decoration: none; border-top: 1px solid #EAECF0; background: #FFFDF5;">عرض جميع الطلبات</a>
+        </div>
+
+        <!-- User Dropdown -->
+        <div class="user-dropdown-card" id="userDropdown">
+          <div class="user-dropdown-header">
+            <img class="avatar-thumb" style="object-fit: cover;" src="./assets/images/Ellipse 3255.png" alt="User Profile" />
+            <div class="user-dropdown-meta">
+              <span class="user-dropdown-name">محمد المعتصم باللة السيد</span>
+              <span class="user-dropdown-email">mohamedmoatasembalbol@icloud.com</span>
+            </div>
+          </div>
+          <button type="button" class="user-dropdown-item" data-modal-target="viewProfileModal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            <span>عرض الملف الشخصي</span>
+          </button>
+          <button type="button" class="user-dropdown-item logout-item" data-modal-target="logoutModal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+            <span>تسجيل الخروج</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- =========================================================================
+         TAB 1: الصفحة الرئيسية (Matching Image 1)
+         ========================================================================= -->
+    <div class="settings-tab-panel active" id="tab-home">
+      <form onsubmit="event.preventDefault(); showToast('تم حفظ إعدادات الصفحة الرئيسية بنجاح', 'success');">
+        <div class="table-card-container" style="padding: 24px 28px; margin-bottom: 24px;">
+          <h2 style="font-size: 16px; font-weight: 700; color: #111827; margin-bottom: 24px;">الصفحة الرئيسية</h2>
+
+          <!-- Section 1: الرئيسية -->
+          <div class="settings-section-card open">
+            <div class="settings-accordion-header" onclick="toggleSettingsCard(this)">
+              <div class="settings-accordion-title">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#FDBA33" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+                <span>الرئيسية</span>
+              </div>
+              <svg class="settings-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+            <div class="settings-accordion-body">
+              <div class="modal-form-row">
+                <div class="modal-form-group">
+                  <label class="modal-label">العنوان ( AR )</label>
+                  <input type="text" class="modal-input" placeholder="ادخل العنوان" value="استوديو زايد للإنتاج الإعلامي والإبداعي">
+                </div>
+                <div class="modal-form-group">
+                  <label class="modal-label">العنوان ( EN )</label>
+                  <input type="text" class="modal-input" placeholder="ادخل العنوان" value="AZ Studio For Media & Creative Production">
+                </div>
+              </div>
+              <div class="modal-form-row" style="margin-top: 14px;">
+                <div class="modal-form-group">
+                  <label class="modal-label">الوصف ( AR )</label>
+                  <input type="text" class="modal-input" placeholder="ادخل الوصف" value="نصنع لك محتوى استثنائي يعزز من حضورك ووصولك لجمهورك بأعلى معايير الجودة العالمية">
+                </div>
+                <div class="modal-form-group">
+                  <label class="modal-label">الوصف ( EN )</label>
+                  <input type="text" class="modal-input" placeholder="ادخل الوصف" value="We craft exceptional visual and audio content that empowers your brand.">
+                </div>
+              </div>
+              <div class="modal-form-group" style="margin-top: 14px;">
+                <label class="modal-label">عنوان زر مميز ( AR )</label>
+                <input type="text" class="modal-input" placeholder="ادخل العنوان" value="تصفح كافة خدماتنا وأعمالنا">
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 2: من نحن -->
+          <div class="settings-section-card open">
+            <div class="settings-accordion-header" onclick="toggleSettingsCard(this)">
+              <div class="settings-accordion-title">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#FDBA33" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
+                <span>من نحن</span>
+              </div>
+              <svg class="settings-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+            <div class="settings-accordion-body">
+              <div style="display: grid; grid-template-columns: 1fr 240px; gap: 20px;">
+                <!-- Right Form Fields -->
+                <div>
+                  <div class="modal-form-row">
+                    <div class="modal-form-group">
+                      <label class="modal-label">العنوان ( AR )</label>
+                      <input type="text" class="modal-input" placeholder="ادخل العنوان" value="شريكك الاستراتيجي في صناعة المحتوى">
+                    </div>
+                    <div class="modal-form-group">
+                      <label class="modal-label">العنوان ( EN )</label>
+                      <input type="text" class="modal-input" placeholder="ادخل العنوان" value="Your Strategic Media Production Partner">
+                    </div>
+                  </div>
+                  <div class="modal-form-row" style="margin-top: 14px;">
+                    <div class="modal-form-group">
+                      <label class="modal-label">الوصف ( AR )</label>
+                      <input type="text" class="modal-input" placeholder="ادخل الوصف" value="فريق متكامل من المبدعين والمخرجين وصناع القصص البصرية">
+                    </div>
+                    <div class="modal-form-group">
+                      <label class="modal-label">الوصف ( EN )</label>
+                      <input type="text" class="modal-input" placeholder="ادخل الوصف" value="A dedicated team of creative producers and visual storytellers.">
+                    </div>
+                  </div>
+                  <div class="modal-form-row" style="margin-top: 14px;">
+                    <div class="modal-form-group">
+                      <label class="modal-label">الهدف الرئيسي ( AR )</label>
+                      <input type="text" class="modal-input" placeholder="ادخل الهدف الرئيسي" value="تقديم أعلى جودة إنتاجية تلهم المشاهدين">
+                    </div>
+                    <div class="modal-form-group">
+                      <label class="modal-label">الهدف الرئيسي ( EN )</label>
+                      <input type="text" class="modal-input" placeholder="ادخل الهدف الرئيسي" value="Delivering highest production standards that inspire.">
+                    </div>
+                  </div>
+                  <div class="modal-form-row" style="margin-top: 14px;">
+                    <div class="modal-form-group">
+                      <label class="modal-label">الهدف الثانوي ( AR )</label>
+                      <input type="text" class="modal-input" placeholder="ادخل الهدف الثانوي" value="تمكين العلامات التجارية من التميز الرقمي">
+                    </div>
+                    <div class="modal-form-group">
+                      <label class="modal-label">الهدف الثانوي ( EN )</label>
+                      <input type="text" class="modal-input" placeholder="ادخل الهدف الثانوي" value="Empowering brands to stand out digitally.">
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Left Upload Box -->
+                <div class="settings-upload-wrap">
+                  <div class="settings-upload-icon-box">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                  </div>
+                  <button type="button" class="btn-settings-upload">
+                    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                    <span>تحميل الصورة</span>
+                  </button>
+                  <p class="settings-upload-helper">يجب أن يكون حجم الصورة أقل من 5 ميجا بايت<br>ويجب أن تكون بنسبة 1:1</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 3: خدماتنا مصممة خصيصاً لتلبي احتياجك -->
+          <div class="settings-section-card open">
+            <div class="settings-accordion-header" onclick="toggleSettingsCard(this)">
+              <div class="settings-accordion-title">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#FDBA33" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                <span>خدماتنا مصممة خصيصاً لتلبي احتياجك</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <button type="button" class="btn-add-card-link" onclick="event.stopPropagation(); addSettingDynamicCard('homeServicesContainer', 'البطاقة')">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                  <span>إضافة بطاقة</span>
+                </button>
+                <svg class="settings-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </div>
+            </div>
+            <div class="settings-accordion-body">
+              <div class="modal-form-row">
+                <div class="modal-form-group">
+                  <label class="modal-label">العنوان ( AR )</label>
+                  <input type="text" class="modal-input" placeholder="ادخل العنوان" value="خدماتنا الإبداعية">
+                </div>
+                <div class="modal-form-group">
+                  <label class="modal-label">العنوان ( EN )</label>
+                  <input type="text" class="modal-input" placeholder="ادخل العنوان" value="Our Creative Services">
+                </div>
+              </div>
+              <div class="modal-form-row" style="margin-top: 14px; margin-bottom: 20px;">
+                <div class="modal-form-group">
+                  <label class="modal-label">الوصف ( AR )</label>
+                  <input type="text" class="modal-input" placeholder="ادخل الوصف" value="نقدم باقة واسعة وشاملة من الخدمات الإعلامية المرئية والمسموعة">
+                </div>
+                <div class="modal-form-group">
+                  <label class="modal-label">الوصف ( EN )</label>
+                  <input type="text" class="modal-input" placeholder="ادخل الوصف" value="Comprehensive audio-visual media services tailored to your goals.">
+                </div>
+              </div>
+
+              <!-- Dynamic Cards List (7 Cards matching Image 1) -->
+              <div id="homeServicesContainer">
+                <div class="setting-dynamic-card">
+                  <div class="setting-card-head">
+                    <span class="setting-card-title">البطاقة الأولى</span>
+                    <button type="button" class="btn-card-delete" onclick="removeSettingCard(this)" title="حذف البطاقة">
+                      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                    </button>
+                  </div>
+                  <div class="modal-form-row">
+                    <div class="modal-form-group"><label class="modal-label">العنوان ( AR )</label><input type="text" class="modal-input" placeholder="ادخل العنوان" value="استوديو وإنتاج مرئي"></div>
+                    <div class="modal-form-group"><label class="modal-label">العنوان ( EN )</label><input type="text" class="modal-input" placeholder="ادخل العنوان" value="Video Production"></div>
+                  </div>
+                  <div class="modal-form-row" style="margin-top: 10px;">
+                    <div class="modal-form-group"><label class="modal-label">الوصف ( AR )</label><input type="text" class="modal-input" placeholder="ادخل الوصف" value="تصوير وإخراج الإعلانات والأفلام المؤسسية"></div>
+                    <div class="modal-form-group"><label class="modal-label">الوصف ( EN )</label><input type="text" class="modal-input" placeholder="ادخل الوصف" value="High end commercial and corporate film production"></div>
+                  </div>
+                </div>
+
+                <div class="setting-dynamic-card">
+                  <div class="setting-card-head">
+                    <span class="setting-card-title">البطاقة الثانية</span>
+                    <button type="button" class="btn-card-delete" onclick="removeSettingCard(this)" title="حذف البطاقة">
+                      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                    </button>
+                  </div>
+                  <div class="modal-form-row">
+                    <div class="modal-form-group"><label class="modal-label">العنوان ( AR )</label><input type="text" class="modal-input" placeholder="ادخل العنوان" value="تسجيل البودكاست"></div>
+                    <div class="modal-form-group"><label class="modal-label">العنوان ( EN )</label><input type="text" class="modal-input" placeholder="ادخل العنوان" value="Podcast Recording"></div>
+                  </div>
+                  <div class="modal-form-row" style="margin-top: 10px;">
+                    <div class="modal-form-group"><label class="modal-label">الوصف ( AR )</label><input type="text" class="modal-input" placeholder="ادخل الوصف" value="استوديوهات صوتية معزولة ومجهزة بأحدث الكاميرات والميكروفونات"></div>
+                    <div class="modal-form-group"><label class="modal-label">الوصف ( EN )</label><input type="text" class="modal-input" placeholder="ادخل الوصف" value="Acoustically treated studio equipped with multi-cam setups"></div>
+                  </div>
+                </div>
+
+                <div class="setting-dynamic-card">
+                  <div class="setting-card-head">
+                    <span class="setting-card-title">البطاقة الثالثة</span>
+                    <button type="button" class="btn-card-delete" onclick="removeSettingCard(this)" title="حذف البطاقة">
+                      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                    </button>
+                  </div>
+                  <div class="modal-form-row">
+                    <div class="modal-form-group"><label class="modal-label">العنوان ( AR )</label><input type="text" class="modal-input" placeholder="ادخل العنوان" value="إدارة السوشيال ميديا"></div>
+                    <div class="modal-form-group"><label class="modal-label">العنوان ( EN )</label><input type="text" class="modal-input" placeholder="ادخل العنوان" value="Social Media Management"></div>
+                  </div>
+                  <div class="modal-form-row" style="margin-top: 10px;">
+                    <div class="modal-form-group"><label class="modal-label">الوصف ( AR )</label><input type="text" class="modal-input" placeholder="ادخل الوصف" value="صناعة وإدارة الحملات والتفاعل اليومي"></div>
+                    <div class="modal-form-group"><label class="modal-label">الوصف ( EN )</label><input type="text" class="modal-input" placeholder="ادخل الوصف" value="Campaign creation and engagement strategies"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 4: نحن هنا لمساعدتك في كل خطوة -->
+          <div class="settings-section-card open">
+            <div class="settings-accordion-header" onclick="toggleSettingsCard(this)">
+              <div class="settings-accordion-title">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#FDBA33" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                <span>نحن هنا لمساعدتك في كل خطوة</span>
+              </div>
+              <svg class="settings-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+            <div class="settings-accordion-body">
+              <div class="modal-form-row" style="margin-bottom: 20px;">
+                <div class="modal-form-group"><label class="modal-label">العنوان ( AR )</label><input type="text" class="modal-input" placeholder="ادخل العنوان" value="خطوات تعاون سلسة وموثوقة"></div>
+                <div class="modal-form-group"><label class="modal-label">العنوان ( EN )</label><input type="text" class="modal-input" placeholder="ادخل العنوان" value="Smooth & Reliable Workflow Steps"></div>
+              </div>
+
+              <!-- 3 Cards with Upload Boxes -->
+              <div class="setting-dynamic-card" style="margin-bottom: 16px;">
+                <div style="display: grid; grid-template-columns: 1fr 200px; gap: 16px; align-items: center;">
+                  <div>
+                    <div class="modal-form-row">
+                      <div class="modal-form-group"><label class="modal-label">العنوان ( AR )</label><input type="text" class="modal-input" placeholder="ادخل العنوان" value="التخطيط والاستراتيجية"></div>
+                      <div class="modal-form-group"><label class="modal-label">العنوان ( EN )</label><input type="text" class="modal-input" placeholder="ادخل العنوان" value="Planning & Strategy"></div>
+                    </div>
+                    <div class="modal-form-row" style="margin-top: 10px;">
+                      <div class="modal-form-group"><label class="modal-label">الوصف ( AR )</label><input type="text" class="modal-input" placeholder="ادخل الوصف" value="دراسة الفكرة والجمهور المستهدف بدقة"></div>
+                      <div class="modal-form-group"><label class="modal-label">الوصف ( EN )</label><input type="text" class="modal-input" placeholder="ادخل الوصف" value="In-depth idea research and target analysis"></div>
+                    </div>
+                  </div>
+                  <div class="settings-upload-wrap" style="min-height: 110px; padding: 10px;">
+                    <button type="button" class="btn-settings-upload"><span>تحميل الصورة</span></button>
+                    <p class="settings-upload-helper">نسبة 1:1 أقل من 5MB</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="setting-dynamic-card" style="margin-bottom: 16px;">
+                <div style="display: grid; grid-template-columns: 1fr 200px; gap: 16px; align-items: center;">
+                  <div>
+                    <div class="modal-form-row">
+                      <div class="modal-form-group"><label class="modal-label">العنوان ( AR )</label><input type="text" class="modal-input" placeholder="ادخل العنوان" value="التنفيذ والإنتاج"></div>
+                      <div class="modal-form-group"><label class="modal-label">العنوان ( EN )</label><input type="text" class="modal-input" placeholder="ادخل العنوان" value="Execution & Production"></div>
+                    </div>
+                    <div class="modal-form-row" style="margin-top: 10px;">
+                      <div class="modal-form-group"><label class="modal-label">الوصف ( AR )</label><input type="text" class="modal-input" placeholder="ادخل الوصف" value="التصوير والتسجيل بأحدث المعدات"></div>
+                      <div class="modal-form-group"><label class="modal-label">الوصف ( EN )</label><input type="text" class="modal-input" placeholder="ادخل الوصف" value="Recording with state-of-the-art gear"></div>
+                    </div>
+                  </div>
+                  <div class="settings-upload-wrap" style="min-height: 110px; padding: 10px;">
+                    <button type="button" class="btn-settings-upload"><span>تحميل الصورة</span></button>
+                    <p class="settings-upload-helper">نسبة 1:1 أقل من 5MB</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="setting-dynamic-card">
+                <div style="display: grid; grid-template-columns: 1fr 200px; gap: 16px; align-items: center;">
+                  <div>
+                    <div class="modal-form-row">
+                      <div class="modal-form-group"><label class="modal-label">العنوان ( AR )</label><input type="text" class="modal-input" placeholder="ادخل العنوان" value="المونتاج والتسليم"></div>
+                      <div class="modal-form-group"><label class="modal-label">العنوان ( EN )</label><input type="text" class="modal-input" placeholder="ادخل العنوان" value="Post-Production & Delivery"></div>
+                    </div>
+                    <div class="modal-form-row" style="margin-top: 10px;">
+                      <div class="modal-form-group"><label class="modal-label">الوصف ( AR )</label><input type="text" class="modal-input" placeholder="ادخل الوصف" value="تلوين ومؤثرات صوتية ومراجعات حتى الرضا الكامل"></div>
+                      <div class="modal-form-group"><label class="modal-label">الوصف ( EN )</label><input type="text" class="modal-input" placeholder="ادخل الوصف" value="Color grading, sound design and revisions"></div>
+                    </div>
+                  </div>
+                  <div class="settings-upload-wrap" style="min-height: 110px; padding: 10px;">
+                    <button type="button" class="btn-settings-upload"><span>تحميل الصورة</span></button>
+                    <p class="settings-upload-helper">نسبة 1:1 أقل من 5MB</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right-Aligned Action Buttons -->
+        <div style="display: flex; align-items: center; justify-content: flex-start; gap: 12px; margin-top: 16px;">
+          <button type="submit" class="btn-modal-primary" style="padding: 10px 32px; font-size: 13.5px; font-weight: 700; display: inline-flex; align-items: center; gap: 8px;">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
+            <span>حفظ التغييرات</span>
+          </button>
+          <button type="reset" class="btn-modal-cancel" style="padding: 10px 28px; font-size: 13px;">إلغاء</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- =========================================================================
+         TAB 2: قسم SEO (Matching Image 2)
+         ========================================================================= -->
+    <div class="settings-tab-panel" id="tab-seo">
+      <form onsubmit="event.preventDefault(); showToast('تم حفظ إعدادات SEO بنجاح', 'success');">
+        <div class="table-card-container" style="padding: 24px 28px; margin-bottom: 24px;">
+          <h2 style="font-size: 16px; font-weight: 700; color: #111827; margin-bottom: 24px;">قسم SEO</h2>
+
+          <!-- Row 1: عنوان الميتا ( AR / EN ) -->
+          <div class="modal-form-row" style="margin-bottom: 20px;">
+            <div class="modal-form-group">
+              <label class="modal-label">عنوان الميتا ( AR )</label>
+              <div class="rich-text-box">
+                <textarea placeholder="ادخل العنوان">استوديو زايد - الإنتاج المرئي والمسموع الرائد في المملكة</textarea>
+                <div class="rich-text-toolbar">
+                  <button type="button" title="Bold">B</button>
+                  <button type="button" title="Italic"><i>I</i></button>
+                  <button type="button" title="Underline"><u>U</u></button>
+                  <button type="button" title="Strikethrough"><s>S</s></button>
+                  <button type="button" title="Link">🔗</button>
+                  <button type="button" title="Align">≡</button>
+                  <button type="button" title="Bullets">⁝</button>
+                  <button type="button" title="List">☲</button>
+                </div>
+              </div>
+            </div>
+            <div class="modal-form-group">
+              <label class="modal-label">عنوان الميتا ( EN )</label>
+              <div class="rich-text-box">
+                <textarea placeholder="ادخل العنوان">AZ Studio - Premier Media & Video Production</textarea>
+                <div class="rich-text-toolbar">
+                  <button type="button" title="Bold">B</button>
+                  <button type="button" title="Italic"><i>I</i></button>
+                  <button type="button" title="Underline"><u>U</u></button>
+                  <button type="button" title="Strikethrough"><s>S</s></button>
+                  <button type="button" title="Link">🔗</button>
+                  <button type="button" title="Align">≡</button>
+                  <button type="button" title="Bullets">⁝</button>
+                  <button type="button" title="List">☲</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Row 2: وصف الميتا ( AR / EN ) -->
+          <div class="modal-form-row" style="margin-bottom: 20px;">
+            <div class="modal-form-group">
+              <label class="modal-label">وصف الميتا ( AR )</label>
+              <div class="rich-text-box">
+                <textarea placeholder="ادخل الوصف">أفضل خدمات إنتاج الفيديو، تسجيل البودكاست، وإدارة المنصات الرقمية بأعلى المعايير الاحترافية.</textarea>
+                <div class="rich-text-toolbar">
+                  <button type="button" title="Bold">B</button>
+                  <button type="button" title="Italic"><i>I</i></button>
+                  <button type="button" title="Underline"><u>U</u></button>
+                  <button type="button" title="Strikethrough"><s>S</s></button>
+                  <button type="button" title="Link">🔗</button>
+                  <button type="button" title="Align">≡</button>
+                  <button type="button" title="Bullets">⁝</button>
+                  <button type="button" title="List">☲</button>
+                </div>
+              </div>
+            </div>
+            <div class="modal-form-group">
+              <label class="modal-label">وصف الميتا ( EN )</label>
+              <div class="rich-text-box">
+                <textarea placeholder="ادخل الوصف">High standard corporate video production, podcast studios, and social media creative management.</textarea>
+                <div class="rich-text-toolbar">
+                  <button type="button" title="Bold">B</button>
+                  <button type="button" title="Italic"><i>I</i></button>
+                  <button type="button" title="Underline"><u>U</u></button>
+                  <button type="button" title="Strikethrough"><s>S</s></button>
+                  <button type="button" title="Link">🔗</button>
+                  <button type="button" title="Align">≡</button>
+                  <button type="button" title="Bullets">⁝</button>
+                  <button type="button" title="List">☲</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Row 3: النص البديل للصورة ( AR / EN ) -->
+          <div class="modal-form-row" style="margin-bottom: 20px;">
+            <div class="modal-form-group">
+              <label class="modal-label">النص البديل للصورة ( AR )</label>
+              <div class="rich-text-box">
+                <textarea placeholder="ادخل النص البديل">شعار استوديو زايد للإنتاج الإعلامي والإبداعي</textarea>
+                <div class="rich-text-toolbar">
+                  <button type="button" title="Bold">B</button>
+                  <button type="button" title="Italic"><i>I</i></button>
+                  <button type="button" title="Underline"><u>U</u></button>
+                  <button type="button" title="Strikethrough"><s>S</s></button>
+                  <button type="button" title="Link">🔗</button>
+                  <button type="button" title="Align">≡</button>
+                  <button type="button" title="Bullets">⁝</button>
+                  <button type="button" title="List">☲</button>
+                </div>
+              </div>
+            </div>
+            <div class="modal-form-group">
+              <label class="modal-label">النص البديل للصورة ( EN )</label>
+              <div class="rich-text-box">
+                <textarea placeholder="ادخل النص البديل">AZ Studio Logo - Media & Video Production</textarea>
+                <div class="rich-text-toolbar">
+                  <button type="button" title="Bold">B</button>
+                  <button type="button" title="Italic"><i>I</i></button>
+                  <button type="button" title="Underline"><u>U</u></button>
+                  <button type="button" title="Strikethrough"><s>S</s></button>
+                  <button type="button" title="Link">🔗</button>
+                  <button type="button" title="Align">≡</button>
+                  <button type="button" title="Bullets">⁝</button>
+                  <button type="button" title="List">☲</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right-Aligned Action Buttons -->
+        <div style="display: flex; align-items: center; justify-content: flex-start; gap: 12px; margin-top: 16px;">
+          <button type="submit" class="btn-modal-primary" style="padding: 10px 32px; font-size: 13.5px; font-weight: 700; display: inline-flex; align-items: center; gap: 8px;">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
+            <span>حفظ التغييرات</span>
+          </button>
+          <button type="reset" class="btn-modal-cancel" style="padding: 10px 28px; font-size: 13px;">إلغاء</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- =========================================================================
+         TAB 3: من نحن (Matching Image 3)
+         ========================================================================= -->
+    <div class="settings-tab-panel" id="tab-about">
+      <form onsubmit="event.preventDefault(); showToast('تم حفظ إعدادات صفحة من نحن بنجاح', 'success');">
+        <div class="table-card-container" style="padding: 24px 28px; margin-bottom: 24px;">
+          <h2 style="font-size: 16px; font-weight: 700; color: #111827; margin-bottom: 24px;">من نحن</h2>
+
+          <!-- Section 1: ترويسة القسم الرئيسي -->
+          <div class="settings-section-card open">
+            <div class="settings-accordion-header" onclick="toggleSettingsCard(this)">
+              <div class="settings-accordion-title">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#FDBA33" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                <span>القسم الأول (الترويسة)</span>
+              </div>
+              <svg class="settings-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+            <div class="settings-accordion-body">
+              <div class="modal-form-row">
+                <div class="modal-form-group"><label class="modal-label">العنوان ( AR )</label><input type="text" class="modal-input" placeholder="ادخل العنوان" value="عن استوديو زايد"></div>
+                <div class="modal-form-group"><label class="modal-label">العنوان ( EN )</label><input type="text" class="modal-input" placeholder="ادخل العنوان" value="About AZ Studio"></div>
+              </div>
+              <div class="modal-form-row" style="margin-top: 14px;">
+                <div class="modal-form-group"><label class="modal-label">الوصف ( AR )</label><input type="text" class="modal-input" placeholder="ادخل الوصف" value="رحلتنا في إعادة ابتكار المعايير البصرية وصناعة التأثير"></div>
+                <div class="modal-form-group"><label class="modal-label">الوصف ( EN )</label><input type="text" class="modal-input" placeholder="ادخل الوصف" value="Our journey redefining visual excellence and creating impactful media"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 2: من نحن بالتفصيل مع الصورة -->
+          <div class="settings-section-card open">
+            <div class="settings-accordion-header" onclick="toggleSettingsCard(this)">
+              <div class="settings-accordion-title">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#FDBA33" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle></svg>
+                <span>تفاصيل من نحن</span>
+              </div>
+              <svg class="settings-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+            <div class="settings-accordion-body">
+              <div style="display: grid; grid-template-columns: 1fr 240px; gap: 20px;">
+                <div>
+                  <div class="modal-form-row">
+                    <div class="modal-form-group"><label class="modal-label">العنوان ( AR )</label><input type="text" class="modal-input" placeholder="ادخل العنوان" value="قصتنا وشغفنا"></div>
+                    <div class="modal-form-group"><label class="modal-label">العنوان ( EN )</label><input type="text" class="modal-input" placeholder="ادخل العنوان" value="Our Story & Passion"></div>
+                  </div>
+                  <div class="modal-form-row" style="margin-top: 14px;">
+                    <div class="modal-form-group"><label class="modal-label">الوصف ( AR )</label><input type="text" class="modal-input" placeholder="ادخل الوصف" value="بدأنا برؤية طموحة لنكون المنصة الأولى لإنتاج القصص الملهمة"></div>
+                    <div class="modal-form-group"><label class="modal-label">الوصف ( EN )</label><input type="text" class="modal-input" placeholder="ادخل الوصف" value="Pioneering production hub crafting stories that move audiences"></div>
+                  </div>
+                  <div class="modal-form-row" style="margin-top: 14px;">
+                    <div class="modal-form-group"><label class="modal-label">الهدف الرئيسي ( AR )</label><input type="text" class="modal-input" placeholder="ادخل الهدف الرئيسي" value="الريادة الإقليمية في الإنتاج الرقمي"></div>
+                    <div class="modal-form-group"><label class="modal-label">الهدف الرئيسي ( EN )</label><input type="text" class="modal-input" placeholder="ادخل الهدف الرئيسي" value="Regional digital production leadership"></div>
+                  </div>
+                  <div class="modal-form-row" style="margin-top: 14px;">
+                    <div class="modal-form-group"><label class="modal-label">الهدف الثانوي ( AR )</label><input type="text" class="modal-input" placeholder="ادخل الهدف الثانوي" value="بناء شراكات طويلة الأمد مع قادة الأعمال"></div>
+                    <div class="modal-form-group"><label class="modal-label">الهدف الثانوي ( EN )</label><input type="text" class="modal-input" placeholder="ادخل الهدف الثانوي" value="Fostering long term partnerships with business leaders"></div>
+                  </div>
+                </div>
+
+                <div class="settings-upload-wrap">
+                  <div class="settings-upload-icon-box">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                  </div>
+                  <button type="button" class="btn-settings-upload"><span>تحميل الصورة</span></button>
+                  <p class="settings-upload-helper">يجب أن يكون حجم الصورة أقل من 5MB وبنسبة 1:1</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 3: الرؤية والرسالة والقيم -->
+          <div class="settings-section-card open">
+            <div class="settings-accordion-header" onclick="toggleSettingsCard(this)">
+              <div class="settings-accordion-title">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#FDBA33" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                <span>الرؤية والرسالة والقيم</span>
+              </div>
+              <svg class="settings-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+            <div class="settings-accordion-body">
+              <div class="setting-dynamic-card" style="margin-bottom: 16px;">
+                <div style="display: grid; grid-template-columns: 1fr 200px; gap: 16px; align-items: center;">
+                  <div>
+                    <div class="modal-form-row">
+                      <div class="modal-form-group"><label class="modal-label">العنوان ( AR )</label><input type="text" class="modal-input" placeholder="ادخل العنوان" value="رؤيتنا"></div>
+                      <div class="modal-form-group"><label class="modal-label">العنوان ( EN )</label><input type="text" class="modal-input" placeholder="ادخل العنوان" value="Our Vision"></div>
+                    </div>
+                    <div class="modal-form-row" style="margin-top: 10px;">
+                      <div class="modal-form-group"><label class="modal-label">الوصف ( AR )</label><input type="text" class="modal-input" placeholder="ادخل الوصف" value="أن نكون الخيار الأول والوجهة الإبداعية الأكثر ثقة في الشرق الأوسط"></div>
+                      <div class="modal-form-group"><label class="modal-label">الوصف ( EN )</label><input type="text" class="modal-input" placeholder="ادخل الوصف" value="To be the top trusted creative hub in the Middle East"></div>
+                    </div>
+                  </div>
+                  <div class="settings-upload-wrap" style="min-height: 110px; padding: 10px;">
+                    <button type="button" class="btn-settings-upload"><span>تحميل الصورة</span></button>
+                    <p class="settings-upload-helper">نسبة 1:1 أقل من 5MB</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="setting-dynamic-card" style="margin-bottom: 16px;">
+                <div style="display: grid; grid-template-columns: 1fr 200px; gap: 16px; align-items: center;">
+                  <div>
+                    <div class="modal-form-row">
+                      <div class="modal-form-group"><label class="modal-label">العنوان ( AR )</label><input type="text" class="modal-input" placeholder="ادخل العنوان" value="رسالتنا"></div>
+                      <div class="modal-form-group"><label class="modal-label">العنوان ( EN )</label><input type="text" class="modal-input" placeholder="ادخل العنوان" value="Our Mission"></div>
+                    </div>
+                    <div class="modal-form-row" style="margin-top: 10px;">
+                      <div class="modal-form-group"><label class="modal-label">الوصف ( AR )</label><input type="text" class="modal-input" placeholder="ادخل الوصف" value="تسخير أحدث التقنيات والكوادر الاحترافية لصناعة محتوى سينمائي رائد"></div>
+                      <div class="modal-form-group"><label class="modal-label">الوصف ( EN )</label><input type="text" class="modal-input" placeholder="ادخل الوصف" value="Harnessing technology to craft leading cinematic experiences"></div>
+                    </div>
+                  </div>
+                  <div class="settings-upload-wrap" style="min-height: 110px; padding: 10px;">
+                    <button type="button" class="btn-settings-upload"><span>تحميل الصورة</span></button>
+                    <p class="settings-upload-helper">نسبة 1:1 أقل من 5MB</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 4: قيمنا الجوهرية -->
+          <div class="settings-section-card open">
+            <div class="settings-accordion-header" onclick="toggleSettingsCard(this)">
+              <div class="settings-accordion-title">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#FDBA33" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <span>قيمنا الجوهرية</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <button type="button" class="btn-add-card-link" onclick="event.stopPropagation(); addSettingDynamicCard('aboutValuesContainer', 'البطاقة')">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                  <span>إضافة بطاقة</span>
+                </button>
+                <svg class="settings-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </div>
+            </div>
+            <div class="settings-accordion-body">
+              <div class="modal-form-row" style="margin-bottom: 20px;">
+                <div class="modal-form-group"><label class="modal-label">العنوان ( AR )</label><input type="text" class="modal-input" placeholder="ادخل العنوان" value="قيمنا الراسخة"></div>
+                <div class="modal-form-group"><label class="modal-label">العنوان ( EN )</label><input type="text" class="modal-input" placeholder="ادخل العنوان" value="Our Core Values"></div>
+              </div>
+
+              <div id="aboutValuesContainer">
+                <div class="setting-dynamic-card">
+                  <div class="setting-card-head">
+                    <span class="setting-card-title">البطاقة الأولى</span>
+                    <button type="button" class="btn-card-delete" onclick="removeSettingCard(this)" title="حذف">
+                      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                    </button>
+                  </div>
+                  <div class="modal-form-row">
+                    <div class="modal-form-group"><label class="modal-label">العنوان ( AR )</label><input type="text" class="modal-input" placeholder="ادخل العنوان" value="الجودة والاحترافية"></div>
+                    <div class="modal-form-group"><label class="modal-label">العنوان ( EN )</label><input type="text" class="modal-input" placeholder="ادخل العنوان" value="Quality & Professionalism"></div>
+                  </div>
+                  <div class="modal-form-row" style="margin-top: 10px;">
+                    <div class="modal-form-group"><label class="modal-label">الوصف ( AR )</label><input type="text" class="modal-input" placeholder="ادخل الوصف" value="نلتزم بأدق التفاصيل في كل إطار وزاوية إضاءة ومؤثر صوتي"></div>
+                    <div class="modal-form-group"><label class="modal-label">الوصف ( EN )</label><input type="text" class="modal-input" placeholder="ادخل الوصف" value="Committed to excellence in every single frame and sound"></div>
+                  </div>
+                </div>
+
+                <div class="setting-dynamic-card">
+                  <div class="setting-card-head">
+                    <span class="setting-card-title">البطاقة الثانية</span>
+                    <button type="button" class="btn-card-delete" onclick="removeSettingCard(this)" title="حذف">
+                      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                    </button>
+                  </div>
+                  <div class="modal-form-row">
+                    <div class="modal-form-group"><label class="modal-label">العنوان ( AR )</label><input type="text" class="modal-input" placeholder="ادخل العنوان" value="الابتكار المستمر"></div>
+                    <div class="modal-form-group"><label class="modal-label">العنوان ( EN )</label><input type="text" class="modal-input" placeholder="ادخل العنوان" value="Continuous Innovation"></div>
+                  </div>
+                  <div class="modal-form-row" style="margin-top: 10px;">
+                    <div class="modal-form-group"><label class="modal-label">الوصف ( AR )</label><input type="text" class="modal-input" placeholder="ادخل الوصف" value="أفكار إبداعية خارج الصندوق تمنح مشروعك تفرداً حقيقياً"></div>
+                    <div class="modal-form-group"><label class="modal-label">الوصف ( EN )</label><input type="text" class="modal-input" placeholder="ادخل الوصف" value="Out of the box storytelling giving projects unique edge"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right-Aligned Action Buttons -->
+        <div style="display: flex; align-items: center; justify-content: flex-start; gap: 12px; margin-top: 16px;">
+          <button type="submit" class="btn-modal-primary" style="padding: 10px 32px; font-size: 13.5px; font-weight: 700; display: inline-flex; align-items: center; gap: 8px;">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
+            <span>حفظ التغييرات</span>
+          </button>
+          <button type="reset" class="btn-modal-cancel" style="padding: 10px 28px; font-size: 13px;">إلغاء</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- =========================================================================
+         TAB 4: آلية العمل (Matching Image 4)
+         ========================================================================= -->
+    <div class="settings-tab-panel" id="tab-workflow">
+      <form onsubmit="event.preventDefault(); showToast('تم حفظ إعدادات آلية العمل بنجاح', 'success');">
+        <div class="table-card-container" style="padding: 24px 28px; margin-bottom: 24px;">
+          <h2 style="font-size: 16px; font-weight: 700; color: #111827; margin-bottom: 24px;">آلية العمل</h2>
+
+          <!-- Section 1: تفاصيل القسم -->
+          <div class="settings-section-card open">
+            <div class="settings-accordion-header" onclick="toggleSettingsCard(this)">
+              <div class="settings-accordion-title">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#FDBA33" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                <span>تفاصيل القسم</span>
+              </div>
+              <svg class="settings-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+            <div class="settings-accordion-body">
+              <div class="modal-form-row">
+                <div class="modal-form-group"><label class="modal-label">العنوان ( AR )</label><input type="text" class="modal-input" placeholder="ادخل العنوان" value="كيف نعمل في استوديو زايد"></div>
+                <div class="modal-form-group"><label class="modal-label">العنوان ( EN )</label><input type="text" class="modal-input" placeholder="ادخل العنوان" value="How We Work At AZ Studio"></div>
+              </div>
+              <div class="modal-form-row" style="margin-top: 14px;">
+                <div class="modal-form-group"><label class="modal-label">الوصف ( AR )</label><input type="text" class="modal-input" placeholder="ادخل الوصف" value="خطوات مدروسة تضمن أعلى دقة وسرعة في إنجاز المشاريع"></div>
+                <div class="modal-form-group"><label class="modal-label">الوصف ( EN )</label><input type="text" class="modal-input" placeholder="ادخل الوصف" value="Structured milestones ensuring precision and swift turnaround"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 2: مراحل العمل -->
+          <div class="settings-section-card open">
+            <div class="settings-accordion-header" onclick="toggleSettingsCard(this)">
+              <div class="settings-accordion-title">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#FDBA33" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path></svg>
+                <span>مراحل العمل</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <button type="button" class="btn-add-card-link" onclick="event.stopPropagation(); addSettingDynamicCard('workflowStepsContainer', 'المرحلة')">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                  <span>إضافة مرحلة</span>
+                </button>
+                <svg class="settings-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </div>
+            </div>
+            <div class="settings-accordion-body">
+              <div class="modal-form-row" style="margin-bottom: 20px;">
+                <div class="modal-form-group"><label class="modal-label">العنوان ( AR )</label><input type="text" class="modal-input" placeholder="ادخل العنوان" value="المراحل التنفيذية"></div>
+                <div class="modal-form-group"><label class="modal-label">العنوان ( EN )</label><input type="text" class="modal-input" placeholder="ادخل العنوان" value="Execution Phases"></div>
+              </div>
+
+              <div id="workflowStepsContainer">
+                <div class="setting-dynamic-card">
+                  <div class="setting-card-head">
+                    <span class="setting-card-title">المرحلة الأولى</span>
+                    <button type="button" class="btn-card-delete" onclick="removeSettingCard(this)" title="حذف">
+                      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                    </button>
+                  </div>
+                  <div class="modal-form-row">
+                    <div class="modal-form-group"><label class="modal-label">العنوان ( AR )</label><input type="text" class="modal-input" placeholder="ادخل العنوان" value="استلام الطلب وتحليل المتطلبات"></div>
+                    <div class="modal-form-group"><label class="modal-label">العنوان ( EN )</label><input type="text" class="modal-input" placeholder="ادخل العنوان" value="Receiving Brief & Analysis"></div>
+                  </div>
+                  <div class="modal-form-row" style="margin-top: 10px;">
+                    <div class="modal-form-group"><label class="modal-label">الوصف ( AR )</label><input type="text" class="modal-input" placeholder="ادخل الوصف" value="جلسة عصف ذهني لفهم تفاصيل وهوية المشروع"></div>
+                    <div class="modal-form-group"><label class="modal-label">الوصف ( EN )</label><input type="text" class="modal-input" placeholder="ادخل الوصف" value="Brainstorming session to align on project requirements"></div>
+                  </div>
+                </div>
+
+                <div class="setting-dynamic-card">
+                  <div class="setting-card-head">
+                    <span class="setting-card-title">المرحلة الثانية</span>
+                    <button type="button" class="btn-card-delete" onclick="removeSettingCard(this)" title="حذف">
+                      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                    </button>
+                  </div>
+                  <div class="modal-form-row">
+                    <div class="modal-form-group"><label class="modal-label">العنوان ( AR )</label><input type="text" class="modal-input" placeholder="ادخل العنوان" value="كتابة السيناريو ورسم المشاهد (Storyboard)"></div>
+                    <div class="modal-form-group"><label class="modal-label">العنوان ( EN )</label><input type="text" class="modal-input" placeholder="ادخل العنوان" value="Scriptwriting & Storyboard"></div>
+                  </div>
+                  <div class="modal-form-row" style="margin-top: 10px;">
+                    <div class="modal-form-group"><label class="modal-label">الوصف ( AR )</label><input type="text" class="modal-input" placeholder="ادخل الوصف" value="تحويل الفكرة إلى نص بصري محكم وموافق عليه"></div>
+                    <div class="modal-form-group"><label class="modal-label">الوصف ( EN )</label><input type="text" class="modal-input" placeholder="ادخل الوصف" value="Turning concepts into approved visual storyboard scripts"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right-Aligned Action Buttons -->
+        <div style="display: flex; align-items: center; justify-content: flex-start; gap: 12px; margin-top: 16px;">
+          <button type="submit" class="btn-modal-primary" style="padding: 10px 32px; font-size: 13.5px; font-weight: 700; display: inline-flex; align-items: center; gap: 8px;">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
+            <span>حفظ التغييرات</span>
+          </button>
+          <button type="reset" class="btn-modal-cancel" style="padding: 10px 28px; font-size: 13px;">إلغاء</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- =========================================================================
+         TAB 5: المخرجات (Matching Image 4 & 5)
+         ========================================================================= -->
+    <div class="settings-tab-panel" id="tab-outputs">
+      <section class="table-card-container" style="padding: 24px;">
+        <!-- Top Action Bar -->
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; flex-wrap: wrap; gap: 16px;">
+          <h2 style="font-size: 16px; font-weight: 700; color: #111827;">المخرجات</h2>
+          <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+            <!-- Search -->
+            <div class="table-search-box" style="margin-bottom: 0;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              <input type="text" placeholder="البحث" id="outputsSearchInput">
+            </div>
+            <!-- Add Button -->
+            <button type="button" class="btn-header-add" data-modal-target="addOutputModal">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              <span>اضافة</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Outputs Table -->
+        <div class="table-responsive-box">
+          <table class="figma-table" style="width: 100%;">
+            <thead>
+              <tr>
+                <th style="padding: 14px 16px; font-size: 12px; font-weight: 700; color: #4B5563;">القطاع</th>
+                <th style="padding: 14px 16px; font-size: 12px; font-weight: 700; color: #4B5563;">العنوان</th>
+                <th style="padding: 14px 16px; font-size: 12px; font-weight: 700; color: #4B5563;">الوصف</th>
+                <th style="padding: 14px 16px; font-size: 12px; font-weight: 700; color: #4B5563; text-align: left; width: 140px;">الاجراء</th>
+              </tr>
+            </thead>
+            <tbody id="outputsTableBody">
+              <!-- 18 Repeated Rows matching screenshot -->
+              <script>
+                for(let i=1; i<=18; i++) {
+                  document.write(`
+                    <tr>
+                      <td style="padding: 14px 16px; font-size: 12.5px; color: #374151; font-weight: 500;">القطاع الحكومي</td>
+                      <td style="padding: 14px 16px; font-size: 12px; color: #6B7280;">هذا النص يمكن أن يستبدل بنص بديل</td>
+                      <td style="padding: 14px 16px; font-size: 12px; color: #6B7280;">هذا النص يمكن أن يستبدل بنص بديل</td>
+                      <td style="padding: 14px 16px; text-align: left;">
+                        <div style="display: flex; gap: 8px; align-items: center; justify-content: flex-end;">
+                          <button type="button" class="btn-table-del" data-modal-target="deleteOutputModal" aria-label="حذف">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                          </button>
+                          <button type="button" class="btn-action-edit" data-modal-target="editOutputModal" aria-label="تعديل">
+                            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  `);
+                }
+              </script>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Pagination Footer matching Image 4 -->
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 24px; padding-top: 18px; border-top: 1px solid #F3F4F6; flex-wrap: wrap; gap: 16px;">
+          <!-- Left in RTL: Page Numbers -->
+          <div class="pagination-controls" style="display: flex; gap: 6px; align-items: center;">
+            <a href="#" class="page-btn" style="width: 32px; height: 32px; border-radius: 6px; border: 1px solid #E5E7EB; background: #fff; color: #6B7280; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; font-size: 12px;">&lt;</a>
+            <a href="#" class="page-btn" style="width: 32px; height: 32px; border-radius: 6px; border: 1px solid #E5E7EB; background: #fff; color: #6B7280; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; font-size: 12px;">1</a>
+            <a href="#" class="page-btn active" style="width: 32px; height: 32px; border-radius: 6px; border: 1px solid #ECA02F; background: #ECA02F; color: #fff; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; font-size: 12px; font-weight: 700;">2</a>
+            <a href="#" class="page-btn" style="width: 32px; height: 32px; border-radius: 6px; border: 1px solid #E5E7EB; background: #fff; color: #6B7280; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; font-size: 12px;">3</a>
+            <a href="#" class="page-btn" style="width: 32px; height: 32px; border-radius: 6px; border: 1px solid #E5E7EB; background: #fff; color: #6B7280; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; font-size: 12px;">4</a>
+            <a href="#" class="page-btn" style="width: 32px; height: 32px; border-radius: 6px; border: 1px solid #E5E7EB; background: #fff; color: #6B7280; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; font-size: 12px;">5</a>
+            <a href="#" class="page-btn" style="width: 32px; height: 32px; border-radius: 6px; border: 1px solid #E5E7EB; background: #fff; color: #6B7280; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; font-size: 12px;">&gt;</a>
+          </div>
+
+          <!-- Right in RTL: Rows Per Page -->
+          <div style="display: flex; align-items: center; gap: 8px; font-size: 12px; color: #6B7280;">
+            <span>حدد عدد صفوف السجلات لكل صفحة</span>
+            <div class="orders-filter-select" style="padding: 4px 10px; border: 1px solid #E5E7EB; border-radius: 6px; background: #fff; display: flex; align-items: center; gap: 6px; cursor: pointer;">
+              <span>10</span>
+              <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- =========================================================================
+         TAB 6: القطاعات (Matching Image 5)
+         ========================================================================= -->
+    <div class="settings-tab-panel" id="tab-sectors">
+      <section class="table-card-container" style="padding: 24px;">
+        <!-- Top Action Bar -->
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; flex-wrap: wrap; gap: 16px;">
+          <h2 style="font-size: 16px; font-weight: 700; color: #111827;">القطاعات</h2>
+          <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+            <!-- Search -->
+            <div class="table-search-box" style="margin-bottom: 0;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              <input type="text" placeholder="البحث" id="sectorsSearchInput">
+            </div>
+            <!-- Add Button -->
+            <button type="button" class="btn-header-add" data-modal-target="addSectorModal">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              <span>اضافة</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Sectors Table (Matching Image 5) -->
+        <div class="table-responsive-box">
+          <table class="figma-table" style="width: 100%;">
+            <thead>
+              <tr>
+                <th style="padding: 14px 16px; font-size: 12px; font-weight: 700; color: #4B5563; width: 80px;">صورة</th>
+                <th style="padding: 14px 16px; font-size: 12px; font-weight: 700; color: #4B5563;">اسم القطاع</th>
+                <th style="padding: 14px 16px; font-size: 12px; font-weight: 700; color: #4B5563;">الوصف</th>
+                <th style="padding: 14px 16px; font-size: 12px; font-weight: 700; color: #4B5563; text-align: left; width: 140px;">الاجراء</th>
+              </tr>
+            </thead>
+            <tbody id="sectorsTableBody">
+              <!-- 18 Repeated Rows matching screenshot Image 5 -->
+              <script>
+                for(let i=1; i<=18; i++) {
+                  document.write(`
+                    <tr>
+                      <td style="padding: 14px 16px;">
+                        <div style="width: 32px; height: 32px; border-radius: 8px; background: #FFFBEB; border: 1px solid #FDE68A; display: flex; align-items: center; justify-content: center; color: #D97706;">
+                          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                        </div>
+                      </td>
+                      <td style="padding: 14px 16px; font-size: 12.5px; color: #374151; font-weight: 500;">القطاع الحكومي</td>
+                      <td style="padding: 14px 16px; font-size: 12px; color: #6B7280;">هذا النص يمكن أن يستبدل بنص بديل</td>
+                      <td style="padding: 14px 16px; text-align: left;">
+                        <div style="display: flex; gap: 8px; align-items: center; justify-content: flex-end;">
+                          <button type="button" class="btn-table-del" data-modal-target="deleteSectorModal" aria-label="حذف">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                          </button>
+                          <button type="button" class="btn-action-edit" data-modal-target="editSectorModal" aria-label="تعديل">
+                            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                          </button>
+                          <button type="button" class="btn-table-eye" data-modal-target="viewSectorModal" aria-label="عرض">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="#ECA02F" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  `);
+                }
+              </script>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Pagination Footer matching Image 5 -->
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 24px; padding-top: 18px; border-top: 1px solid #F3F4F6; flex-wrap: wrap; gap: 16px;">
+          <!-- Left in RTL: Page Numbers -->
+          <div class="pagination-controls" style="display: flex; gap: 6px; align-items: center;">
+            <a href="#" class="page-btn" style="width: 32px; height: 32px; border-radius: 6px; border: 1px solid #E5E7EB; background: #fff; color: #6B7280; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; font-size: 12px;">&lt;</a>
+            <a href="#" class="page-btn" style="width: 32px; height: 32px; border-radius: 6px; border: 1px solid #E5E7EB; background: #fff; color: #6B7280; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; font-size: 12px;">1</a>
+            <a href="#" class="page-btn active" style="width: 32px; height: 32px; border-radius: 6px; border: 1px solid #ECA02F; background: #ECA02F; color: #fff; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; font-size: 12px; font-weight: 700;">2</a>
+            <a href="#" class="page-btn" style="width: 32px; height: 32px; border-radius: 6px; border: 1px solid #E5E7EB; background: #fff; color: #6B7280; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; font-size: 12px;">3</a>
+            <a href="#" class="page-btn" style="width: 32px; height: 32px; border-radius: 6px; border: 1px solid #E5E7EB; background: #fff; color: #6B7280; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; font-size: 12px;">4</a>
+            <a href="#" class="page-btn" style="width: 32px; height: 32px; border-radius: 6px; border: 1px solid #E5E7EB; background: #fff; color: #6B7280; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; font-size: 12px;">5</a>
+            <a href="#" class="page-btn" style="width: 32px; height: 32px; border-radius: 6px; border: 1px solid #E5E7EB; background: #fff; color: #6B7280; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; font-size: 12px;">&gt;</a>
+          </div>
+
+          <!-- Right in RTL: Rows Per Page -->
+          <div style="display: flex; align-items: center; gap: 8px; font-size: 12px; color: #6B7280;">
+            <span>حدد عدد صفوف السجلات لكل صفحة</span>
+            <div class="orders-filter-select" style="padding: 4px 10px; border: 1px solid #E5E7EB; border-radius: 6px; background: #fff; display: flex; align-items: center; gap: 6px; cursor: pointer;">
+              <span>10</span>
+              <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- =========================================================================
+         ADDITIONAL TABS (FAQ, Terms, Privacy, Footer)
+         ========================================================================= -->
+    <!-- =========================================================================
+         TAB 7: الأسئلة الشائعة (Matching Image 5)
+         ========================================================================= -->
+    <div class="settings-tab-panel" id="tab-faq">
+      <section class="table-card-container" style="padding: 24px;">
+        <!-- Top Action Bar -->
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; flex-wrap: wrap; gap: 16px;">
+          <h2 style="font-size: 16px; font-weight: 700; color: #111827;">الأسئلة الشائعة</h2>
+          <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+            <!-- Search -->
+            <div class="table-search-box" style="margin-bottom: 0;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              <input type="text" placeholder="البحث" id="faqSearchInput">
+            </div>
+            <!-- Add Button -->
+            <button type="button" class="btn-header-add" data-modal-target="addFaqModal">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              <span>اضافة</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- FAQs Table (Matching Image 5) -->
+        <div class="table-responsive-box">
+          <table class="figma-table" style="width: 100%;">
+            <thead>
+              <tr>
+                <th style="padding: 14px 16px; font-size: 12px; font-weight: 700; color: #4B5563;">السؤال</th>
+                <th style="padding: 14px 16px; font-size: 12px; font-weight: 700; color: #4B5563;">الإجابة</th>
+                <th style="padding: 14px 16px; font-size: 12px; font-weight: 700; color: #4B5563; width: 160px;">تم الانشاء في</th>
+                <th style="padding: 14px 16px; font-size: 12px; font-weight: 700; color: #4B5563; text-align: left; width: 140px;">الاجراء</th>
+              </tr>
+            </thead>
+            <tbody id="faqTableBody">
+              <!-- 18 Repeated Rows matching screenshot Image 5 -->
+              <script>
+                for(let i=1; i<=18; i++) {
+                  document.write(`
+                    <tr>
+                      <td style="padding: 14px 16px; font-size: 12.5px; color: #374151; font-weight: 500;">هذا النص يمكن أن يستبدل بنص بديل يعبر عن المعنى</td>
+                      <td style="padding: 14px 16px; font-size: 12px; color: #6B7280;">هذا النص يمكن أن يستبدل بنص بديل يعبر عن المعنى</td>
+                      <td style="padding: 14px 16px; font-size: 12px; color: #6B7280; direction: ltr; text-align: right;">2026-03-26 11:48:29</td>
+                      <td style="padding: 14px 16px; text-align: left;">
+                        <div style="display: flex; gap: 8px; align-items: center; justify-content: flex-end;">
+                          <button type="button" class="btn-table-del" data-modal-target="deleteFaqModal" aria-label="حذف">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                          </button>
+                          <button type="button" class="btn-action-edit" data-modal-target="editFaqModal" aria-label="تعديل">
+                            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                          </button>
+                          <button type="button" class="btn-table-eye" data-modal-target="viewFaqModal" aria-label="عرض">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="#ECA02F" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  `);
+                }
+              </script>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Pagination Footer matching Image 5 -->
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 24px; padding-top: 18px; border-top: 1px solid #F3F4F6; flex-wrap: wrap; gap: 16px;">
+          <!-- Left in RTL: Page Numbers -->
+          <div class="pagination-controls" style="display: flex; gap: 6px; align-items: center;">
+            <a href="#" class="page-btn" style="width: 32px; height: 32px; border-radius: 6px; border: 1px solid #E5E7EB; background: #fff; color: #6B7280; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; font-size: 12px;">&lt;</a>
+            <a href="#" class="page-btn" style="width: 32px; height: 32px; border-radius: 6px; border: 1px solid #E5E7EB; background: #fff; color: #6B7280; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; font-size: 12px;">1</a>
+            <a href="#" class="page-btn active" style="width: 32px; height: 32px; border-radius: 6px; border: 1px solid #ECA02F; background: #ECA02F; color: #fff; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; font-size: 12px; font-weight: 700;">2</a>
+            <a href="#" class="page-btn" style="width: 32px; height: 32px; border-radius: 6px; border: 1px solid #E5E7EB; background: #fff; color: #6B7280; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; font-size: 12px;">3</a>
+            <a href="#" class="page-btn" style="width: 32px; height: 32px; border-radius: 6px; border: 1px solid #E5E7EB; background: #fff; color: #6B7280; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; font-size: 12px;">4</a>
+            <a href="#" class="page-btn" style="width: 32px; height: 32px; border-radius: 6px; border: 1px solid #E5E7EB; background: #fff; color: #6B7280; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; font-size: 12px;">5</a>
+            <a href="#" class="page-btn" style="width: 32px; height: 32px; border-radius: 6px; border: 1px solid #E5E7EB; background: #fff; color: #6B7280; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; font-size: 12px;">&gt;</a>
+          </div>
+
+          <!-- Right in RTL: Rows Per Page -->
+          <div style="display: flex; align-items: center; gap: 8px; font-size: 12px; color: #6B7280;">
+            <span>حدد عدد صفوف السجلات لكل صفحة</span>
+            <div class="orders-filter-select" style="padding: 4px 10px; border: 1px solid #E5E7EB; border-radius: 6px; background: #fff; display: flex; align-items: center; gap: 6px; cursor: pointer;">
+              <span>10</span>
+              <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="settings-tab-panel" id="tab-terms">
+      <form onsubmit="event.preventDefault(); showToast('تم حفظ شروط الاستخدام بنجاح', 'success');">
+        <div class="table-card-container" style="padding: 24px 28px; margin-bottom: 24px;">
+          <h2 style="font-size: 16px; font-weight: 700; color: #111827; margin-bottom: 24px;">شروط الاستخدام</h2>
+          
+          <!-- Description AR (Matching Image 5) -->
+          <div class="modal-form-group">
+            <label class="modal-label" style="font-size: 13px; font-weight: 600; color: #374151; margin-bottom: 8px; display: block;">الوصف ( AR )</label>
+            <div class="rich-text-box">
+              <textarea style="min-height: 140px;" placeholder="ادخل الوصف"></textarea>
+              <div class="rich-text-toolbar">
+                <button type="button">B</button>
+                <button type="button"><i>I</i></button>
+                <button type="button"><u>U</u></button>
+                <button type="button"><s>S</s></button>
+                <button type="button">🔗</button>
+                <button type="button">≡</button>
+                <button type="button">⁝</button>
+                <button type="button">☲</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Description EN (Matching Image 5) -->
+          <div class="modal-form-group" style="margin-top: 20px;">
+            <label class="modal-label" style="font-size: 13px; font-weight: 600; color: #374151; margin-bottom: 8px; display: block;">الوصف ( EN )</label>
+            <div class="rich-text-box">
+              <textarea style="min-height: 140px;" placeholder="ادخل الوصف"></textarea>
+              <div class="rich-text-toolbar">
+                <button type="button">B</button>
+                <button type="button"><i>I</i></button>
+                <button type="button"><u>U</u></button>
+                <button type="button"><s>S</s></button>
+                <button type="button">🔗</button>
+                <button type="button">≡</button>
+                <button type="button">⁝</button>
+                <button type="button">☲</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Action Buttons (Right-aligned in RTL) -->
+        <div style="display: flex; align-items: center; justify-content: flex-start; gap: 12px;">
+          <button type="submit" class="btn-modal-primary" style="padding: 10px 36px; font-size: 13.5px; font-weight: 700;">حفظ</button>
+          <button type="reset" class="btn-modal-cancel" style="padding: 10px 30px; font-size: 13px;">الغاء</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- =========================================================================
+         TAB 9: سياسة الخصوصية (Matching Image 1)
+         ========================================================================= -->
+    <div class="settings-tab-panel" id="tab-privacy">
+      <form onsubmit="event.preventDefault(); showToast('تم حفظ سياسة الخصوصية بنجاح', 'success');">
+        <div class="table-card-container" style="padding: 24px 28px; margin-bottom: 24px;">
+          <h2 style="font-size: 16px; font-weight: 700; color: #111827; margin-bottom: 24px;">سياسة الخصوصية</h2>
+          
+          <!-- Description AR (Matching Image 1) -->
+          <div class="modal-form-group">
+            <label class="modal-label" style="font-size: 13px; font-weight: 600; color: #374151; margin-bottom: 8px; display: block;">الوصف ( AR )</label>
+            <div class="rich-text-box">
+              <textarea style="min-height: 180px;" placeholder="ادخل الوصف"></textarea>
+              <div class="rich-text-toolbar">
+                <button type="button">B</button>
+                <button type="button"><i>I</i></button>
+                <button type="button"><u>U</u></button>
+                <button type="button"><s>S</s></button>
+                <button type="button">🔗</button>
+                <button type="button">≡</button>
+                <button type="button">⁝</button>
+                <button type="button">☲</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Description EN (Matching Image 1) -->
+          <div class="modal-form-group" style="margin-top: 22px;">
+            <label class="modal-label" style="font-size: 13px; font-weight: 600; color: #374151; margin-bottom: 8px; display: block;">الوصف ( EN )</label>
+            <div class="rich-text-box">
+              <textarea style="min-height: 180px;" placeholder="ادخل الوصف"></textarea>
+              <div class="rich-text-toolbar">
+                <button type="button">B</button>
+                <button type="button"><i>I</i></button>
+                <button type="button"><u>U</u></button>
+                <button type="button"><s>S</s></button>
+                <button type="button">🔗</button>
+                <button type="button">≡</button>
+                <button type="button">⁝</button>
+                <button type="button">☲</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Action Buttons (Right-aligned in RTL) -->
+        <div style="display: flex; align-items: center; justify-content: flex-start; gap: 12px;">
+          <button type="submit" class="btn-modal-primary" style="padding: 10px 36px; font-size: 13.5px; font-weight: 700;">حفظ</button>
+          <button type="reset" class="btn-modal-cancel" style="padding: 10px 30px; font-size: 13px;">الغاء</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- =========================================================================
+         TAB 10: الفوتر (Matching Image 2)
+         ========================================================================= -->
+    <div class="settings-tab-panel" id="tab-footer">
+      <form onsubmit="event.preventDefault(); showToast('تم حفظ إعدادات الفوتر بنجاح', 'success');">
+        <div class="table-card-container" style="padding: 24px 28px; margin-bottom: 24px;">
+          <h2 style="font-size: 16px; font-weight: 700; color: #111827; margin-bottom: 24px;">الفوتر</h2>
+
+          <!-- 1. معلومات الشركة -->
+          <div class="settings-section-card open" style="margin-bottom: 20px;">
+            <div class="settings-accordion-header" onclick="toggleSettingsCard(this)">
+              <div class="settings-accordion-title">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#FDBA33" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                <span>معلومات الشركة</span>
+              </div>
+              <svg class="settings-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+            <div class="settings-accordion-body">
+              <div style="display: grid; grid-template-columns: 1fr 220px; gap: 24px; align-items: start;">
+                <!-- Form Inputs (2 Cols) -->
+                <div>
+                  <div class="modal-form-row">
+                    <div class="modal-form-group">
+                      <label class="modal-label">اسم الشركة ( AR )</label>
+                      <input type="text" class="modal-input" placeholder="ادخل الاسم">
+                    </div>
+                    <div class="modal-form-group">
+                      <label class="modal-label">اسم الشركة ( EN )</label>
+                      <input type="text" class="modal-input" placeholder="ادخل الاسم">
+                    </div>
+                  </div>
+                  <div class="modal-form-row" style="margin-top: 14px;">
+                    <div class="modal-form-group">
+                      <label class="modal-label">الوصف ( AR )</label>
+                      <input type="text" class="modal-input" placeholder="ادخل الوصف">
+                    </div>
+                    <div class="modal-form-group">
+                      <label class="modal-label">الوصف ( EN )</label>
+                      <input type="text" class="modal-input" placeholder="ادخل الوصف">
+                    </div>
+                  </div>
+                  <div class="modal-form-row" style="margin-top: 14px;">
+                    <div class="modal-form-group">
+                      <label class="modal-label">حقوق النشر ( AR )</label>
+                      <input type="text" class="modal-input" placeholder="ادخل النص">
+                    </div>
+                    <div class="modal-form-group">
+                      <label class="modal-label">حقوق النشر ( EN )</label>
+                      <input type="text" class="modal-input" placeholder="ادخل النص">
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Image Upload Zone -->
+                <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                  <div style="width: 140px; height: 140px; border-radius: 16px; background: #F3F4F6; border: 1px solid #E5E7EB; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; position: relative;">
+                    <svg viewBox="0 0 24 24" width="44" height="44" fill="none" stroke="#9CA3AF" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                    <button type="button" style="background: #1F2937; color: #fff; border: none; border-radius: 6px; padding: 5px 12px; font-size: 11px; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; cursor: pointer;">
+                      <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                      <span>تحميل الصورة</span>
+                    </button>
+                  </div>
+                  <p style="font-size: 10.5px; color: #9CA3AF; margin-top: 8px; text-align: center; line-height: 1.4; max-width: 200px;">
+                    يجب أن يكون حجم الصورة أقل من 1 ميجا بايت ويجب أن تكون نسبة الصورة 1:1
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. معلومات التواصل -->
+          <div class="settings-section-card open" style="margin-bottom: 20px;">
+            <div class="settings-accordion-header" onclick="toggleSettingsCard(this)">
+              <div class="settings-accordion-title">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#FDBA33" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                <span>معلومات التواصل</span>
+              </div>
+              <svg class="settings-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+            <div class="settings-accordion-body">
+              <div class="modal-form-row">
+                <div class="modal-form-group">
+                  <label class="modal-label">البريد الإلكتروني</label>
+                  <input type="email" class="modal-input" placeholder="ادخل البريد">
+                </div>
+                <div class="modal-form-group">
+                  <label class="modal-label">رقم الجوال الاول</label>
+                  <input type="text" class="modal-input" placeholder="ادخل الرقم" style="direction: ltr; text-align: right;">
+                </div>
+              </div>
+              <div class="modal-form-row" style="margin-top: 14px;">
+                <div class="modal-form-group">
+                  <label class="modal-label">رقم الجوال الثاني</label>
+                  <input type="text" class="modal-input" placeholder="ادخل الرقم" style="direction: ltr; text-align: right;">
+                </div>
+                <div class="modal-form-group">
+                  <label class="modal-label">رقم الجوال الثالث</label>
+                  <input type="text" class="modal-input" placeholder="ادخل الرقم" style="direction: ltr; text-align: right;">
+                </div>
+              </div>
+              <div class="modal-form-row" style="margin-top: 14px;">
+                <div class="modal-form-group">
+                  <label class="modal-label">العنوان ( AR )</label>
+                  <input type="text" class="modal-input" placeholder="ادخل العنوان">
+                </div>
+                <div class="modal-form-group">
+                  <label class="modal-label">العنوان ( EN )</label>
+                  <input type="text" class="modal-input" placeholder="ادخل العنوان">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. لينكات السوشيال -->
+          <div class="settings-section-card open">
+            <div class="settings-accordion-header" onclick="toggleSettingsCard(this)">
+              <div class="settings-accordion-title">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#FDBA33" stroke-width="2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+                <span>لينكات السوشيال</span>
+              </div>
+              <svg class="settings-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+            <div class="settings-accordion-body">
+              <!-- Row 1: LinkedIn, Instagram, Facebook (3 cols) -->
+              <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+                <div class="modal-form-group">
+                  <label class="modal-label">لينكد ان</label>
+                  <div class="social-input-wrap">
+                    <input type="text" class="modal-input" placeholder="اسم المستخدم">
+                    <span class="social-icon">
+                      <svg viewBox="0 0 24 24" width="18" height="18" fill="#ECA02F"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                    </span>
+                  </div>
+                </div>
+                <div class="modal-form-group">
+                  <label class="modal-label">انستجرام</label>
+                  <div class="social-input-wrap">
+                    <input type="text" class="modal-input" placeholder="اسم المستخدم">
+                    <span class="social-icon">
+                      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#ECA02F" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    </span>
+                  </div>
+                </div>
+                <div class="modal-form-group">
+                  <label class="modal-label">فيسبوك</label>
+                  <div class="social-input-wrap">
+                    <input type="text" class="modal-input" placeholder="اسم المستخدم">
+                    <span class="social-icon">
+                      <svg viewBox="0 0 24 24" width="18" height="18" fill="#ECA02F"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Row 2: YouTube, Twitter (2 cols centered/spaced) -->
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 14px; max-width: 66.66%;">
+                <div class="modal-form-group">
+                  <label class="modal-label">يوتيوب</label>
+                  <div class="social-input-wrap">
+                    <input type="text" class="modal-input" placeholder="اسم المستخدم">
+                    <span class="social-icon">
+                      <svg viewBox="0 0 24 24" width="18" height="18" fill="#ECA02F"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="#fff"></polygon></svg>
+                    </span>
+                  </div>
+                </div>
+                <div class="modal-form-group">
+                  <label class="modal-label">تويتر</label>
+                  <div class="social-input-wrap">
+                    <input type="text" class="modal-input" placeholder="اسم المستخدم">
+                    <span class="social-icon">
+                      <svg viewBox="0 0 24 24" width="18" height="18" fill="#ECA02F"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Action Buttons (Right-aligned in RTL) -->
+        <div style="display: flex; align-items: center; justify-content: flex-start; gap: 12px;">
+          <button type="submit" class="btn-modal-primary" style="padding: 10px 36px; font-size: 13.5px; font-weight: 700;">حفظ</button>
+          <button type="reset" class="btn-modal-cancel" style="padding: 10px 30px; font-size: 13px;">الغاء</button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <!-- =========================================================================
+       MODALS SYSTEM
+       ========================================================================= -->
+  <!-- 1. Universal Delete Modal -->
+  <div class="modal-overlay" id="deleteModal">
+    <div class="modal-dialog" style="max-width: 440px; text-align: center;">
+      <div class="modal-body" style="padding: 32px 24px 20px 24px; text-align: center;">
+        <div class="delete-icon-wrap">
+          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+        </div>
+        <h3 style="font-size: 18px; font-weight: 700; color: #111827; margin-bottom: 8px;">تأكيد الحذف</h3>
+        <p style="font-size: 13px; color: #6B7280; line-height: 1.6;">هل أنت متأكد من رغبتك في حذف هذا العنصر؟ لن تتمكن من التراجع عن هذه الخطوة.</p>
+      </div>
+      <div class="modal-footer" style="justify-content: center; gap: 12px; padding-bottom: 24px;">
+        <button type="button" class="btn-modal-cancel" data-modal-close style="min-width: 110px;">إلغاء</button>
+        <button type="button" class="btn-modal-danger" id="btnConfirmDelete" style="min-width: 130px;">نعم، حذف</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Deliverable / Output Delete Modal (Exact Match to Image 4) -->
+  <div class="modal-overlay" id="deleteOutputModal">
+    <div class="modal-dialog" style="max-width: 460px; border-radius: 16px; overflow: hidden; background: #fff; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);">
+      <div class="modal-header" style="padding: 16px 20px; border-bottom: 1px solid #F3F4F6; display: flex; justify-content: space-between; align-items: center;">
+        <h3 class="modal-title" style="font-size: 15px; font-weight: 700; color: #111827; margin: 0;">تأكيد الإجراء</h3>
+        <button class="modal-close-btn" data-modal-close aria-label="إغلاق" style="background: none; border: none; cursor: pointer; color: #9CA3AF; padding: 4px; display: flex; align-items: center; justify-content: center;">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <div class="modal-body" style="padding: 28px 24px; text-align: center; display: flex; flex-direction: column; align-items: center;">
+        <div style="width: 56px; height: 56px; border-radius: 12px; background: #FEE2E2; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; color: #EF4444;">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+        </div>
+        <h3 style="font-size: 18px; font-weight: 700; color: #111827; margin-bottom: 10px;">حذف المخرج</h3>
+        <p style="font-size: 13.5px; color: #6B7280; line-height: 1.6; max-width: 360px; margin: 0 auto;">هل أنت متأكد من حذف المخرج "توثيق مشروع وطني ضخم"؟ لا يمكن التراجع عن هذا الإجراء.</p>
+      </div>
+      <div class="modal-footer" style="padding: 16px 24px 24px 24px; display: flex; justify-content: center; gap: 12px; border-top: none;">
+        <button type="button" class="btn-modal-cancel" data-modal-close style="min-width: 100px; padding: 10px 24px; font-size: 13.5px; border-radius: 8px; border: 1px solid #D1D5DB; background: #fff; color: #374151; font-weight: 600; cursor: pointer;">إلغاء</button>
+        <button type="button" class="btn-modal-danger" onclick="showToast('تم حذف المخرج بنجاح', 'success'); closeModal();" style="min-width: 100px; padding: 10px 24px; font-size: 13.5px; border-radius: 8px; border: none; background: #EF4444; color: #fff; font-weight: 600; cursor: pointer;">تأكيد</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Sector Delete Modal -->
+  <div class="modal-overlay" id="deleteSectorModal">
+    <div class="modal-dialog" style="max-width: 460px; border-radius: 16px; overflow: hidden; background: #fff; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);">
+      <div class="modal-header" style="padding: 16px 20px; border-bottom: 1px solid #F3F4F6; display: flex; justify-content: space-between; align-items: center;">
+        <h3 class="modal-title" style="font-size: 15px; font-weight: 700; color: #111827; margin: 0;">تأكيد الإجراء</h3>
+        <button class="modal-close-btn" data-modal-close aria-label="إغلاق" style="background: none; border: none; cursor: pointer; color: #9CA3AF; padding: 4px; display: flex; align-items: center; justify-content: center;">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <div class="modal-body" style="padding: 28px 24px; text-align: center; display: flex; flex-direction: column; align-items: center;">
+        <div style="width: 56px; height: 56px; border-radius: 12px; background: #FEE2E2; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; color: #EF4444;">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+        </div>
+        <h3 style="font-size: 18px; font-weight: 700; color: #111827; margin-bottom: 10px;">حذف القطاع</h3>
+        <p style="font-size: 13.5px; color: #6B7280; line-height: 1.6; max-width: 360px; margin: 0 auto;">هل أنت متأكد من حذف القطاع "الرعاية الصحية"؟ لا يمكن التراجع عن هذا الإجراء.</p>
+      </div>
+      <div class="modal-footer" style="padding: 16px 24px 24px 24px; display: flex; justify-content: center; gap: 12px; border-top: none;">
+        <button type="button" class="btn-modal-cancel" data-modal-close style="min-width: 100px; padding: 10px 24px; font-size: 13.5px; border-radius: 8px; border: 1px solid #D1D5DB; background: #fff; color: #374151; font-weight: 600; cursor: pointer;">إلغاء</button>
+        <button type="button" class="btn-modal-danger" onclick="showToast('تم حذف القطاع بنجاح', 'success'); closeModal();" style="min-width: 100px; padding: 10px 24px; font-size: 13.5px; border-radius: 8px; border: none; background: #EF4444; color: #fff; font-weight: 600; cursor: pointer;">تأكيد</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. Add Sector Modal -->
+  <div class="modal-overlay" id="addSectorModal">
+    <div class="modal-dialog" style="max-width: 580px; border-radius: 16px; background: #fff;">
+      <div class="modal-header" style="padding: 16px 22px; border-bottom: 1px solid #F3F4F6;">
+        <h3 class="modal-title" style="font-size: 16px; font-weight: 700; color: #111827;">اضافة قطاع جديد</h3>
+        <button class="modal-close-btn" data-modal-close aria-label="إغلاق">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <form onsubmit="event.preventDefault(); showToast('تمت إضافة القطاع بنجاح', 'success'); closeModal();">
+        <div class="modal-body" style="padding: 22px 24px;">
+          <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: 20px;">
+            <div style="width: 130px; height: 130px; border-radius: 16px; background: #F3F4F6; border: 1px solid #E5E7EB; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; position: relative;">
+              <svg viewBox="0 0 24 24" width="44" height="44" fill="none" stroke="#9CA3AF" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+              <button type="button" style="background: #1F2937; color: #fff; border: none; border-radius: 6px; padding: 5px 12px; font-size: 11px; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; cursor: pointer;">
+                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                <span>تحميل الصورة</span>
+              </button>
+            </div>
+            <p style="font-size: 10.5px; color: #9CA3AF; margin-top: 8px; text-align: center; line-height: 1.4; max-width: 240px;">
+              يجب أن يكون حجم الصورة أقل من 1 ميجا بايت ويجب أن تكون نسبة الصورة 1:1
+            </p>
+          </div>
+
+          <div class="modal-form-row">
+            <div class="modal-form-group">
+              <label class="modal-label">اسم القطاع ( AR )</label>
+              <input type="text" class="modal-input" placeholder="ادخل الاسم" required>
+            </div>
+            <div class="modal-form-group">
+              <label class="modal-label">اسم القطاع ( EN )</label>
+              <input type="text" class="modal-input" placeholder="ادخل الاسم" required>
+            </div>
+          </div>
+
+          <div class="modal-form-group" style="margin-top: 14px;">
+            <label class="modal-label">الوصف ( AR )</label>
+            <div class="rich-text-box">
+              <textarea placeholder="ادخل النص" style="min-height: 85px;" required></textarea>
+              <div class="rich-text-toolbar">
+                <button type="button">B</button>
+                <button type="button"><i>I</i></button>
+                <button type="button"><u>U</u></button>
+                <button type="button"><s>S</s></button>
+                <button type="button">🔗</button>
+                <button type="button">≡</button>
+                <button type="button">⁝</button>
+                <button type="button">☲</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-form-group" style="margin-top: 14px;">
+            <label class="modal-label">الوصف ( EN )</label>
+            <div class="rich-text-box">
+              <textarea placeholder="ادخل النص" style="min-height: 85px;" required></textarea>
+              <div class="rich-text-toolbar">
+                <button type="button">B</button>
+                <button type="button"><i>I</i></button>
+                <button type="button"><u>U</u></button>
+                <button type="button"><s>S</s></button>
+                <button type="button">🔗</button>
+                <button type="button">≡</button>
+                <button type="button">⁝</button>
+                <button type="button">☲</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer" style="padding: 16px 24px; border-top: 1px solid #F3F4F6; justify-content: flex-start; gap: 12px;">
+          <button type="submit" class="btn-modal-primary" style="padding: 10px 32px; font-weight: 700;">اضافة</button>
+          <button type="button" class="btn-modal-cancel" data-modal-close style="padding: 10px 28px;">الغاء</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 5. Edit Sector Modal -->
+  <div class="modal-overlay" id="editSectorModal">
+    <div class="modal-dialog" style="max-width: 580px; border-radius: 16px; background: #fff;">
+      <div class="modal-header" style="padding: 16px 22px; border-bottom: 1px solid #F3F4F6;">
+        <h3 class="modal-title" style="font-size: 16px; font-weight: 700; color: #111827;">تعديل القطاع</h3>
+        <button class="modal-close-btn" data-modal-close aria-label="إغلاق">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <form onsubmit="event.preventDefault(); showToast('تم حفظ تعديلات القطاع بنجاح', 'success'); closeModal();">
+        <div class="modal-body" style="padding: 22px 24px;">
+          <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: 20px;">
+            <div style="width: 130px; height: 130px; border-radius: 16px; background: #F3F4F6; border: 1px solid #E5E7EB; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; position: relative;">
+              <svg viewBox="0 0 24 24" width="44" height="44" fill="none" stroke="#9CA3AF" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+              <button type="button" style="background: #1F2937; color: #fff; border: none; border-radius: 6px; padding: 5px 12px; font-size: 11px; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; cursor: pointer;">
+                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                <span>تحميل الصورة</span>
+              </button>
+            </div>
+            <p style="font-size: 10.5px; color: #9CA3AF; margin-top: 8px; text-align: center; line-height: 1.4; max-width: 240px;">
+              يجب أن يكون حجم الصورة أقل من 1 ميجا بايت ويجب أن تكون نسبة الصورة 1:1
+            </p>
+          </div>
+
+          <div class="modal-form-row">
+            <div class="modal-form-group">
+              <label class="modal-label">اسم القطاع ( AR )</label>
+              <input type="text" class="modal-input" value="الرعاية الصحية" required>
+            </div>
+            <div class="modal-form-group">
+              <label class="modal-label">اسم القطاع ( EN )</label>
+              <input type="text" class="modal-input" value="Health Care" required>
+            </div>
+          </div>
+
+          <div class="modal-form-group" style="margin-top: 14px;">
+            <label class="modal-label">الوصف ( AR )</label>
+            <div class="rich-text-box">
+              <textarea style="min-height: 85px;" required>هذا النص يمكن أن يستبدل بنص بديل</textarea>
+              <div class="rich-text-toolbar">
+                <button type="button">B</button>
+                <button type="button"><i>I</i></button>
+                <button type="button"><u>U</u></button>
+                <button type="button"><s>S</s></button>
+                <button type="button">🔗</button>
+                <button type="button">≡</button>
+                <button type="button">⁝</button>
+                <button type="button">☲</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-form-group" style="margin-top: 14px;">
+            <label class="modal-label">الوصف ( EN )</label>
+            <div class="rich-text-box">
+              <textarea style="min-height: 85px;" required>This is a placeholder description text for Health Care sector</textarea>
+              <div class="rich-text-toolbar">
+                <button type="button">B</button>
+                <button type="button"><i>I</i></button>
+                <button type="button"><u>U</u></button>
+                <button type="button"><s>S</s></button>
+                <button type="button">🔗</button>
+                <button type="button">≡</button>
+                <button type="button">⁝</button>
+                <button type="button">☲</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer" style="padding: 16px 24px; border-top: 1px solid #F3F4F6; justify-content: flex-start; gap: 12px;">
+          <button type="submit" class="btn-modal-primary" style="padding: 10px 32px; font-weight: 700;">حفظ</button>
+          <button type="button" class="btn-modal-cancel" data-modal-close style="padding: 10px 28px;">الغاء</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 6. View Sector Modal -->
+  <div class="modal-overlay" id="viewSectorModal">
+    <div class="modal-dialog" style="max-width: 540px; border-radius: 16px; background: #fff;">
+      <div class="modal-header" style="padding: 16px 22px; border-bottom: 1px solid #F3F4F6;">
+        <h3 class="modal-title" style="font-size: 16px; font-weight: 700; color: #111827;">عرض القطاع</h3>
+        <button class="modal-close-btn" data-modal-close aria-label="إغلاق">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <div class="modal-body" style="padding: 22px 24px;">
+        <div style="border: 1px solid #EAECF0; border-radius: 12px; padding: 18px; background: #FAFAFA;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+            <span style="font-weight: 700; font-size: 14px; color: #111827;">بيانات القطاع</span>
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#9CA3AF" stroke-width="2"><polyline points="18 15 12 9 6 15"></polyline></svg>
+          </div>
+
+          <div style="display: flex; justify-content: center; margin-bottom: 18px;">
+            <div style="width: 140px; height: 100px; border-radius: 12px; background: #1F2937; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+              <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="#9CA3AF" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+            </div>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 12px; font-size: 13px;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <span style="color: #6B7280; min-width: 90px; font-weight: 600;">الاسم ( AR ) :</span>
+              <span style="color: #111827; font-weight: 700;">الرعاية الصحية</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <span style="color: #6B7280; min-width: 90px; font-weight: 600;">الاسم ( EN ) :</span>
+              <span style="color: #111827; font-weight: 600;">Health Care</span>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: 10px; margin-top: 4px;">
+              <span style="color: #6B7280; min-width: 90px; font-weight: 600; flex-shrink: 0;">الوصف ( AR ) :</span>
+              <span style="color: #374151; line-height: 1.6;">هذا النص يمكن أن يستبدل بنص بديل</span>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: 10px;">
+              <span style="color: #6B7280; min-width: 90px; font-weight: 600; flex-shrink: 0;">الوصف ( EN ) :</span>
+              <span style="color: #374151; line-height: 1.6;">هذا النص يمكن أن يستبدل بنص بديل</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer" style="padding: 16px 24px; border-top: 1px solid #F3F4F6; justify-content: flex-start; gap: 12px;">
+        <button type="button" class="btn-modal-primary" onclick="closeModal(); openModal('editSectorModal');" style="padding: 10px 32px; font-weight: 700;">تعديل</button>
+        <button type="button" class="btn-modal-cancel" data-modal-close style="padding: 10px 28px;">الغاء</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. Add FAQ Modal (Matching Image 1) -->
+  <div class="modal-overlay" id="addFaqModal">
+    <div class="modal-dialog" style="max-width: 580px; border-radius: 16px; background: #fff;">
+      <div class="modal-header" style="padding: 16px 22px; border-bottom: 1px solid #F3F4F6;">
+        <h3 class="modal-title" style="font-size: 16px; font-weight: 700; color: #111827;">اضافة سؤال</h3>
+        <button class="modal-close-btn" data-modal-close aria-label="إغلاق">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <form onsubmit="event.preventDefault(); showToast('تمت إضافة السؤال بنجاح', 'success'); closeModal();">
+        <div class="modal-body" style="padding: 22px 24px;">
+          <div class="modal-form-row">
+            <div class="modal-form-group">
+              <label class="modal-label">السؤال ( AR )</label>
+              <input type="text" class="modal-input" placeholder="ادخل السؤال" required>
+            </div>
+            <div class="modal-form-group">
+              <label class="modal-label">السؤال ( EN )</label>
+              <input type="text" class="modal-input" placeholder="ادخل السؤال" required>
+            </div>
+          </div>
+          <div class="modal-form-group" style="margin-top: 14px;">
+            <label class="modal-label">الاجابة ( AR )</label>
+            <div class="rich-text-box">
+              <textarea placeholder="ادخل النص" style="min-height: 85px;" required></textarea>
+              <div class="rich-text-toolbar">
+                <button type="button">B</button>
+                <button type="button"><i>I</i></button>
+                <button type="button"><u>U</u></button>
+                <button type="button"><s>S</s></button>
+                <button type="button">🔗</button>
+                <button type="button">≡</button>
+                <button type="button">⁝</button>
+                <button type="button">☲</button>
+              </div>
+            </div>
+          </div>
+          <div class="modal-form-group" style="margin-top: 14px;">
+            <label class="modal-label">الاجابة ( EN )</label>
+            <div class="rich-text-box">
+              <textarea placeholder="ادخل النص" style="min-height: 85px;" required></textarea>
+              <div class="rich-text-toolbar">
+                <button type="button">B</button>
+                <button type="button"><i>I</i></button>
+                <button type="button"><u>U</u></button>
+                <button type="button"><s>S</s></button>
+                <button type="button">🔗</button>
+                <button type="button">≡</button>
+                <button type="button">⁝</button>
+                <button type="button">☲</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer" style="padding: 16px 24px; border-top: 1px solid #F3F4F6; justify-content: flex-start; gap: 12px;">
+          <button type="submit" class="btn-modal-primary" style="padding: 10px 32px; font-weight: 700;">اضافة</button>
+          <button type="button" class="btn-modal-cancel" data-modal-close style="padding: 10px 28px;">الغاء</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 8. Edit FAQ Modal (Matching Image 3) -->
+  <div class="modal-overlay" id="editFaqModal">
+    <div class="modal-dialog" style="max-width: 580px; border-radius: 16px; background: #fff;">
+      <div class="modal-header" style="padding: 16px 22px; border-bottom: 1px solid #F3F4F6;">
+        <h3 class="modal-title" style="font-size: 16px; font-weight: 700; color: #111827;">تعديل سؤال</h3>
+        <button class="modal-close-btn" data-modal-close aria-label="إغلاق">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <form onsubmit="event.preventDefault(); showToast('تم حفظ تعديلات السؤال بنجاح', 'success'); closeModal();">
+        <div class="modal-body" style="padding: 22px 24px;">
+          <div class="modal-form-row">
+            <div class="modal-form-group">
+              <label class="modal-label">السؤال ( AR )</label>
+              <input type="text" class="modal-input" placeholder="ادخل السؤال" value="ما هي خدمات AZ Studio ؟" required>
+            </div>
+            <div class="modal-form-group">
+              <label class="modal-label">السؤال ( EN )</label>
+              <input type="text" class="modal-input" placeholder="ادخل السؤال" value="What are AZ Studio services?" required>
+            </div>
+          </div>
+          <div class="modal-form-group" style="margin-top: 14px;">
+            <label class="modal-label">الاجابة ( AR )</label>
+            <div class="rich-text-box">
+              <textarea placeholder="ادخل النص" style="min-height: 85px;" required>هذا النص يمكن أن يستبدل بنص بديل يعبر عن المعنى</textarea>
+              <div class="rich-text-toolbar">
+                <button type="button">B</button>
+                <button type="button"><i>I</i></button>
+                <button type="button"><u>U</u></button>
+                <button type="button"><s>S</s></button>
+                <button type="button">🔗</button>
+                <button type="button">≡</button>
+                <button type="button">⁝</button>
+                <button type="button">☲</button>
+              </div>
+            </div>
+          </div>
+          <div class="modal-form-group" style="margin-top: 14px;">
+            <label class="modal-label">الاجابة ( EN )</label>
+            <div class="rich-text-box">
+              <textarea placeholder="ادخل النص" style="min-height: 85px;" required>This is a replacement text explaining AZ Studio services</textarea>
+              <div class="rich-text-toolbar">
+                <button type="button">B</button>
+                <button type="button"><i>I</i></button>
+                <button type="button"><u>U</u></button>
+                <button type="button"><s>S</s></button>
+                <button type="button">🔗</button>
+                <button type="button">≡</button>
+                <button type="button">⁝</button>
+                <button type="button">☲</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer" style="padding: 16px 24px; border-top: 1px solid #F3F4F6; justify-content: flex-start; gap: 12px;">
+          <button type="submit" class="btn-modal-primary" style="padding: 10px 32px; font-weight: 700;">حفظ</button>
+          <button type="button" class="btn-modal-cancel" data-modal-close style="padding: 10px 28px;">الغاء</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 9. View FAQ Modal (Matching Image 2) -->
+  <div class="modal-overlay" id="viewFaqModal">
+    <div class="modal-dialog" style="max-width: 540px; border-radius: 16px; background: #fff;">
+      <div class="modal-header" style="padding: 16px 22px; border-bottom: 1px solid #F3F4F6;">
+        <h3 class="modal-title" style="font-size: 16px; font-weight: 700; color: #111827;">عرض السؤال</h3>
+        <button class="modal-close-btn" data-modal-close aria-label="إغلاق">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <div class="modal-body" style="padding: 22px 24px;">
+        <div style="border: 1px solid #EAECF0; border-radius: 12px; padding: 18px; background: #FAFAFA;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+            <span style="font-weight: 700; font-size: 14px; color: #111827;">بيانات السؤال</span>
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#9CA3AF" stroke-width="2"><polyline points="18 15 12 9 6 15"></polyline></svg>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 12px; font-size: 13px;">
+            <div style="display: flex; align-items: flex-start; gap: 10px;">
+              <span style="color: #6B7280; min-width: 90px; font-weight: 600; flex-shrink: 0;">السؤال ( AR ) :</span>
+              <span style="color: #111827; font-weight: 700; line-height: 1.5;">هذا النص يمكن أن يستبدل بنص بديل</span>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: 10px;">
+              <span style="color: #6B7280; min-width: 90px; font-weight: 600; flex-shrink: 0;">السؤال ( EN ) :</span>
+              <span style="color: #111827; font-weight: 600; line-height: 1.5;">هذا النص يمكن أن يستبدل بنص بديل</span>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: 10px; margin-top: 4px;">
+              <span style="color: #6B7280; min-width: 90px; font-weight: 600; flex-shrink: 0;">الاجابة ( AR ) :</span>
+              <span style="color: #374151; line-height: 1.6;">هذا النص يمكن أن يستبدل بنص بديل يعبر عن المعني</span>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: 10px;">
+              <span style="color: #6B7280; min-width: 90px; font-weight: 600; flex-shrink: 0;">الاجابة ( EN ) :</span>
+              <span style="color: #374151; line-height: 1.6;">هذا النص يمكن أن يستبدل بنص بديل يعبر عن المعني</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer" style="padding: 16px 24px; border-top: 1px solid #F3F4F6; justify-content: flex-start; gap: 12px;">
+        <button type="button" class="btn-modal-primary" onclick="closeModal(); openModal('editFaqModal');" style="padding: 10px 32px; font-weight: 700;">تعديل</button>
+        <button type="button" class="btn-modal-cancel" data-modal-close style="padding: 10px 28px;">الغاء</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 10. Delete FAQ Modal (Matching Image 4) -->
+  <div class="modal-overlay" id="deleteFaqModal">
+    <div class="modal-dialog" style="max-width: 460px; border-radius: 16px; overflow: hidden; background: #fff; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);">
+      <div class="modal-header" style="padding: 16px 20px; border-bottom: 1px solid #F3F4F6; display: flex; justify-content: space-between; align-items: center;">
+        <h3 class="modal-title" style="font-size: 15px; font-weight: 700; color: #111827; margin: 0;">تأكيد الإجراء</h3>
+        <button class="modal-close-btn" data-modal-close aria-label="إغلاق" style="background: none; border: none; cursor: pointer; color: #9CA3AF; padding: 4px; display: flex; align-items: center; justify-content: center;">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <div class="modal-body" style="padding: 28px 24px; text-align: center; display: flex; flex-direction: column; align-items: center;">
+        <div style="width: 56px; height: 56px; border-radius: 12px; background: #FEE2E2; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; color: #EF4444;">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+        </div>
+        <h3 style="font-size: 18px; font-weight: 700; color: #111827; margin-bottom: 10px;">حذف السؤال</h3>
+        <p style="font-size: 13.5px; color: #6B7280; line-height: 1.6; max-width: 360px; margin: 0 auto;">هل أنت متأكد من حذف السؤال "ما هي خدمات AZ Studio ؟" لا يمكن التراجع عن هذا الإجراء.</p>
+      </div>
+      <div class="modal-footer" style="padding: 16px 24px 24px 24px; display: flex; justify-content: center; gap: 12px; border-top: none;">
+        <button type="button" class="btn-modal-cancel" data-modal-close style="min-width: 100px; padding: 10px 24px; font-size: 13.5px; border-radius: 8px; border: 1px solid #D1D5DB; background: #fff; color: #374151; font-weight: 600; cursor: pointer;">إلغاء</button>
+        <button type="button" class="btn-modal-danger" onclick="showToast('تم حذف السؤال بنجاح', 'success'); closeModal();" style="min-width: 100px; padding: 10px 24px; font-size: 13.5px; border-radius: 8px; border: none; background: #EF4444; color: #fff; font-weight: 600; cursor: pointer;">تأكيد</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 11. Add Output Modal -->
+  <div class="modal-overlay" id="addOutputModal">
+    <div class="modal-dialog" style="max-width: 580px;">
+      <div class="modal-header">
+        <h3 class="modal-title">إضافة مخرج جديد</h3>
+        <button class="modal-close-btn" data-modal-close aria-label="إغلاق">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <form onsubmit="event.preventDefault(); showToast('تمت إضافة المخرج بنجاح', 'success'); closeModal();">
+        <div class="modal-body" style="padding: 20px 24px;">
+          <div class="modal-form-group">
+            <label class="modal-label">القطاع</label>
+            <input type="text" class="modal-input" placeholder="ادخل القطاع (مثل: القطاع الحكومي)" required>
+          </div>
+          <div class="modal-form-group" style="margin-top: 14px;">
+            <label class="modal-label">العنوان</label>
+            <input type="text" class="modal-input" placeholder="ادخل العنوان" required>
+          </div>
+          <div class="modal-form-group" style="margin-top: 14px;">
+            <label class="modal-label">الوصف</label>
+            <textarea class="modal-textarea" placeholder="ادخل الوصف" style="min-height: 80px;" required></textarea>
+          </div>
+        </div>
+        <div class="modal-footer" style="justify-content: flex-start; gap: 10px;">
+          <button type="submit" class="btn-modal-primary">إضافة</button>
+          <button type="button" class="btn-modal-cancel" data-modal-close>إلغاء</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 12. Edit Output Modal -->
+  <div class="modal-overlay" id="editOutputModal">
+    <div class="modal-dialog" style="max-width: 580px;">
+      <div class="modal-header">
+        <h3 class="modal-title">تعديل المخرج</h3>
+        <button class="modal-close-btn" data-modal-close aria-label="إغلاق">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <form onsubmit="event.preventDefault(); showToast('تم حفظ تعديلات المخرج بنجاح', 'success'); closeModal();">
+        <div class="modal-body" style="padding: 20px 24px;">
+          <div class="modal-form-group">
+            <label class="modal-label">القطاع</label>
+            <input type="text" class="modal-input" value="القطاع الحكومي" required>
+          </div>
+          <div class="modal-form-group" style="margin-top: 14px;">
+            <label class="modal-label">العنوان</label>
+            <input type="text" class="modal-input" value="هذا النص يمكن أن يستبدل بنص بديل" required>
+          </div>
+          <div class="modal-form-group" style="margin-top: 14px;">
+            <label class="modal-label">الوصف</label>
+            <textarea class="modal-textarea" style="min-height: 80px;" required>هذا النص يمكن أن يستبدل بنص بديل يعبر عن المعنى</textarea>
+          </div>
+        </div>
+        <div class="modal-footer" style="justify-content: flex-start; gap: 10px;">
+          <button type="submit" class="btn-modal-primary">حفظ</button>
+          <button type="button" class="btn-modal-cancel" data-modal-close>إلغاء</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 13. View Output Modal -->
+  <div class="modal-overlay" id="viewOutputModal">
+    <div class="modal-dialog" style="max-width: 540px;">
+      <div class="modal-header">
+        <h3 class="modal-title">تفاصيل المخرج</h3>
+        <button class="modal-close-btn" data-modal-close aria-label="إغلاق">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <div class="modal-body" style="padding: 20px 24px;">
+        <div class="modal-info-grid" style="grid-template-columns: 1fr; gap: 14px;">
+          <div class="info-item">
+            <span class="info-item-label">القطاع</span>
+            <span class="info-item-val" style="font-weight: 700; color: #111827;">القطاع الحكومي</span>
+          </div>
+          <div class="info-item">
+            <span class="info-item-label">العنوان</span>
+            <span class="info-item-val">هذا النص يمكن أن يستبدل بنص بديل</span>
+          </div>
+          <div class="info-item">
+            <span class="info-item-label">الوصف</span>
+            <span class="info-item-val" style="line-height: 1.6;">هذا النص يمكن أن يستبدل بنص بديل يعبر عن المعنى الكامل للخدمة والمشروع المنفذ للقطاع المعني.</span>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer" style="justify-content: flex-start;">
+        <button type="button" class="btn-modal-cancel" data-modal-close>إغلاق</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 14. Logout Modal -->
+  <div class="modal-overlay" id="logoutModal">
+    <div class="modal-dialog" style="max-width: 440px; text-align: center;">
+      <div class="modal-body" style="padding: 32px 24px 20px 24px; text-align: center;">
+        <div class="delete-icon-wrap">
+          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+        </div>
+        <h3 style="font-size: 18px; font-weight: 700; color: #111827; margin-bottom: 8px;">تسجيل الخروج</h3>
+        <p style="font-size: 13px; color: #6B7280;">هل أنت متأكد من رغبتك في تسجيل الخروج من لوحة تحكم AZ Studio؟</p>
+      </div>
+      <div class="modal-footer" style="justify-content: center; gap: 12px; padding-bottom: 24px;">
+        <button type="button" class="btn-modal-cancel" data-modal-close style="min-width: 110px;">إلغاء</button>
+        <a href="login.html" class="btn-modal-danger" style="min-width: 130px; text-decoration: none; text-align: center;">تأكيد الخروج</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. View Profile Modal (عرض الملف الشخصي - Screenshot 3) -->
+  <div class="modal-overlay" id="viewProfileModal">
+    <div class="modal-dialog" style="max-width: 580px;">
+      <div class="modal-header">
+        <h3 class="modal-title">عرض الملف الشخصي</h3>
+        <button class="modal-close-btn" data-modal-close aria-label="إغلاق">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+
+      <div class="modal-body" style="padding: 20px 24px;">
+        <div class="profile-view-box">
+          <!-- Section Bar -->
+          <div class="profile-section-title-bar">
+            <span>بيانات الملف الشخصي</span>
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"><polyline points="18 15 12 9 6 15"></polyline></svg>
+          </div>
+
+          <!-- Studio Image Center Avatar -->
+          <div class="profile-avatar-banner">
+            <img src="./assets/images/Ellipse 3255.png" alt="Profile Picture" />
+          </div>
+
+          <!-- 2-Column Info Grid matching Screenshot 3 -->
+          <div class="profile-info-two-col">
+            <div class="profile-info-row">
+              <span class="profile-info-label">الاسم :</span>
+              <span class="profile-info-val">محمد السيد</span>
+            </div>
+            <div class="profile-info-row">
+              <span class="profile-info-label">رقم الجوال :</span>
+              <span class="profile-info-val" style="direction: ltr;">112345689</span>
+            </div>
+
+            <div class="profile-info-row">
+              <span class="profile-info-label">رقم الهوية :</span>
+              <span class="profile-info-val">10203050</span>
+            </div>
+            <div class="profile-info-row">
+              <span class="profile-info-label">المسمي الوظيفي :</span>
+              <span class="profile-info-val">مسؤال</span>
+            </div>
+
+            <div class="profile-info-row">
+              <span class="profile-info-label">البريد الالكتروني :</span>
+              <span class="profile-info-val" style="direction: ltr;">moahme@icloud.com</span>
+            </div>
+            <div class="profile-info-row">
+              <span class="profile-info-label">العنوان :</span>
+              <span class="profile-info-val">الرياض حي العليا</span>
+            </div>
+
+            <div class="profile-info-row">
+              <span class="profile-info-label">الرقم الوظيفي :</span>
+              <span class="profile-info-val">123</span>
+            </div>
+            <div class="profile-info-row">
+              <span class="profile-info-label">الصلاحيات :</span>
+              <span class="profile-info-val"><a href="#" style="color: #FDBA33; font-weight: 700; text-decoration: none;">كل الصلاحيات</a></span>
+            </div>
+
+            <div class="profile-info-row">
+              <span class="profile-info-label">الرسالة :</span>
+              <span class="profile-info-val">نص بديل</span>
+            </div>
+            <div class="profile-info-row">
+              <span class="profile-info-label">تاريخ التوظيف :</span>
+              <span class="profile-info-val">20/10/2025</span>
+            </div>
+
+            <div class="profile-info-row" style="grid-column: span 2;">
+              <span class="profile-info-label">الحالة :</span>
+              <span class="profile-info-val" style="color: #10B981; font-weight: 700;">حساب فعال</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer" style="justify-content: flex-start; gap: 10px;">
+        <button type="button" class="btn-modal-primary" data-modal-target="editProfileModal">تعديل</button>
+        <button type="button" class="btn-modal-cancel" data-modal-close>إلغاء</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. Edit Profile Modal (تعديل الملف الشخصي - Screenshot 4) -->
+  <div class="modal-overlay" id="editProfileModal">
+    <div class="modal-dialog" style="max-width: 580px;">
+      <div class="modal-header">
+        <h3 class="modal-title">تعديل الملف الشخصي</h3>
+        <button class="modal-close-btn" data-modal-close aria-label="إغلاق">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+
+      <form id="editProfileForm">
+        <div class="modal-body" style="padding: 20px 24px;">
+          <!-- Upload Image Box matching Screenshot 4 -->
+          <div class="profile-upload-zone">
+            <div class="upload-icon-box">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+            </div>
+            <button type="button" class="btn-upload-pic">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+              <span>تحميل الصورة</span>
+            </button>
+            <p class="upload-helper-text">يجب أن يكون حجم الصورة أقل من 5 ميجا بايت<br>ويجب أن تكون بنسبة 1:1</p>
+          </div>
+
+          <!-- Input Fields 2-Columns matching Screenshot 4 -->
+          <div class="modal-form-row">
+            <div class="modal-form-group">
+              <label class="modal-label">الاسم</label>
+              <input type="text" class="modal-input" placeholder="ادخل الاسم" value="محمد السيد">
+            </div>
+            <div class="modal-form-group">
+              <label class="modal-label">البريد الالكتروني</label>
+              <input type="email" class="modal-input" placeholder="ادخل البريد الالكتروني" value="moahme@icloud.com">
+            </div>
+          </div>
+
+          <div class="modal-form-row" style="margin-top: 10px;">
+            <div class="modal-form-group">
+              <label class="modal-label">رقم الجوال</label>
+              <input type="tel" class="modal-input" placeholder="ادخل الرقم" value="112345689">
+            </div>
+            <div class="modal-form-group">
+              <label class="modal-label">رقم الهوية</label>
+              <input type="text" class="modal-input" placeholder="ادخل الرقم" value="10203050">
+            </div>
+          </div>
+
+          <div class="modal-form-row" style="margin-top: 10px;">
+            <div class="modal-form-group">
+              <label class="modal-label">المسمي الوظيفي</label>
+              <input type="text" class="modal-input" placeholder="ادخل المسمي الوظيفي" value="مسؤال">
+            </div>
+            <div class="modal-form-group">
+              <label class="modal-label">الرقم الوظيفي</label>
+              <input type="text" class="modal-input" placeholder="ادخل الرقم" value="123">
+            </div>
+          </div>
+
+          <div class="modal-form-group" style="margin-top: 10px;">
+            <label class="modal-label">العنوان</label>
+            <input type="text" class="modal-input" placeholder="ادخل العنوان" value="الرياض حي العليا">
+          </div>
+        </div>
+
+        <div class="modal-footer" style="justify-content: flex-start; gap: 10px;">
+          <button type="submit" class="btn-modal-primary">حفظ</button>
+          <button type="button" class="btn-modal-cancel" data-modal-close>إلغاء</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="./js/dashboard.js"></script>
+  <script>
+    // Accordion Toggle function for section cards
+    function toggleSettingsCard(header) {
+      const card = header.closest('.settings-section-card');
+      if (card) {
+        card.classList.toggle('open');
+      }
+    }
+
+    // Dynamic Card Adder for list sections
+    function addSettingDynamicCard(containerId, titlePrefix) {
+      const container = document.getElementById(containerId);
+      if (!container) return;
+      
+      const count = container.querySelectorAll('.setting-dynamic-card').length + 1;
+      const card = document.createElement('div');
+      card.className = 'setting-dynamic-card';
+      card.innerHTML = `
+        <div class="setting-card-head">
+          <span class="setting-card-title">${titlePrefix} رقم ${count}</span>
+          <button type="button" class="btn-card-delete" onclick="removeSettingCard(this)" title="حذف">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+          </button>
+        </div>
+        <div class="modal-form-row">
+          <div class="modal-form-group"><label class="modal-label">العنوان ( AR )</label><input type="text" class="modal-input" placeholder="ادخل العنوان"></div>
+          <div class="modal-form-group"><label class="modal-label">العنوان ( EN )</label><input type="text" class="modal-input" placeholder="ادخل العنوان"></div>
+        </div>
+        <div class="modal-form-row" style="margin-top: 10px;">
+          <div class="modal-form-group"><label class="modal-label">الوصف ( AR )</label><input type="text" class="modal-input" placeholder="ادخل الوصف"></div>
+          <div class="modal-form-group"><label class="modal-label">الوصف ( EN )</label><input type="text" class="modal-input" placeholder="ادخل الوصف"></div>
+        </div>
+      `;
+      container.appendChild(card);
+      showToast('تمت إضافة بطاقة جديدة', 'info');
+    }
+
+    // Remove Dynamic Card
+    function removeSettingCard(btn) {
+      const card = btn.closest('.setting-dynamic-card');
+      if (card) {
+        card.style.transition = 'all 0.25s ease';
+        card.style.opacity = '0';
+        card.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+          card.remove();
+          showToast('تم حذف البطاقة', 'info');
+        }, 250);
+      }
+    }
+  </script>
+</body>
+</html>

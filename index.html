@@ -11,17 +11,18 @@
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
   <!-- Styles -->
+  <link rel="stylesheet" href="./css/tokens.css">
+  <link rel="stylesheet" href="./css/components.css">
   <link rel="stylesheet" href="./css/dashboard.css">
+  <script src="./js/authGuard.js"></script>
 </head>
 <body>
 
-    <!-- =========================================================================
-       SIDEBAR (RIGHT)
-       ========================================================================= -->
+    <!-- SIDEBAR -->
   <aside class="sidebar">
     <!-- Sidebar Close Button (Mobile) -->
     <button type="button" class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="إغلاق القائمة">
-      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      <i data-lucide="x"></i>
     </button>
 
     <!-- Logo Area -->
@@ -31,22 +32,22 @@
 
     <!-- Menu Navigation -->
     <nav class="sidebar-menu">
-      <!-- 1. لوحة التحكم -->
+      <!-- لوحة التحكم -->
       <a href="index.html" class="sidebar-item active">
         <div class="sidebar-item-content">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect></svg>
+          <i data-lucide="layout-grid"></i>
           <span>لوحة التحكم</span>
         </div>
       </a>
 
-      <!-- 2. الطلبات (Accordion Submenu) -->
+      <!-- الطلبات -->
       <div class="sidebar-group ">
         <button type="button" class="sidebar-item sidebar-accordion-toggle ">
           <div class="sidebar-item-content">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+            <i data-lucide="shopping-bag"></i>
             <span>الطلبات</span>
           </div>
-          <svg class="sidebar-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          <i data-lucide="chevron-down" class="sidebar-chevron"></i>
         </button>
         <div class="sidebar-submenu">
           <a href="orders.html" class="sidebar-subitem">طلبات الخدمات</a>
@@ -55,22 +56,22 @@
         </div>
       </div>
 
-      <!-- 3. الخدمات -->
+      <!-- الخدمات -->
       <a href="services.html" class="sidebar-item ">
         <div class="sidebar-item-content">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          <i data-lucide="settings"></i>
           <span>الخدمات</span>
         </div>
       </a>
 
-      <!-- 4. الباقات (Accordion Submenu) -->
+      <!-- الباقات -->
       <div class="sidebar-group ">
         <button type="button" class="sidebar-item sidebar-accordion-toggle ">
           <div class="sidebar-item-content">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+            <i data-lucide="package"></i>
             <span>الباقات</span>
           </div>
-          <svg class="sidebar-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          <i data-lucide="chevron-down" class="sidebar-chevron"></i>
         </button>
         <div class="sidebar-submenu">
           <a href="packages.html?category=social" class="sidebar-subitem">السوشيال ميديا</a>
@@ -80,38 +81,38 @@
         </div>
       </div>
 
-      <!-- 5. المشرفين -->
+      <!-- المشرفين -->
       <a href="supervisors.html" class="sidebar-item ">
         <div class="sidebar-item-content">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          <i data-lucide="users"></i>
           <span>المشرفين</span>
         </div>
       </a>
 
-      <!-- 6. الأدوار -->
+      <!-- الأدوار -->
       <a href="roles.html" class="sidebar-item ">
         <div class="sidebar-item-content">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          <i data-lucide="shield"></i>
           <span>الأدوار</span>
         </div>
       </a>
 
-      <!-- 7. تواصل معانا -->
+      <!-- تواصل معانا -->
       <a href="contact.html" class="sidebar-item ">
         <div class="sidebar-item-content">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          <i data-lucide="phone"></i>
           <span>تواصل معانا</span>
         </div>
       </a>
 
-      <!-- 8. اعدادات الموقع الالكتروني (Accordion Submenu) -->
+      <!-- اعدادات الموقع الالكتروني -->
       <div class="sidebar-group ">
         <button type="button" class="sidebar-item sidebar-accordion-toggle ">
           <div class="sidebar-item-content">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            <i data-lucide="circle"></i>
             <span>اعدادات الموقع الالكتروني</span>
           </div>
-          <svg class="sidebar-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          <i data-lucide="chevron-down" class="sidebar-chevron"></i>
         </button>
         <div class="sidebar-submenu">
           <a href="settings.html?tab=home" class="sidebar-subitem">الصفحة الرئيسية</a>
@@ -131,20 +132,18 @@
     <!-- Logout Button -->
     <button type="button" class="sidebar-logout" data-modal-target="logoutModal" style="border: none; cursor: pointer; width: 100%;">
       <span>تسجيل الخروج</span>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+      <i data-lucide="log-out"></i>
     </button>
   </aside>
 
-  <!-- =========================================================================
-       MAIN CONTENT (LEFT)
-       ========================================================================= -->
+  <!-- MAIN CONTENT -->
   <main class="main-content">
         <!-- Header -->
     <header class="header-bar">
       <!-- Right Side: Hamburger Toggle (Mobile) + Welcome Title -->
       <div class="header-right-side">
         <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="فتح القائمة">
-          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          <i data-lucide="menu"></i>
         </button>
         <div class="header-welcome">
           <h1>مرحبا بك في لوحة التحكم</h1>
@@ -156,13 +155,13 @@
       <div class="header-user-actions">
         <!-- Theme Toggle (Sun / Moon) -->
         <button type="button" class="theme-toggle-btn" id="themeToggleBtn" title="تبديل الوضع الليلي / النهاري" aria-label="تبديل الوضع">
-          <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          <i data-lucide="sun" class="sun-icon"></i>
+          <i data-lucide="moon" class="moon-icon"></i>
         </button>
 
         <!-- Notification Bell -->
         <div class="notif-bell-btn" id="notifBtn" style="cursor: pointer;">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+          <i data-lucide="bell"></i>
         </div>
 
         <!-- User Profile Trigger -->
@@ -172,7 +171,7 @@
             <span class="user-name-text">محمد المعتصم باللة السيد</span>
             <span class="user-email-text">mohamedmoatasembalbol@icloud.com</span>
           </div>
-          <svg class="user-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          <i data-lucide="chevron-down" class="user-chevron"></i>
         </div>
 
         <!-- Floating Notification Dropdown -->
@@ -220,11 +219,11 @@
             </div>
           </div>
           <button type="button" class="user-dropdown-item" data-modal-target="viewProfileModal">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            <i data-lucide="user"></i>
             <span>عرض الملف الشخصي</span>
           </button>
           <button type="button" class="user-dropdown-item logout-item" data-modal-target="logoutModal">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+            <i data-lucide="log-out"></i>
             <span>تسجيل الخروج</span>
           </button>
         </div>
@@ -233,11 +232,11 @@
 
     <!-- 4 KPI Cards (Right to Left in RTL - Matching Image 1:1) -->
     <section class="kpi-row">
-      <!-- Card 1 (Right): اجمالي العملاء -->
+      <!-- Card 1 : اجمالي العملاء -->
       <div class="kpi-card">
         <div class="kpi-card-head">
           <div class="kpi-icon-wrap icon-gold">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            <i data-lucide="user"></i>
           </div>
           <div class="kpi-title-block">
             <span class="kpi-title">اجمالي العملاء</span>
@@ -250,7 +249,7 @@
             <span class="kpi-meta-label">عدد العملاء هذا الشهر</span>
           </div>
           <span class="kpi-badge-green">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            <i data-lucide="arrow-up-right"></i>
             <span>92.8% اعلي من الشهر الماضي</span>
           </span>
         </div>
@@ -260,7 +259,7 @@
       <div class="kpi-card">
         <div class="kpi-card-head">
           <div class="kpi-icon-wrap icon-blue">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h6"></path><path d="M14 2v6h6"></path><path d="M9 13h6"></path><path d="M9 17h3"></path><circle cx="17.5" cy="17.5" r="2.5"></circle><path d="M19.5 19.5L21.5 21.5"></path></svg>
+            <i data-lucide="file-text"></i>
           </div>
           <div class="kpi-title-block">
             <span class="kpi-title">اجمالي الطلبات ( عروض الاسعار + الخدمة )</span>
@@ -273,7 +272,7 @@
             <span class="kpi-meta-label">عدد الطلبات هذا الشهر</span>
           </div>
           <span class="kpi-badge-green">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            <i data-lucide="arrow-up-right"></i>
             <span>92.8% اعلي من الشهر الماضي</span>
           </span>
         </div>
@@ -283,7 +282,7 @@
       <div class="kpi-card">
         <div class="kpi-card-head">
           <div class="kpi-icon-wrap icon-purple">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            <i data-lucide="copy"></i>
           </div>
           <div class="kpi-title-block">
             <span class="kpi-title">اجمالي المخرجات</span>
@@ -296,13 +295,13 @@
             <span class="kpi-meta-label">اجمالي المخرجات هذا الشهر</span>
           </div>
           <span class="kpi-badge-green">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            <i data-lucide="arrow-up-right"></i>
             <span>92.8% اعلي من الشهر الماضي</span>
           </span>
         </div>
       </div>
 
-      <!-- Card 4 (Left): اجمالي عروض الاسعار -->
+      <!-- Card 4 : اجمالي عروض الاسعار -->
       <div class="kpi-card">
         <div class="kpi-card-head">
           <div class="kpi-icon-wrap icon-green">
@@ -319,7 +318,7 @@
             <span class="kpi-meta-label">اجمالي عروض الاسعار هذا الشهر</span>
           </div>
           <span class="kpi-badge-green">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            <i data-lucide="arrow-up-right"></i>
             <span>92.8% اعلي من الشهر الماضي</span>
           </span>
         </div>
@@ -328,18 +327,18 @@
 
     <!-- Middle Section: 2 Charts Row -->
     <section class="charts-row">
-      <!-- Right: معدل انجاز المشاريع (Figma Accurate Stacked Chart with Y-Axis Grid) -->
+      <!-- Right: معدل انجاز المشاريع (
       <div class="chart-card">
         <div class="chart-head" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
           <h3 style="font-size: 14px; font-weight: 700; color: #1E293B; margin: 0;">معدل انجاز المشاريع</h3>
           <button class="card-dropdown-btn" style="background: transparent; border: none; font-size: 11.5px; color: #8F9BB3; display: flex; align-items: center; gap: 4px; cursor: pointer; padding: 2px 4px;">
             <span>هذا الشهر</span>
-            <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#8F9BB3" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            <i data-lucide="chevron-down"></i>
           </button>
         </div>
 
-        <div class="figma-chart-outer">
-          <!-- Y-Axis Scale (Left) -->
+        <div class="
+          <!-- Y-Axis Scale  -->
           <div class="chart-y-axis">
             <span>100</span>
             <span>80</span>
@@ -397,8 +396,8 @@
             <!-- 16 Stacked Column Bars matching Screenshot -->
             <div class="bars-container">
               <!-- Col 1 -->
-              <div class="figma-bar-col">
-                <div class="figma-bar-stack" style="height: 56.5%;">
+              <div class="
+                <div class="
                   <div class="bar-segment-cap"></div>
                   <div class="bar-segment-gold" style="flex: 20;"></div>
                   <div class="bar-segment-khaki" style="flex: 5.5;"></div>
@@ -407,8 +406,8 @@
                 <span class="bar-name-lbl"></span>
               </div>
               <!-- Col 2 -->
-              <div class="figma-bar-col">
-                <div class="figma-bar-stack" style="height: 64.5%;">
+              <div class="
+                <div class="
                   <div class="bar-segment-cap"></div>
                   <div class="bar-segment-gold" style="flex: 20;"></div>
                   <div class="bar-segment-khaki" style="flex: 5.5;"></div>
@@ -417,8 +416,8 @@
                 <span class="bar-name-lbl">اسم</span>
               </div>
               <!-- Col 3 -->
-              <div class="figma-bar-col">
-                <div class="figma-bar-stack" style="height: 76.5%;">
+              <div class="
+                <div class="
                   <div class="bar-segment-cap"></div>
                   <div class="bar-segment-gold" style="flex: 51.5;"></div>
                   <div class="bar-segment-khaki" style="flex: 7;"></div>
@@ -427,8 +426,8 @@
                 <span class="bar-name-lbl"></span>
               </div>
               <!-- Col 4 -->
-              <div class="figma-bar-col">
-                <div class="figma-bar-stack" style="height: 78.5%;">
+              <div class="
+                <div class="
                   <div class="bar-segment-cap"></div>
                   <div class="bar-segment-gold" style="flex: 24.5;"></div>
                   <div class="bar-segment-khaki" style="flex: 7.5;"></div>
@@ -437,8 +436,8 @@
                 <span class="bar-name-lbl">اسم</span>
               </div>
               <!-- Col 5 -->
-              <div class="figma-bar-col">
-                <div class="figma-bar-stack" style="height: 70.5%;">
+              <div class="
+                <div class="
                   <div class="bar-segment-cap"></div>
                   <div class="bar-segment-gold" style="flex: 44.5;"></div>
                   <div class="bar-segment-khaki" style="flex: 6.5;"></div>
@@ -447,8 +446,8 @@
                 <span class="bar-name-lbl"></span>
               </div>
               <!-- Col 6 -->
-              <div class="figma-bar-col">
-                <div class="figma-bar-stack" style="height: 37.5%;">
+              <div class="
+                <div class="
                   <div class="bar-segment-cap"></div>
                   <div class="bar-segment-gold" style="flex: 29.5;"></div>
                   <div class="bar-segment-khaki" style="flex: 3.5;"></div>
@@ -457,8 +456,8 @@
                 <span class="bar-name-lbl"></span>
               </div>
               <!-- Col 7 -->
-              <div class="figma-bar-col">
-                <div class="figma-bar-stack" style="height: 56.5%;">
+              <div class="
+                <div class="
                   <div class="bar-segment-cap"></div>
                   <div class="bar-segment-gold" style="flex: 21.5;"></div>
                   <div class="bar-segment-slate" style="flex: 33;"></div>
@@ -466,8 +465,8 @@
                 <span class="bar-name-lbl">اسم</span>
               </div>
               <!-- Col 8 -->
-              <div class="figma-bar-col">
-                <div class="figma-bar-stack" style="height: 64.5%;">
+              <div class="
+                <div class="
                   <div class="bar-segment-cap"></div>
                   <div class="bar-segment-gold" style="flex: 18.5;"></div>
                   <div class="bar-segment-khaki" style="flex: 25.5;"></div>
@@ -476,8 +475,8 @@
                 <span class="bar-name-lbl"></span>
               </div>
               <!-- Col 9 -->
-              <div class="figma-bar-col">
-                <div class="figma-bar-stack" style="height: 76.5%;">
+              <div class="
+                <div class="
                   <div class="bar-segment-cap"></div>
                   <div class="bar-segment-gold" style="flex: 54;"></div>
                   <div class="bar-segment-khaki" style="flex: 7;"></div>
@@ -486,8 +485,8 @@
                 <span class="bar-name-lbl"></span>
               </div>
               <!-- Col 10 -->
-              <div class="figma-bar-col">
-                <div class="figma-bar-stack" style="height: 78.5%;">
+              <div class="
+                <div class="
                   <div class="bar-segment-cap"></div>
                   <div class="bar-segment-gold" style="flex: 36;"></div>
                   <div class="bar-segment-khaki" style="flex: 7.5;"></div>
@@ -496,8 +495,8 @@
                 <span class="bar-name-lbl">اسم</span>
               </div>
               <!-- Col 11 -->
-              <div class="figma-bar-col">
-                <div class="figma-bar-stack" style="height: 70.5%;">
+              <div class="
+                <div class="
                   <div class="bar-segment-cap"></div>
                   <div class="bar-segment-gold" style="flex: 45.5;"></div>
                   <div class="bar-segment-khaki" style="flex: 6.5;"></div>
@@ -506,8 +505,8 @@
                 <span class="bar-name-lbl"></span>
               </div>
               <!-- Col 12 -->
-              <div class="figma-bar-col">
-                <div class="figma-bar-stack" style="height: 37.5%;">
+              <div class="
+                <div class="
                   <div class="bar-segment-cap"></div>
                   <div class="bar-segment-gold" style="flex: 28;"></div>
                   <div class="bar-segment-khaki" style="flex: 3.5;"></div>
@@ -516,8 +515,8 @@
                 <span class="bar-name-lbl"></span>
               </div>
               <!-- Col 13 -->
-              <div class="figma-bar-col">
-                <div class="figma-bar-stack" style="height: 37.5%;">
+              <div class="
+                <div class="
                   <div class="bar-segment-cap"></div>
                   <div class="bar-segment-gold" style="flex: 29.5;"></div>
                   <div class="bar-segment-khaki" style="flex: 3.5;"></div>
@@ -526,8 +525,8 @@
                 <span class="bar-name-lbl">اسم</span>
               </div>
               <!-- Col 14 -->
-              <div class="figma-bar-col">
-                <div class="figma-bar-stack" style="height: 56.5%;">
+              <div class="
+                <div class="
                   <div class="bar-segment-cap"></div>
                   <div class="bar-segment-gold" style="flex: 16;"></div>
                   <div class="bar-segment-khaki" style="flex: 5.5;"></div>
@@ -536,8 +535,8 @@
                 <span class="bar-name-lbl"></span>
               </div>
               <!-- Col 15 -->
-              <div class="figma-bar-col">
-                <div class="figma-bar-stack" style="height: 64.5%;">
+              <div class="
+                <div class="
                   <div class="bar-segment-cap"></div>
                   <div class="bar-segment-gold" style="flex: 18.5;"></div>
                   <div class="bar-segment-khaki" style="flex: 25.5;"></div>
@@ -546,8 +545,8 @@
                 <span class="bar-name-lbl"></span>
               </div>
               <!-- Col 16 -->
-              <div class="figma-bar-col">
-                <div class="figma-bar-stack" style="height: 76.5%;">
+              <div class="
+                <div class="
                   <div class="bar-segment-cap"></div>
                   <div class="bar-segment-gold" style="flex: 54;"></div>
                   <div class="bar-segment-khaki" style="flex: 7;"></div>
@@ -584,7 +583,7 @@
           <h3 style="font-size: 14px; font-weight: 700; color: #111827; margin: 0;">المشاريع المنفذة</h3>
           <button type="button" class="card-dropdown-btn" style="display: flex; align-items: center; gap: 6px; font-size: 11.5px; color: #6B7280; background: #FFFFFF; border: 1px solid #E5E7EB; padding: 4px 10px; border-radius: 6px; cursor: pointer;">
             <span>شهر</span>
-            <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            <i data-lucide="chevron-down"></i>
           </button>
         </div>
 
@@ -677,12 +676,12 @@
         <h2>الطلبات</h2>
         <button class="card-dropdown-btn">
           <span>اليوم</span>
-          <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          <i data-lucide="chevron-down"></i>
         </button>
       </div>
 
       <div class="table-responsive-box">
-        <table class="figma-table">
+        <table class="
           <thead>
             <tr>
               <th>رقم الطلب</th>
@@ -712,17 +711,17 @@
               <td>3000 ر.س</td>
               <td>
                 <span class="pill-review">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                  <i data-lucide="clock"></i>
                   <span>قيد المراجعة</span>
                 </span>
               </td>
               <td>
                 <div style="display: flex; gap: 6px; align-items: center;">
                   <button class="btn-table-del" data-modal-target="deleteModal" aria-label="حذف">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                    <i data-lucide="trash-2"></i>
                   </button>
                   <button class="btn-table-eye" data-modal-target="viewOrderModal" aria-label="عرض">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    <i data-lucide="eye"></i>
                   </button>
                 </div>
               </td>
@@ -741,17 +740,17 @@
               <td>لم يحدد بعد</td>
               <td>
                 <span class="pill-review">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                  <i data-lucide="clock"></i>
                   <span>قيد المراجعة</span>
                 </span>
               </td>
               <td>
                 <div style="display: flex; gap: 6px; align-items: center;">
                   <button class="btn-table-del" data-modal-target="deleteModal" aria-label="حذف">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                    <i data-lucide="trash-2"></i>
                   </button>
                   <button class="btn-table-eye" data-modal-target="viewOrderModal" aria-label="عرض">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    <i data-lucide="eye"></i>
                   </button>
                 </div>
               </td>
@@ -770,17 +769,17 @@
               <td>3000 ر.س</td>
               <td>
                 <span class="pill-review">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                  <i data-lucide="clock"></i>
                   <span>قيد المراجعة</span>
                 </span>
               </td>
               <td>
                 <div style="display: flex; gap: 6px; align-items: center;">
                   <button class="btn-table-del" data-modal-target="deleteModal" aria-label="حذف">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                    <i data-lucide="trash-2"></i>
                   </button>
                   <button class="btn-table-eye" data-modal-target="viewOrderModal" aria-label="عرض">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    <i data-lucide="eye"></i>
                   </button>
                 </div>
               </td>
@@ -799,17 +798,17 @@
               <td>لم يحدد بعد</td>
               <td>
                 <span class="pill-review">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                  <i data-lucide="clock"></i>
                   <span>قيد المراجعة</span>
                 </span>
               </td>
               <td>
                 <div style="display: flex; gap: 6px; align-items: center;">
                   <button class="btn-table-del" data-modal-target="deleteModal" aria-label="حذف">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                    <i data-lucide="trash-2"></i>
                   </button>
                   <button class="btn-table-eye" data-modal-target="viewOrderModal" aria-label="عرض">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    <i data-lucide="eye"></i>
                   </button>
                 </div>
               </td>
@@ -820,17 +819,15 @@
     </section>
   </main>
 
-  <!-- =========================================================================
-       MODALS SYSTEM (Exact matching Screenshots 3, 4, 5)
-       ========================================================================= -->
+  <!-- MODALS SYSTEM  3, 4, 5) -->
 
-  <!-- 1. View Profile Modal (عرض الملف الشخصي - Screenshot 3) -->
+  <!-- View Profile Modal (عرض الملف الشخصي -->
   <div class="modal-overlay" id="viewProfileModal">
     <div class="modal-dialog" style="max-width: 580px;">
       <div class="modal-header">
         <h3 class="modal-title">عرض الملف الشخصي</h3>
         <button class="modal-close-btn" data-modal-close aria-label="إغلاق">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          <i data-lucide="x"></i>
         </button>
       </div>
 
@@ -839,7 +836,7 @@
           <!-- Section Bar -->
           <div class="profile-section-title-bar">
             <span>بيانات الملف الشخصي</span>
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"><polyline points="18 15 12 9 6 15"></polyline></svg>
+            <i data-lucide="chevron-up"></i>
           </div>
 
           <!-- Studio Image Center Avatar -->
@@ -847,7 +844,7 @@
             <img src="./assets/images/Ellipse 3255.png" alt="Profile Picture" />
           </div>
 
-          <!-- 2-Column Info Grid matching Screenshot 3 -->
+          <!-- 2-Column Info Grid matching -->
           <div class="profile-info-two-col">
             <div class="profile-info-row">
               <span class="profile-info-label">الاسم :</span>
@@ -909,31 +906,31 @@
     </div>
   </div>
 
-  <!-- 2. Edit Profile Modal (تعديل الملف الشخصي - Screenshot 4) -->
+  <!-- Edit Profile Modal (تعديل الملف الشخصي -->
   <div class="modal-overlay" id="editProfileModal">
     <div class="modal-dialog" style="max-width: 580px;">
       <div class="modal-header">
         <h3 class="modal-title">تعديل الملف الشخصي</h3>
         <button class="modal-close-btn" data-modal-close aria-label="إغلاق">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          <i data-lucide="x"></i>
         </button>
       </div>
 
       <form id="editProfileForm">
         <div class="modal-body" style="padding: 20px 24px;">
-          <!-- Upload Image Box matching Screenshot 4 -->
+          <!-- Upload Image Box matching -->
           <div class="profile-upload-zone">
             <div class="upload-icon-box">
-              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+              <i data-lucide="image"></i>
             </div>
             <button type="button" class="btn-upload-pic">
-              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+              <i data-lucide="download"></i>
               <span>تحميل الصورة</span>
             </button>
             <p class="upload-helper-text">يجب أن يكون حجم الصورة أقل من 5 ميجا بايت<br>ويجب أن تكون بنسبة 1:1</p>
           </div>
 
-          <!-- Input Fields 2-Columns matching Screenshot 4 -->
+          <!-- Input Fields 2-Columns matching -->
           <div class="modal-form-row">
             <div class="modal-form-group">
               <label class="modal-label">الاسم</label>
@@ -981,13 +978,13 @@
     </div>
   </div>
 
-  <!-- 3. Change Password Modal (تعديل كلمة المرور - Screenshot 5) -->
+  <!-- Change Password Modal (تعديل كلمة المرور -->
   <div class="modal-overlay" id="changePasswordModal">
     <div class="modal-dialog" style="max-width: 460px;">
       <div class="modal-header">
         <h3 class="modal-title">تعديل كلمة المرور</h3>
         <button class="modal-close-btn" data-modal-close aria-label="إغلاق">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          <i data-lucide="x"></i>
         </button>
       </div>
 
@@ -998,7 +995,7 @@
             <div class="modal-input-eye-wrap">
               <input type="password" class="modal-input" id="currPassInput" placeholder="ادخل كلمة المرور الحالية" required>
               <button type="button" class="eye-btn" onclick="toggleInputPass('currPassInput')">
-                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                <i data-lucide="eye"></i>
               </button>
             </div>
           </div>
@@ -1008,7 +1005,7 @@
             <div class="modal-input-eye-wrap">
               <input type="password" class="modal-input" id="newPass1Input" placeholder="ادخل كلمة المرور الجديدة" required>
               <button type="button" class="eye-btn" onclick="toggleInputPass('newPass1Input')">
-                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                <i data-lucide="eye"></i>
               </button>
             </div>
           </div>
@@ -1018,7 +1015,7 @@
             <div class="modal-input-eye-wrap">
               <input type="password" class="modal-input" id="newPass2Input" placeholder="ادخل كلمة المرور الجديدة" required>
               <button type="button" class="eye-btn" onclick="toggleInputPass('newPass2Input')">
-                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                <i data-lucide="eye"></i>
               </button>
             </div>
           </div>
@@ -1029,12 +1026,12 @@
     </div>
   </div>
 
-  <!-- 4. Universal Delete Modal -->
+  <!-- Universal Delete Modal -->
   <div class="modal-overlay" id="deleteModal">
     <div class="modal-dialog" style="max-width: 440px; text-align: center;">
       <div class="modal-body" style="padding: 32px 24px 20px 24px; text-align: center;">
         <div class="delete-icon-wrap">
-          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+          <i data-lucide="trash-2"></i>
         </div>
         <h3 style="font-size: 18px; font-weight: 700; color: #111827; margin-bottom: 8px;">تأكيد الحذف</h3>
         <p style="font-size: 13px; color: #6B7280; line-height: 1.6;">هل أنت متأكد من رغبتك في حذف <strong class="delete-item-name">هذا العنصر</strong>؟ لن تتمكن من التراجع عن هذه الخطوة.</p>
@@ -1046,13 +1043,13 @@
     </div>
   </div>
 
-  <!-- 5. View Order / Quotation Modal -->
+  <!-- View Order / Quotation Modal -->
   <div class="modal-overlay" id="viewOrderModal">
     <div class="modal-dialog modal-dialog-lg">
       <div class="modal-header">
         <h3 class="modal-title">تفاصيل الطلب وإنشاء عرض السعر</h3>
         <button class="modal-close-btn" data-modal-close aria-label="إغلاق">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          <i data-lucide="x"></i>
         </button>
       </div>
 
@@ -1122,18 +1119,18 @@
     </div>
   </div>
 
-  <!-- 6. Logout Modal (Matching Figma Screenshot 2) -->
+  <!-- Logout Modal (Matching -->
   <div class="modal-overlay" id="logoutModal">
     <div class="modal-dialog" style="max-width: 420px; text-align: center;">
       <div class="modal-header">
         <h3 class="modal-title">تسجيل الخروج</h3>
         <button class="modal-close-btn" data-modal-close aria-label="إغلاق">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          <i data-lucide="x"></i>
         </button>
       </div>
       <div class="modal-body" style="padding: 28px 24px 20px 24px; text-align: center;">
         <div class="logout-icon-gold-circle">
-          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+          <i data-lucide="log-out"></i>
         </div>
         <h3 style="font-size: 16px; font-weight: 700; color: #111827; margin-bottom: 6px;">تسجيل الخروج</h3>
         <p style="font-size: 12.5px; color: #6B7280; line-height: 1.5;">هل أنت متأكد أنك تريد تسجيل الخروج من حسابك؟</p>
@@ -1146,6 +1143,7 @@
   </div>
 
   <!-- JavaScript -->
+    <script src="./js/lucide.min.js"></script>
   <script src="./js/dashboard.js"></script>
   <script>
     function toggleInputPass(id) {

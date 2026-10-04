@@ -1,0 +1,548 @@
+@import url("./style.css");
+
+/* SERVICE DETAIL PAGE */
+
+/* ── content wrapper (constraints width only) ── */
+.sd-wrap {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+@media (max-width: 767px)  { .sd-wrap { padding: 0 16px; } }
+
+/* ══════════════════════════════════════════════════
+   MAIN  — ambient glow + grid behind hero
+══════════════════════════════════════════════════ */
+.sd-main {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  width: 100%;
+}
+
+/* ══════════════════════════════════════════════════
+   BREADCRUMB
+══════════════════════════════════════════════════ */
+.sd-bc {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 40px 0 0;
+  direction: rtl;
+}
+
+.sd-bc-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 34px;
+  padding: 0 18px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 13px;
+  font-weight: 400;
+  white-space: nowrap;
+  transition: color .2s;
+}
+.sd-bc-pill:hover { color: #fff; }
+
+.sd-bc-pill.active {
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.07);
+  color: #fff;
+}
+
+.sd-bc-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 50%;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+/* ══════════════════════════════════════════════════
+   HERO
+══════════════════════════════════════════════════ */
+.sd-hero {
+  /* full-width section, no extra background  */
+  padding: 32px 0 24px;
+  text-align: center;
+}
+
+.sd-hero-title {
+  margin: 0 auto 14px;
+  max-width: 840px;
+  font-size: clamp(26px, 3.6vw, 42px);
+  font-weight: 700;
+  line-height: 1.38;
+  color: #fff;
+}
+.sd-hero-title .acc { color: var(--primary); }
+
+.sd-hero-lead {
+  margin: 0 auto;
+  max-width: 800px;
+  font-size: 13px;
+  line-height: 26px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* ══════════════════════════════════════════════════
+   ABOUT + BENEFITS   (same section, no bg)
+══════════════════════════════════════════════════ */
+.sd-about {
+  padding: 52px 0 56px;
+  direction: rtl;
+  text-align: right;
+}
+
+.sd-about-title {
+  margin: 0 0 8px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+}
+.sd-about-title .acc { color: var(--primary); }
+
+.sd-about-lead {
+  margin: 0 0 36px;
+  font-size: 13px;
+  line-height: 26px;
+  color: rgba(255, 255, 255, 0.5);
+  max-width: 820px;
+}
+
+/* Benefits title */
+.sd-benefits-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  text-align: right;
+  margin: 0 0 18px;
+}
+
+/* 3-column benefits grid */
+.sd-benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.sd-benefit-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 17px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 14px;
+  background: rgba(13, 13, 13, 0.85);
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  text-align: right;
+  direction: rtl;
+  transition: border-color .2s;
+}
+.sd-benefit-card:hover { border-color: rgba(253, 186, 51, 0.3); }
+
+/* text on right (RTL start), icon on left */
+.sd-benefit-text { flex: 1; }
+
+.sd-benefit-icon {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(253, 186, 51, 0.14);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sd-benefit-icon svg {
+  width: 13px; height: 13px;
+  stroke: var(--primary); fill: none;
+  stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round;
+}
+
+/* ══════════════════════════════════════════════════
+   PROCESS  (slightly darker full-width bg)
+══════════════════════════════════════════════════ */
+.sd-process {
+  width: 100%;
+  padding: 56px 0;
+  background: #050505;    /* full-width dark bg */
+  direction: rtl;
+}
+
+.sd-process-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  text-align: right;
+  margin: 0 0 22px;
+}
+
+.sd-process-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.sd-process-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 26px 28px;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 18px;
+  background: rgba(10, 10, 10, 0.9);
+  transition: border-color .2s;
+}
+.sd-process-card:hover { border-color: rgba(253, 186, 51, 0.2); }
+
+.sd-process-body { flex: 1; text-align: right; }
+.sd-process-body h4 {
+  margin: 0 0 8px;
+  font-size: 17px; font-weight: 700; color: #fff;
+}
+.sd-process-body p {
+  margin: 0;
+  font-size: 13px; line-height: 22px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* Number badge — appears on LEFT (last child in RTL flex) */
+.sd-process-num {
+  flex-shrink: 0;
+  width: 42px; height: 42px;
+  border-radius: 10px;
+  background: rgba(253, 186, 51, 0.15);
+  color: var(--primary);
+  font-size: 20px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* ══════════════════════════════════════════════════
+   DELIVERABLES  (no bg change)
+══════════════════════════════════════════════════ */
+.sd-deliv {
+  padding: 56px 0;
+  direction: rtl;
+}
+
+.sd-deliv-title {
+  font-size: 20px; font-weight: 700; color: #fff;
+  text-align: right; margin: 0 0 18px;
+}
+
+.sd-deliv-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: nowrap;     /* force single row to match design */
+}
+
+.sd-deliv-chip {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 18px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 14px;
+  background: rgba(13, 13, 13, 0.85);
+  font-size: 14px; font-weight: 500; color: #fff;
+  direction: rtl;
+  transition: border-color .2s;
+}
+.sd-deliv-chip:hover { border-color: rgba(253, 186, 51, 0.3); }
+
+.sd-deliv-icon {
+  flex-shrink: 0;
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: rgba(253, 186, 51, 0.14);
+  display: flex; align-items: center; justify-content: center;
+}
+.sd-deliv-icon svg {
+  width: 13px; height: 13px;
+  stroke: var(--primary); fill: none;
+  stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round;
+}
+
+/* ══════════════════════════════════════════════════
+   QUOTE FORM  (full-width black bg)
+══════════════════════════════════════════════════ */
+.sd-quote {
+  width: 100%;
+  padding: 64px 0 80px;
+  background: #000;
+  direction: rtl;
+}
+
+.sd-quote-header {
+  text-align: right;
+  margin-bottom: 36px;
+}
+.sd-quote-header h2 {
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 700; color: #fff; margin: 0 0 8px;
+}
+.sd-quote-header h2 .acc { color: var(--primary); }
+.sd-quote-header p {
+  font-size: 13px; line-height: 24px;
+  color: rgba(255, 255, 255, 0.45); margin: 0;
+}
+
+/* Two-column: info cards LEFT | form RIGHT
+   Use direction:ltr on the grid so col-1 = physical left */
+.sd-quote-body {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 20px;
+  align-items: start;
+  direction: ltr;
+}
+
+/* ── INFO CARDS column ── */
+.sd-info-col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  direction: rtl;
+}
+
+.sd-info-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 4px;
+  padding: 22px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 16px;
+  background: rgba(11, 11, 11, 0.95);
+  transition: border-color .2s;
+}
+.sd-info-card:hover { border-color: rgba(253, 186, 51, 0.2); }
+
+.sd-info-icon {
+  font-size: 28px;
+  color: var(--primary);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.sd-info-card h4 {
+  margin: 0 0 4px;
+  font-size: 15px; font-weight: 700; color: #fff;
+}
+.sd-info-card p {
+  margin: 0;
+  font-size: 12px; line-height: 20px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* ── FORM column ── */
+.sd-form-col { direction: rtl; }
+
+/* The form floats on the dark bg — NO card box, just fields */
+.sd-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.sd-fld {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.sd-fld.full { grid-column: 1 / -1; }
+
+.sd-fld label {
+  font-size: 12px; font-weight: 500;
+  color: rgba(255, 255, 255, 0.65);
+  text-align: right;
+}
+.sd-fld label .req { color: var(--primary); margin-right: 2px; }
+
+.sd-fld input,
+.sd-fld textarea {
+  width: 100%;
+  padding: 11px 14px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  color: #fff;
+  font-family: inherit;
+  font-size: 13px;
+  text-align: right;
+  direction: rtl;
+  outline: none;
+  transition: border-color .2s, background .2s;
+}
+.sd-fld input::placeholder,
+.sd-fld textarea::placeholder { color: rgba(255, 255, 255, 0.25); }
+
+.sd-fld input:focus,
+.sd-fld textarea:focus {
+  border-color: rgba(253, 186, 51, 0.5);
+  background: rgba(253, 186, 51, 0.03);
+}
+
+.sd-fld textarea {
+  resize: vertical;
+  min-height: 155px;
+}
+
+.sd-submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  height: 50px;
+  margin-top: 16px;
+  border: none;
+  border-radius: 10px;
+  background: var(--primary);
+  color: #131313;
+  font-family: inherit;
+  font-size: 15px; font-weight: 700;
+  cursor: pointer;
+  transition: filter .2s, transform .15s;
+}
+.sd-submit:hover { filter: brightness(1.08); transform: translateY(-1px); }
+
+.sd-form-note {
+  margin-top: 12px;
+  text-align: center;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.28);
+}
+
+/* ══════════════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════════════ */
+@media (max-width: 991px) {
+  .sd-benefits-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .sd-quote-body {
+    grid-template-columns: 1fr;
+    direction: rtl;
+  }
+  .sd-info-col { flex-direction: row; flex-wrap: wrap; }
+  .sd-info-card { flex: 1 1 140px; }
+}
+
+@media (max-width: 767px) {
+  .sd-wrap { padding: 0 18px !important; }
+  
+  /* Uniform section spacing */
+  .sd-hero {
+    padding: 36px 0 24px !important;
+    text-align: center;
+  }
+
+  .sd-about,
+  .sd-process,
+  .sd-deliv,
+  .sd-quote {
+    padding: 42px 0 !important;
+  }
+
+  .sd-hero-title {
+    font-size: 24px !important;
+    line-height: 1.4 !important;
+    text-align: center !important;
+  }
+
+  .sd-hero-lead {
+    font-size: 13.5px !important;
+    line-height: 24px !important;
+    text-align: center !important;
+  }
+
+  .sd-about-title,
+  .sd-about-lead,
+  .sd-benefits-title {
+    text-align: center !important;
+  }
+
+  .sd-benefits-grid { grid-template-columns: 1fr !important; gap: 14px !important; }
+  .sd-benefits-card { padding: 22px 18px !important; border-radius: 18px !important; }
+
+  .sd-process-grid  { grid-template-columns: 1fr !important; gap: 14px !important; }
+  .sd-process-card  { padding: 20px 18px !important; border-radius: 16px !important; }
+  .sd-process-title { text-align: center !important; margin-bottom: 24px !important; }
+
+  .sd-deliv-title   { text-align: center !important; margin-bottom: 20px !important; }
+  .sd-deliv-row     { flex-direction: column !important; gap: 10px !important; }
+  
+  /* RTL Deliverables: [✓] icon strictly on the RIGHT side of text */
+  .sd-deliv-chip    {
+    width: 100% !important;
+    flex: 1 1 100% !important;
+    display: flex !important;
+    flex-direction: row-reverse !important;
+    justify-content: flex-end !important;
+    align-items: center !important;
+    gap: 12px !important;
+    text-align: right !important;
+    direction: rtl !important;
+    padding: 14px 18px !important;
+    border-radius: 14px !important;
+  }
+
+  .sd-quote-header {
+    text-align: center !important;
+    margin-bottom: 28px !important;
+  }
+  .sd-quote-header h2,
+  .sd-quote-header p {
+    text-align: center !important;
+  }
+
+  .sd-form-row { grid-template-columns: 1fr !important; gap: 12px !important; }
+  .sd-info-col { flex-direction: column !important; gap: 12px !important; }
+  .sd-info-card { padding: 18px 16px !important; }
+
+  .sd-fld input,
+  .sd-fld textarea {
+    font-size: 14px !important;
+  }
+
+  .sd-submit {
+    height: 48px !important;
+    font-size: 15px !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .sd-wrap { padding: 0 14px !important; }
+  .sd-hero-title { font-size: 20px !important; }
+  .sd-benefits-card,
+  .sd-process-card,
+  .sd-deliv-chip {
+    padding: 16px 14px !important;
+  }
+}
+
+.sd-info-icon img {
+  width: 22px;
+  height: 22px;
+  display: block;
+  object-fit: contain;
+}

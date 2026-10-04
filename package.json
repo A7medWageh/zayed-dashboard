@@ -1,0 +1,33 @@
+{
+  "name": "zayed-dashboard",
+  "version": "2.0.0",
+  "private": true,
+  "description": "AZ Studio - Luxury Arabic Enterprise Admin Dashboard",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --ext .js",
+    "lint:fix": "eslint . --ext .js --fix",
+    "format": "prettier --write \"**/*.{html,css,js,json}\"",
+    "format:check": "prettier --check \"**/*.{html,css,js,json}\"",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "keywords": [
+    "dashboard",
+    "admin",
+    "rtl",
+    "arabic",
+    "luxury-ui",
+    "production-ready"
+  ],
+  "author": "AZ Studio Engineering",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "prettier": "^3.2.5",
+    "vite": "^5.2.0",
+    "vitest": "^1.4.0"
+  }
+}

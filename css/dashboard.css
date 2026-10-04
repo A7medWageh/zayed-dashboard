@@ -1,7 +1,4 @@
-/* ==========================================================================
-   AZ STUDIO - DASHBOARD FIGMA ACCURATE STYLES
-   Exact 1-to-1 visual replica matching Figma Node 1-3
-   ========================================================================== */
+/* AZ STUDIO - DASHBOARD */
 
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap');
 
@@ -37,9 +34,7 @@
   padding: 0;
 }
 
-/* ==========================================================================
-   PREMIUM CUSTOM SCROLLBAR SYSTEM (Vertical & Horizontal - Universal)
-   ========================================================================== */
+/* PREMIUM CUSTOM SCROLLBAR SYSTEM (Vertical & Horizontal - Universal) */
 * {
   scrollbar-width: thin;
   scrollbar-color: #CBD5E1 transparent;
@@ -137,9 +132,7 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
-/* ==========================================================================
-   Universal Right Alignment for Arabic RTL (Titles, Text, Labels, Inputs)
-   ========================================================================== */
+/* Universal Right Alignment for Arabic RTL (Titles, Text, Labels, Inputs) */
 h1, h2, h3, h4, h5, h6,
 .header-welcome,
 .header-welcome h1,
@@ -199,9 +192,7 @@ p, label, input, textarea, select {
   width: 100%;
 }
 
-/* ==========================================================================
-   SILKY SMOOTH STAGGERED ENTRANCE ANIMATIONS (Right & Left Slide-In)
-   ========================================================================== */
+/* SILKY SMOOTH STAGGERED ENTRANCE ANIMATIONS (Right & Left Slide-In) */
 @keyframes animSlideRight {
   from {
     opacity: 0;
@@ -288,9 +279,7 @@ p, label, input, textarea, select {
   }
 }
 
-/* ==========================================================================
-   SIDEBAR (RIGHT) - PREMIUM DESIGN WITH SLEEK CUSTOM SCROLLBAR
-   ========================================================================== */
+/* SIDEBAR (RIGHT) - PREMIUM DESIGN WITH SLEEK CUSTOM SCROLLBAR */
 .sidebar {
   width: 240px;
   background: #FFFFFF;
@@ -427,7 +416,7 @@ p, label, input, textarea, select {
   color: #111827;
 }
 
-/* Sidebar Submenu matching Figma */
+/* Sidebar Submenu matching 
 .sidebar-group {
   display: flex;
   flex-direction: column;
@@ -773,9 +762,7 @@ p, label, input, textarea, select {
   stroke: #EF4444;
 }
 
-/* ==========================================================================
-   MAIN CONTENT WRAPPER (LEFT OF SIDEBAR)
-   ========================================================================== */
+/* MAIN CONTENT WRAPPER (LEFT OF SIDEBAR) */
 .main-content {
   flex: 1;
   margin-right: 240px;
@@ -785,9 +772,7 @@ p, label, input, textarea, select {
   gap: 20px;
 }
 
-/* ==========================================================================
-   HEADER
-   ========================================================================== */
+/* HEADER */
 .header-bar {
   display: flex;
   align-items: center;
@@ -891,9 +876,7 @@ p, label, input, textarea, select {
   color: var(--text-muted);
 }
 
-/* ==========================================================================
-   KPI STAT CARDS GRID (4 CARDS)
-   ========================================================================== */
+/* KPI STAT CARDS GRID (4 CARDS) */
 .kpi-row {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -1051,9 +1034,7 @@ p, label, input, textarea, select {
   flex-shrink: 0;
 }
 
-/* ==========================================================================
-   MIDDLE ROW: CHARTS
-   ========================================================================== */
+/* MIDDLE ROW: CHARTS */
 .charts-row {
   display: grid;
   grid-template-columns: 1.8fr 1fr;
@@ -1107,8 +1088,8 @@ p, label, input, textarea, select {
   height: 12px;
 }
 
-/* 1. Stacked Bar Chart: معدل انجاز المشاريع (Figma Pixel-Perfect) */
-.figma-chart-outer {
+/* 1. Stacked Bar Chart: معدل انجاز المشاريع (
+.
   display: flex;
   align-items: stretch;
   gap: 12px;
@@ -1191,7 +1172,7 @@ p, label, input, textarea, select {
   gap: 4px;
 }
 
-.figma-bar-col {
+.
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1201,7 +1182,7 @@ p, label, input, textarea, select {
   flex: 1;
 }
 
-.figma-bar-stack {
+.
   width: 13px;
   display: flex;
   flex-direction: column;
@@ -1211,7 +1192,7 @@ p, label, input, textarea, select {
   transition: transform 0.2s ease;
 }
 
-.figma-bar-stack:hover {
+.
   transform: scaleY(1.03);
 }
 
@@ -1391,9 +1372,7 @@ p, label, input, textarea, select {
   line-height: 1;
 }
 
-/* ==========================================================================
-   BOTTOM TABLE: الطلبات
-   ========================================================================== */
+/* BOTTOM TABLE: الطلبات */
 .table-card-container {
   background: var(--bg-white);
   border: 1px solid var(--border-light);
@@ -1410,14 +1389,14 @@ p, label, input, textarea, select {
   overflow-x: auto;
 }
 
-.figma-table {
+.
   width: 100%;
   border-collapse: collapse;
   text-align: right;
   font-size: 12px;
 }
 
-.figma-table th {
+.
   padding: 10px 12px;
   color: var(--text-muted);
   font-weight: 600;
@@ -1425,7 +1404,7 @@ p, label, input, textarea, select {
   white-space: nowrap;
 }
 
-.figma-table td {
+.
   padding: 12px;
   border-bottom: 1px solid #F3F4F6;
   color: var(--text-dark);
@@ -1565,7 +1544,7 @@ p, label, input, textarea, select {
   opacity: 1;
 }
 
-/* Logout Icon Circle matching Screenshot 2 */
+/* Logout Icon Circle matching */
 .logout-icon-gold-circle {
   width: 52px;
   height: 52px;
@@ -1579,9 +1558,7 @@ p, label, input, textarea, select {
   box-shadow: 0 4px 10px rgba(253, 186, 51, 0.35);
 }
 
-/* ==========================================================================
-   RESPONSIVE BREAKPOINTS (TABLETS & PHONES)
-   ========================================================================== */
+/* RESPONSIVE BREAKPOINTS (TABLETS & PHONES) */
 @media (max-width: 1200px) {
   .kpi-row {
     grid-template-columns: repeat(2, 1fr);
@@ -1644,9 +1621,7 @@ p, label, input, textarea, select {
   }
 }
 
-/* ==========================================================================
-   MODALS & POPUPS SYSTEM
-   ========================================================================== */
+/* MODALS & POPUPS SYSTEM */
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -2022,7 +1997,7 @@ p, label, input, textarea, select {
   color: #111827;
 }
 
-/* User Floating Dropdown Menu (Screenshot 2) */
+/* User Floating Dropdown Menu ( */
 .user-dropdown-card {
   position: absolute;
   top: calc(100% + 10px);
@@ -2136,7 +2111,7 @@ p, label, input, textarea, select {
   background: #FEF2F2;
 }
 
-/* Profile Details Card inside View Modal (Screenshot 3) */
+/* Profile Details Card inside View Modal ( */
 .profile-view-box {
   background: #FFFFFF;
   border: 1px solid #EAECF0;
@@ -2390,7 +2365,7 @@ p, label, input, textarea, select {
   font-weight: 500;
 }
 
-/* Upload Image Box inside Edit Modal (Screenshot 4) */
+/* Upload Image Box inside Edit Modal ( */
 .profile-upload-zone {
   background: #E5E7EB;
   background: #F3F4F6;
@@ -2443,7 +2418,7 @@ p, label, input, textarea, select {
   line-height: 1.4;
 }
 
-/* Input with Eye toggle for Password Modal (Screenshot 5) */
+/* Input with Eye toggle for Password Modal ( */
 .modal-input-eye-wrap {
   position: relative;
   width: 100%;
@@ -2494,9 +2469,7 @@ p, label, input, textarea, select {
   pointer-events: none;
 }
 
-/* ==========================================================================
-   SIDEBAR ACCORDION SUBMENU
-   ========================================================================== */
+/* SIDEBAR ACCORDION SUBMENU */
 .sidebar-group {
   display: flex;
   flex-direction: column;
@@ -2582,9 +2555,7 @@ p, label, input, textarea, select {
   background: #FDBA33;
 }
 
-/* ==========================================================================
-   HEADER BAR & RESPONSIVE TOP NAVBAR
-   ========================================================================== */
+/* HEADER BAR & RESPONSIVE TOP NAVBAR */
 .header-bar {
   display: flex !important;
   flex-direction: row !important;
@@ -2701,9 +2672,7 @@ p, label, input, textarea, select {
   display: block;
 }
 
-/* ==========================================================================
-   FORMS, GRIDS & ZERO-OVERFLOW COMPONENTS
-   ========================================================================== */
+/* FORMS, GRIDS & ZERO-OVERFLOW COMPONENTS */
 .form-grid-2col {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2819,9 +2788,7 @@ p, label, input, textarea, select {
   color: #111827;
 }
 
-/* ==========================================================================
-   RESPONSIVE LAYOUT & OVERFLOW PREVENTION (ALL SCREEN SIZES)
-   ========================================================================== */
+/* RESPONSIVE LAYOUT & OVERFLOW PREVENTION (ALL SCREEN SIZES) */
 @media (max-width: 991px) {
   .sidebar {
     transform: translateX(100%);
@@ -2967,9 +2934,7 @@ p, label, input, textarea, select {
   }
 }
 
-/* ==========================================================================
-   Roles & Permissions Specific Styles (Figma 1:1 Matching)
-   ========================================================================== */
+/* Roles & Permissions Specific Styles ( */
 .perm-section-title {
   font-size: 12.5px;
   font-weight: 700;
@@ -3080,9 +3045,7 @@ p, label, input, textarea, select {
   gap: 8px;
 }
 
-/* ==========================================================================
-   Contact Messages Card Grid (Figma 1:1 Matching)
-   ========================================================================== */
+/* Contact Messages Card Grid ( */
 .contact-cards-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -3218,9 +3181,7 @@ p, label, input, textarea, select {
   background: #FEE2E2;
 }
 
-/* ==========================================================================
-   WEBSITE SETTINGS (اعدادات الموقع الالكتروني)
-   ========================================================================== */
+/* WEBSITE SETTINGS (اعدادات الموقع الالكتروني) */
 .settings-section-card {
   background: #FFFFFF;
   border-radius: 12px;
@@ -3279,7 +3240,7 @@ p, label, input, textarea, select {
   display: block;
 }
 
-/* Image Upload Box inside Settings (Matching Figma) */
+/* Image Upload Box inside Settings (Matching */
 .settings-upload-wrap {
   display: flex;
   flex-direction: column;
@@ -3408,9 +3369,7 @@ p, label, input, textarea, select {
   display: block;
 }
 
-/* ==========================================================================
-   Table Search Box & Header Add Button (Figma 1:1 Matching)
-   ========================================================================== */
+/* Table Search Box & Header Add Button ( */
 .table-search-box, .orders-search-box {
   display: inline-flex;
   align-items: center;
@@ -3495,9 +3454,7 @@ p, label, input, textarea, select {
   stroke: #111827;
 }
 
-/* ==========================================================================
-   THEME TOGGLE BUTTON (SUN / MOON)
-   ========================================================================== */
+/* THEME TOGGLE BUTTON (SUN / MOON) */
 .theme-toggle-btn {
   width: 40px;
   height: 40px;
@@ -3533,9 +3490,7 @@ p, label, input, textarea, select {
   display: block;
 }
 
-/* ==========================================================================
-   DARK MODE COMPLETE THEME SYSTEM (1:1 Matching Figma & Luxury Dark Aesthetic)
-   ========================================================================== */
+/* DARK MODE COMPLETE THEME SYSTEM (1:1 Matching */
 [data-theme="dark"] {
   --bg-page: #0D0E12;
   --bg-white: #14171E;
@@ -3846,21 +3801,21 @@ p, label, input, textarea, select {
 }
 
 /* 7. Tables in Dark Mode */
-[data-theme="dark"] table.figma-table,
+[data-theme="dark"] table.
 [data-theme="dark"] .orders-table,
 [data-theme="dark"] table {
   color: #E5E7EB !important;
   border-color: #222733 !important;
 }
 
-[data-theme="dark"] table.figma-table thead,
-[data-theme="dark"] table.figma-table thead tr,
+[data-theme="dark"] table.
+[data-theme="dark"] table.
 [data-theme="dark"] .orders-table thead,
 [data-theme="dark"] .orders-table thead tr {
   background: #181C24 !important;
 }
 
-[data-theme="dark"] table.figma-table th,
+[data-theme="dark"] table.
 [data-theme="dark"] .orders-table th,
 [data-theme="dark"] table th {
   background: #181C24 !important;
@@ -3869,7 +3824,7 @@ p, label, input, textarea, select {
   font-weight: 700 !important;
 }
 
-[data-theme="dark"] table.figma-table td,
+[data-theme="dark"] table.
 [data-theme="dark"] .orders-table td,
 [data-theme="dark"] table td {
   background: transparent !important;
@@ -3877,7 +3832,7 @@ p, label, input, textarea, select {
   border-bottom: 1px solid #1F232B !important;
 }
 
-[data-theme="dark"] table.figma-table tbody tr:hover td,
+[data-theme="dark"] table.
 [data-theme="dark"] .orders-table tbody tr:hover td,
 [data-theme="dark"] table tbody tr:hover td {
   background: rgba(255, 255, 255, 0.03) !important;

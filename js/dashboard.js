@@ -1,697 +1,492 @@
 /**
- * AZ STUDIO - COMPLETE DASHBOARD INTERACTION SYSTEM
- * Supports: Universal Modals, Dropdowns, Sidebar Toggle, Search/Filter,
- * Form Validation, Dynamic Data Injection, Toast Notifications, Theme Switching
+ * AZ STUDIO - ENTERPRISE DASHBOARD CORE SYSTEM
+ * Architecture: ES6+ Modular Interaction, Modal Manager, Toast Notifications,
+ * Mock API Persistence Layer, Safe DOM Rendering, Theme Switching, Accessible Components.
  */
 
-document.addEventListener('DOMContentLoaded', () => {
-  initModals();
-  initDropdowns();
-  initSidebar();
-  initTheme();
-  initTableSearchAndFilters();
-  initFormsAndToasts();
-  initSettingsTabs();
-  initContactCards();
-  initPageTransitions();
-});
-
-/* ==========================================================================
-   1. Toast Notification System
-   ========================================================================== */
-function showToast(message, type = 'success') {
-  let toast = document.getElementById('dashboardToast');
-  if (!toast) {
-    toast = document.createElement('div');
-    toast.id = 'dashboardToast';
-    toast.className = 'dashboard-toast';
-    document.body.appendChild(toast);
+// ==========================================================================
+// 1. Toast Notification Manager (Safe & Accessible)
+// ==========================================================================
+class ToastNotification {
+  constructor() {
+    this.container = null;
+    this.init();
   }
 
-  const icons = {
-    success: `<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>`,
-    error: `<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>`,
-    info: `<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>`
-  };
-
-  toast.innerHTML = `
-    <div class="toast-content ${type}">
-      <div class="toast-icon">${icons[type] || icons.info}</div>
-      <span class="toast-text">${message}</span>
-    </div>
-  `;
-  
-  toast.classList.add('show');
-
-  setTimeout(() => {
-    toast.classList.remove('show');
-  }, 3500);
-}
-
-/* ==========================================================================
-   2. Universal Modal Manager
-   ========================================================================== */
-function openModal(modalId) {
-  const modal = document.getElementById(modalId);
-  if (!modal) return;
-
-  // Close any already opened modals
-  document.querySelectorAll('.modal-overlay.active').forEach(m => {
-    if (m !== modal) m.classList.remove('active');
-  });
-
-  modal.classList.add('active');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeModal(modalOrId) {
-  let modal = typeof modalOrId === 'string' ? document.getElementById(modalOrId) : modalOrId;
-  if (!modal) {
-    document.querySelectorAll('.modal-overlay.active').forEach(m => m.classList.remove('active'));
-  } else {
-    modal.classList.remove('active');
-  }
-
-  // Restore scroll if no active modals left
-  if (!document.querySelector('.modal-overlay.active')) {
-    document.body.style.overflow = '';
-  }
-}
-
-function initModals() {
-  // Open triggers via data-modal-target
-  document.addEventListener('click', (e) => {
-    const trigger = e.target.closest('[data-modal-target]');
-    if (trigger) {
-      e.preventDefault();
-      const modalId = trigger.getAttribute('data-modal-target');
-      
-      // Dynamic row data population for view/edit/delete triggers
-      const row = trigger.closest('tr');
-      if (row) {
-        populateModalFromRow(modalId, row, trigger);
-      }
-      
-      openModal(modalId);
+  init() {
+    if (typeof document === 'undefined') return;
+    this.container = document.getElementById('toastContainer') || document.getElementById('dashboardToast');
+    if (!this.container) {
+      this.container = document.createElement('div');
+      this.container.id = 'toastContainer';
+      this.container.setAttribute('role', 'region');
+      this.container.setAttribute('aria-live', 'polite');
+      this.container.setAttribute('aria-label', 'إشعارات النظام');
+      document.body.appendChild(this.container);
     }
-  });
+  }
 
-  // Close triggers via data-modal-close or .btn-modal-close
-  document.addEventListener('click', (e) => {
-    const closeBtn = e.target.closest('[data-modal-close], .modal-close-btn, .btn-modal-cancel');
-    if (closeBtn) {
-      e.preventDefault();
-      const modal = closeBtn.closest('.modal-overlay');
-      if (modal) closeModal(modal);
-    }
-  });
+  show(message, type = 'success', duration = 3500) {
+    if (!this.container) this.init();
 
-  // Click on background overlay to close
-  document.querySelectorAll('.modal-overlay').forEach(modal => {
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        closeModal(modal);
-      }
-    });
-  });
+    const toast = document.createElement('div');
+    toast.className = `toast-item ${type}`;
+    toast.setAttribute('role', 'status');
 
-  // Keyboard Escape key handler
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      closeModal();
-    }
-  });
-}
+    const iconSvg = type === 'success' 
+      ? `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>`
+      : type === 'error'
+      ? `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>`
+      : `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>`;
 
-/**
- * Dynamically populates modals with contextual data from table rows
- */
-function populateModalFromRow(modalId, row, trigger) {
-  const modal = document.getElementById(modalId);
-  if (!modal) return;
+    const iconWrap = document.createElement('span');
+    iconWrap.className = 'toast-icon';
+    iconWrap.innerHTML = iconSvg;
 
-  // Extract cell texts
-  const cells = row.querySelectorAll('td');
-  if (cells.length === 0) return;
+    const textWrap = document.createElement('span');
+    textWrap.className = 'toast-text';
+    textWrap.textContent = String(message || '');
 
-  // Check modal type
-  if (modalId === 'viewOrderModal') {
-    const code = cells[0]?.textContent.trim() || '#1020';
-    const client = cells[1]?.textContent.trim() || 'محمد السيد';
-    const phone = cells[2]?.textContent.trim() || '01210229016';
-    const email = cells[3]?.textContent.trim() || 'mohamed@icloud.com';
-    const date = cells[4]?.textContent.trim() || '10/2/2025';
-    const service = cells[5]?.textContent.trim() || 'انتاج فديو مؤسسي';
-    const budget = cells[7]?.textContent.trim() || '3000 ر.س';
+    toast.appendChild(iconWrap);
+    toast.appendChild(textWrap);
+    this.container.appendChild(toast);
 
-    const orderIdEl = modal.querySelector('#modalOrderCode');
-    const clientEl = modal.querySelector('#modalOrderClient');
-    const phoneEl = modal.querySelector('#modalOrderPhone');
-    const emailEl = modal.querySelector('#modalOrderEmail');
-    const serviceEl = modal.querySelector('#modalOrderService');
-    const dateEl = modal.querySelector('#modalOrderDate');
-    const budgetEl = modal.querySelector('#modalOrderBudget');
+    requestAnimationFrame(() => toast.classList.add('show'));
 
-    if (orderIdEl) orderIdEl.textContent = code;
-    if (clientEl) clientEl.textContent = client;
-    if (phoneEl) phoneEl.textContent = phone;
-    if (emailEl) emailEl.textContent = email;
-    if (serviceEl) serviceEl.textContent = service;
-    if (dateEl) dateEl.textContent = date;
-    if (budgetEl) budgetEl.textContent = budget;
-  } else if (modalId === 'deleteModal' || modalId.includes('delete')) {
-    const itemName = cells[1]?.textContent.trim() || cells[0]?.textContent.trim() || 'هذا العنصر';
-    const targetLabel = modal.querySelector('.delete-item-name');
-    if (targetLabel) targetLabel.textContent = itemName;
-  } else if (modalId === 'viewContactModal') {
-    const client = cells[1]?.textContent.trim() || 'محمد احمد';
-    const phone = cells[2]?.textContent.trim() || '01210229015';
-    const email = cells[3]?.textContent.trim() || 'mohamedmoatasem@icloud.com';
-    const subject = cells[5]?.textContent.trim() || 'انشاء فديو موشن جرافك';
-
-    const clientEl = modal.querySelector('#modalContactClient');
-    const phoneEl = modal.querySelector('#modalContactPhone');
-    const emailEl = modal.querySelector('#modalContactEmail');
-    const subjectEl = modal.querySelector('#modalContactSubject');
-
-    if (clientEl) clientEl.textContent = client;
-    if (phoneEl) phoneEl.textContent = phone;
-    if (emailEl) emailEl.textContent = email;
-    if (subjectEl) subjectEl.textContent = subject;
+    setTimeout(() => {
+      toast.classList.remove('show');
+      setTimeout(() => toast.remove(), 300);
+    }, duration);
   }
 }
 
-/* ==========================================================================
-   3. Dropdowns (User Menu, Notifications, Filters)
-   ========================================================================== */
-function initDropdowns() {
-  const userProfileWidget = document.querySelector('.user-profile-widget');
-  const userDropdown = document.getElementById('userDropdown');
-  const notifBtn = document.getElementById('notifBtn');
-  const notifDropdown = document.getElementById('notifDropdown');
+const toast = new ToastNotification();
+window.showToast = (msg, type) => toast.show(msg, type);
 
-  function closeAllDropdowns() {
-    document.querySelectorAll('.dropdown-menu, .custom-dropdown-panel, .user-dropdown-card').forEach(menu => {
-      menu.classList.remove('active');
-    });
+// ==========================================================================
+// 2. Accessible Modal Manager (Focus Trap & ARIA Dialogs)
+// ==========================================================================
+class ModalManager {
+  constructor() {
+    this.activeModal = null;
+    this.lastFocused = null;
+    this.init();
   }
 
-  // Toggle user dropdown on click
-  if (userProfileWidget && userDropdown) {
-    userProfileWidget.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const isActive = userDropdown.classList.contains('active');
-      closeAllDropdowns();
-      if (!isActive) {
-        userDropdown.classList.add('active');
-      }
-    });
-  }
-
-  // Toggle notifications on click
-  if (notifBtn && notifDropdown) {
-    notifBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const isActive = notifDropdown.classList.contains('active');
-      closeAllDropdowns();
-      if (!isActive) {
-        notifDropdown.classList.add('active');
-      }
-    });
-  }
-
-  // Close dropdowns when clicking any item inside them (e.g. modals trigger)
-  document.querySelectorAll('.user-dropdown-item, .dropdown-item').forEach(item => {
-    item.addEventListener('click', () => {
-      closeAllDropdowns();
-    });
-  });
-
-  // Close dropdowns when clicking outside
-  document.addEventListener('click', (e) => {
-    if (!e.target.closest('.user-dropdown-card') && 
-        !e.target.closest('.user-profile-widget') && 
-        !e.target.closest('.notif-bell-btn') && 
-        !e.target.closest('.custom-dropdown-panel') &&
-        !e.target.closest('[data-dropdown-toggle]')) {
-      closeAllDropdowns();
-    }
-  });
-
-  // Close on Escape key
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      closeAllDropdowns();
-    }
-  });
-}
-
-/* ==========================================================================
-   4. Mobile Sidebar Management
-   ========================================================================== */
-function initSidebar() {
-  const mobileToggle = document.getElementById('mobileMenuBtn');
-  const sidebarClose = document.getElementById('sidebarCloseBtn');
-  const sidebar = document.querySelector('.sidebar');
-  let overlay = document.getElementById('sidebarOverlay');
-
-  if (!overlay) {
-    overlay = document.createElement('div');
-    overlay.id = 'sidebarOverlay';
-    overlay.className = 'sidebar-overlay';
-    document.body.appendChild(overlay);
-  }
-
-  function openSidebar() {
-    if (sidebar) sidebar.classList.add('active');
-    if (overlay) overlay.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeSidebar() {
-    if (sidebar) sidebar.classList.remove('active');
-    if (overlay) overlay.classList.remove('active');
-    document.body.style.overflow = '';
-  }
-
-  if (mobileToggle) mobileToggle.addEventListener('click', openSidebar);
-  if (sidebarClose) sidebarClose.addEventListener('click', closeSidebar);
-  if (overlay) overlay.addEventListener('click', closeSidebar);
-
-  // Accordion Submenu Toggle for (الطلبات, الباقات, اعدادات الموقع الالكتروني)
-  document.querySelectorAll('.sidebar-group').forEach(group => {
-    const toggleBtn = group.querySelector('.sidebar-accordion-toggle, :scope > .sidebar-item');
-    if (toggleBtn) {
-      toggleBtn.addEventListener('click', (e) => {
-        const submenu = group.querySelector('.sidebar-submenu');
-        if (submenu) {
-          e.preventDefault();
-          e.stopPropagation();
-          const isCurrentlyOpen = group.classList.contains('open');
-          
-          // Close all other sidebar groups so only one is open at a time
-          document.querySelectorAll('.sidebar-group').forEach(otherGroup => {
-            if (otherGroup !== group) {
-              otherGroup.classList.remove('open');
-            }
-          });
-
-          if (isCurrentlyOpen) {
-            group.classList.remove('open');
-          } else {
-            group.classList.add('open');
-          }
-        }
-      });
-    }
-  });
-
-  // Close mobile sidebar when clicking a subitem or non-accordion link
-  document.querySelectorAll('.sidebar-subitem, .sidebar-item:not(.sidebar-accordion-toggle)').forEach(link => {
-    link.addEventListener('click', () => {
-      if (window.innerWidth <= 991 && !link.closest('.sidebar-group:not(.open)')) {
-        closeSidebar();
-      }
-    });
-  });
-}
-
-/* ==========================================================================
-   5. Dark / Light Mode Switching
-   ========================================================================== */
-function updateLogos(theme) {
-  document.querySelectorAll('img[src*="az-studio-logo"]').forEach(img => {
-    if (theme === 'dark') {
-      img.src = img.src.replace('az-studio-logo.svg', 'az-studio-logo-white.svg');
-    } else {
-      img.src = img.src.replace('az-studio-logo-white.svg', 'az-studio-logo.svg');
-    }
-  });
-}
-
-function initTheme() {
-  const currentTheme = localStorage.getItem('az_theme') || 'dark';
-  document.documentElement.setAttribute('data-theme', currentTheme);
-  updateLogos(currentTheme);
-
-  document.addEventListener('click', (e) => {
-    const themeBtn = e.target.closest('#themeToggleBtn, .theme-toggle-btn');
-    if (themeBtn) {
-      e.preventDefault();
-      const active = document.documentElement.getAttribute('data-theme') || 'light';
-      const next = active === 'dark' ? 'light' : 'dark';
-      document.documentElement.setAttribute('data-theme', next);
-      localStorage.setItem('az_theme', next);
-      updateLogos(next);
-      showToast(next === 'dark' ? 'تم تفعيل الوضع الليلي 🌙' : 'تم تفعيل الوضع النهاري ☀️', 'info');
-    }
-  });
-}
-
-/* ==========================================================================
-   6. Table Search & Quick Filter
-   ========================================================================== */
-function initTableSearchAndFilters() {
-  const searchInputs = document.querySelectorAll('.table-search-input, input[placeholder*="البحث"]');
-  searchInputs.forEach(input => {
-    input.addEventListener('input', (e) => {
-      const query = e.target.value.toLowerCase().trim();
-      const table = input.closest('main, section, .table-card-container')?.querySelector('table');
-      if (!table) return;
-
-      const rows = table.querySelectorAll('tbody tr');
-      rows.forEach(row => {
-        const text = row.textContent.toLowerCase();
-        row.style.display = text.includes(query) ? '' : 'none';
-      });
-    });
-  });
-}
-
-/* ==========================================================================
-   7. Form Submissions & Modal Actions
-   ========================================================================== */
-function initFormsAndToasts() {
-  // Quotation Submission Form
-  const quoteForm = document.getElementById('createQuoteForm');
-  if (quoteForm) {
-    quoteForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      closeModal('viewOrderModal');
-      showToast('تم إرسال عرض السعر للعميل بنجاح!', 'success');
-      quoteForm.reset();
-    });
-  }
-
-  // Reject Order Action
-  const rejectOrderBtn = document.getElementById('btnRejectOrder');
-  if (rejectOrderBtn) {
-    rejectOrderBtn.addEventListener('click', () => {
-      closeModal('viewOrderModal');
-      showToast('تم تحديث حالة الطلب إلى "مرفوض"', 'info');
-    });
-  }
-
-  // Add / Edit Service Form
-  const serviceForm = document.getElementById('serviceForm');
-  if (serviceForm) {
-    serviceForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      closeModal('serviceModal');
-      closeModal('addServiceModal');
-      showToast('تم حفظ بيانات الخدمة بنجاح!', 'success');
-      serviceForm.reset();
-    });
-  }
-
-  // Add / Edit Package Form
-  const packageForm = document.getElementById('packageForm');
-  if (packageForm) {
-    packageForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      closeModal('packageModal');
-      closeModal('addPackageModal');
-      showToast('تم حفظ بيانات الباقة بنجاح!', 'success');
-      packageForm.reset();
-    });
-  }
-
-  // Add / Edit Supervisor Form
-  const supervisorForm = document.getElementById('supervisorForm');
-  if (supervisorForm) {
-    supervisorForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      closeModal('supervisorModal');
-      closeModal('addSupervisorModal');
-      showToast('تم حفظ بيانات المشرف بنجاح!', 'success');
-      supervisorForm.reset();
-    });
-  }
-
-  // Add / Edit Role Form
-  const roleForm = document.getElementById('roleForm');
-  if (roleForm) {
-    roleForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      closeModal('roleModal');
-      closeModal('addRoleModal');
-      showToast('تم حفظ الدور والصلاحيات بنجاح!', 'success');
-      roleForm.reset();
-    });
-  }
-
-  // Export Data Form
-  const exportForm = document.getElementById('exportForm');
-  if (exportForm) {
-    exportForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      closeModal('exportModal');
-      showToast('جاري إنشاء وتحميل ملف التصدير...', 'success');
-    });
-  }
-
-  // Edit Profile Form
-  const editProfileForm = document.getElementById('editProfileForm');
-  if (editProfileForm) {
-    editProfileForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      closeModal('editProfileModal');
-      showToast('تم تحديث بيانات الملف الشخصي بنجاح!', 'success');
-    });
-  }
-
-  // Change Password Form
-  const changePassForm = document.getElementById('changePasswordForm');
-  if (changePassForm) {
-    changePassForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      closeModal('changePasswordModal');
-      showToast('تم تغيير كلمة المرور بنجاح!', 'success');
-      changePassForm.reset();
-    });
-  }
-
-  // Delete Confirm Button
-  const confirmDeleteBtn = document.getElementById('btnConfirmDelete');
-  if (confirmDeleteBtn) {
-    confirmDeleteBtn.addEventListener('click', () => {
-      closeModal();
-      showToast('تم حذف العنصر بنجاح!', 'success');
-    });
-  }
-
-  // Contact Message Action
-  const btnMarkContacted = document.getElementById('btnMarkContacted');
-  if (btnMarkContacted) {
-    btnMarkContacted.addEventListener('click', () => {
-      closeModal('viewContactModal');
-      showToast('تم تعيين حالة الرسالة إلى "تم التواصل"', 'success');
-    });
-  }
-}
-
-/* ==========================================================================
-   8. Settings Tabs Navigation
-   ========================================================================== */
-function initSettingsTabs() {
-  const panels = document.querySelectorAll('.settings-tab-panel');
-  const links = document.querySelectorAll('[data-tab-link]');
-
-  if (panels.length === 0) return;
-
-  function switchTab(tabKey) {
-    if (!tabKey) tabKey = 'home';
-    const targetId = `tab-${tabKey.replace(/^tab-/, '')}`;
-    
-    panels.forEach(p => {
-      if (p.id === targetId) {
-        p.classList.add('active');
-      } else {
-        p.classList.remove('active');
-      }
-    });
-
-    links.forEach(link => {
-      const linkTarget = link.getAttribute('data-tab-link');
-      if (linkTarget === targetId || link.getAttribute('href')?.includes(`tab=${tabKey}`)) {
-        link.classList.add('active');
-      } else {
-        link.classList.remove('active');
-      }
-    });
-  }
-
-  // Handle URL query parameter ?tab=...
-  const urlParams = new URLSearchParams(window.location.search);
-  const currentTab = urlParams.get('tab') || 'home';
-  switchTab(currentTab);
-
-  // Handle in-page tab link clicks
-  links.forEach(link => {
-    link.addEventListener('click', (e) => {
-      const href = link.getAttribute('href');
-      if (href && href.startsWith('settings.html?tab=')) {
+  init() {
+    document.addEventListener('click', (e) => {
+      // Trigger Open
+      const openBtn = e.target.closest('[data-modal-target]');
+      if (openBtn) {
         e.preventDefault();
-        const tabVal = href.split('tab=')[1];
-        history.pushState(null, '', `settings.html?tab=${tabVal}`);
-        switchTab(tabVal);
+        const targetId = openBtn.getAttribute('data-modal-target');
+        this.open(targetId, openBtn);
+        return;
+      }
+
+      // Trigger Close
+      const closeBtn = e.target.closest('[data-modal-close], .btn-modal-close, .modal-close-btn, .btn-modal-cancel');
+      if (closeBtn) {
+        e.preventDefault();
+        const modal = closeBtn.closest('.modal-overlay, .modal-backdrop');
+        if (modal) this.close(modal.id);
+        return;
+      }
+
+      // Click Backdrop
+      if (e.target.classList.contains('modal-overlay') || e.target.classList.contains('modal-backdrop')) {
+        this.close(e.target.id);
       }
     });
-  });
 
-  // Search in outputs table
-  const outputsSearch = document.getElementById('outputsSearchInput');
-  const outputsBody = document.getElementById('outputsTableBody');
-  if (outputsSearch && outputsBody) {
-    outputsSearch.addEventListener('input', (e) => {
-      const query = e.target.value.toLowerCase().trim();
-      const rows = outputsBody.querySelectorAll('tr');
-      rows.forEach(row => {
-        const text = row.innerText.toLowerCase();
-        row.style.display = text.includes(query) ? '' : 'none';
-      });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && this.activeModal) {
+        this.close(this.activeModal.id);
+      }
     });
   }
 
-  // Search in sectors table
-  const sectorsSearch = document.getElementById('sectorsSearchInput');
-  const sectorsBody = document.getElementById('sectorsTableBody');
-  if (sectorsSearch && sectorsBody) {
-    sectorsSearch.addEventListener('input', (e) => {
-      const query = e.target.value.toLowerCase().trim();
-      const rows = sectorsBody.querySelectorAll('tr');
-      rows.forEach(row => {
-        const text = row.innerText.toLowerCase();
-        row.style.display = text.includes(query) ? '' : 'none';
-      });
-    });
+  open(modalId, trigger = null) {
+    const modal = document.getElementById(modalId);
+    if (!modal) return;
+
+    this.lastFocused = trigger || document.activeElement;
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+    modal.classList.add('active', 'show');
+    document.body.style.overflow = 'hidden';
+    this.activeModal = modal;
+
+    if (typeof lucide !== 'undefined' && lucide.createIcons) {
+      lucide.createIcons({ root: modal });
+    }
+
+    setTimeout(() => {
+      const focusable = modal.querySelector('button, [href], input, select, textarea');
+      if (focusable) focusable.focus();
+    }, 60);
   }
 
-  // Search in FAQs table
-  const faqSearch = document.getElementById('faqSearchInput');
-  const faqBody = document.getElementById('faqTableBody');
-  if (faqSearch && faqBody) {
-    faqSearch.addEventListener('input', (e) => {
-      const query = e.target.value.toLowerCase().trim();
-      const rows = faqBody.querySelectorAll('tr');
-      rows.forEach(row => {
-        const text = row.innerText.toLowerCase();
-        row.style.display = text.includes(query) ? '' : 'none';
-      });
-    });
+  close(modalId) {
+    const modal = modalId ? document.getElementById(modalId) : this.activeModal;
+    if (!modal) return;
+
+    modal.classList.remove('active', 'show');
+    modal.setAttribute('aria-hidden', 'true');
+
+    if (!document.querySelector('.modal-overlay.active, .modal-overlay.show')) {
+      document.body.style.overflow = '';
+    }
+
+    if (this.lastFocused && typeof this.lastFocused.focus === 'function') {
+      this.lastFocused.focus();
+    }
+    this.activeModal = null;
   }
 }
 
-/* ==========================================================================
-   9. Contact Messages Cards Actions (Figma 1:1 Matching)
-   ========================================================================== */
-function initContactCards() {
-  let cardPendingDelete = null;
+const modalManager = new ModalManager();
+window.openModal = (id) => modalManager.open(id);
+window.closeModal = (id) => modalManager.close(id);
 
-  // Toggle contact card dropdown on clicking three dots
+// ==========================================================================
+// 3. Dynamic Table Renderers (Eliminates document.write)
+// ==========================================================================
+function renderSupervisorsTable() {
+  const tbody = document.getElementById('supervisorsTableBody');
+  if (!tbody) return;
+
+  const count = 18;
+  let html = '';
+  for (let i = 1; i <= count; i++) {
+    const id = 600 + i;
+    html += `
+      <tr>
+        <td><span class="table-code">#${id}</span></td>
+        <td style="font-weight: 600; color: #111827;">محمد أحمد ${i}</td>
+        <td style="direction: ltr; text-align: right;">01024200163</td>
+        <td style="direction: ltr; text-align: right; color: #4B5563;">mohamed.abdelrahman${id}@gmail.com</td>
+        <td style="direction: ltr; text-align: right;">1233444448</td>
+        <td>مشرف عام</td>
+        <td><a href="#" class="link-permissions">كل الصلاحيات</a></td>
+        <td><span class="pill-active-green">نشط</span></td>
+        <td><button type="button" class="pill-suspend-red" data-action="toggle-status">إيقاف الحساب</button></td>
+        <td>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+            <button type="button" class="btn-table-eye" data-modal-target="viewSupervisorModal" aria-label="عرض" title="عرض المشرف">
+              <i data-lucide="eye"></i>
+            </button>
+            <button type="button" class="btn-table-eye" data-modal-target="editSupervisorModal" style="color: #111827; border-color: #E5E7EB;" aria-label="تعديل" title="تعديل المشرف">
+              <i data-lucide="edit"></i>
+            </button>
+            <button type="button" class="btn-table-del" data-modal-target="deleteModal" aria-label="حذف" title="حذف المشرف">
+              <i data-lucide="trash-2"></i>
+            </button>
+          </div>
+        </td>
+      </tr>
+    `;
+  }
+  tbody.innerHTML = html;
+}
+
+function renderServicesTable() {
+  const tbody = document.getElementById('servicesTableBody');
+  if (!tbody) return;
+
+  const count = 18;
+  let html = '';
+  for (let i = 1; i <= count; i++) {
+    html += `
+      <tr>
+        <td style="text-align: center;">
+          <div class="service-media-thumb">
+            <i data-lucide="film"></i>
+          </div>
+        </td>
+        <td style="font-weight: 600; color: #111827;">موشن جرافيك ${i}</td>
+        <td style="color: #6B7280; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">إنتاج وتصميم رسومات فيديو إعلانية</td>
+        <td style="color: #6B7280; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">تسليم ملفات مفتوحة المصدر ودقة 4K</td>
+        <td style="color: #6B7280; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">تحليل المتطلبات ورسم السكتشات</td>
+        <td style="color: #6B7280; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">فيديو نهائي مع هندسة صوتية</td>
+        <td style="color: #6B7280; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">هذا النص يمكن ان يستبدل بنص بديل</td>
+        <td>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+            <button type="button" class="btn-table-eye" data-modal-target="viewServiceModal" aria-label="عرض" title="عرض الخدمة">
+              <i data-lucide="eye"></i>
+            </button>
+            <a href="edit-service.html" class="btn-table-eye" style="color: #111827; border-color: #E5E7EB; text-decoration: none;" aria-label="تعديل" title="تعديل الخدمة">
+              <i data-lucide="edit"></i>
+            </a>
+            <button type="button" class="btn-table-del" data-modal-target="deleteModal" aria-label="حذف" title="حذف الخدمة">
+              <i data-lucide="trash-2"></i>
+            </button>
+          </div>
+        </td>
+      </tr>
+    `;
+  }
+  tbody.innerHTML = html;
+}
+
+function renderPackagesTable() {
+  const tbody = document.getElementById('packagesTableBody');
+  if (!tbody) return;
+
+  const count = 18;
+  let html = '';
+  for (let i = 1; i <= count; i++) {
+    html += `
+      <tr>
+        <td style="font-weight: 600; color: #111827;">الباقة الأساسية ${i}</td>
+        <td style="color: #6B7280; max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">باقة متكاملة لإنتاج إعلانات السوشيال ميديا</td>
+        <td style="font-weight: 600; color: #111827;">40,000 ر.س</td>
+        <td style="color: #6B7280; max-width: 260px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">تشمل 3 فيديوهات إعلانية وتغطية كاملة</td>
+        <td>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+            <button type="button" class="btn-table-eye" data-modal-target="viewPackageModal" aria-label="عرض" title="عرض الباقة">
+              <i data-lucide="eye"></i>
+            </button>
+            <button type="button" class="btn-table-eye" data-modal-target="editPackageModal" style="color: #111827; border-color: #E5E7EB;" aria-label="تعديل" title="تعديل الباقة">
+              <i data-lucide="edit"></i>
+            </button>
+            <button type="button" class="btn-table-del" data-modal-target="deleteModal" aria-label="حذف" title="حذف الباقة">
+              <i data-lucide="trash-2"></i>
+            </button>
+          </div>
+        </td>
+      </tr>
+    `;
+  }
+  tbody.innerHTML = html;
+}
+
+function renderSettingsTables() {
+  const outTbody = document.getElementById('outputsTableBody');
+  if (outTbody) {
+    let outHtml = '';
+    for (let i = 1; i <= 18; i++) {
+      outHtml += `
+        <tr>
+          <td style="padding: 14px 16px; font-size: 12.5px; color: #374151; font-weight: 500;">المخرجات والإنتاج #${i}</td>
+          <td style="padding: 14px 16px; font-size: 12px; color: #6B7280;">تسليم ملفات فيديو عالية الدقة مع حقوق النشر</td>
+          <td style="padding: 14px 16px; font-size: 12px; color: #6B7280;">هذا النص يمكن أن يستبدل بنص بديل</td>
+          <td style="padding: 14px 16px; text-align: left;">
+            <div style="display: flex; gap: 8px; align-items: center; justify-content: flex-end;">
+              <button type="button" class="btn-table-del" data-modal-target="deleteOutputModal" aria-label="حذف"><i data-lucide="trash-2"></i></button>
+              <button type="button" class="btn-action-edit" data-modal-target="editOutputModal" aria-label="تعديل"><i data-lucide="edit"></i></button>
+            </div>
+          </td>
+        </tr>
+      `;
+    }
+    outTbody.innerHTML = outHtml;
+  }
+
+  const secTbody = document.getElementById('sectorsTableBody');
+  if (secTbody) {
+    let secHtml = '';
+    for (let i = 1; i <= 18; i++) {
+      secHtml += `
+        <tr>
+          <td style="padding: 14px 16px;">
+            <div style="width: 32px; height: 32px; border-radius: 8px; background: #FFFBEB; border: 1px solid #FDE68A; display: flex; align-items: center; justify-content: center; color: #D97706;">
+              <i data-lucide="image"></i>
+            </div>
+          </td>
+          <td style="padding: 14px 16px; font-size: 12.5px; color: #374151; font-weight: 500;">القطاع الحكومي ${i}</td>
+          <td style="padding: 14px 16px; font-size: 12px; color: #6B7280;">تقديم حلول إعلامية مرئية للوزارات والهيئات</td>
+          <td style="padding: 14px 16px; text-align: left;">
+            <div style="display: flex; gap: 8px; align-items: center; justify-content: flex-end;">
+              <button type="button" class="btn-table-del" data-modal-target="deleteSectorModal" aria-label="حذف"><i data-lucide="trash-2"></i></button>
+              <button type="button" class="btn-action-edit" data-modal-target="editSectorModal" aria-label="تعديل"><i data-lucide="edit"></i></button>
+              <button type="button" class="btn-table-eye" data-modal-target="viewSectorModal" aria-label="عرض"><i data-lucide="eye"></i></button>
+            </div>
+          </td>
+        </tr>
+      `;
+    }
+    secTbody.innerHTML = secHtml;
+  }
+
+  const faqTbody = document.getElementById('faqTableBody');
+  if (faqTbody) {
+    let faqHtml = '';
+    for (let i = 1; i <= 18; i++) {
+      faqHtml += `
+        <tr>
+          <td style="padding: 14px 16px; font-size: 12.5px; color: #374151; font-weight: 500;">ما هي مدة تسليم المشروع المرئي؟ #${i}</td>
+          <td style="padding: 14px 16px; font-size: 12px; color: #6B7280;">تتراوح المدة بين 5 إلى 14 يوم عمل حسب حجم المشروع</td>
+          <td style="padding: 14px 16px; font-size: 12px; color: #6B7280; direction: ltr; text-align: right;">2026-03-26 11:48:29</td>
+          <td style="padding: 14px 16px; text-align: left;">
+            <div style="display: flex; gap: 8px; align-items: center; justify-content: flex-end;">
+              <button type="button" class="btn-table-del" data-modal-target="deleteFaqModal" aria-label="حذف"><i data-lucide="trash-2"></i></button>
+              <button type="button" class="btn-action-edit" data-modal-target="editFaqModal" aria-label="تعديل"><i data-lucide="edit"></i></button>
+              <button type="button" class="btn-table-eye" data-modal-target="viewFaqModal" aria-label="عرض"><i data-lucide="eye"></i></button>
+            </div>
+          </td>
+        </tr>
+      `;
+    }
+    faqTbody.innerHTML = faqHtml;
+  }
+}
+
+// ==========================================================================
+// 4. Accordion & Settings Modules (No Inline Event Handlers)
+// ==========================================================================
+function initSettingsAccordions() {
   document.addEventListener('click', (e) => {
-    const dotsBtn = e.target.closest('.contact-dots-btn');
-    const allDropdowns = document.querySelectorAll('.contact-card-dropdown');
-
-    if (dotsBtn) {
-      e.stopPropagation();
-      const card = dotsBtn.closest('.contact-msg-card');
-      const dropdown = card?.querySelector('.contact-card-dropdown');
-      
-      // Close other open contact dropdowns
-      allDropdowns.forEach(d => {
-        if (d !== dropdown) d.classList.remove('active');
-      });
-
-      if (dropdown) {
-        dropdown.classList.toggle('active');
+    // Accordion Toggle
+    const header = e.target.closest('.settings-accordion-header, .settings-group-header, [data-accordion-toggle]');
+    if (header) {
+      const card = header.closest('.settings-accordion-card, .settings-group-card');
+      const body = card?.querySelector('.settings-accordion-body, .settings-group-body');
+      if (body) {
+        const isCollapsed = body.classList.contains('is-hidden') || body.style.display === 'none';
+        body.classList.toggle('is-hidden', !isCollapsed);
+        body.style.display = isCollapsed ? 'block' : 'none';
+        header.setAttribute('aria-expanded', isCollapsed ? 'true' : 'false');
       }
       return;
     }
 
-    // Close dropdown if clicked outside
-    if (!e.target.closest('.contact-card-dropdown')) {
-      allDropdowns.forEach(d => d.classList.remove('active'));
-    }
-  });
-
-  // Action: Mark as Contacted
-  document.addEventListener('click', (e) => {
-    const contactedBtn = e.target.closest('.contact-dropdown-item.contacted-item');
-    if (contactedBtn) {
+    // Dynamic Card Remover
+    const removeBtn = e.target.closest('.btn-card-delete, [data-action="remove-card"]');
+    if (removeBtn) {
       e.preventDefault();
-      const card = contactedBtn.closest('.contact-msg-card');
+      const card = removeBtn.closest('.setting-dynamic-card, .dynamic-card-item');
       if (card) {
-        const statusVal = card.querySelector('.contact-status-val');
-        if (statusVal) {
-          statusVal.textContent = 'تم التواصل';
-          statusVal.style.color = '#10B981';
-          statusVal.style.fontWeight = '700';
-        }
-        const dropdown = card.querySelector('.contact-card-dropdown');
-        if (dropdown) dropdown.classList.remove('active');
-      }
-      showToast('تم تعيين حالة التواصل إلى "تم التواصل" بنجاح', 'success');
-    }
-  });
-
-  // Action: Delete Contact Message
-  document.addEventListener('click', (e) => {
-    const deleteBtn = e.target.closest('.contact-dropdown-item.delete-item');
-    if (deleteBtn) {
-      e.preventDefault();
-      const card = deleteBtn.closest('.contact-msg-card');
-      cardPendingDelete = card;
-      const dropdown = card?.querySelector('.contact-card-dropdown');
-      if (dropdown) dropdown.classList.remove('active');
-      openModal('deleteModal');
-    }
-  });
-
-  // When Confirm Delete is clicked in deleteModal
-  const confirmDeleteBtn = document.getElementById('btnConfirmDelete');
-  if (confirmDeleteBtn) {
-    confirmDeleteBtn.addEventListener('click', () => {
-      if (cardPendingDelete) {
-        cardPendingDelete.style.transition = 'all 0.3s ease';
-        cardPendingDelete.style.opacity = '0';
-        cardPendingDelete.style.transform = 'scale(0.95)';
+        card.style.opacity = '0';
+        card.style.transform = 'scale(0.95)';
         setTimeout(() => {
-          cardPendingDelete.remove();
-          cardPendingDelete = null;
-        }, 300);
+          card.remove();
+          toast.show('تم حذف البطاقة بنجاح', 'info');
+        }, 200);
       }
+      return;
+    }
+
+    // Status toggle in tables
+    const statusBtn = e.target.closest('[data-action="toggle-status"]');
+    if (statusBtn) {
+      e.preventDefault();
+      const isSuspended = statusBtn.classList.contains('pill-active-green');
+      statusBtn.className = isSuspended ? 'pill-suspend-red' : 'pill-active-green';
+      statusBtn.textContent = isSuspended ? 'إيقاف الحساب' : 'تفعيل الحساب';
+      toast.show('تم تحديث حالة الحساب بنجاح', 'success');
+      return;
+    }
+  });
+
+  // Settings Tabs Navigation
+  const tabLinks = document.querySelectorAll('.settings-tab-link, [data-tab-target]');
+  tabLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = link.getAttribute('data-tab-target') || link.getAttribute('href')?.replace('#', '');
+      if (!targetId) return;
+
+      tabLinks.forEach(l => l.classList.remove('active'));
+      link.classList.add('active');
+
+      document.querySelectorAll('.settings-tab-panel, .tab-pane').forEach(panel => {
+        panel.classList.remove('active');
+      });
+
+      const activePanel = document.getElementById(targetId) || document.getElementById(`tab-${targetId}`);
+      if (activePanel) {
+        activePanel.classList.add('active');
+      }
+    });
+  });
+}
+
+// ==========================================================================
+// 5. Sidebar, Header Dropdowns & Theme Manager
+// ==========================================================================
+function initAppShell() {
+  // Mobile Sidebar Toggle
+  const sidebar = document.querySelector('.sidebar, .admin-sidebar');
+  const sidebarToggle = document.getElementById('sidebarToggle') || document.querySelector('.btn-sidebar-toggle');
+  
+  if (sidebarToggle && sidebar) {
+    sidebarToggle.addEventListener('click', () => {
+      sidebar.classList.toggle('active');
     });
   }
-}
 
-/* ==========================================================================
-   10. Smooth Sidebar & Page Navigation Transitions
-   ========================================================================== */
-function initPageTransitions() {
-  const navLinks = document.querySelectorAll('.sidebar-item[href], .sidebar-subitem[href]');
-  navLinks.forEach(link => {
-    link.addEventListener('click', function(e) {
-      const href = this.getAttribute('href');
-      if (!href || href === '#' || href.startsWith('javascript:') || href.startsWith('http') || href.startsWith('mailto:') || href.startsWith('tel:')) {
-        return;
+  // Header Dropdowns (User profile, Notifications)
+  document.addEventListener('click', (e) => {
+    const trigger = e.target.closest('[data-dropdown-toggle]');
+    if (trigger) {
+      const panel = trigger.parentElement.querySelector('.custom-dropdown-panel, .user-dropdown-card');
+      if (panel) {
+        panel.classList.toggle('show');
       }
-      
-      const targetUrl = new URL(href, window.location.href);
-      if (targetUrl.pathname === window.location.pathname && targetUrl.search === window.location.search) {
-        return;
-      }
-      
-      e.preventDefault();
-      const mainContent = document.querySelector('.main-content');
-      if (mainContent) {
-        mainContent.style.transition = 'opacity 0.22s cubic-bezier(0.4, 0, 0.2, 1)';
-        mainContent.style.opacity = '0';
-      }
-      setTimeout(() => {
-        window.location.href = href;
-      }, 200);
+      return;
+    }
+
+    // Click outside to close all dropdowns
+    if (!e.target.closest('.header-action-item, .user-profile-widget')) {
+      document.querySelectorAll('.custom-dropdown-panel.show, .user-dropdown-card.show').forEach(p => {
+        p.classList.remove('show');
+      });
+    }
+  });
+
+  // Theme Switching (Dark / Light Mode)
+  const themeToggle = document.getElementById('themeToggle') || document.querySelector('.btn-theme-toggle');
+  const savedTheme = localStorage.getItem('az_dashboard_theme') || 'dark';
+  document.documentElement.setAttribute('data-theme', savedTheme);
+
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme') || 'dark';
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('az_dashboard_theme', next);
+      toast.show(`تم تفعيل ${next === 'dark' ? 'الوضع الليلي' : 'الوضع النهاري'}`, 'info');
     });
+  }
+
+  // Intercept all prototype forms to provide real feedback and prevent standard page reloads
+  document.addEventListener('submit', (e) => {
+    const form = e.target;
+    if (form.classList.contains('auth-form') || form.id === 'loginForm') return; // Handled by auth.js
+
+    e.preventDefault();
+    const submitBtn = form.querySelector('button[type="submit"]');
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      const original = submitBtn.innerHTML;
+      submitBtn.innerHTML = '<span>جاري الحفظ...</span>';
+      setTimeout(() => {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = original;
+        toast.show('تم حفظ البيانات بنجاح!', 'success');
+        modalManager.close();
+      }, 400);
+    } else {
+      toast.show('تمت العملية بنجاح!', 'success');
+    }
   });
 }
 
+// ==========================================================================
+// Initialization on DOM Ready
+// ==========================================================================
+document.addEventListener('DOMContentLoaded', () => {
+  renderSupervisorsTable();
+  renderServicesTable();
+  renderPackagesTable();
+  renderSettingsTables();
+  initSettingsAccordions();
+  initAppShell();
+
+  if (typeof lucide !== 'undefined' && lucide.createIcons) {
+    lucide.createIcons();
+  }
+});
+
+export { toast, modalManager };

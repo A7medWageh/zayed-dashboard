@@ -1,7 +1,5 @@
-/* ==========================================================================
-   AZ STUDIO - AUTHENTICATION FLOW (LOGIN, EMAIL, OTP, NEW PASSWORD)
-   Pixel-perfect match for Figma Frame 1 to 4 images
-   ========================================================================== */
+/* AZ STUDIO - AUTHENTICATION FLOW (LOGIN, EMAIL, OTP, NEW PASSWORD)
+   Pixel-perfect match for */
 
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap');
 
@@ -377,9 +375,7 @@ html, body {
   text-decoration: underline;
 }
 
-/* ==========================================================================
-   AUTH DARK THEME (1:1 Matching Figma Image 1)
-   ========================================================================== */
+/* AUTH DARK THEME (1:1 Matching */
 [data-theme="dark"] .auth-card {
   background: #181A20 !important;
   border: 1px solid #282E3C !important;

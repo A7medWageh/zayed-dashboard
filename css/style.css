@@ -1,12 +1,10 @@
-/* ==========================================================================
-   AZ Studio Dashboard - Exact Figma Auth Flow Stylesheet
-   Directly synced with Figma File (Token-verified 100% precision)
-   ========================================================================== */
+/* AZ Studio Dashboard - Exact 
+   Directly synced with */
 
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
 
 :root {
-  /* Exact Figma Tokens */
+  /* Exact */
   --primary-color: #FDBA33;
   --primary-hover: #e5a52a;
   --text-dark: #131313;
@@ -28,7 +26,7 @@
   --font-arabic: 'IBM Plex Sans Arabic', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-inter: 'Inter', sans-serif;
   
-  /* Shadows from Figma Node 414:9081 */
+  /* Shadows from */
   --shadow-1: 0 8px 10px -6px rgba(0, 0, 0, 0.10);
   --shadow-2: 0 20px 25px -5px rgba(0, 0, 0, 0.10);
 }

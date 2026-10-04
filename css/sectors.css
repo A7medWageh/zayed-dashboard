@@ -1,0 +1,463 @@
+@import url("./style.css");
+
+/* ══════════════════════════════════════════════════════════════════════════
+   Sectors Page Styling — AZ Studio (القطاعات)
+   Clean, separated CSS — 1:1 
+   ══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Main Container ── */
+.sectors-page-main {
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  background-color: transparent;
+  color: #ffffff;
+  font-family: "IBM Plex Sans Arabic", sans-serif;
+  padding-bottom: 120px;
+}
+
+.site-header::before {
+  content: "";
+  position: fixed;
+  top: 0%;
+  left: 80%;
+  width: 113.453px;
+  height: 552.008px;
+  transform: rotate(26.691deg);
+  background: linear-gradient(180deg, rgba(253, 186, 51, 0.24) 0%, rgba(253, 186, 51, 0.00) 100%);
+  filter: blur(40px);
+}
+
+/* ── 1. Hero Section ── */
+.sectors-hero {
+  position: relative;
+  z-index: 1;
+  padding-top: 48px;
+  padding-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 1255px;
+  margin: 0 auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.sectors-hero-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  max-width: 1032px;
+  margin: 0 auto;
+}
+
+.sectors-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  padding: 6px 16px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 100px;
+  border: 1px solid #FDBA33;
+  backdrop-filter: blur(12px);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.24px;
+  white-space: nowrap;
+}
+
+.sectors-hero-title {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #ffffff;
+  text-align: center;
+  max-width: 920px;
+}
+
+.sectors-hero-title .accent {
+  color: var(--primary, #FDBA33);
+}
+
+.sectors-hero-lead {
+  margin: 0;
+  font-size: 15.5px;
+  font-weight: 400;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.55);
+  text-align: center;
+  max-width: 1032px;
+}
+
+/* ── 2. Content & Cards Section ── */
+.sectors-content-section {
+  position: relative;
+  z-index: 1;
+  max-width: 1240px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 40px 24px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+/* ── Section Sub Header (Right-Aligned in RTL) ── */
+.sectors-sub-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: right;
+  gap: 12px;
+  width: 100%;
+}
+
+.sectors-sub-title {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #ffffff;
+  text-align: right;
+}
+
+.sectors-sub-title .accent {
+  color: var(--primary, #FDBA33);
+}
+
+.sectors-sub-lead {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.50);
+  max-width: 1100px;
+  text-align: right;
+}
+
+/* ── 3. 6 Sectors Cards Grid (3 Columns × 2 Rows) ── */
+.sectors-cards-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 392px)) !important;
+  justify-content: center;
+  gap: 32px;
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  direction: rtl;
+}
+
+/* ── Individual Sector Card (Exact User Dimensions) ── */
+.sector-card {
+  grid-column: auto !important;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  width: 100%;
+  max-width: 392px;
+  padding: 32px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.50);
+  background: rgba(30, 30, 30, 0.30);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-sizing: border-box;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sector-card:hover {
+  border-color: rgba(253, 186, 51, 0.75);
+  transform: translateY(-5px);
+  background: rgba(36, 36, 36, 0.45);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), 0 0 28px rgba(253, 186, 51, 0.15);
+}
+
+/* Card Top Row (Icon on Right, Number on Left with Space Between) */
+.sector-card-top {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+/* Icon Container (Right in RTL) */
+.sector-card-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: rgba(253, 186, 51, 0.15);
+  border: 1px solid rgba(253, 186, 51, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.35s ease;
+}
+
+.sector-card:hover .sector-card-icon {
+  background: rgba(253, 186, 51, 0.25);
+  border-color: rgba(253, 186, 51, 0.6);
+  transform: scale(1.06);
+}
+
+.sector-card-icon img,
+.sector-card-icon svg {
+  width: 38px;
+  height: 38px;
+  display: block;
+}
+
+/* Number & Glow Container (Left in RTL) */
+.sector-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.sector-card-number {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1;
+  color: #ffffff;
+  font-family: "IBM Plex Sans Arabic", sans-serif;
+  letter-spacing: -0.5px;
+  position: relative;
+  z-index: 1;
+}
+
+.sector-card-glow {
+  width: 65px;
+  height: 65px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: #FDBA33;
+  opacity: 0.18;
+  filter: blur(25px);
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+
+.sector-card:hover .sector-card-glow {
+  opacity: 0.35;
+  filter: blur(20px);
+}
+
+/* Card Body Content */
+.sector-card-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  text-align: right;
+}
+
+.sector-card-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+  color: #ffffff;
+  text-align: right;
+  transition: color 0.25s ease;
+}
+
+.sector-card:hover .sector-card-title {
+  color: #FDBA33;
+}
+
+.sector-card-desc {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22.75px;
+  color: rgba(255, 255, 255, 0.50);
+  text-align: right;
+}
+
+/* ── Responsive Adjustments (Centered in Tablet & Mobile) ── */
+@media (max-width: 1240px) {
+  .sectors-content-section {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .sectors-cards-grid {
+    grid-template-columns: repeat(3, minmax(0, 392px)) !important;
+    justify-content: center;
+    justify-items: center;
+    gap: 24px;
+  }
+  
+  .sector-card {
+    padding: 28px 24px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 992px) {
+  .sectors-sub-header {
+    align-items: center;
+    text-align: center;
+  }
+
+  .sectors-sub-title {
+    font-size: 22px;
+    text-align: center;
+  }
+
+  .sectors-sub-lead {
+    text-align: center;
+  }
+
+  .sectors-cards-grid {
+    grid-template-columns: repeat(2, minmax(0, 392px)) !important;
+    justify-content: center;
+    justify-items: center;
+    gap: 24px;
+    margin: 0 auto;
+  }
+
+  .sector-card {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 392px;
+  }
+
+  .sectors-hero-title {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sectors-hero {
+    padding-top: 42px !important;
+    padding-bottom: 24px !important;
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+
+  .sectors-hero-title {
+    font-size: 22px !important;
+    line-height: 1.45 !important;
+    text-align: center !important;
+  }
+
+  .sectors-hero-lead {
+    font-size: 13.5px !important;
+    line-height: 24px !important;
+    text-align: center !important;
+  }
+
+  .sectors-content-section {
+    padding-top: 24px !important;
+    padding-bottom: 48px !important;
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+    gap: 28px !important;
+    align-items: center !important;
+  }
+
+  .sectors-sub-header {
+    align-items: center !important;
+    text-align: center !important;
+    margin-bottom: 12px !important;
+  }
+
+  .sectors-sub-title {
+    font-size: 20px !important;
+    text-align: center !important;
+    margin-bottom: 8px !important;
+  }
+
+  .sectors-sub-lead {
+    font-size: 13.5px !important;
+    line-height: 22px !important;
+    text-align: center !important;
+  }
+
+  .sectors-cards-grid {
+    grid-template-columns: minmax(0, 420px) !important;
+    max-width: 420px !important;
+    width: 100% !important;
+    justify-content: center !important;
+    justify-items: center !important;
+    margin: 0 auto !important;
+    gap: 20px !important;
+  }
+
+  .sector-card {
+    width: 100% !important;
+    max-width: 420px !important;
+    padding: 26px 20px !important;
+    margin: 0 auto !important;
+    border-radius: 24px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    text-align: right !important;
+    direction: rtl !important;
+    gap: 20px !important;
+  }
+
+  /* Balanced top row: Icon & Number on opposite sides */
+  .sector-card-top {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+  }
+
+  .sector-card-content {
+    text-align: right !important;
+    direction: rtl !important;
+    width: 100% !important;
+  }
+
+  .sector-card-title {
+    font-size: 19px !important;
+    line-height: 26px !important;
+    text-align: right !important;
+    margin-bottom: 8px !important;
+  }
+
+  .sector-card-desc {
+    font-size: 13.5px !important;
+    line-height: 22px !important;
+    text-align: right !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .sectors-hero {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+
+  .sectors-content-section {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+
+  .sectors-hero-title {
+    font-size: 20px !important;
+  }
+
+  .sector-card {
+    padding: 22px 16px !important;
+  }
+}

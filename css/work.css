@@ -1,0 +1,369 @@
+@import url("./style.css");
+
+/* ══════════════════════════════════════════════════════════════════════════
+   Work / Outputs Page Styling — AZ Studio (صفحة المخرجات)
+   ══════════════════════════════════════════════════════════════════════════ */
+
+.work-page-main {
+  position: relative;
+  z-index: 2;
+  padding-bottom: 90px;
+}
+
+.work-hero {
+  width: 100%;
+  padding-top: 36px;
+  position: relative;
+}
+.site-header::before {
+  content: "";
+  position: fixed;
+  top: 0%;
+  left: 80%;
+  width: 113.453px;
+height: 552.008px;
+transform: rotate(26.691deg);
+
+background: linear-gradient(180deg, rgba(253, 186, 51, 0.24) 0%, rgba(253, 186, 51, 0.00) 100%);
+filter: blur(40px);
+}
+.work-hero .content-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+/* ── Centered Hero Header ── */
+.work-hero-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.work-hero-title {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.55;
+  color: #ffffff;
+  text-align: center;
+  letter-spacing: -0.5px;
+}
+
+.work-hero-title .accent {
+  color: var(--primary);
+}
+
+.work-hero-lead {
+  margin: 0;
+  font-size: 15px;
+  line-height: 28px;
+  color: rgba(255, 255, 255, 0.65);
+  max-width: 880px;
+  text-align: center;
+}
+
+/* ................out put......................  */
+
+.output-card {
+  width: 100%;
+  height: 100%;
+  min-height: 280px;
+  border-radius: 20px;
+  padding: 24px;
+  background-color: #060504;
+  border: 1px solid #F1F5F9;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  text-align: right;
+  direction: rtl;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.output-card > div:first-child {
+  width: 100%;
+  text-align: right;
+  direction: rtl;
+}
+
+.output-span {
+  font-family: "IBM Plex Sans Arabic", sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-align: right;
+  text-transform: uppercase;
+  color: var(--primary);
+  display: block;
+  width: 100%;
+  margin-bottom: 6px;
+}
+
+.output-h3 {
+  font-family: "IBM Plex Sans Arabic", sans-serif;
+  font-weight: 700;
+  font-size: 19px;
+  line-height: 28px;
+  text-align: right;
+  color: #FFFFFF;
+  margin-bottom: 14px;
+  width: 100%;
+}
+
+.output-card-text {
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0 0 24px 0;
+  padding: 0;
+  text-align: right;
+  direction: rtl;
+}
+
+.output-card-text .section-lead {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: block !important;
+  text-align: right !important;
+  direction: rtl !important;
+  font-size: 12.2px !important;
+  line-height: 24px !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+.output-card-text .section-lead strong {
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+  display: inline !important;
+  margin-left: 5px !important;
+}
+
+.output-card-btn {
+  width: 100%;
+  margin-top: auto;
+}
+
+.output-btn-card {
+  width: 100%;
+  height: 44px;
+  border-radius: 12px;
+  background-color: var(--primary);
+  border: none;
+  font-weight: 600;
+  font-size: 14px;
+  color: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.output-btn-card:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* ................out put ...................... */
+
+
+
+
+
+
+/* ── User Custom Content Section (Full width outer with container inside) ── */
+.work-custom-content {
+  width: 100%;
+  padding: 50px 0;
+  position: relative;
+}
+
+/* ── Responsive ── */
+@media (max-width: 991px) {
+  .work-hero {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .sec1-output-heading {
+    text-align: center;
+  }
+
+  .sec1-output-heading .section-title,
+  .sec1-output-heading .section-lead {
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .work-hero {
+    padding-top: 42px !important;
+    padding-bottom: 24px !important;
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+
+  .work-hero .content-wrap {
+    gap: 28px !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .work-hero-header {
+    gap: 14px !important;
+    text-align: center !important;
+    align-items: center !important;
+  }
+
+  .work-hero-title {
+    font-size: 22px !important;
+    line-height: 1.4 !important;
+    text-align: center !important;
+  }
+
+  .work-hero-lead {
+    font-size: 13.5px !important;
+    line-height: 24px !important;
+    text-align: center !important;
+  }
+
+  .work-custom-content {
+    padding-top: 24px !important;
+    padding-bottom: 48px !important;
+  }
+
+  .work-custom-content .content-wrap {
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+
+  .sec1-output-heading {
+    text-align: center !important;
+    margin-bottom: 28px !important;
+  }
+
+  .sec1-output-heading .section-title {
+    font-size: 20px !important;
+    text-align: center !important;
+    margin-bottom: 8px !important;
+  }
+
+  .sec1-output-heading .section-lead {
+    font-size: 13.5px !important;
+    line-height: 22px !important;
+    text-align: center !important;
+  }
+
+  .output-card {
+    padding: 20px 14px !important;
+    min-height: auto !important;
+    border-radius: 20px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    text-align: right !important;
+    direction: rtl !important;
+  }
+
+  .output-card > div:first-child {
+    width: 100% !important;
+    text-align: right !important;
+    direction: rtl !important;
+  }
+
+  .output-span {
+    display: block !important;
+    width: 100% !important;
+    text-align: right !important;
+    margin: 0 0 8px 0 !important;
+  }
+
+  .output-h3 {
+    font-size: 19px !important;
+    line-height: 27px !important;
+    text-align: right !important;
+    margin: 0 0 14px 0 !important;
+    width: 100% !important;
+  }
+
+  .output-card-text {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 0 20px 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    text-align: right !important;
+    direction: rtl !important;
+    gap: 10px !important;
+  }
+
+  .output-card-text .section-lead {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important;
+    text-align: right !important;
+    direction: rtl !important;
+    font-size: clamp(10.5px, 2.5vw, 12px) !important;
+    line-height: 24px !important;
+    color: rgba(255, 255, 255, 0.7) !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  .output-card-text .section-lead strong {
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
+    display: inline !important;
+    margin-left: 5px !important;
+  }
+
+  .output-btn-card {
+    width: 100% !important;
+    height: 46px !important;
+    font-size: 14.5px !important;
+    border-radius: 12px !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .work-hero {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+
+  .work-custom-content .content-wrap {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+
+  .work-hero-title {
+    font-size: 20px !important;
+  }
+
+  .output-card {
+    padding: 20px 16px !important;
+  }
+
+  .output-card-text .section-lead strong {
+    flex: 0 0 58px !important;
+    min-width: 58px !important;
+    max-width: 58px !important;
+  }
+}

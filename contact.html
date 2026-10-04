@@ -8,17 +8,18 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/tokens.css">
+  <link rel="stylesheet" href="./css/components.css">
   <link rel="stylesheet" href="./css/dashboard.css">
+  <script src="./js/authGuard.js"></script>
 </head>
 <body>
 
-  <!-- =========================================================================
-       SIDEBAR (RIGHT)
-       ========================================================================= -->
+  <!-- SIDEBAR -->
   <aside class="sidebar">
     <!-- Sidebar Close Button (Mobile) -->
     <button type="button" class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="إغلاق القائمة">
-      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      <i data-lucide="x"></i>
     </button>
 
     <!-- Logo Area -->
@@ -28,22 +29,22 @@
 
     <!-- Menu Navigation -->
     <nav class="sidebar-menu">
-      <!-- 1. لوحة التحكم -->
+      <!-- لوحة التحكم -->
       <a href="index.html" class="sidebar-item">
         <div class="sidebar-item-content">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect></svg>
+          <i data-lucide="layout-grid"></i>
           <span>لوحة التحكم</span>
         </div>
       </a>
 
-      <!-- 2. الطلبات (Accordion Submenu) -->
+      <!-- الطلبات -->
       <div class="sidebar-group">
         <button type="button" class="sidebar-item sidebar-accordion-toggle">
           <div class="sidebar-item-content">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+            <i data-lucide="shopping-bag"></i>
             <span>الطلبات</span>
           </div>
-          <svg class="sidebar-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          <i data-lucide="chevron-down" class="sidebar-chevron"></i>
         </button>
         <div class="sidebar-submenu">
           <a href="orders.html" class="sidebar-subitem">طلبات الخدمات</a>
@@ -52,22 +53,22 @@
         </div>
       </div>
 
-      <!-- 3. الخدمات -->
+      <!-- الخدمات -->
       <a href="services.html" class="sidebar-item">
         <div class="sidebar-item-content">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          <i data-lucide="settings"></i>
           <span>الخدمات</span>
         </div>
       </a>
 
-      <!-- 4. الباقات (Accordion Submenu) -->
+      <!-- الباقات -->
       <div class="sidebar-group">
         <button type="button" class="sidebar-item sidebar-accordion-toggle">
           <div class="sidebar-item-content">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+            <i data-lucide="package"></i>
             <span>الباقات</span>
           </div>
-          <svg class="sidebar-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          <i data-lucide="chevron-down" class="sidebar-chevron"></i>
         </button>
         <div class="sidebar-submenu">
           <a href="packages.html?category=social" class="sidebar-subitem">السوشيال ميديا</a>
@@ -77,38 +78,38 @@
         </div>
       </div>
 
-      <!-- 5. المشرفين -->
+      <!-- المشرفين -->
       <a href="supervisors.html" class="sidebar-item">
         <div class="sidebar-item-content">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          <i data-lucide="users"></i>
           <span>المشرفين</span>
         </div>
       </a>
 
-      <!-- 6. الأدوار -->
+      <!-- الأدوار -->
       <a href="roles.html" class="sidebar-item">
         <div class="sidebar-item-content">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          <i data-lucide="shield"></i>
           <span>الأدوار</span>
         </div>
       </a>
 
-      <!-- 7. تواصل معانا -->
+      <!-- تواصل معانا -->
       <a href="contact.html" class="sidebar-item active">
         <div class="sidebar-item-content">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          <i data-lucide="phone"></i>
           <span>تواصل معانا</span>
         </div>
       </a>
 
-      <!-- 8. اعدادات الموقع الالكتروني (Accordion Submenu) -->
+      <!-- اعدادات الموقع الالكتروني -->
       <div class="sidebar-group">
         <button type="button" class="sidebar-item sidebar-accordion-toggle">
           <div class="sidebar-item-content">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            <i data-lucide="circle"></i>
             <span>اعدادات الموقع الالكتروني</span>
           </div>
-          <svg class="sidebar-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          <i data-lucide="chevron-down" class="sidebar-chevron"></i>
         </button>
         <div class="sidebar-submenu">
           <a href="settings.html?tab=home" class="sidebar-subitem">الصفحة الرئيسية</a>
@@ -128,20 +129,18 @@
     <!-- Logout Button -->
     <button type="button" class="sidebar-logout" data-modal-target="logoutModal" style="border: none; cursor: pointer; width: 100%;">
       <span>تسجيل الخروج</span>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+      <i data-lucide="log-out"></i>
     </button>
   </aside>
 
-  <!-- =========================================================================
-       MAIN CONTENT
-       ========================================================================= -->
+  <!-- MAIN CONTENT -->
   <main class="main-content">
     <!-- Header Bar -->
     <header class="header-bar">
       <!-- Right Side: Hamburger Toggle (Mobile) + Welcome Title -->
       <div class="header-right-side">
         <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="فتح القائمة">
-          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          <i data-lucide="menu"></i>
         </button>
         <div class="header-welcome">
           <h1>تواصل معانا</h1>
@@ -153,13 +152,13 @@
       <div class="header-user-actions">
         <!-- Theme Toggle (Sun / Moon) -->
         <button type="button" class="theme-toggle-btn" id="themeToggleBtn" title="تبديل الوضع الليلي / النهاري" aria-label="تبديل الوضع">
-          <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          <i data-lucide="sun" class="sun-icon"></i>
+          <i data-lucide="moon" class="moon-icon"></i>
         </button>
 
         <!-- Notification Bell -->
         <div class="notif-bell-btn" id="notifBtn" style="cursor: pointer;">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+          <i data-lucide="bell"></i>
         </div>
 
         <!-- User Profile Trigger -->
@@ -169,7 +168,7 @@
             <span class="user-name-text">محمد المعتصم باللة السيد</span>
             <span class="user-email-text">mohamedmoatasembalbol@icloud.com</span>
           </div>
-          <svg class="user-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          <i data-lucide="chevron-down" class="user-chevron"></i>
         </div>
 
         <!-- Floating Notification Dropdown -->
@@ -217,20 +216,18 @@
             </div>
           </div>
           <button type="button" class="user-dropdown-item" data-modal-target="viewProfileModal">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            <i data-lucide="user"></i>
             <span>عرض الملف الشخصي</span>
           </button>
           <button type="button" class="user-dropdown-item logout-item" data-modal-target="logoutModal">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+            <i data-lucide="log-out"></i>
             <span>تسجيل الخروج</span>
           </button>
         </div>
       </div>
     </header>
 
-    <!-- =========================================================================
-         CONTACT MESSAGES 3-COLUMN CARDS GRID (Figma 1:1 Matching)
-         ========================================================================= -->
+    <!-- CONTACT MESSAGES 3-COLUMN CARDS GRID ( -->
     <div class="contact-cards-grid">
       
       <!-- Card 1 -->
@@ -243,11 +240,11 @@
         <div class="contact-card-dropdown">
           <button type="button" class="contact-dropdown-item contacted-item">
             <span>تم التواصل</span>
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" style="color: #F59E0B;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <i data-lucide="check" style="color: #F59E0B;"></i>
           </button>
           <button type="button" class="contact-dropdown-item delete-item">
             <span>حذف الرسالة</span>
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" style="color: #EF4444;"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+            <i data-lucide="trash-2" style="color: #EF4444;"></i>
           </button>
         </div>
         <!-- Card Fields -->
@@ -286,11 +283,11 @@
         <div class="contact-card-dropdown">
           <button type="button" class="contact-dropdown-item contacted-item">
             <span>تم التواصل</span>
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" style="color: #F59E0B;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <i data-lucide="check" style="color: #F59E0B;"></i>
           </button>
           <button type="button" class="contact-dropdown-item delete-item">
             <span>حذف الرسالة</span>
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" style="color: #EF4444;"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+            <i data-lucide="trash-2" style="color: #EF4444;"></i>
           </button>
         </div>
         <div class="contact-field-row">
@@ -328,11 +325,11 @@
         <div class="contact-card-dropdown">
           <button type="button" class="contact-dropdown-item contacted-item">
             <span>تم التواصل</span>
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" style="color: #F59E0B;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <i data-lucide="check" style="color: #F59E0B;"></i>
           </button>
           <button type="button" class="contact-dropdown-item delete-item">
             <span>حذف الرسالة</span>
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" style="color: #EF4444;"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+            <i data-lucide="trash-2" style="color: #EF4444;"></i>
           </button>
         </div>
         <div class="contact-field-row">
@@ -370,11 +367,11 @@
         <div class="contact-card-dropdown">
           <button type="button" class="contact-dropdown-item contacted-item">
             <span>تم التواصل</span>
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" style="color: #F59E0B;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <i data-lucide="check" style="color: #F59E0B;"></i>
           </button>
           <button type="button" class="contact-dropdown-item delete-item">
             <span>حذف الرسالة</span>
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" style="color: #EF4444;"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+            <i data-lucide="trash-2" style="color: #EF4444;"></i>
           </button>
         </div>
         <div class="contact-field-row">
@@ -412,11 +409,11 @@
         <div class="contact-card-dropdown">
           <button type="button" class="contact-dropdown-item contacted-item">
             <span>تم التواصل</span>
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" style="color: #F59E0B;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <i data-lucide="check" style="color: #F59E0B;"></i>
           </button>
           <button type="button" class="contact-dropdown-item delete-item">
             <span>حذف الرسالة</span>
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" style="color: #EF4444;"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+            <i data-lucide="trash-2" style="color: #EF4444;"></i>
           </button>
         </div>
         <div class="contact-field-row">
@@ -454,11 +451,11 @@
         <div class="contact-card-dropdown">
           <button type="button" class="contact-dropdown-item contacted-item">
             <span>تم التواصل</span>
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" style="color: #F59E0B;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <i data-lucide="check" style="color: #F59E0B;"></i>
           </button>
           <button type="button" class="contact-dropdown-item delete-item">
             <span>حذف الرسالة</span>
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" style="color: #EF4444;"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+            <i data-lucide="trash-2" style="color: #EF4444;"></i>
           </button>
         </div>
         <div class="contact-field-row">
@@ -496,11 +493,11 @@
         <div class="contact-card-dropdown">
           <button type="button" class="contact-dropdown-item contacted-item">
             <span>تم التواصل</span>
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" style="color: #F59E0B;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <i data-lucide="check" style="color: #F59E0B;"></i>
           </button>
           <button type="button" class="contact-dropdown-item delete-item">
             <span>حذف الرسالة</span>
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" style="color: #EF4444;"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+            <i data-lucide="trash-2" style="color: #EF4444;"></i>
           </button>
         </div>
         <div class="contact-field-row">
@@ -538,11 +535,11 @@
         <div class="contact-card-dropdown">
           <button type="button" class="contact-dropdown-item contacted-item">
             <span>تم التواصل</span>
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" style="color: #F59E0B;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <i data-lucide="check" style="color: #F59E0B;"></i>
           </button>
           <button type="button" class="contact-dropdown-item delete-item">
             <span>حذف الرسالة</span>
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" style="color: #EF4444;"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+            <i data-lucide="trash-2" style="color: #EF4444;"></i>
           </button>
         </div>
         <div class="contact-field-row">
@@ -580,11 +577,11 @@
         <div class="contact-card-dropdown">
           <button type="button" class="contact-dropdown-item contacted-item">
             <span>تم التواصل</span>
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" style="color: #F59E0B;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <i data-lucide="check" style="color: #F59E0B;"></i>
           </button>
           <button type="button" class="contact-dropdown-item delete-item">
             <span>حذف الرسالة</span>
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" style="color: #EF4444;"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+            <i data-lucide="trash-2" style="color: #EF4444;"></i>
           </button>
         </div>
         <div class="contact-field-row">
@@ -622,11 +619,11 @@
         <div class="contact-card-dropdown">
           <button type="button" class="contact-dropdown-item contacted-item">
             <span>تم التواصل</span>
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" style="color: #F59E0B;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <i data-lucide="check" style="color: #F59E0B;"></i>
           </button>
           <button type="button" class="contact-dropdown-item delete-item">
             <span>حذف الرسالة</span>
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" style="color: #EF4444;"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+            <i data-lucide="trash-2" style="color: #EF4444;"></i>
           </button>
         </div>
         <div class="contact-field-row">
@@ -664,11 +661,11 @@
         <div class="contact-card-dropdown">
           <button type="button" class="contact-dropdown-item contacted-item">
             <span>تم التواصل</span>
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" style="color: #F59E0B;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <i data-lucide="check" style="color: #F59E0B;"></i>
           </button>
           <button type="button" class="contact-dropdown-item delete-item">
             <span>حذف الرسالة</span>
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" style="color: #EF4444;"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+            <i data-lucide="trash-2" style="color: #EF4444;"></i>
           </button>
         </div>
         <div class="contact-field-row">
@@ -706,11 +703,11 @@
         <div class="contact-card-dropdown">
           <button type="button" class="contact-dropdown-item contacted-item">
             <span>تم التواصل</span>
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" style="color: #F59E0B;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <i data-lucide="check" style="color: #F59E0B;"></i>
           </button>
           <button type="button" class="contact-dropdown-item delete-item">
             <span>حذف الرسالة</span>
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" style="color: #EF4444;"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+            <i data-lucide="trash-2" style="color: #EF4444;"></i>
           </button>
         </div>
         <div class="contact-field-row">
@@ -742,16 +739,14 @@
     </div>
   </main>
 
-  <!-- =========================================================================
-       MODALS SYSTEM
-       ========================================================================= -->
+  <!-- MODALS SYSTEM -->
 
   <!-- Delete Message Modal -->
   <div class="modal-overlay" id="deleteModal">
     <div class="modal-dialog" style="max-width: 440px; text-align: center;">
       <div class="modal-body" style="padding: 32px 24px 20px 24px; text-align: center;">
         <div class="delete-icon-wrap">
-          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+          <i data-lucide="trash-2"></i>
         </div>
         <h3 style="font-size: 18px; font-weight: 700; color: #111827; margin-bottom: 8px;">تأكيد الحذف</h3>
         <p style="font-size: 13px; color: #6B7280; line-height: 1.6;">هل أنت متأكد من رغبتك في حذف <strong class="delete-item-name">هذه الرسالة</strong>؟</p>
@@ -768,7 +763,7 @@
     <div class="modal-dialog" style="max-width: 440px; text-align: center;">
       <div class="modal-body" style="padding: 32px 24px 20px 24px; text-align: center;">
         <div class="delete-icon-wrap">
-          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+          <i data-lucide="log-out"></i>
         </div>
         <h3 style="font-size: 18px; font-weight: 700; color: #111827; margin-bottom: 8px;">تسجيل الخروج</h3>
         <p style="font-size: 13px; color: #6B7280;">هل أنت متأكد من رغبتك في تسجيل الخروج من لوحة تحكم AZ Studio؟</p>
@@ -780,13 +775,13 @@
     </div>
   </div>
 
-  <!-- View Profile Modal (عرض الملف الشخصي - Screenshot 3) -->
+  <!-- View Profile Modal (عرض الملف الشخصي -->
   <div class="modal-overlay" id="viewProfileModal">
     <div class="modal-dialog" style="max-width: 580px;">
       <div class="modal-header">
         <h3 class="modal-title">عرض الملف الشخصي</h3>
         <button class="modal-close-btn" data-modal-close aria-label="إغلاق">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          <i data-lucide="x"></i>
         </button>
       </div>
 
@@ -795,7 +790,7 @@
           <!-- Section Bar -->
           <div class="profile-section-title-bar">
             <span>بيانات الملف الشخصي</span>
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"><polyline points="18 15 12 9 6 15"></polyline></svg>
+            <i data-lucide="chevron-up"></i>
           </div>
 
           <!-- Studio Image Center Avatar -->
@@ -803,7 +798,7 @@
             <img src="./assets/images/Ellipse 3255.png" alt="Profile Picture" />
           </div>
 
-          <!-- 2-Column Info Grid matching Screenshot 3 -->
+          <!-- 2-Column Info Grid matching -->
           <div class="profile-info-two-col">
             <div class="profile-info-row">
               <span class="profile-info-label">الاسم :</span>
@@ -865,31 +860,31 @@
     </div>
   </div>
 
-  <!-- Edit Profile Modal (تعديل الملف الشخصي - Screenshot 4) -->
+  <!-- Edit Profile Modal (تعديل الملف الشخصي -->
   <div class="modal-overlay" id="editProfileModal">
     <div class="modal-dialog" style="max-width: 580px;">
       <div class="modal-header">
         <h3 class="modal-title">تعديل الملف الشخصي</h3>
         <button class="modal-close-btn" data-modal-close aria-label="إغلاق">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          <i data-lucide="x"></i>
         </button>
       </div>
 
       <form id="editProfileForm">
         <div class="modal-body" style="padding: 20px 24px;">
-          <!-- Upload Image Box matching Screenshot 4 -->
+          <!-- Upload Image Box matching -->
           <div class="profile-upload-zone">
             <div class="upload-icon-box">
-              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+              <i data-lucide="image"></i>
             </div>
             <button type="button" class="btn-upload-pic">
-              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+              <i data-lucide="download"></i>
               <span>تحميل الصورة</span>
             </button>
             <p class="upload-helper-text">يجب أن يكون حجم الصورة أقل من 5 ميجا بايت<br>ويجب أن تكون بنسبة 1:1</p>
           </div>
 
-          <!-- Input Fields 2-Columns matching Screenshot 4 -->
+          <!-- Input Fields 2-Columns matching -->
           <div class="modal-form-row">
             <div class="modal-form-group">
               <label class="modal-label">الاسم</label>
@@ -937,6 +932,7 @@
     </div>
   </div>
 
+    <script src="./js/lucide.min.js"></script>
   <script src="./js/dashboard.js"></script>
 </body>
 </html>

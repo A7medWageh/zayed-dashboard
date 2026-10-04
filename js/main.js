@@ -4,6 +4,9 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  if (typeof lucide !== 'undefined' && lucide.createIcons) {
+    lucide.createIcons();
+  }
   initPasswordToggles();
   initLoginForm();
   initEnterEmailForm();
@@ -11,9 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initResetPasswordForm();
 });
 
-/* ==========================================================================
-   1. Toast Notification Helper
-   ========================================================================== */
+/* Toast Notification Helper */
 function showToast(message, type = 'success') {
   let toast = document.getElementById('toastMsg');
   if (!toast) {
@@ -31,9 +32,7 @@ function showToast(message, type = 'success') {
   }, 3500);
 }
 
-/* ==========================================================================
-   2. Password Visibility Toggle
-   ========================================================================== */
+/* Password Visibility Toggle */
 function initPasswordToggles() {
   const toggleButtons = document.querySelectorAll('.btn-toggle-password');
   toggleButtons.forEach(btn => {
@@ -54,9 +53,7 @@ function initPasswordToggles() {
   });
 }
 
-/* ==========================================================================
-   3. Screen 1: Login Form
-   ========================================================================== */
+/* Screen 1: Login Form */
 function initLoginForm() {
   const form = document.getElementById('loginForm');
   if (!form) return;
@@ -102,9 +99,7 @@ function initLoginForm() {
   });
 }
 
-/* ==========================================================================
-   4. Screen 2: Enter Email (Forgot Password)
-   ========================================================================== */
+/* Screen 2: Enter Email (Forgot Password) */
 function initEnterEmailForm() {
   const form = document.getElementById('enterEmailForm');
   if (!form) return;
@@ -141,9 +136,7 @@ function initEnterEmailForm() {
   }
 }
 
-/* ==========================================================================
-   5. Screen 3: OTP 6-Digit Verification
-   ========================================================================== */
+/* Screen 3: OTP 6-Digit Verification */
 function initOtpForm() {
   const form = document.getElementById('otpForm');
   if (!form) return;
@@ -274,9 +267,7 @@ function initOtpForm() {
   });
 }
 
-/* ==========================================================================
-   6. Screen 4: Reset Password Form
-   ========================================================================== */
+/* Screen 4: Reset Password Form */
 function initResetPasswordForm() {
   const form = document.getElementById('resetPasswordForm');
   if (!form) return;
@@ -327,9 +318,7 @@ function initResetPasswordForm() {
   });
 }
 
-/* ==========================================================================
-   Helper Functions
-   ========================================================================== */
+/* Helper Functions */
 function validateEmail(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }

@@ -1,3 +1,4 @@
+# OS & Editor
 .DS_Store
 Thumbs.db
 *.log
@@ -5,3 +6,14 @@ Thumbs.db
 .idea/
 *.tmp
 *.bak
+
+# Node & Build artifacts
+node_modules/
+dist/
+.vite/
+coverage/
+
+# Scratch & Temporary Clones
+scratch/
+studio-zayed-dashboard/
+zayed-dashboard/

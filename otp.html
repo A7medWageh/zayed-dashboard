@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +8,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/tokens.css">
+  <link rel="stylesheet" href="./css/components.css">
   <link rel="stylesheet" href="./css/auth.css">
 </head>
 <body>
@@ -16,23 +18,23 @@
     <div class="auth-card">
       <!-- Card Header with Logo -->
       <div class="auth-card-header">
-        <img src="./assets/az-studio-logo.svg" alt="AZ Studio - Audiovisual Production" />
+        <img src="./assets/az-studio-logo.svg" alt="AZ Studio - Audiovisual Production" width="160" height="45" />
       </div>
 
       <!-- Card Body -->
       <div class="auth-card-body">
         <h1 class="auth-title">التحقق الثنائي 💬</h1>
-        <p class="auth-subtitle">تم إرسال الكود الخاص برمز التحقق على البريد الإلكتروني الخاص بك</p>
+        <p class="auth-subtitle">تم إرسال رمز التحقق المكون من 6 أرقام إلى بريدك الإلكتروني</p>
 
-        <form class="auth-form" action="new-password.html" method="GET">
+        <form class="auth-form" id="otpForm" novalidate>
           <!-- 6-digit OTP Inputs -->
-          <div class="otp-container">
-            <input type="text" maxlength="1" class="otp-box" required autofocus />
-            <input type="text" maxlength="1" class="otp-box" required />
-            <input type="text" maxlength="1" class="otp-box" required />
-            <input type="text" maxlength="1" class="otp-box" required />
-            <input type="text" maxlength="1" class="otp-box" required />
-            <input type="text" maxlength="1" class="otp-box" required />
+          <div class="otp-container" role="group" aria-label="رمز التحقق">
+            <input type="text" maxlength="1" class="otp-box" inputmode="numeric" pattern="[0-9]*" aria-label="الرقم الأول" autofocus required />
+            <input type="text" maxlength="1" class="otp-box" inputmode="numeric" pattern="[0-9]*" aria-label="الرقم الثاني" required />
+            <input type="text" maxlength="1" class="otp-box" inputmode="numeric" pattern="[0-9]*" aria-label="الرقم الثالث" required />
+            <input type="text" maxlength="1" class="otp-box" inputmode="numeric" pattern="[0-9]*" aria-label="الرقم الرابع" required />
+            <input type="text" maxlength="1" class="otp-box" inputmode="numeric" pattern="[0-9]*" aria-label="الرقم الخامس" required />
+            <input type="text" maxlength="1" class="otp-box" inputmode="numeric" pattern="[0-9]*" aria-label="الرقم السادس" required />
           </div>
 
           <p class="otp-hint">اكتب رمز الأمان الخاص بك المكون من 6 أرقام</p>
@@ -44,49 +46,15 @@
         </form>
 
         <p class="otp-resend-row">
-          لم تحصل علي الرمز ؟ <a href="#" id="btnResendOtp">إعادة الإرسال</a> أو <a href="contact.html">اتصل بنا</a>
+          لم تحصل علي الرمز ؟ <button type="button" id="btnResendOtp" class="btn-resend-link" style="background: none; border: none; color: var(--brand-primary); cursor: pointer; font-family: inherit; font-size: inherit; text-decoration: underline; padding: 0;">إعادة الإرسال</button> أو <a href="contact.html">اتصل بنا</a>
         </p>
       </div>
     </div>
   </div>
 
-  <script>
-    const otpBoxes = document.querySelectorAll('.otp-box');
-    otpBoxes.forEach((box, index) => {
-      box.addEventListener('input', (e) => {
-        const val = e.target.value.replace(/[^0-9]/g, '');
-        e.target.value = val;
-        if (val.length === 1 && index < otpBoxes.length - 1) {
-          otpBoxes[index + 1].focus();
-        }
-      });
+  <div id="toastContainer" role="region" aria-live="polite" aria-label="إشعارات النظام"></div>
 
-      box.addEventListener('keydown', (e) => {
-        if (e.key === 'Backspace' && !box.value && index > 0) {
-          otpBoxes[index - 1].focus();
-        }
-      });
-
-      box.addEventListener('paste', (e) => {
-        e.preventDefault();
-        const data = (e.clipboardData || window.clipboardData).getData('text').replace(/[^0-9]/g, '');
-        if (data.length > 0) {
-          for (let i = 0; i < Math.min(data.length, otpBoxes.length); i++) {
-            otpBoxes[i].value = data[i];
-          }
-          const nextIdx = Math.min(data.length, otpBoxes.length - 1);
-          otpBoxes[nextIdx].focus();
-        }
-      });
-    });
-
-    const resendBtn = document.getElementById('btnResendOtp');
-    if (resendBtn) {
-      resendBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        alert('تمت إعادة إرسال رمز التحقق إلى بريدك الإلكتروني بنجاح!');
-      });
-    }
-  </script>
+  <script src="./js/lucide.min.js"></script>
+  <script type="module" src="./js/auth.js"></script>
 </body>
 </html>

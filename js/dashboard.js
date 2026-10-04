@@ -429,15 +429,28 @@ function initAppShell() {
     document.body.style.overflow = '';
   };
 
-  document.addEventListener('click', (e) => {
-    if (e.target.closest('.mobile-menu-btn, #mobileMenuBtn, #sidebarToggle, .btn-sidebar-toggle')) {
-      e.preventDefault();
+  const toggleSidebar = () => {
+    if (!sidebar) return;
+    if (sidebar.classList.contains('active') || sidebar.classList.contains('show')) {
+      closeSidebar();
+    } else {
       openSidebar();
+    }
+  };
+
+  document.addEventListener('click', (e) => {
+    const menuBtn = e.target.closest('.mobile-menu-btn, #mobileMenuBtn, #sidebarToggle, .btn-sidebar-toggle');
+    if (menuBtn) {
+      e.preventDefault();
+      e.stopPropagation();
+      toggleSidebar();
       return;
     }
 
-    if (e.target.closest('.sidebar-close-btn, #sidebarCloseBtn, .sidebar-backdrop')) {
+    const closeBtn = e.target.closest('.sidebar-close-btn, #sidebarCloseBtn, .sidebar-backdrop, .sidebar-overlay');
+    if (closeBtn) {
       e.preventDefault();
+      e.stopPropagation();
       closeSidebar();
       return;
     }

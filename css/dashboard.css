@@ -2538,7 +2538,7 @@ p, label, input, textarea, select {
   margin-bottom: 24px;
   width: 100%;
   position: relative !important;
-  z-index: 1000 !important;
+  z-index: 20 !important;
   box-sizing: border-box;
 }
 
@@ -2599,7 +2599,7 @@ p, label, input, textarea, select {
   align-items: center !important;
   gap: 10px;
   position: relative !important;
-  z-index: 1001 !important;
+  z-index: 21 !important;
   flex-shrink: 0;
 }
 
@@ -2616,7 +2616,7 @@ p, label, input, textarea, select {
   border-radius: 12px;
   box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   padding: 8px;
-  z-index: 99999 !important;
+  z-index: 50 !important;
   display: none;
   animation: fadeInDown 0.15s ease-out;
 }
@@ -2636,7 +2636,7 @@ p, label, input, textarea, select {
   border: 1px solid #EAECF0;
   border-radius: 12px;
   box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.15);
-  z-index: 99999 !important;
+  z-index: 50 !important;
   display: none;
   animation: fadeInDown 0.15s ease-out;
 }

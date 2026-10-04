@@ -103,7 +103,7 @@
 }
 
 .pkg-order-hero-title .accent {
-  color: #FDBA33;
+  color: #fdba33;
 }
 
 .pkg-order-hero-lead {
@@ -131,7 +131,7 @@
 }
 
 .pkg-order-section-title .accent {
-  color: #FDBA33;
+  color: #fdba33;
 }
 
 .pkg-order-section-lead {
@@ -196,7 +196,10 @@
   font-family: inherit;
   font-size: 14px;
   outline: none;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
   direction: rtl;
   text-align: right;
 }
@@ -211,7 +214,7 @@
 .pkg-form-input:focus,
 .pkg-form-select:focus,
 .pkg-form-textarea:focus {
-  border-color: #FDBA33;
+  border-color: #fdba33;
   background: #0a0a0a;
   box-shadow: 0 0 0 2px rgba(253, 186, 51, 0.2);
 }
@@ -258,13 +261,16 @@
   height: 52px;
   border: none;
   border-radius: 12px;
-  background: #FDBA33;
+  background: #fdba33;
   color: #111111;
   font-family: inherit;
   font-size: 15.5px;
   font-weight: 700;
   cursor: pointer;
-  transition: transform 0.2s ease, filter 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    filter 0.2s ease,
+    box-shadow 0.2s ease;
   text-decoration: none;
 }
 
@@ -296,7 +302,9 @@
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
-  transition: transform 0.2s ease, background 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
   text-decoration: none;
   white-space: nowrap;
 }

@@ -1,92 +1,115 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl" data-theme="light">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AZ Studio - تسجيل الدخول</title>
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./css/tokens.css">
-  <link rel="stylesheet" href="./css/components.css">
-  <link rel="stylesheet" href="./css/auth.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AZ Studio - تسجيل الدخول</title>
 
-  <div class="auth-page-wrapper">
-    <div class="auth-card">
-      <!-- Card Header with Logo -->
-      <div class="auth-card-header">
-        <img src="./assets/az-studio-logo.svg" alt="AZ Studio - Audiovisual Production" width="160" height="45" />
-      </div>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/tokens.css" />
+    <link rel="stylesheet" href="./css/components.css" />
+    <link rel="stylesheet" href="./css/auth.css" />
+  </head>
+  <body>
+    <div class="auth-page-wrapper">
+      <div class="auth-card">
+        <!-- Card Header with Logo -->
+        <div class="auth-card-header">
+          <img
+            src="./assets/az-studio-logo.svg"
+            alt="AZ Studio - Audiovisual Production"
+            width="160"
+            height="45"
+          />
+        </div>
 
-      <!-- Card Body -->
-      <div class="auth-card-body">
-        <h1 class="auth-title u-justify-center u-mb-16">تسجيل الدخول</h1>
+        <!-- Card Body -->
+        <div class="auth-card-body">
+          <h1 class="auth-title u-justify-center u-mb-16">تسجيل الدخول</h1>
 
-        <form class="auth-form" id="loginForm" novalidate>
-          <!-- Email Field -->
-          <div class="auth-field-group">
-            <label class="auth-label" for="loginEmail">البريد الإلكتروني</label>
-            <div class="auth-input-wrap">
-              <input 
-                type="email" 
-                id="loginEmail" 
-                name="email"
-                class="auth-input auth-input-email" 
-                placeholder="example@azstudio.com" 
-                required 
-                autocomplete="email" 
-                aria-required="true"
-              />
-              <div class="input-icon-left" aria-hidden="true">
-                <i data-lucide="mail"></i>
+          <form class="auth-form" id="loginForm" novalidate>
+            <!-- Email Field -->
+            <div class="auth-field-group">
+              <label class="auth-label" for="loginEmail">البريد الإلكتروني</label>
+              <div class="auth-input-wrap">
+                <input
+                  type="email"
+                  id="loginEmail"
+                  name="email"
+                  class="auth-input auth-input-email"
+                  placeholder="example@azstudio.com"
+                  required
+                  autocomplete="email"
+                  aria-required="true"
+                />
+                <div class="input-icon-left" aria-hidden="true">
+                  <i data-lucide="mail"></i>
+                </div>
               </div>
             </div>
-          </div>
 
-          <!-- Password Field -->
-          <div class="auth-field-group">
-            <div class="u-flex u-items-center u-justify-between u-mb-8">
-              <label class="auth-label" for="loginPassword" style="margin-bottom: 0;">كلمة المرور</label>
-              <a href="enter-email.html" class="auth-footer-link" style="font-size: var(--font-size-xs); color: var(--brand-primary); text-decoration: none;">نسيت كلمة المرور؟</a>
-            </div>
-            <div class="auth-input-wrap">
-              <input 
-                type="password" 
-                class="auth-input auth-input-password" 
-                id="loginPassword" 
-                name="password"
-                placeholder="••••••••" 
-                required 
-                autocomplete="current-password" 
-                aria-required="true"
-              />
-              <div class="input-icon-right" aria-hidden="true">
-                <i data-lucide="lock"></i>
+            <!-- Password Field -->
+            <div class="auth-field-group">
+              <div class="u-flex u-items-center u-justify-between u-mb-8">
+                <label class="auth-label" for="loginPassword" style="margin-bottom: 0"
+                  >كلمة المرور</label
+                >
+                <a
+                  href="enter-email.html"
+                  class="auth-footer-link"
+                  style="
+                    font-size: var(--font-size-xs);
+                    color: var(--brand-primary);
+                    text-decoration: none;
+                  "
+                  >نسيت كلمة المرور؟</a
+                >
               </div>
-              <button type="button" class="btn-toggle-eye" id="toggleLoginPass" aria-label="إظهار / إخفاء كلمة المرور">
-                <i data-lucide="eye"></i>
-              </button>
+              <div class="auth-input-wrap">
+                <input
+                  type="password"
+                  class="auth-input auth-input-password"
+                  id="loginPassword"
+                  name="password"
+                  placeholder="••••••••"
+                  required
+                  autocomplete="current-password"
+                  aria-required="true"
+                />
+                <div class="input-icon-right" aria-hidden="true">
+                  <i data-lucide="lock"></i>
+                </div>
+                <button
+                  type="button"
+                  class="btn-toggle-eye"
+                  id="toggleLoginPass"
+                  aria-label="إظهار / إخفاء كلمة المرور"
+                >
+                  <i data-lucide="eye"></i>
+                </button>
+              </div>
             </div>
-          </div>
 
-          <!-- Submit Button -->
-          <button type="submit" class="btn-auth-submit" id="loginSubmitBtn">
-            <span>دخول</span>
-            <i data-lucide="log-in"></i>
-          </button>
-        </form>
+            <!-- Submit Button -->
+            <button type="submit" class="btn-auth-submit" id="loginSubmitBtn">
+              <span>دخول</span>
+              <i data-lucide="log-in"></i>
+            </button>
+          </form>
 
-        <p class="auth-footer-text">للحصول على صلاحيات الدخول، تواصل مع مسؤول النظام</p>
+          <p class="auth-footer-text">للحصول على صلاحيات الدخول، تواصل مع مسؤول النظام</p>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div id="toastContainer" role="region" aria-live="polite" aria-label="إشعارات النظام"></div>
+    <div id="toastContainer" role="region" aria-live="polite" aria-label="إشعارات النظام"></div>
 
-  <script src="./js/lucide.min.js"></script>
-  <script type="module" src="./js/auth.js"></script>
-</body>
+    <script src="./js/lucide.min.js"></script>
+    <script type="module" src="./js/auth.js"></script>
+  </body>
 </html>

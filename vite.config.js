@@ -5,7 +5,7 @@ export default defineConfig({
   root: "./",
   server: {
     port: 3000,
-    open: true
+    open: true,
   },
   build: {
     outDir: "dist",
@@ -24,12 +24,14 @@ export default defineConfig({
         supervisors: resolve(__dirname, "supervisors.html"),
         roles: resolve(__dirname, "roles.html"),
         settings: resolve(__dirname, "settings.html"),
-        contact: resolve(__dirname, "contact.html")
-      }
-    }
+        contact: resolve(__dirname, "contact.html"),
+      },
+    },
   },
   test: {
     environment: "happy-dom",
-    globals: true
-  }
+    globals: true,
+    setupFiles: ["./tests/setup.js"],
+    include: ["tests/**/*.test.js"],
+  },
 });

@@ -118,13 +118,18 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+  transition:
+    transform 0.28s ease,
+    border-color 0.28s ease,
+    box-shadow 0.28s ease;
 }
 
 .service-page-card:hover {
   transform: translateY(-4px);
   border-color: rgba(253, 186, 51, 0.35);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55), 0 0 20px rgba(253, 186, 51, 0.1);
+  box-shadow:
+    0 16px 40px rgba(0, 0, 0, 0.55),
+    0 0 20px rgba(253, 186, 51, 0.1);
 }
 
 .service-card-top {
@@ -221,7 +226,9 @@
   color: var(--primary);
   text-decoration: none;
   align-self: center;
-  transition: gap 0.2s ease, filter 0.2s ease;
+  transition:
+    gap 0.2s ease,
+    filter 0.2s ease;
 }
 
 .service-card-link:hover {

@@ -9,7 +9,11 @@
   margin: 0 auto;
   padding: 0 24px;
 }
-@media (max-width: 767px)  { .sd-wrap { padding: 0 16px; } }
+@media (max-width: 767px) {
+  .sd-wrap {
+    padding: 0 16px;
+  }
+}
 
 /* ══════════════════════════════════════════════════
    MAIN  — ambient glow + grid behind hero
@@ -46,9 +50,11 @@
   font-size: 13px;
   font-weight: 400;
   white-space: nowrap;
-  transition: color .2s;
+  transition: color 0.2s;
 }
-.sd-bc-pill:hover { color: #fff; }
+.sd-bc-pill:hover {
+  color: #fff;
+}
 
 .sd-bc-pill.active {
   border-color: rgba(255, 255, 255, 0.3);
@@ -86,7 +92,9 @@
   line-height: 1.38;
   color: #fff;
 }
-.sd-hero-title .acc { color: var(--primary); }
+.sd-hero-title .acc {
+  color: var(--primary);
+}
 
 .sd-hero-lead {
   margin: 0 auto;
@@ -111,7 +119,9 @@
   font-weight: 700;
   color: #fff;
 }
-.sd-about-title .acc { color: var(--primary); }
+.sd-about-title .acc {
+  color: var(--primary);
+}
 
 .sd-about-lead {
   margin: 0 0 36px;
@@ -151,12 +161,16 @@
   color: #fff;
   text-align: right;
   direction: rtl;
-  transition: border-color .2s;
+  transition: border-color 0.2s;
 }
-.sd-benefit-card:hover { border-color: rgba(253, 186, 51, 0.3); }
+.sd-benefit-card:hover {
+  border-color: rgba(253, 186, 51, 0.3);
+}
 
 /* text on right (RTL start), icon on left */
-.sd-benefit-text { flex: 1; }
+.sd-benefit-text {
+  flex: 1;
+}
 
 .sd-benefit-icon {
   flex-shrink: 0;
@@ -169,9 +183,13 @@
   justify-content: center;
 }
 .sd-benefit-icon svg {
-  width: 13px; height: 13px;
-  stroke: var(--primary); fill: none;
-  stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round;
+  width: 13px;
+  height: 13px;
+  stroke: var(--primary);
+  fill: none;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 /* ══════════════════════════════════════════════════
@@ -180,7 +198,7 @@
 .sd-process {
   width: 100%;
   padding: 56px 0;
-  background: #050505;    /* full-width dark bg */
+  background: #050505; /* full-width dark bg */
   direction: rtl;
 }
 
@@ -207,30 +225,42 @@
   border: 1px solid rgba(255, 255, 255, 0.13);
   border-radius: 18px;
   background: rgba(10, 10, 10, 0.9);
-  transition: border-color .2s;
+  transition: border-color 0.2s;
 }
-.sd-process-card:hover { border-color: rgba(253, 186, 51, 0.2); }
+.sd-process-card:hover {
+  border-color: rgba(253, 186, 51, 0.2);
+}
 
-.sd-process-body { flex: 1; text-align: right; }
+.sd-process-body {
+  flex: 1;
+  text-align: right;
+}
 .sd-process-body h4 {
   margin: 0 0 8px;
-  font-size: 17px; font-weight: 700; color: #fff;
+  font-size: 17px;
+  font-weight: 700;
+  color: #fff;
 }
 .sd-process-body p {
   margin: 0;
-  font-size: 13px; line-height: 22px;
+  font-size: 13px;
+  line-height: 22px;
   color: rgba(255, 255, 255, 0.4);
 }
 
 /* Number badge — appears on LEFT (last child in RTL flex) */
 .sd-process-num {
   flex-shrink: 0;
-  width: 42px; height: 42px;
+  width: 42px;
+  height: 42px;
   border-radius: 10px;
   background: rgba(253, 186, 51, 0.15);
   color: var(--primary);
-  font-size: 20px; font-weight: 700;
-  display: flex; align-items: center; justify-content: center;
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* ══════════════════════════════════════════════════
@@ -242,14 +272,17 @@
 }
 
 .sd-deliv-title {
-  font-size: 20px; font-weight: 700; color: #fff;
-  text-align: right; margin: 0 0 18px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  text-align: right;
+  margin: 0 0 18px;
 }
 
 .sd-deliv-row {
   display: flex;
   gap: 12px;
-  flex-wrap: nowrap;     /* force single row to match design */
+  flex-wrap: nowrap; /* force single row to match design */
 }
 
 .sd-deliv-chip {
@@ -262,23 +295,34 @@
   border: 1px solid rgba(255, 255, 255, 0.13);
   border-radius: 14px;
   background: rgba(13, 13, 13, 0.85);
-  font-size: 14px; font-weight: 500; color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
   direction: rtl;
-  transition: border-color .2s;
+  transition: border-color 0.2s;
 }
-.sd-deliv-chip:hover { border-color: rgba(253, 186, 51, 0.3); }
+.sd-deliv-chip:hover {
+  border-color: rgba(253, 186, 51, 0.3);
+}
 
 .sd-deliv-icon {
   flex-shrink: 0;
-  width: 28px; height: 28px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   background: rgba(253, 186, 51, 0.14);
-  display: flex; align-items: center; justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .sd-deliv-icon svg {
-  width: 13px; height: 13px;
-  stroke: var(--primary); fill: none;
-  stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round;
+  width: 13px;
+  height: 13px;
+  stroke: var(--primary);
+  fill: none;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 /* ══════════════════════════════════════════════════
@@ -297,12 +341,18 @@
 }
 .sd-quote-header h2 {
   font-size: clamp(22px, 3vw, 32px);
-  font-weight: 700; color: #fff; margin: 0 0 8px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 8px;
 }
-.sd-quote-header h2 .acc { color: var(--primary); }
+.sd-quote-header h2 .acc {
+  color: var(--primary);
+}
 .sd-quote-header p {
-  font-size: 13px; line-height: 24px;
-  color: rgba(255, 255, 255, 0.45); margin: 0;
+  font-size: 13px;
+  line-height: 24px;
+  color: rgba(255, 255, 255, 0.45);
+  margin: 0;
 }
 
 /* Two-column: info cards LEFT | form RIGHT
@@ -333,9 +383,11 @@
   border: 1px solid rgba(255, 255, 255, 0.09);
   border-radius: 16px;
   background: rgba(11, 11, 11, 0.95);
-  transition: border-color .2s;
+  transition: border-color 0.2s;
 }
-.sd-info-card:hover { border-color: rgba(253, 186, 51, 0.2); }
+.sd-info-card:hover {
+  border-color: rgba(253, 186, 51, 0.2);
+}
 
 .sd-info-icon {
   font-size: 28px;
@@ -345,16 +397,21 @@
 }
 .sd-info-card h4 {
   margin: 0 0 4px;
-  font-size: 15px; font-weight: 700; color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
 }
 .sd-info-card p {
   margin: 0;
-  font-size: 12px; line-height: 20px;
+  font-size: 12px;
+  line-height: 20px;
   color: rgba(255, 255, 255, 0.4);
 }
 
 /* ── FORM column ── */
-.sd-form-col { direction: rtl; }
+.sd-form-col {
+  direction: rtl;
+}
 
 /* The form floats on the dark bg — NO card box, just fields */
 .sd-form-row {
@@ -369,14 +426,20 @@
   flex-direction: column;
   gap: 6px;
 }
-.sd-fld.full { grid-column: 1 / -1; }
+.sd-fld.full {
+  grid-column: 1 / -1;
+}
 
 .sd-fld label {
-  font-size: 12px; font-weight: 500;
+  font-size: 12px;
+  font-weight: 500;
   color: rgba(255, 255, 255, 0.65);
   text-align: right;
 }
-.sd-fld label .req { color: var(--primary); margin-right: 2px; }
+.sd-fld label .req {
+  color: var(--primary);
+  margin-right: 2px;
+}
 
 .sd-fld input,
 .sd-fld textarea {
@@ -391,10 +454,14 @@
   text-align: right;
   direction: rtl;
   outline: none;
-  transition: border-color .2s, background .2s;
+  transition:
+    border-color 0.2s,
+    background 0.2s;
 }
 .sd-fld input::placeholder,
-.sd-fld textarea::placeholder { color: rgba(255, 255, 255, 0.25); }
+.sd-fld textarea::placeholder {
+  color: rgba(255, 255, 255, 0.25);
+}
 
 .sd-fld input:focus,
 .sd-fld textarea:focus {
@@ -420,11 +487,17 @@
   background: var(--primary);
   color: #131313;
   font-family: inherit;
-  font-size: 15px; font-weight: 700;
+  font-size: 15px;
+  font-weight: 700;
   cursor: pointer;
-  transition: filter .2s, transform .15s;
+  transition:
+    filter 0.2s,
+    transform 0.15s;
 }
-.sd-submit:hover { filter: brightness(1.08); transform: translateY(-1px); }
+.sd-submit:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+}
 
 .sd-form-note {
   margin-top: 12px;
@@ -437,19 +510,28 @@
    RESPONSIVE
 ══════════════════════════════════════════════════ */
 @media (max-width: 991px) {
-  .sd-benefits-grid { grid-template-columns: repeat(2, 1fr); }
+  .sd-benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
   .sd-quote-body {
     grid-template-columns: 1fr;
     direction: rtl;
   }
-  .sd-info-col { flex-direction: row; flex-wrap: wrap; }
-  .sd-info-card { flex: 1 1 140px; }
+  .sd-info-col {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .sd-info-card {
+    flex: 1 1 140px;
+  }
 }
 
 @media (max-width: 767px) {
-  .sd-wrap { padding: 0 18px !important; }
-  
+  .sd-wrap {
+    padding: 0 18px !important;
+  }
+
   /* Uniform section spacing */
   .sd-hero {
     padding: 36px 0 24px !important;
@@ -481,18 +563,39 @@
     text-align: center !important;
   }
 
-  .sd-benefits-grid { grid-template-columns: 1fr !important; gap: 14px !important; }
-  .sd-benefits-card { padding: 22px 18px !important; border-radius: 18px !important; }
+  .sd-benefits-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+  .sd-benefits-card {
+    padding: 22px 18px !important;
+    border-radius: 18px !important;
+  }
 
-  .sd-process-grid  { grid-template-columns: 1fr !important; gap: 14px !important; }
-  .sd-process-card  { padding: 20px 18px !important; border-radius: 16px !important; }
-  .sd-process-title { text-align: center !important; margin-bottom: 24px !important; }
+  .sd-process-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+  .sd-process-card {
+    padding: 20px 18px !important;
+    border-radius: 16px !important;
+  }
+  .sd-process-title {
+    text-align: center !important;
+    margin-bottom: 24px !important;
+  }
 
-  .sd-deliv-title   { text-align: center !important; margin-bottom: 20px !important; }
-  .sd-deliv-row     { flex-direction: column !important; gap: 10px !important; }
-  
+  .sd-deliv-title {
+    text-align: center !important;
+    margin-bottom: 20px !important;
+  }
+  .sd-deliv-row {
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+
   /* RTL Deliverables: [✓] icon strictly on the RIGHT side of text */
-  .sd-deliv-chip    {
+  .sd-deliv-chip {
     width: 100% !important;
     flex: 1 1 100% !important;
     display: flex !important;
@@ -515,9 +618,17 @@
     text-align: center !important;
   }
 
-  .sd-form-row { grid-template-columns: 1fr !important; gap: 12px !important; }
-  .sd-info-col { flex-direction: column !important; gap: 12px !important; }
-  .sd-info-card { padding: 18px 16px !important; }
+  .sd-form-row {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+  .sd-info-col {
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+  .sd-info-card {
+    padding: 18px 16px !important;
+  }
 
   .sd-fld input,
   .sd-fld textarea {
@@ -531,8 +642,12 @@
 }
 
 @media (max-width: 360px) {
-  .sd-wrap { padding: 0 14px !important; }
-  .sd-hero-title { font-size: 20px !important; }
+  .sd-wrap {
+    padding: 0 14px !important;
+  }
+  .sd-hero-title {
+    font-size: 20px !important;
+  }
   .sd-benefits-card,
   .sd-process-card,
   .sd-deliv-chip {

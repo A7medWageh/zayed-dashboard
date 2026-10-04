@@ -7,25 +7,25 @@
  * - Request Timeouts & AbortController support
  */
 
-import { API_CONFIG } from '../config/api.config.js';
-import { ApiClient } from './apiClient.js';
-import { toast } from '../components/ToastManager.js';
+import { API_CONFIG } from "../config/api.config.js";
+import { ApiClient } from "./apiClient.js";
+import { toast } from "../components/ToastManager.js";
 
 export class HttpClient {
   /**
    * Get Authorization Headers
    */
   static getHeaders(customHeaders = {}) {
-    const token = localStorage.getItem('az_auth_token');
+    const token = localStorage.getItem("az_auth_token");
     const headers = {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json',
-      'X-Requested-With': 'XMLHttpRequest',
-      ...customHeaders
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      "X-Requested-With": "XMLHttpRequest",
+      ...customHeaders,
     };
 
     if (token) {
-      headers['Authorization'] = `Bearer ${token}`;
+      headers["Authorization"] = `Bearer ${token}`;
     }
 
     return headers;
@@ -45,13 +45,13 @@ export class HttpClient {
     const timeoutId = setTimeout(() => controller.abort(), API_CONFIG.TIMEOUT_MS);
 
     const config = {
-      method: options.method || 'GET',
+      method: options.method || "GET",
       headers: this.getHeaders(options.headers),
       signal: controller.signal,
-      ...options
+      ...options,
     };
 
-    if (options.body && typeof options.body === 'object' && !(options.body instanceof FormData)) {
+    if (options.body && typeof options.body === "object" && !(options.body instanceof FormData)) {
       config.body = JSON.stringify(options.body);
     }
 
@@ -61,19 +61,19 @@ export class HttpClient {
 
       // Handle 401 Unauthorized (Session Expired)
       if (response.status === 401) {
-        localStorage.removeItem('az_auth_token');
-        localStorage.removeItem('az_auth_user');
-        toast.show('انتهت الجلسة، يرجى تسجيل الدخول مرة أخرى', 'warning');
+        localStorage.removeItem("az_auth_token");
+        localStorage.removeItem("az_auth_user");
+        toast.show("انتهت الجلسة، يرجى تسجيل الدخول مرة أخرى", "warning");
         setTimeout(() => {
-          window.location.href = 'login.html';
+          window.location.href = "login.html";
         }, 1200);
-        throw new Error('Unauthorized');
+        throw new Error("Unauthorized");
       }
 
       // Handle 403 Forbidden
       if (response.status === 403) {
-        toast.show('ليس لديك صلاحية لتنفيذ هذا الإجراء', 'error');
-        throw new Error('Forbidden');
+        toast.show("ليس لديك صلاحية لتنفيذ هذا الإجراء", "error");
+        throw new Error("Forbidden");
       }
 
       const data = await response.json().catch(() => null);
@@ -86,8 +86,8 @@ export class HttpClient {
       return data;
     } catch (err) {
       clearTimeout(timeoutId);
-      if (err.name === 'AbortError') {
-        toast.show('انتهت مهلة الطلب، يرجى التحقق من اتصال الإنترنت', 'error');
+      if (err.name === "AbortError") {
+        toast.show("انتهت مهلة الطلب، يرجى التحقق من اتصال الإنترنت", "error");
       }
       throw err;
     }
@@ -97,30 +97,30 @@ export class HttpClient {
    * Internal Mock Request Router
    */
   static async handleMockRequest(endpoint, options = {}) {
-    const method = (options.method || 'GET').toUpperCase();
-    const resource = endpoint.split('/')[1]?.split('?')[0] || 'general';
+    const method = (options.method || "GET").toUpperCase();
+    const resource = endpoint.split("/")[1]?.split("?")[0] || "general";
 
     // Parse simple resource routing
-    if (method === 'GET') {
-      const idMatch = endpoint.match(/\/([^\/]+)\/([^\/?]+)/);
-      if (idMatch && idMatch[2] && idMatch[2] !== 'export') {
+    if (method === "GET") {
+      const idMatch = endpoint.match(/\/([^/]+)\/([^/?]+)/);
+      if (idMatch && idMatch[2] && idMatch[2] !== "export") {
         return ApiClient.getById(idMatch[1], idMatch[2]);
       }
       return ApiClient.getAll(resource);
     }
 
-    if (method === 'POST') {
+    if (method === "POST") {
       return ApiClient.create(resource, options.body);
     }
 
-    if (method === 'PUT' || method === 'PATCH') {
-      const idMatch = endpoint.match(/\/([^\/]+)\/([^\/?]+)/);
+    if (method === "PUT" || method === "PATCH") {
+      const idMatch = endpoint.match(/\/([^/]+)\/([^/?]+)/);
       const id = idMatch ? idMatch[2] : options.body?.id;
       return ApiClient.update(resource, id, options.body);
     }
 
-    if (method === 'DELETE') {
-      const idMatch = endpoint.match(/\/([^\/]+)\/([^\/?]+)/);
+    if (method === "DELETE") {
+      const idMatch = endpoint.match(/\/([^/]+)\/([^/?]+)/);
       const id = idMatch ? idMatch[2] : null;
       return ApiClient.delete(resource, id);
     }
@@ -130,22 +130,22 @@ export class HttpClient {
 
   // Convenience Methods
   static get(endpoint, headers = {}) {
-    return this.request(endpoint, { method: 'GET', headers });
+    return this.request(endpoint, { method: "GET", headers });
   }
 
   static post(endpoint, body = {}, headers = {}) {
-    return this.request(endpoint, { method: 'POST', body, headers });
+    return this.request(endpoint, { method: "POST", body, headers });
   }
 
   static put(endpoint, body = {}, headers = {}) {
-    return this.request(endpoint, { method: 'PUT', body, headers });
+    return this.request(endpoint, { method: "PUT", body, headers });
   }
 
   static patch(endpoint, body = {}, headers = {}) {
-    return this.request(endpoint, { method: 'PATCH', body, headers });
+    return this.request(endpoint, { method: "PATCH", body, headers });
   }
 
   static delete(endpoint, headers = {}) {
-    return this.request(endpoint, { method: 'DELETE', headers });
+    return this.request(endpoint, { method: "DELETE", headers });
   }
 }

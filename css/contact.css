@@ -24,7 +24,7 @@
   width: 113.453px;
   height: 552.008px;
   transform: rotate(26.691deg);
-  background: linear-gradient(180deg, rgba(253, 186, 51, 0.24) 0%, rgba(253, 186, 51, 0.00) 100%);
+  background: linear-gradient(180deg, rgba(253, 186, 51, 0.24) 0%, rgba(253, 186, 51, 0) 100%);
   filter: blur(40px);
 }
 
@@ -54,7 +54,7 @@
   height: 32px;
   padding: 6px 18px;
   background: rgba(255, 255, 255, 0.06);
-  border: 1px solid #FDBA33;
+  border: 1px solid #fdba33;
   border-radius: 100px;
   color: #ffffff;
   font-size: 13px;
@@ -74,7 +74,7 @@
 }
 
 .contact-hero-title .accent {
-  color: #FDBA33;
+  color: #fdba33;
 }
 
 .contact-hero-lead {
@@ -82,7 +82,7 @@
   font-weight: 400;
   line-height: 24px;
   text-align: center;
-  color: rgba(255, 255, 255, 0.50);
+  color: rgba(255, 255, 255, 0.5);
   max-width: 1255px;
   margin: 0;
 }
@@ -116,14 +116,14 @@
 }
 
 .contact-sub-title .accent {
-  color: #FDBA33;
+  color: #fdba33;
 }
 
 .contact-sub-desc {
   font-size: 14px;
   font-weight: 400;
   line-height: 24px;
-  color: rgba(255, 255, 255, 0.60);
+  color: rgba(255, 255, 255, 0.6);
   margin: 0;
   max-width: 960px;
 }
@@ -139,9 +139,9 @@
 
 /* ── General Card Styling ── */
 .contact-card {
-  background: #0A0A0A;
+  background: #0a0a0a;
   border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   padding: 32px 28px;
   display: flex;
   flex-direction: column;
@@ -152,7 +152,9 @@
   overflow: hidden;
   direction: rtl;
   text-align: right;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .contact-card:hover {
@@ -235,7 +237,7 @@
 }
 
 .info-label {
-  color: #FDBA33;
+  color: #fdba33;
   font-size: 13.5px;
   font-weight: 600;
   margin: 0;
@@ -259,7 +261,7 @@
 }
 
 .social-follow-label {
-  color: #FDBA33;
+  color: #fdba33;
   font-size: 13.5px;
   font-weight: 700;
   margin: 0;
@@ -276,12 +278,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: color 0.2s ease, transform 0.2s ease;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
   text-decoration: none;
 }
 
 .social-icon-link:hover {
-  color: #FDBA33;
+  color: #fdba33;
   transform: translateY(-2px);
 }
 
@@ -296,7 +300,7 @@
   width: 100%;
   height: 180px;
   border-radius: 20px;
-  background: url('../assets-design/images/contact-map.png') lightgray 0px 0px / 100% 100% no-repeat;
+  background: url("../assets-design/images/contact-map.png") lightgray 0px 0px / 100% 100% no-repeat;
   margin-top: 14px;
   border: 1px solid rgba(255, 255, 255, 0.08);
   overflow: hidden;
@@ -347,7 +351,10 @@
   font-size: 12.5px;
   outline: none;
   text-align: right;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
 }
 
 .form-input::placeholder {
@@ -357,7 +364,7 @@
 
 .form-input:focus {
   background-color: #050505;
-  border-color: #FDBA33;
+  border-color: #fdba33;
   box-shadow: 0 0 0 2px rgba(253, 186, 51, 0.2);
 }
 
@@ -375,7 +382,10 @@
   outline: none;
   text-align: right;
   resize: none;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
 }
 
 .form-textarea::placeholder {
@@ -385,7 +395,7 @@
 
 .form-textarea:focus {
   background-color: #050505;
-  border-color: #FDBA33;
+  border-color: #fdba33;
   box-shadow: 0 0 0 2px rgba(253, 186, 51, 0.2);
 }
 
@@ -399,7 +409,7 @@
 .contact-submit-btn {
   width: 100%;
   height: 44px;
-  background: #FDBA33;
+  background: #fdba33;
   border: none;
   border-radius: 8px;
   color: #131313;
@@ -428,7 +438,7 @@
   font-size: 12px;
   font-weight: 400;
   line-height: 18px;
-  color: rgba(255, 255, 255, 0.50);
+  color: rgba(255, 255, 255, 0.5);
   text-align: center;
   margin: 0;
 }

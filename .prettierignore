@@ -1,0 +1,8 @@
+dist/
+node_modules/
+studio-zayed-dashboard/
+zayed-dashboard/
+scratch/
+review_full.txt
+js/lucide.min.js
+package-lock.json

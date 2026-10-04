@@ -15,14 +15,14 @@ export class AppShell {
    * Highlights the current page in the sidebar menu dynamically
    */
   static highlightActiveMenu() {
-    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-    const menuLinks = document.querySelectorAll('.sidebar-menu a, .sidebar-item');
+    const currentPath = window.location.pathname.split("/").pop() || "index.html";
+    const menuLinks = document.querySelectorAll(".sidebar-menu a, .sidebar-item");
 
-    menuLinks.forEach(link => {
-      const href = link.getAttribute('href');
-      if (href && (href === currentPath || (currentPath === '' && href === 'index.html'))) {
-        menuLinks.forEach(l => l.classList.remove('active'));
-        link.classList.add('active');
+    menuLinks.forEach((link) => {
+      const href = link.getAttribute("href");
+      if (href && (href === currentPath || (currentPath === "" && href === "index.html"))) {
+        menuLinks.forEach((l) => l.classList.remove("active"));
+        link.classList.add("active");
       }
     });
   }
@@ -31,12 +31,14 @@ export class AppShell {
    * Binds all logout buttons across dashboard pages to clean session removal
    */
   static bindLogoutTriggers() {
-    document.addEventListener('click', (e) => {
-      const logoutBtn = e.target.closest('[data-action="logout"], .btn-logout, a[href="login.html"]');
-      if (logoutBtn && !window.location.pathname.endsWith('login.html')) {
+    document.addEventListener("click", (e) => {
+      const logoutBtn = e.target.closest(
+        '[data-action="logout"], .btn-logout, a[href="login.html"]'
+      );
+      if (logoutBtn && !window.location.pathname.endsWith("login.html")) {
         // Clear tokens
-        localStorage.removeItem('az_auth_token');
-        localStorage.removeItem('az_auth_user');
+        localStorage.removeItem("az_auth_token");
+        localStorage.removeItem("az_auth_user");
       }
     });
   }
@@ -45,13 +47,13 @@ export class AppShell {
    * Loads current user info into header
    */
   static initUserProfile() {
-    const raw = localStorage.getItem('az_auth_user');
+    const raw = localStorage.getItem("az_auth_user");
     if (!raw) return;
 
     try {
       const user = JSON.parse(raw);
-      const nameEl = document.querySelector('.user-name, .profile-name, .header-user-name');
-      const roleEl = document.querySelector('.user-role, .profile-role, .header-user-role');
+      const nameEl = document.querySelector(".user-name, .profile-name, .header-user-name");
+      const roleEl = document.querySelector(".user-role, .profile-role, .header-user-role");
 
       if (nameEl && user.name) nameEl.textContent = user.name;
       if (roleEl && user.role) roleEl.textContent = user.role;
@@ -62,6 +64,6 @@ export class AppShell {
 }
 
 // Auto-init on DOM Ready
-if (typeof document !== 'undefined') {
-  document.addEventListener('DOMContentLoaded', () => AppShell.init());
+if (typeof document !== "undefined") {
+  document.addEventListener("DOMContentLoaded", () => AppShell.init());
 }

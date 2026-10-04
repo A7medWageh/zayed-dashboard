@@ -24,7 +24,7 @@
   width: 113.453px;
   height: 552.008px;
   transform: rotate(26.691deg);
-  background: linear-gradient(180deg, rgba(253, 186, 51, 0.24) 0%, rgba(253, 186, 51, 0.00) 100%);
+  background: linear-gradient(180deg, rgba(253, 186, 51, 0.24) 0%, rgba(253, 186, 51, 0) 100%);
   filter: blur(40px);
 }
 
@@ -61,7 +61,7 @@
   padding: 6px 16px;
   background: rgba(255, 255, 255, 0.06);
   border-radius: 100px;
-  border: 1px solid #FDBA33;
+  border: 1px solid #fdba33;
   backdrop-filter: blur(12px);
   color: #ffffff;
   font-size: 13px;
@@ -81,7 +81,7 @@
 }
 
 .sectors-hero-title .accent {
-  color: var(--primary, #FDBA33);
+  color: var(--primary, #fdba33);
 }
 
 .sectors-hero-lead {
@@ -127,7 +127,7 @@
 }
 
 .sectors-sub-title .accent {
-  color: var(--primary, #FDBA33);
+  color: var(--primary, #fdba33);
 }
 
 .sectors-sub-lead {
@@ -135,7 +135,7 @@
   font-size: 15px;
   font-weight: 400;
   line-height: 1.65;
-  color: rgba(255, 255, 255, 0.50);
+  color: rgba(255, 255, 255, 0.5);
   max-width: 1100px;
   text-align: right;
 }
@@ -165,8 +165,8 @@
   align-items: flex-start;
   gap: 32px;
   border-radius: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.50);
-  background: rgba(30, 30, 30, 0.30);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: rgba(30, 30, 30, 0.3);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   box-sizing: border-box;
@@ -177,7 +177,9 @@
   border-color: rgba(253, 186, 51, 0.75);
   transform: translateY(-5px);
   background: rgba(36, 36, 36, 0.45);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), 0 0 28px rgba(253, 186, 51, 0.15);
+  box-shadow:
+    0 16px 36px rgba(0, 0, 0, 0.6),
+    0 0 28px rgba(253, 186, 51, 0.15);
 }
 
 /* Card Top Row (Icon on Right, Number on Left with Space Between) */
@@ -244,7 +246,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 50%;
-  background: #FDBA33;
+  background: #fdba33;
   opacity: 0.18;
   filter: blur(25px);
   pointer-events: none;
@@ -277,7 +279,7 @@
 }
 
 .sector-card:hover .sector-card-title {
-  color: #FDBA33;
+  color: #fdba33;
 }
 
 .sector-card-desc {
@@ -285,7 +287,7 @@
   font-size: 14px;
   font-weight: 400;
   line-height: 22.75px;
-  color: rgba(255, 255, 255, 0.50);
+  color: rgba(255, 255, 255, 0.5);
   text-align: right;
 }
 
@@ -302,7 +304,7 @@
     justify-items: center;
     gap: 24px;
   }
-  
+
   .sector-card {
     padding: 28px 24px;
     margin: 0 auto;

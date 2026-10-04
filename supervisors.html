@@ -1,830 +1,1304 @@
-<!DOCTYPE html>
+﻿<!doctype html>
 <html lang="ar" dir="rtl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AZ Studio - المشرفين</title>
-  
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  
-  <!-- Styles -->
-  <link rel="stylesheet" href="./css/tokens.css">
-  <link rel="stylesheet" href="./css/components.css">
-  <link rel="stylesheet" href="./css/dashboard.css">
-  <link rel="stylesheet" href="./css/responsive.css">
-  <script src="./js/authGuard.js"></script>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AZ Studio - المشرفين</title>
 
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="./css/tokens.css" />
+    <link rel="stylesheet" href="./css/components.css" />
+    <link rel="stylesheet" href="./css/dashboard.css" />
+    <link rel="stylesheet" href="./css/responsive.css" />
+    <script src="./js/authGuard.js"></script>
+  </head>
+  <body>
     <!-- SIDEBAR -->
-  <aside class="sidebar">
-    <!-- Sidebar Close Button (Mobile) --> -->
-    <button type="button" class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="إغلاق القائمة">
-      <i data-lucide="x"></i>
-    </button>
+    <aside class="sidebar">
+      <!-- Sidebar Close Button (Mobile) -->
+      -->
+      <button
+        type="button"
+        class="sidebar-close-btn"
+        id="sidebarCloseBtn"
+        aria-label="إغلاق القائمة"
+      >
+        <i data-lucide="x"></i>
+      </button>
 
-    <!-- Logo Area -->
-    <div class="sidebar-logo-area">
-      <img src="./assets/az-studio-logo.svg" alt="AZ Studio Logo" />
-    </div>
+      <!-- Logo Area -->
+      <div class="sidebar-logo-area">
+        <img src="./assets/az-studio-logo.svg" alt="AZ Studio Logo" />
+      </div>
 
-    <!-- Menu Navigation -->
-    <nav class="sidebar-menu">
-      <!-- لوحة التحكم -->
-      <a href="index.html" class="sidebar-item ">
-        <div class="sidebar-item-content">
-          <i data-lucide="layout-grid"></i>
-          <span>لوحة التحكم</span>
-        </div>
-      </a>
-
-      <!-- الطلبات -->
-      <div class="sidebar-group ">
-        <button type="button" class="sidebar-item sidebar-accordion-toggle ">
+      <!-- Menu Navigation -->
+      <nav class="sidebar-menu">
+        <!-- لوحة التحكم -->
+        <a href="index.html" class="sidebar-item">
           <div class="sidebar-item-content">
-            <i data-lucide="shopping-bag"></i>
-            <span>الطلبات</span>
+            <i data-lucide="layout-grid"></i>
+            <span>لوحة التحكم</span>
           </div>
-          <i data-lucide="chevron-down" class="sidebar-chevron"></i>
-        </button>
-        <div class="sidebar-submenu">
-          <a href="orders.html" class="sidebar-subitem">طلبات الخدمات</a>
-          <a href="orders.html?tab=quotations" class="sidebar-subitem">طلبات عروض الاسعار</a>
-          <a href="orders.html?tab=packages" class="sidebar-subitem">طلبات الاشتراك في باقة</a>
-        </div>
-      </div>
+        </a>
 
-      <!-- الخدمات -->
-      <a href="services.html" class="sidebar-item ">
-        <div class="sidebar-item-content">
-          <i data-lucide="settings"></i>
-          <span>الخدمات</span>
+        <!-- الطلبات -->
+        <div class="sidebar-group">
+          <button type="button" class="sidebar-item sidebar-accordion-toggle">
+            <div class="sidebar-item-content">
+              <i data-lucide="shopping-bag"></i>
+              <span>الطلبات</span>
+            </div>
+            <i data-lucide="chevron-down" class="sidebar-chevron"></i>
+          </button>
+          <div class="sidebar-submenu">
+            <a href="orders.html" class="sidebar-subitem">طلبات الخدمات</a>
+            <a href="orders.html?tab=quotations" class="sidebar-subitem">طلبات عروض الاسعار</a>
+            <a href="orders.html?tab=packages" class="sidebar-subitem">طلبات الاشتراك في باقة</a>
+          </div>
         </div>
-      </a>
 
-      <!-- الباقات -->
-      <div class="sidebar-group ">
-        <button type="button" class="sidebar-item sidebar-accordion-toggle ">
+        <!-- الخدمات -->
+        <a href="services.html" class="sidebar-item">
           <div class="sidebar-item-content">
-            <i data-lucide="package"></i>
-            <span>الباقات</span>
+            <i data-lucide="settings"></i>
+            <span>الخدمات</span>
           </div>
-          <i data-lucide="chevron-down" class="sidebar-chevron"></i>
-        </button>
-        <div class="sidebar-submenu">
-          <a href="packages.html?category=social" class="sidebar-subitem">السوشيال ميديا</a>
-          <a href="packages.html?category=studio" class="sidebar-subitem">الاستوديو والإنتاج</a>
-          <a href="packages.html?category=podcast" class="sidebar-subitem">البودكاست</a>
-          <a href="packages.html?category=audio" class="sidebar-subitem">استوديو الصوت</a>
-        </div>
-      </div>
+        </a>
 
-      <!-- المشرفين -->
-      <a href="supervisors.html" class="sidebar-item active">
-        <div class="sidebar-item-content">
-          <i data-lucide="users"></i>
-          <span>المشرفين</span>
+        <!-- الباقات -->
+        <div class="sidebar-group">
+          <button type="button" class="sidebar-item sidebar-accordion-toggle">
+            <div class="sidebar-item-content">
+              <i data-lucide="package"></i>
+              <span>الباقات</span>
+            </div>
+            <i data-lucide="chevron-down" class="sidebar-chevron"></i>
+          </button>
+          <div class="sidebar-submenu">
+            <a href="packages.html?category=social" class="sidebar-subitem">السوشيال ميديا</a>
+            <a href="packages.html?category=studio" class="sidebar-subitem">الاستوديو والإنتاج</a>
+            <a href="packages.html?category=podcast" class="sidebar-subitem">البودكاست</a>
+            <a href="packages.html?category=audio" class="sidebar-subitem">استوديو الصوت</a>
+          </div>
         </div>
-      </a>
 
-      <!-- الأدوار -->
-      <a href="roles.html" class="sidebar-item ">
-        <div class="sidebar-item-content">
-          <i data-lucide="shield"></i>
-          <span>الأدوار</span>
-        </div>
-      </a>
-
-      <!-- تواصل معانا -->
-      <a href="contact.html" class="sidebar-item ">
-        <div class="sidebar-item-content">
-          <i data-lucide="phone"></i>
-          <span>تواصل معانا</span>
-        </div>
-      </a>
-
-      <!-- اعدادات الموقع الالكتروني -->
-      <div class="sidebar-group ">
-        <button type="button" class="sidebar-item sidebar-accordion-toggle ">
+        <!-- المشرفين -->
+        <a href="supervisors.html" class="sidebar-item active">
           <div class="sidebar-item-content">
-            <i data-lucide="circle"></i>
-            <span>اعدادات الموقع الالكتروني</span>
+            <i data-lucide="users"></i>
+            <span>المشرفين</span>
           </div>
-          <i data-lucide="chevron-down" class="sidebar-chevron"></i>
-        </button>
-        <div class="sidebar-submenu">
-          <a href="settings.html?tab=home" class="sidebar-subitem">الصفحة الرئيسية</a>
-          <a href="settings.html?tab=seo" class="sidebar-subitem">قسم SEO</a>
-          <a href="settings.html?tab=about" class="sidebar-subitem">من نحن</a>
-          <a href="settings.html?tab=workflow" class="sidebar-subitem">آلية العمل</a>
-          <a href="settings.html?tab=outputs" class="sidebar-subitem">المخرجات</a>
-          <a href="settings.html?tab=sectors" class="sidebar-subitem">القطاعات</a>
-          <a href="settings.html?tab=faq" class="sidebar-subitem">الأسئلة الشائعة</a>
-          <a href="settings.html?tab=terms" class="sidebar-subitem">شروط الاستخدام</a>
-          <a href="settings.html?tab=privacy" class="sidebar-subitem">سياسة الخصوصية</a>
-          <a href="settings.html?tab=footer" class="sidebar-subitem">الفوتر</a>
-        </div>
-      </div>
-    </nav>
+        </a>
 
-    <!-- Logout Button -->
-    <button type="button" class="sidebar-logout" data-modal-target="logoutModal" style="border: none; cursor: pointer; width: 100%;">
-      <span>تسجيل الخروج</span>
-      <i data-lucide="log-out"></i>
-    </button>
-  </aside>
-
-  <!-- MAIN CONTENT -->
-  <main class="main-content">
-        <!-- Header -->
-    <header class="header-bar">
-      <!-- Right Side: Hamburger Toggle (Mobile) + Welcome Title --> -->
-      <div class="header-right-side">
-        <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="فتح القائمة">
-          <i data-lucide="menu"></i>
-        </button>
-        <div class="header-welcome">
-          <h1>إدارة المشرفين</h1>
-          <p>إدارة حسابات المشرفين وصلاحياتهم</p>
-        </div>
-      </div>
-
-      <!-- Left Side: User Actions (Notifications & Avatar Dropdown) --> -->
-      <div class="header-user-actions">
-        <!-- Theme Toggle (Sun / Moon) --> -->
-        <button type="button" class="theme-toggle-btn" id="themeToggleBtn" title="تبديل الوضع الليلي / النهاري" aria-label="تبديل الوضع">
-          <i data-lucide="sun" class="sun-icon"></i>
-          <i data-lucide="moon" class="moon-icon"></i>
-        </button>
-
-        <!-- Notification Bell -->
-        <div class="notif-bell-btn" id="notifBtn" style="cursor: pointer;">
-          <i data-lucide="bell"></i>
-        </div>
-
-        <!-- User Profile Trigger -->
-        <div class="user-profile-widget" id="userProfileBtn" style="cursor: pointer;">
-          <img class="user-avatar-img" src="./assets/images/Ellipse 3255.png" alt="User Profile" />
-          <div class="user-text-meta">
-            <span class="user-name-text">محمد المعتصم باللة السيد</span>
-            <span class="user-email-text">mohamedmoatasembalbol@icloud.com</span>
+        <!-- الأدوار -->
+        <a href="roles.html" class="sidebar-item">
+          <div class="sidebar-item-content">
+            <i data-lucide="shield"></i>
+            <span>الأدوار</span>
           </div>
-          <i data-lucide="chevron-down" class="user-chevron"></i>
-        </div>
+        </a>
 
-        <!-- Floating Notification Dropdown -->
-        <div class="custom-dropdown-panel" id="notifDropdown">
-          <div style="padding: 12px 16px; border-bottom: 1px solid #EAECF0; font-weight: 700; font-size: 13px; color: #111827; display: flex; justify-content: space-between; align-items: center;">
-            <span>الإشعارات</span>
-            <span style="font-size: 11px; background: #FEF3C7; color: #D97706; padding: 2px 8px; border-radius: 999px; font-weight: 600;">3 جديدة</span>
+        <!-- تواصل معانا -->
+        <a href="contact.html" class="sidebar-item">
+          <div class="sidebar-item-content">
+            <i data-lucide="phone"></i>
+            <span>تواصل معانا</span>
           </div>
-          <div style="max-height: 260px; overflow-y: auto;">
-            <a href="orders.html" class="dropdown-item" style="border-bottom: 1px solid #F3F4F6; padding: 10px 14px; display: flex; gap: 10px; align-items: flex-start;">
-              <div style="width: 8px; height: 8px; border-radius: 50%; background: #10B981; margin-top: 6px; flex-shrink: 0;"></div>
-              <div>
-                <div style="font-weight: 600; font-size: 12px; color: #111827;">طلب خدمة جديد #1025</div>
-                <div style="font-size: 11px; color: #6B7280;">قام محمد السيد بطلب انتاج فيديو مؤسسي</div>
-                <div style="font-size: 10px; color: #9CA3AF; margin-top: 2px;">منذ 5 دقائق</div>
-              </div>
-            </a>
-            <a href="orders.html" class="dropdown-item" style="border-bottom: 1px solid #F3F4F6; padding: 10px 14px; display: flex; gap: 10px; align-items: flex-start;">
-              <div style="width: 8px; height: 8px; border-radius: 50%; background: #3B82F6; margin-top: 6px; flex-shrink: 0;"></div>
-              <div>
-                <div style="font-weight: 600; font-size: 12px; color: #111827;">طلب اشتراك باقة جديد #1024</div>
-                <div style="font-size: 11px; color: #6B7280;">قام أحمد علي بطلب باقة السوشيال ميديا</div>
-                <div style="font-size: 10px; color: #9CA3AF; margin-top: 2px;">منذ ساعة</div>
-              </div>
-            </a>
-            <a href="contact.html" class="dropdown-item" style="padding: 10px 14px; display: flex; gap: 10px; align-items: flex-start;">
-              <div style="width: 8px; height: 8px; border-radius: 50%; background: #F59E0B; margin-top: 6px; flex-shrink: 0;"></div>
-              <div>
-                <div style="font-weight: 600; font-size: 12px; color: #111827;">رسالة تواصل جديدة</div>
-                <div style="font-size: 11px; color: #6B7280;">استفسار بخصوص خدمات البودكاست</div>
-                <div style="font-size: 10px; color: #9CA3AF; margin-top: 2px;">منذ 3 ساعات</div>
-              </div>
-            </a>
-          </div>
-          <a href="orders.html" style="display: block; padding: 10px; text-align: center; font-size: 11.5px; color: #D97706; font-weight: 600; text-decoration: none; border-top: 1px solid #EAECF0; background: #FFFDF5;">عرض جميع الطلبات</a>
-        </div>
+        </a>
 
-        <!-- Floating User Dropdown -->
-        <div class="user-dropdown-card" id="userDropdown">
-          <div class="user-dropdown-header">
-            <img class="avatar-thumb" style="object-fit: cover;" src="./assets/images/Ellipse 3255.png" alt="User Profile" />
-            <div class="user-dropdown-meta">
-              <span class="user-dropdown-name">محمد المعتصم باللة السيد</span>
-              <span class="user-dropdown-email">mohamedmoatasembalbol@icloud.com</span>
+        <!-- اعدادات الموقع الالكتروني -->
+        <div class="sidebar-group">
+          <button type="button" class="sidebar-item sidebar-accordion-toggle">
+            <div class="sidebar-item-content">
+              <i data-lucide="circle"></i>
+              <span>اعدادات الموقع الالكتروني</span>
             </div>
-          </div>
-          <button type="button" class="user-dropdown-item" data-modal-target="viewProfileModal">
-            <i data-lucide="user"></i>
-            <span>عرض الملف الشخصي</span>
+            <i data-lucide="chevron-down" class="sidebar-chevron"></i>
           </button>
-          <button type="button" class="user-dropdown-item logout-item" data-modal-target="logoutModal">
-            <i data-lucide="log-out"></i>
-            <span>تسجيل الخروج</span>
+          <div class="sidebar-submenu">
+            <a href="settings.html?tab=home" class="sidebar-subitem">الصفحة الرئيسية</a>
+            <a href="settings.html?tab=seo" class="sidebar-subitem">قسم SEO</a>
+            <a href="settings.html?tab=about" class="sidebar-subitem">من نحن</a>
+            <a href="settings.html?tab=workflow" class="sidebar-subitem">آلية العمل</a>
+            <a href="settings.html?tab=outputs" class="sidebar-subitem">المخرجات</a>
+            <a href="settings.html?tab=sectors" class="sidebar-subitem">القطاعات</a>
+            <a href="settings.html?tab=faq" class="sidebar-subitem">الأسئلة الشائعة</a>
+            <a href="settings.html?tab=terms" class="sidebar-subitem">شروط الاستخدام</a>
+            <a href="settings.html?tab=privacy" class="sidebar-subitem">سياسة الخصوصية</a>
+            <a href="settings.html?tab=footer" class="sidebar-subitem">الفوتر</a>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Logout Button -->
+      <button
+        type="button"
+        class="sidebar-logout"
+        data-modal-target="logoutModal"
+        style="border: none; cursor: pointer; width: 100%"
+      >
+        <span>تسجيل الخروج</span>
+        <i data-lucide="log-out"></i>
+      </button>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+      <!-- Header -->
+      <header class="header-bar">
+        <!-- Right Side: Hamburger Toggle (Mobile) + Welcome Title -->
+        -->
+        <div class="header-right-side">
+          <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="فتح القائمة">
+            <i data-lucide="menu"></i>
+          </button>
+          <div class="header-welcome">
+            <h1>إدارة المشرفين</h1>
+            <p>إدارة حسابات المشرفين وصلاحياتهم</p>
+          </div>
+        </div>
+
+        <!-- Left Side: User Actions (Notifications & Avatar Dropdown) -->
+        -->
+        <div class="header-user-actions">
+          <!-- Theme Toggle (Sun / Moon) -->
+          -->
+          <button
+            type="button"
+            class="theme-toggle-btn"
+            id="themeToggleBtn"
+            title="تبديل الوضع الليلي / النهاري"
+            aria-label="تبديل الوضع"
+          >
+            <i data-lucide="sun" class="sun-icon"></i>
+            <i data-lucide="moon" class="moon-icon"></i>
+          </button>
+
+          <!-- Notification Bell -->
+          <div class="notif-bell-btn" id="notifBtn" style="cursor: pointer">
+            <i data-lucide="bell"></i>
+          </div>
+
+          <!-- User Profile Trigger -->
+          <div class="user-profile-widget" id="userProfileBtn" style="cursor: pointer">
+            <img
+              class="user-avatar-img"
+              src="./assets/images/Ellipse 3255.png"
+              alt="User Profile"
+            />
+            <div class="user-text-meta">
+              <span class="user-name-text">محمد المعتصم باللة السيد</span>
+              <span class="user-email-text">mohamedmoatasembalbol@icloud.com</span>
+            </div>
+            <i data-lucide="chevron-down" class="user-chevron"></i>
+          </div>
+
+          <!-- Floating Notification Dropdown -->
+          <div class="custom-dropdown-panel" id="notifDropdown">
+            <div
+              style="
+                padding: 12px 16px;
+                border-bottom: 1px solid #eaecf0;
+                font-weight: 700;
+                font-size: 13px;
+                color: #111827;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+              "
+            >
+              <span>الإشعارات</span>
+              <span
+                style="
+                  font-size: 11px;
+                  background: #fef3c7;
+                  color: #d97706;
+                  padding: 2px 8px;
+                  border-radius: 999px;
+                  font-weight: 600;
+                "
+                >3 جديدة</span
+              >
+            </div>
+            <div style="max-height: 260px; overflow-y: auto">
+              <a
+                href="orders.html"
+                class="dropdown-item"
+                style="
+                  border-bottom: 1px solid #f3f4f6;
+                  padding: 10px 14px;
+                  display: flex;
+                  gap: 10px;
+                  align-items: flex-start;
+                "
+              >
+                <div
+                  style="
+                    width: 8px;
+                    height: 8px;
+                    border-radius: 50%;
+                    background: #10b981;
+                    margin-top: 6px;
+                    flex-shrink: 0;
+                  "
+                ></div>
+                <div>
+                  <div style="font-weight: 600; font-size: 12px; color: #111827">
+                    طلب خدمة جديد #1025
+                  </div>
+                  <div style="font-size: 11px; color: #6b7280">
+                    قام محمد السيد بطلب انتاج فيديو مؤسسي
+                  </div>
+                  <div style="font-size: 10px; color: #9ca3af; margin-top: 2px">منذ 5 دقائق</div>
+                </div>
+              </a>
+              <a
+                href="orders.html"
+                class="dropdown-item"
+                style="
+                  border-bottom: 1px solid #f3f4f6;
+                  padding: 10px 14px;
+                  display: flex;
+                  gap: 10px;
+                  align-items: flex-start;
+                "
+              >
+                <div
+                  style="
+                    width: 8px;
+                    height: 8px;
+                    border-radius: 50%;
+                    background: #3b82f6;
+                    margin-top: 6px;
+                    flex-shrink: 0;
+                  "
+                ></div>
+                <div>
+                  <div style="font-weight: 600; font-size: 12px; color: #111827">
+                    طلب اشتراك باقة جديد #1024
+                  </div>
+                  <div style="font-size: 11px; color: #6b7280">
+                    قام أحمد علي بطلب باقة السوشيال ميديا
+                  </div>
+                  <div style="font-size: 10px; color: #9ca3af; margin-top: 2px">منذ ساعة</div>
+                </div>
+              </a>
+              <a
+                href="contact.html"
+                class="dropdown-item"
+                style="padding: 10px 14px; display: flex; gap: 10px; align-items: flex-start"
+              >
+                <div
+                  style="
+                    width: 8px;
+                    height: 8px;
+                    border-radius: 50%;
+                    background: #f59e0b;
+                    margin-top: 6px;
+                    flex-shrink: 0;
+                  "
+                ></div>
+                <div>
+                  <div style="font-weight: 600; font-size: 12px; color: #111827">
+                    رسالة تواصل جديدة
+                  </div>
+                  <div style="font-size: 11px; color: #6b7280">استفسار بخصوص خدمات البودكاست</div>
+                  <div style="font-size: 10px; color: #9ca3af; margin-top: 2px">منذ 3 ساعات</div>
+                </div>
+              </a>
+            </div>
+            <a
+              href="orders.html"
+              style="
+                display: block;
+                padding: 10px;
+                text-align: center;
+                font-size: 11.5px;
+                color: #d97706;
+                font-weight: 600;
+                text-decoration: none;
+                border-top: 1px solid #eaecf0;
+                background: #fffdf5;
+              "
+              >عرض جميع الطلبات</a
+            >
+          </div>
+
+          <!-- Floating User Dropdown -->
+          <div class="user-dropdown-card" id="userDropdown">
+            <div class="user-dropdown-header">
+              <img
+                class="avatar-thumb"
+                style="object-fit: cover"
+                src="./assets/images/Ellipse 3255.png"
+                alt="User Profile"
+              />
+              <div class="user-dropdown-meta">
+                <span class="user-dropdown-name">محمد المعتصم باللة السيد</span>
+                <span class="user-dropdown-email">mohamedmoatasembalbol@icloud.com</span>
+              </div>
+            </div>
+            <button type="button" class="user-dropdown-item" data-modal-target="viewProfileModal">
+              <i data-lucide="user"></i>
+              <span>عرض الملف الشخصي</span>
+            </button>
+            <button
+              type="button"
+              class="user-dropdown-item logout-item"
+              data-modal-target="logoutModal"
+            >
+              <i data-lucide="log-out"></i>
+              <span>تسجيل الخروج</span>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Card Container (White Box matching Image 1) -->
+      -->
+      <section class="table-card-container" style="padding: 24px">
+        <!-- Title & Actions Bar matching Image 1 -->
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+            gap: 16px;
+          "
+        >
+          <!-- Right in RTL: Title -->
+          <h2 style="font-size: 16px; font-weight: 700; color: #111827">المشرفين</h2>
+
+          <!-- Left in RTL: Actions (Search, Add) -->
+          -->
+          <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap">
+            <!-- Search Box -->
+            <div class="orders-search-box" style="margin: 0; min-width: 220px">
+              <i data-lucide="search"></i>
+              <input type="text" class="table-search-input" placeholder="البحث" />
+            </div>
+
+            <!-- Add Supervisor Button (Opens Add Modal) -->
+            -->
+            <button
+              type="button"
+              class="btn-modal-primary"
+              data-modal-target="addSupervisorModal"
+              style="
+                height: 38px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                gap: 6px;
+                padding: 0 18px;
+                border-radius: 8px;
+                font-weight: 700;
+                font-size: 13px;
+                border: none;
+                cursor: pointer;
+              "
+            >
+              <i data-lucide="plus"></i>
+              <span>إضافة</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Supervisors Table matching Image 1 -->
+        <div class="table-responsive-box">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>الكود</th>
+                <th>الاسم</th>
+                <th>الهاتف</th>
+                <th>البريد الإلكتروني</th>
+                <th>رقم الهوية</th>
+                <th>الوظيفة</th>
+                <th>الصلاحيات</th>
+                <th>الحالة</th>
+                <th>الحساب</th>
+                <th style="width: 110px; text-align: center">الاجراء</th>
+              </tr>
+            </thead>
+            <tbody id="supervisorsTableBody">
+              <!-- Dynamically rendered via js/dashboard.js -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Pagination Footer matching Image 1 -->
+        <div class="table-pagination-footer">
+          <!-- Rows Per Page (Right in RTL) -->
+          -->
+          <div
+            style="display: flex; align-items: center; gap: 8px; font-size: 11.5px; color: #6b7280"
+          >
+            <span>عدد الصفوف لكل صفحة</span>
+            <div class="orders-filter-select" style="padding: 4px 10px">
+              <span>10</span>
+              <i data-lucide="chevron-down"></i>
+            </div>
+          </div>
+
+          <!-- Page Numbers (Left in RTL) -->
+          -->
+          <div class="pagination-controls">
+            <button type="button" class="page-btn">&lt;</button>
+            <button type="button" class="page-btn">1</button>
+            <button type="button" class="page-btn active">2</button>
+            <button type="button" class="page-btn">3</button>
+            <button type="button" class="page-btn">4</button>
+            <button type="button" class="page-btn">5</button>
+            <button type="button" class="page-btn">&gt;</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- MODALS SYSTEM (Matching Image 2, 3, 4, 5) -->
+    -->
+
+    <!-- Add Supervisor Modal (اضافة مشرف جديد - Matching Image 2) -->
+    <div class="modal-overlay" id="addSupervisorModal">
+      <div class="modal-dialog" style="max-width: 620px">
+        <div class="modal-header">
+          <h3 class="modal-title">اضافة مشرف جديد</h3>
+          <button class="modal-close-btn" data-modal-close aria-label="إغلاق">
+            <i data-lucide="x"></i>
+          </button>
+        </div>
+
+        <div class="modal-body" style="padding: 20px 24px; max-height: 80vh; overflow-y: auto">
+          <form data-form-toast="تمت إضافة المشرف بنجاح">
+            <!-- Image Upload Box at Center Top matching Image 2 -->
+            <div class="profile-upload-zone" style="margin-bottom: 20px">
+              <div
+                class="upload-icon-box"
+                style="
+                  width: 80px;
+                  height: 80px;
+                  border-radius: 12px;
+                  background: #e5e7eb;
+                  margin-bottom: 8px;
+                "
+              >
+                <i data-lucide="image"></i>
+              </div>
+              <button
+                type="button"
+                class="btn-upload-pic"
+                style="background: #374151; padding: 6px 14px; border-radius: 6px"
+              >
+                <i data-lucide="download"></i>
+                <span>تحميل الصورة</span>
+              </button>
+              <span class="upload-helper-text"
+                >يجب أن يكون حجم الصورة أقل من 1 ميجا بايت ويجب أن تكون نسبة الصورة 1:1</span
+              >
+            </div>
+
+            <!-- 2-Column Form Fields matching Image 2 -->
+            <div
+              style="
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 14px 18px;
+                margin-bottom: 24px;
+              "
+            >
+              <!-- Row 1 -->
+              <div class="modal-form-group">
+                <label class="modal-label">الاسم</label>
+                <input type="text" class="modal-input" placeholder="ادخل الاسم" required />
+              </div>
+              <div class="modal-form-group">
+                <label class="modal-label">البريد الالكتروني</label>
+                <input
+                  type="email"
+                  class="modal-input"
+                  placeholder="ادخل البريد الالكتروني"
+                  required
+                />
+              </div>
+
+              <!-- Row 2 -->
+              <div class="modal-form-group">
+                <label class="modal-label">رقم الجوال</label>
+                <input type="text" class="modal-input" placeholder="ادخل الرقم" required />
+              </div>
+              <div class="modal-form-group">
+                <label class="modal-label">رقم الهوية</label>
+                <input type="text" class="modal-input" placeholder="ادخل الرقم" required />
+              </div>
+
+              <!-- Row 3 -->
+              <div class="modal-form-group">
+                <label class="modal-label">المسمي الوظيفي</label>
+                <input type="text" class="modal-input" placeholder="ادخل المسمي الوظيفي" required />
+              </div>
+              <div class="modal-form-group">
+                <label class="modal-label">الرقم الوظيفي</label>
+                <input type="text" class="modal-input" placeholder="ادخل الرقم" required />
+              </div>
+
+              <!-- Row 4 -->
+              <div class="modal-form-group">
+                <label class="modal-label">العنوان</label>
+                <input type="text" class="modal-input" placeholder="ادخل العنوان" required />
+              </div>
+              <div class="modal-form-group">
+                <label class="modal-label">الدور</label>
+                <div style="position: relative">
+                  <select
+                    class="modal-input"
+                    style="appearance: none; background: #fff; cursor: pointer"
+                    required
+                  >
+                    <option value="" disabled selected>اختر الدور</option>
+                    <option value="1">مشرف عام</option>
+                    <option value="2">مدير العمليات</option>
+                    <option value="3">مسؤول المحتوى</option>
+                  </select>
+                  <i
+                    data-lucide="chevron-down"
+                    style="
+                      position: absolute;
+                      left: 12px;
+                      top: 50%;
+                      transform: translateY(-50%);
+                      pointer-events: none;
+                    "
+                  ></i>
+                </div>
+              </div>
+
+              <!-- Row 5: Passwords with Eye toggle -->
+              <div class="modal-form-group">
+                <label class="modal-label">كلمة المرور</label>
+                <div class="modal-input-eye-wrap">
+                  <input
+                    type="password"
+                    class="modal-input password-field"
+                    placeholder="ادخل كلمة المرور"
+                    required
+                  />
+                  <button type="button" class="eye-btn" data-toggle-pass-btn>
+                    <i data-lucide="eye"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="modal-form-group">
+                <label class="modal-label">تأكيد كلمة المرور</label>
+                <div class="modal-input-eye-wrap">
+                  <input
+                    type="password"
+                    class="modal-input password-field"
+                    placeholder="ادخل كلمة المرور"
+                    required
+                  />
+                  <button type="button" class="eye-btn" data-toggle-pass-btn>
+                    <i data-lucide="eye"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Form Actions -->
+            <div style="display: flex; gap: 12px">
+              <button type="submit" class="btn-modal-primary" style="flex: 1; height: 42px">
+                اضافة
+              </button>
+              <button
+                type="button"
+                class="btn-modal-cancel"
+                data-modal-close
+                style="flex: 1; height: 42px"
+              >
+                الغاء
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Edit Supervisor Modal (تعديل تفاصيل المشرف - Matching Image 4) -->
+    -->
+    <div class="modal-overlay" id="editSupervisorModal">
+      <div class="modal-dialog" style="max-width: 620px">
+        <div class="modal-header">
+          <h3 class="modal-title">تعديل تفاصيل المشرف</h3>
+          <button class="modal-close-btn" data-modal-close aria-label="إغلاق">
+            <i data-lucide="x"></i>
+          </button>
+        </div>
+
+        <div class="modal-body" style="padding: 20px 24px; max-height: 80vh; overflow-y: auto">
+          <form data-form-toast="تم حفظ التعديلات بنجاح">
+            <!-- Image Upload Box at Center Top matching Image 4 -->
+            <div class="profile-upload-zone" style="margin-bottom: 20px">
+              <div
+                class="upload-icon-box"
+                style="
+                  width: 80px;
+                  height: 80px;
+                  border-radius: 12px;
+                  background: #e5e7eb;
+                  margin-bottom: 8px;
+                "
+              >
+                <i data-lucide="image"></i>
+              </div>
+              <button
+                type="button"
+                class="btn-upload-pic"
+                style="background: #374151; padding: 6px 14px; border-radius: 6px"
+              >
+                <i data-lucide="download"></i>
+                <span>تحميل الصورة</span>
+              </button>
+              <span class="upload-helper-text"
+                >يجب أن يكون حجم الصورة أقل من 1 ميجا بايت ويجب أن تكون نسبة الصورة 1:1</span
+              >
+            </div>
+
+            <!-- 2-Column Form Fields matching Image 4 -->
+            <div
+              style="
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 14px 18px;
+                margin-bottom: 24px;
+              "
+            >
+              <!-- Row 1 -->
+              <div class="modal-form-group">
+                <label class="modal-label">الاسم</label>
+                <input
+                  type="text"
+                  class="modal-input"
+                  placeholder="ادخل الاسم"
+                  value="محمد احمد"
+                  required
+                />
+              </div>
+              <div class="modal-form-group">
+                <label class="modal-label">البريد الالكتروني</label>
+                <input
+                  type="email"
+                  class="modal-input"
+                  placeholder="ادخل البريد الالكتروني"
+                  value="mohamed.abdelrahman6266@gmail.com"
+                  required
+                />
+              </div>
+
+              <!-- Row 2 -->
+              <div class="modal-form-group">
+                <label class="modal-label">رقم الجوال</label>
+                <input
+                  type="text"
+                  class="modal-input"
+                  placeholder="ادخل الرقم"
+                  value="01024200163"
+                  required
+                />
+              </div>
+              <div class="modal-form-group">
+                <label class="modal-label">رقم الهوية</label>
+                <input
+                  type="text"
+                  class="modal-input"
+                  placeholder="ادخل الرقم"
+                  value="1233444448"
+                  required
+                />
+              </div>
+
+              <!-- Row 3 -->
+              <div class="modal-form-group">
+                <label class="modal-label">المسمي الوظيفي</label>
+                <input
+                  type="text"
+                  class="modal-input"
+                  placeholder="ادخل المسمي الوظيفي"
+                  value="مشرف عام"
+                  required
+                />
+              </div>
+              <div class="modal-form-group">
+                <label class="modal-label">الرقم الوظيفي</label>
+                <input
+                  type="text"
+                  class="modal-input"
+                  placeholder="ادخل الرقم"
+                  value="600"
+                  required
+                />
+              </div>
+
+              <!-- Row 4 -->
+              <div class="modal-form-group">
+                <label class="modal-label">العنوان</label>
+                <input
+                  type="text"
+                  class="modal-input"
+                  placeholder="ادخل العنوان"
+                  value="الرياض حي العليا"
+                  required
+                />
+              </div>
+              <div class="modal-form-group">
+                <label class="modal-label">الدور</label>
+                <div style="position: relative">
+                  <select
+                    class="modal-input"
+                    style="appearance: none; background: #fff; cursor: pointer"
+                    required
+                  >
+                    <option value="1" selected>مشرف عام</option>
+                    <option value="2">مدير العمليات</option>
+                    <option value="3">مسؤول المحتوى</option>
+                  </select>
+                  <i
+                    data-lucide="chevron-down"
+                    style="
+                      position: absolute;
+                      left: 12px;
+                      top: 50%;
+                      transform: translateY(-50%);
+                      pointer-events: none;
+                    "
+                  ></i>
+                </div>
+              </div>
+
+              <!-- Row 5: Passwords -->
+              <div class="modal-form-group">
+                <label class="modal-label">كلمة المرور</label>
+                <div class="modal-input-eye-wrap">
+                  <input
+                    type="password"
+                    class="modal-input password-field"
+                    placeholder="ادخل كلمة المرور"
+                    value="••••••••"
+                  />
+                  <button type="button" class="eye-btn" data-toggle-pass-btn>
+                    <i data-lucide="eye"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="modal-form-group">
+                <label class="modal-label">تأكيد كلمة المرور</label>
+                <div class="modal-input-eye-wrap">
+                  <input
+                    type="password"
+                    class="modal-input password-field"
+                    placeholder="ادخل كلمة المرور"
+                    value="••••••••"
+                  />
+                  <button type="button" class="eye-btn" data-toggle-pass-btn>
+                    <i data-lucide="eye"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Form Actions -->
+            <div style="display: flex; gap: 12px">
+              <button type="submit" class="btn-modal-primary" style="flex: 1; height: 42px">
+                حفظ
+              </button>
+              <button
+                type="button"
+                class="btn-modal-cancel"
+                data-modal-close
+                style="flex: 1; height: 42px"
+              >
+                الغاء
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- View Supervisor Modal (عرض المشرف - Matching Image 3) -->
+    -->
+    <div class="modal-overlay" id="viewSupervisorModal">
+      <div class="modal-dialog" style="max-width: 650px">
+        <div class="modal-header">
+          <h3 class="modal-title">عرض المشرف</h3>
+          <button class="modal-close-btn" data-modal-close aria-label="إغلاق">
+            <i data-lucide="x"></i>
+          </button>
+        </div>
+
+        <div class="modal-body" style="padding: 20px 24px">
+          <div class="profile-view-box">
+            <!-- Section Bar with Stop Account pill on Left matching Image 3 -->
+            <div
+              class="profile-section-title-bar"
+              style="display: flex; align-items: center; justify-content: space-between"
+            >
+              <button type="button" class="pill-suspend-red" data-action="toggle-status">
+                إيقاف الحساب
+              </button>
+              <span style="font-weight: 700">بيانات المشرف</span>
+            </div>
+
+            <!-- Supervisor Photo matching Image 3 -->
+            <div
+              style="
+                width: 84px;
+                height: 84px;
+                border-radius: 12px;
+                overflow: hidden;
+                margin: 0 auto 16px auto;
+                border: 1px solid #e5e7eb;
+              "
+            >
+              <img
+                src="./assets/images/Ellipse 3255.png"
+                alt="Supervisor"
+                style="width: 100%; height: 100%; object-fit: cover"
+              />
+            </div>
+
+            <!-- 3-Column Info Grid matching Image 3 -->
+            <div class="profile-info-three-col" style="gap: 14px 16px">
+              <!-- Row 1 -->
+              <div class="profile-info-row">
+                <span class="profile-info-label">الاسم :</span>
+                <span class="profile-info-val">محمد السيد</span>
+              </div>
+              <div class="profile-info-row">
+                <span class="profile-info-label">رقم الجوال :</span>
+                <span class="profile-info-val" style="direction: ltr">112345689</span>
+              </div>
+              <div class="profile-info-row">
+                <span class="profile-info-label">رقم الهوية :</span>
+                <span class="profile-info-val">10203050</span>
+              </div>
+
+              <!-- Row 2 -->
+              <div class="profile-info-row">
+                <span class="profile-info-label">المسمي الوظيفي :</span>
+                <span class="profile-info-val">مسؤال</span>
+              </div>
+              <div class="profile-info-row">
+                <span class="profile-info-label">البريد الالكتروني :</span>
+                <span class="profile-info-val" style="direction: ltr">moahme@icloud.com</span>
+              </div>
+              <div class="profile-info-row">
+                <span class="profile-info-label">العنوان :</span>
+                <span class="profile-info-val">الرياض حي العليا</span>
+              </div>
+
+              <!-- Row 3 -->
+              <div class="profile-info-row">
+                <span class="profile-info-label">الرقم الوظيفي :</span>
+                <span class="profile-info-val">123</span>
+              </div>
+              <div class="profile-info-row">
+                <span class="profile-info-label">الصلاحيات :</span>
+                <span class="profile-info-val" style="color: #d97706; font-weight: 700"
+                  >كل الصلاحيات</span
+                >
+              </div>
+              <div class="profile-info-row">
+                <span class="profile-info-label">الرسالة :</span>
+                <span class="profile-info-val">نص بديل</span>
+              </div>
+
+              <!-- Row 4 -->
+              <div class="profile-info-row">
+                <span class="profile-info-label">تاريخ التوظيف :</span>
+                <span class="profile-info-val">20/10/2025</span>
+              </div>
+              <div class="profile-info-row">
+                <span class="profile-info-label">الحالة :</span>
+                <span class="profile-info-val" style="color: #16a34a; font-weight: 700"
+                  >حساب فعال</span
+                >
+              </div>
+              <div class="profile-info-row"></div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="modal-footer"
+          style="display: flex; gap: 12px; padding: 14px 24px 20px 24px; border-top: none"
+        >
+          <button
+            type="button"
+            class="btn-modal-primary"
+            style="flex: 1; height: 42px"
+            data-chain-modal="editSupervisorModal"
+          >
+            تعديل
+          </button>
+          <button
+            type="button"
+            class="btn-modal-cancel"
+            data-modal-close
+            style="flex: 1; height: 42px"
+          >
+            الغاء
           </button>
         </div>
       </div>
-    </header>
+    </div>
 
-    <!-- Main Card Container (White Box matching Image 1) --> -->
-    <section class="table-card-container" style="padding: 24px;">
-      <!-- Title & Actions Bar matching Image 1 -->
-      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; flex-wrap: wrap; gap: 16px;">
-        <!-- Right in RTL: Title -->
-        <h2 style="font-size: 16px; font-weight: 700; color: #111827;">المشرفين</h2>
-        
-        <!-- Left in RTL: Actions (Search, Add) --> -->
-        <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
-          <!-- Search Box -->
-          <div class="orders-search-box" style="margin: 0; min-width: 220px;">
-            <i data-lucide="search"></i>
-            <input type="text" class="table-search-input" placeholder="البحث">
-          </div>
-
-          <!-- Add Supervisor Button (Opens Add Modal) --> -->
-          <button type="button" class="btn-modal-primary" data-modal-target="addSupervisorModal" style="height: 38px; display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 0 18px; border-radius: 8px; font-weight: 700; font-size: 13px; border: none; cursor: pointer;">
-            <i data-lucide="plus"></i>
-            <span>إضافة</span>
+    <!-- Delete Confirmation Modal (Matching Image 5: تاكيد الاجراء) -->
+    -->
+    <div class="modal-overlay" id="deleteModal">
+      <div class="modal-dialog" style="max-width: 440px; text-align: center">
+        <div class="modal-header">
+          <h3 class="modal-title">تاكيد الاجراء</h3>
+          <button class="modal-close-btn" data-modal-close aria-label="إغلاق">
+            <i data-lucide="x"></i>
           </button>
         </div>
-      </div>
-
-      <!-- Supervisors Table matching Image 1 -->
-      <div class="table-responsive-box">
-        <table class="admin-table">
-          <thead>
-            <tr>
-              <th>الكود</th>
-              <th>الاسم</th>
-              <th>الهاتف</th>
-              <th>البريد الإلكتروني</th>
-              <th>رقم الهوية</th>
-              <th>الوظيفة</th>
-              <th>الصلاحيات</th>
-              <th>الحالة</th>
-              <th>الحساب</th>
-              <th style="width: 110px; text-align: center;">الاجراء</th>
-            </tr>
-          </thead>
-          <tbody id="supervisorsTableBody">
-            <!-- Dynamically rendered via js/dashboard.js -->
-          </tbody>
-        </table>
-      </div>
-
-      <!-- Pagination Footer matching Image 1 -->
-      <div class="table-pagination-footer">
-        <!-- Rows Per Page (Right in RTL) --> -->
-        <div style="display: flex; align-items: center; gap: 8px; font-size: 11.5px; color: #6B7280;">
-          <span>عدد الصفوف لكل صفحة</span>
-          <div class="orders-filter-select" style="padding: 4px 10px;">
-            <span>10</span>
-            <i data-lucide="chevron-down"></i>
-          </div>
-        </div>
-
-        <!-- Page Numbers (Left in RTL) --> -->
-        <div class="pagination-controls">
-          <a href="#" class="page-btn">&lt;</a>
-          <a href="#" class="page-btn">1</a>
-          <a href="#" class="page-btn active">2</a>
-          <a href="#" class="page-btn">3</a>
-          <a href="#" class="page-btn">4</a>
-          <a href="#" class="page-btn">5</a>
-          <a href="#" class="page-btn">&gt;</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- MODALS SYSTEM (Matching Image 2, 3, 4, 5) --> -->
-
-  <!-- Add Supervisor Modal (اضافة مشرف جديد - Matching Image 2) -->
-  <div class="modal-overlay" id="addSupervisorModal">
-    <div class="modal-dialog" style="max-width: 620px;">
-      <div class="modal-header">
-        <h3 class="modal-title">اضافة مشرف جديد</h3>
-        <button class="modal-close-btn" data-modal-close aria-label="إغلاق">
-          <i data-lucide="x"></i>
-        </button>
-      </div>
-
-      <div class="modal-body" style="padding: 20px 24px; max-height: 80vh; overflow-y: auto;">
-        <form onsubmit="event.preventDefault(); showToast('تمت إضافة المشرف بنجاح', 'success'); closeModal();">
-          
-          <!-- Image Upload Box at Center Top matching Image 2 -->
-          <div class="profile-upload-zone" style="margin-bottom: 20px;">
-            <div class="upload-icon-box" style="width: 80px; height: 80px; border-radius: 12px; background: #E5E7EB; margin-bottom: 8px;">
-              <i data-lucide="image"></i>
+        <div class="modal-body" style="padding: 24px 24px 28px 24px; text-align: center">
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              gap: 10px;
+              margin-bottom: 14px;
+            "
+          >
+            <h3 style="font-size: 16px; font-weight: 700; color: #111827; margin: 0">حذف المشرف</h3>
+            <div
+              style="
+                width: 36px;
+                height: 36px;
+                border-radius: 8px;
+                background: #fef2f2;
+                color: #ef4444;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+              "
+            >
+              <i data-lucide="alert-triangle"></i>
             </div>
-            <button type="button" class="btn-upload-pic" style="background: #374151; padding: 6px 14px; border-radius: 6px;">
-              <i data-lucide="download"></i>
-              <span>تحميل الصورة</span>
+          </div>
+
+          <p style="font-size: 13px; color: #6b7280; line-height: 1.6; margin-bottom: 24px">
+            هل أنت متأكد من حذف المشرف "محمد السيد"؟ لا يمكن التراجع عن هذا الإجراء.
+          </p>
+
+          <div
+            style="
+              display: flex;
+              gap: 12px;
+              justify-content: center;
+              max-width: 260px;
+              margin: 0 auto;
+            "
+          >
+            <button
+              type="button"
+              class="btn-modal-cancel"
+              data-modal-close
+              style="flex: 1; height: 40px; border-radius: 8px; font-weight: 600; font-size: 13px"
+            >
+              الغاء
             </button>
-            <span class="upload-helper-text">يجب أن يكون حجم الصورة أقل من 1 ميجا بايت ويجب أن تكون نسبة الصورة 1:1</span>
-          </div>
-
-          <!-- 2-Column Form Fields matching Image 2 -->
-          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 18px; margin-bottom: 24px;">
-            <!-- Row 1 -->
-            <div class="modal-form-group">
-              <label class="modal-label">الاسم</label>
-              <input type="text" class="modal-input" placeholder="ادخل الاسم" required>
-            </div>
-            <div class="modal-form-group">
-              <label class="modal-label">البريد الالكتروني</label>
-              <input type="email" class="modal-input" placeholder="ادخل البريد الالكتروني" required>
-            </div>
-
-            <!-- Row 2 -->
-            <div class="modal-form-group">
-              <label class="modal-label">رقم الجوال</label>
-              <input type="text" class="modal-input" placeholder="ادخل الرقم" required>
-            </div>
-            <div class="modal-form-group">
-              <label class="modal-label">رقم الهوية</label>
-              <input type="text" class="modal-input" placeholder="ادخل الرقم" required>
-            </div>
-
-            <!-- Row 3 -->
-            <div class="modal-form-group">
-              <label class="modal-label">المسمي الوظيفي</label>
-              <input type="text" class="modal-input" placeholder="ادخل المسمي الوظيفي" required>
-            </div>
-            <div class="modal-form-group">
-              <label class="modal-label">الرقم الوظيفي</label>
-              <input type="text" class="modal-input" placeholder="ادخل الرقم" required>
-            </div>
-
-            <!-- Row 4 -->
-            <div class="modal-form-group">
-              <label class="modal-label">العنوان</label>
-              <input type="text" class="modal-input" placeholder="ادخل العنوان" required>
-            </div>
-            <div class="modal-form-group">
-              <label class="modal-label">الدور</label>
-              <div style="position: relative;">
-                <select class="modal-input" style="appearance: none; background: #fff; cursor: pointer;" required>
-                  <option value="" disabled selected>اختر الدور</option>
-                  <option value="1">مشرف عام</option>
-                  <option value="2">مدير العمليات</option>
-                  <option value="3">مسؤول المحتوى</option>
-                </select>
-                <i data-lucide="chevron-down" style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); pointer-events: none;"></i>
-              </div>
-            </div>
-
-            <!-- Row 5: Passwords with Eye toggle -->
-            <div class="modal-form-group">
-              <label class="modal-label">كلمة المرور</label>
-              <div class="modal-input-eye-wrap">
-                <input type="password" class="modal-input password-field" placeholder="ادخل كلمة المرور" required>
-                <button type="button" class="eye-btn" onclick="togglePasswordVisibility(this)">
-                  <i data-lucide="eye"></i>
-                </button>
-              </div>
-            </div>
-            <div class="modal-form-group">
-              <label class="modal-label">تأكيد كلمة المرور</label>
-              <div class="modal-input-eye-wrap">
-                <input type="password" class="modal-input password-field" placeholder="ادخل كلمة المرور" required>
-                <button type="button" class="eye-btn" onclick="togglePasswordVisibility(this)">
-                  <i data-lucide="eye"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Form Actions -->
-          <div style="display: flex; gap: 12px;">
-            <button type="submit" class="btn-modal-primary" style="flex: 1; height: 42px;">اضافة</button>
-            <button type="button" class="btn-modal-cancel" data-modal-close style="flex: 1; height: 42px;">الغاء</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-
-  <!-- Edit Supervisor Modal (تعديل تفاصيل المشرف - Matching Image 4) --> -->
-  <div class="modal-overlay" id="editSupervisorModal">
-    <div class="modal-dialog" style="max-width: 620px;">
-      <div class="modal-header">
-        <h3 class="modal-title">تعديل تفاصيل المشرف</h3>
-        <button class="modal-close-btn" data-modal-close aria-label="إغلاق">
-          <i data-lucide="x"></i>
-        </button>
-      </div>
-
-      <div class="modal-body" style="padding: 20px 24px; max-height: 80vh; overflow-y: auto;">
-        <form onsubmit="event.preventDefault(); showToast('تم حفظ التعديلات بنجاح', 'success'); closeModal();">
-          
-          <!-- Image Upload Box at Center Top matching Image 4 -->
-          <div class="profile-upload-zone" style="margin-bottom: 20px;">
-            <div class="upload-icon-box" style="width: 80px; height: 80px; border-radius: 12px; background: #E5E7EB; margin-bottom: 8px;">
-              <i data-lucide="image"></i>
-            </div>
-            <button type="button" class="btn-upload-pic" style="background: #374151; padding: 6px 14px; border-radius: 6px;">
-              <i data-lucide="download"></i>
-              <span>تحميل الصورة</span>
+            <button
+              type="button"
+              class="btn-modal-primary"
+              style="
+                background: #ef4444;
+                color: #ffffff;
+                flex: 1;
+                height: 40px;
+                border-radius: 8px;
+                font-weight: 600;
+                font-size: 13px;
+                border: none;
+                cursor: pointer;
+              "
+              data-confirm-delete
+              data-toast-msg="تم حذف المشرف بنجاح"
+            >
+              تاكيد
             </button>
-            <span class="upload-helper-text">يجب أن يكون حجم الصورة أقل من 1 ميجا بايت ويجب أن تكون نسبة الصورة 1:1</span>
           </div>
+        </div>
+      </div>
+    </div>
 
-          <!-- 2-Column Form Fields matching Image 4 -->
-          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 18px; margin-bottom: 24px;">
-            <!-- Row 1 -->
-            <div class="modal-form-group">
-              <label class="modal-label">الاسم</label>
-              <input type="text" class="modal-input" placeholder="ادخل الاسم" value="محمد احمد" required>
-            </div>
-            <div class="modal-form-group">
-              <label class="modal-label">البريد الالكتروني</label>
-              <input type="email" class="modal-input" placeholder="ادخل البريد الالكتروني" value="mohamed.abdelrahman6266@gmail.com" required>
-            </div>
+    <!-- View Profile Modal (عرض الملف الشخصي -->
+    -->
+    <div class="modal-overlay" id="viewProfileModal">
+      <div class="modal-dialog" style="max-width: 580px">
+        <div class="modal-header">
+          <h3 class="modal-title">عرض الملف الشخصي</h3>
+          <button class="modal-close-btn" data-modal-close aria-label="إغلاق">
+            <i data-lucide="x"></i>
+          </button>
+        </div>
 
-            <!-- Row 2 -->
-            <div class="modal-form-group">
-              <label class="modal-label">رقم الجوال</label>
-              <input type="text" class="modal-input" placeholder="ادخل الرقم" value="01024200163" required>
-            </div>
-            <div class="modal-form-group">
-              <label class="modal-label">رقم الهوية</label>
-              <input type="text" class="modal-input" placeholder="ادخل الرقم" value="1233444448" required>
-            </div>
-
-            <!-- Row 3 -->
-            <div class="modal-form-group">
-              <label class="modal-label">المسمي الوظيفي</label>
-              <input type="text" class="modal-input" placeholder="ادخل المسمي الوظيفي" value="مشرف عام" required>
-            </div>
-            <div class="modal-form-group">
-              <label class="modal-label">الرقم الوظيفي</label>
-              <input type="text" class="modal-input" placeholder="ادخل الرقم" value="600" required>
+        <div class="modal-body" style="padding: 20px 24px">
+          <div class="profile-view-box">
+            <!-- Section Bar -->
+            <div class="profile-section-title-bar">
+              <span>بيانات الملف الشخصي</span>
+              <i data-lucide="chevron-up"></i>
             </div>
 
-            <!-- Row 4 -->
-            <div class="modal-form-group">
-              <label class="modal-label">العنوان</label>
-              <input type="text" class="modal-input" placeholder="ادخل العنوان" value="الرياض حي العليا" required>
+            <!-- Studio Image Center Avatar -->
+            <div class="profile-avatar-banner">
+              <img src="./assets/images/Ellipse 3255.png" alt="Profile Picture" />
             </div>
-            <div class="modal-form-group">
-              <label class="modal-label">الدور</label>
-              <div style="position: relative;">
-                <select class="modal-input" style="appearance: none; background: #fff; cursor: pointer;" required>
-                  <option value="1" selected>مشرف عام</option>
-                  <option value="2">مدير العمليات</option>
-                  <option value="3">مسؤول المحتوى</option>
-                </select>
-                <i data-lucide="chevron-down" style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); pointer-events: none;"></i>
+
+            <!-- 2-Column Info Grid matching -->
+            <div class="profile-info-two-col">
+              <div class="profile-info-row">
+                <span class="profile-info-label">الاسم :</span>
+                <span class="profile-info-val">محمد السيد</span>
+              </div>
+              <div class="profile-info-row">
+                <span class="profile-info-label">رقم الجوال :</span>
+                <span class="profile-info-val" style="direction: ltr">112345689</span>
+              </div>
+
+              <div class="profile-info-row">
+                <span class="profile-info-label">رقم الهوية :</span>
+                <span class="profile-info-val">10203050</span>
+              </div>
+              <div class="profile-info-row">
+                <span class="profile-info-label">المسمي الوظيفي :</span>
+                <span class="profile-info-val">مسؤال</span>
+              </div>
+
+              <div class="profile-info-row">
+                <span class="profile-info-label">البريد الالكتروني :</span>
+                <span class="profile-info-val" style="direction: ltr">moahme@icloud.com</span>
+              </div>
+              <div class="profile-info-row">
+                <span class="profile-info-label">العنوان :</span>
+                <span class="profile-info-val">الرياض حي العليا</span>
+              </div>
+
+              <div class="profile-info-row">
+                <span class="profile-info-label">الرقم الوظيفي :</span>
+                <span class="profile-info-val">123</span>
+              </div>
+              <div class="profile-info-row">
+                <span class="profile-info-label">الصلاحيات :</span>
+                <span class="profile-info-val"
+                  ><a href="#" style="color: #fdba33; font-weight: 700; text-decoration: none"
+                    >كل الصلاحيات</a
+                  ></span
+                >
+              </div>
+
+              <div class="profile-info-row">
+                <span class="profile-info-label">الرسالة :</span>
+                <span class="profile-info-val">نص بديل</span>
+              </div>
+              <div class="profile-info-row">
+                <span class="profile-info-label">تاريخ التوظيف :</span>
+                <span class="profile-info-val">20/10/2025</span>
+              </div>
+
+              <div class="profile-info-row" style="grid-column: span 2">
+                <span class="profile-info-label">الحالة :</span>
+                <span class="profile-info-val" style="color: #10b981; font-weight: 700"
+                  >حساب فعال</span
+                >
               </div>
             </div>
-
-            <!-- Row 5: Passwords -->
-            <div class="modal-form-group">
-              <label class="modal-label">كلمة المرور</label>
-              <div class="modal-input-eye-wrap">
-                <input type="password" class="modal-input password-field" placeholder="ادخل كلمة المرور" value="••••••••">
-                <button type="button" class="eye-btn" onclick="togglePasswordVisibility(this)">
-                  <i data-lucide="eye"></i>
-                </button>
-              </div>
-            </div>
-            <div class="modal-form-group">
-              <label class="modal-label">تأكيد كلمة المرور</label>
-              <div class="modal-input-eye-wrap">
-                <input type="password" class="modal-input password-field" placeholder="ادخل كلمة المرور" value="••••••••">
-                <button type="button" class="eye-btn" onclick="togglePasswordVisibility(this)">
-                  <i data-lucide="eye"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Form Actions -->
-          <div style="display: flex; gap: 12px;">
-            <button type="submit" class="btn-modal-primary" style="flex: 1; height: 42px;">حفظ</button>
-            <button type="button" class="btn-modal-cancel" data-modal-close style="flex: 1; height: 42px;">الغاء</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-
-  <!-- View Supervisor Modal (عرض المشرف - Matching Image 3) --> -->
-  <div class="modal-overlay" id="viewSupervisorModal">
-    <div class="modal-dialog" style="max-width: 650px;">
-      <div class="modal-header">
-        <h3 class="modal-title">عرض المشرف</h3>
-        <button class="modal-close-btn" data-modal-close aria-label="إغلاق">
-          <i data-lucide="x"></i>
-        </button>
-      </div>
-
-      <div class="modal-body" style="padding: 20px 24px;">
-        <div class="profile-view-box">
-          <!-- Section Bar with Stop Account pill on Left matching Image 3 -->
-          <div class="profile-section-title-bar" style="display: flex; align-items: center; justify-content: space-between;">
-            <button type="button" class="pill-suspend-red" onclick="showToast('تم إيقاف الحساب', 'info')">إيقاف الحساب</button>
-            <span style="font-weight: 700;">بيانات المشرف</span>
-          </div>
-
-          <!-- Supervisor Photo matching Image 3 -->
-          <div style="width: 84px; height: 84px; border-radius: 12px; overflow: hidden; margin: 0 auto 16px auto; border: 1px solid #E5E7EB;">
-            <img src="./assets/images/Ellipse 3255.png" alt="Supervisor" style="width: 100%; height: 100%; object-fit: cover;">
-          </div>
-
-          <!-- 3-Column Info Grid matching Image 3 -->
-          <div class="profile-info-three-col" style="gap: 14px 16px;">
-            <!-- Row 1 -->
-            <div class="profile-info-row">
-              <span class="profile-info-label">الاسم :</span>
-              <span class="profile-info-val">محمد السيد</span>
-            </div>
-            <div class="profile-info-row">
-              <span class="profile-info-label">رقم الجوال :</span>
-              <span class="profile-info-val" style="direction: ltr;">112345689</span>
-            </div>
-            <div class="profile-info-row">
-              <span class="profile-info-label">رقم الهوية :</span>
-              <span class="profile-info-val">10203050</span>
-            </div>
-
-            <!-- Row 2 -->
-            <div class="profile-info-row">
-              <span class="profile-info-label">المسمي الوظيفي :</span>
-              <span class="profile-info-val">مسؤال</span>
-            </div>
-            <div class="profile-info-row">
-              <span class="profile-info-label">البريد الالكتروني :</span>
-              <span class="profile-info-val" style="direction: ltr;">moahme@icloud.com</span>
-            </div>
-            <div class="profile-info-row">
-              <span class="profile-info-label">العنوان :</span>
-              <span class="profile-info-val">الرياض حي العليا</span>
-            </div>
-
-            <!-- Row 3 -->
-            <div class="profile-info-row">
-              <span class="profile-info-label">الرقم الوظيفي :</span>
-              <span class="profile-info-val">123</span>
-            </div>
-            <div class="profile-info-row">
-              <span class="profile-info-label">الصلاحيات :</span>
-              <span class="profile-info-val" style="color: #D97706; font-weight: 700;">كل الصلاحيات</span>
-            </div>
-            <div class="profile-info-row">
-              <span class="profile-info-label">الرسالة :</span>
-              <span class="profile-info-val">نص بديل</span>
-            </div>
-
-            <!-- Row 4 -->
-            <div class="profile-info-row">
-              <span class="profile-info-label">تاريخ التوظيف :</span>
-              <span class="profile-info-val">20/10/2025</span>
-            </div>
-            <div class="profile-info-row">
-              <span class="profile-info-label">الحالة :</span>
-              <span class="profile-info-val" style="color: #16A34A; font-weight: 700;">حساب فعال</span>
-            </div>
-            <div class="profile-info-row"></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="modal-footer" style="display: flex; gap: 12px; padding: 14px 24px 20px 24px; border-top: none;">
-        <button type="button" class="btn-modal-primary" style="flex: 1; height: 42px;" onclick="closeModal(); setTimeout(() => document.getElementById('editSupervisorModal').classList.add('active'), 200);">تعديل</button>
-        <button type="button" class="btn-modal-cancel" data-modal-close style="flex: 1; height: 42px;">الغاء</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Delete Confirmation Modal (Matching Image 5: تاكيد الاجراء) --> -->
-  <div class="modal-overlay" id="deleteModal">
-    <div class="modal-dialog" style="max-width: 440px; text-align: center;">
-      <div class="modal-header">
-        <h3 class="modal-title">تاكيد الاجراء</h3>
-        <button class="modal-close-btn" data-modal-close aria-label="إغلاق">
-          <i data-lucide="x"></i>
-        </button>
-      </div>
-      <div class="modal-body" style="padding: 24px 24px 28px 24px; text-align: center;">
-        <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 14px;">
-          <h3 style="font-size: 16px; font-weight: 700; color: #111827; margin: 0;">حذف المشرف</h3>
-          <div style="width: 36px; height: 36px; border-radius: 8px; background: #FEF2F2; color: #EF4444; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-            <i data-lucide="alert-triangle"></i>
           </div>
         </div>
 
-        <p style="font-size: 13px; color: #6B7280; line-height: 1.6; margin-bottom: 24px;">هل أنت متأكد من حذف المشرف "محمد السيد"؟ لا يمكن التراجع عن هذا الإجراء.</p>
-
-        <div style="display: flex; gap: 12px; justify-content: center; max-width: 260px; margin: 0 auto;">
-          <button type="button" class="btn-modal-cancel" data-modal-close style="flex: 1; height: 40px; border-radius: 8px; font-weight: 600; font-size: 13px;">الغاء</button>
-          <button type="button" class="btn-modal-primary" style="background: #EF4444; color: #FFFFFF; flex: 1; height: 40px; border-radius: 8px; font-weight: 600; font-size: 13px; border: none; cursor: pointer;" onclick="showToast('تم حذف المشرف بنجاح', 'success'); closeModal();">تاكيد</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- View Profile Modal (عرض الملف الشخصي --> -->
-  <div class="modal-overlay" id="viewProfileModal">
-    <div class="modal-dialog" style="max-width: 580px;">
-      <div class="modal-header">
-        <h3 class="modal-title">عرض الملف الشخصي</h3>
-        <button class="modal-close-btn" data-modal-close aria-label="إغلاق">
-          <i data-lucide="x"></i>
-        </button>
-      </div>
-
-      <div class="modal-body" style="padding: 20px 24px;">
-        <div class="profile-view-box">
-          <!-- Section Bar -->
-          <div class="profile-section-title-bar">
-            <span>بيانات الملف الشخصي</span>
-            <i data-lucide="chevron-up"></i>
-          </div>
-
-          <!-- Studio Image Center Avatar -->
-          <div class="profile-avatar-banner">
-            <img src="./assets/images/Ellipse 3255.png" alt="Profile Picture" />
-          </div>
-
-          <!-- 2-Column Info Grid matching -->
-          <div class="profile-info-two-col">
-            <div class="profile-info-row">
-              <span class="profile-info-label">الاسم :</span>
-              <span class="profile-info-val">محمد السيد</span>
-            </div>
-            <div class="profile-info-row">
-              <span class="profile-info-label">رقم الجوال :</span>
-              <span class="profile-info-val" style="direction: ltr;">112345689</span>
-            </div>
-
-            <div class="profile-info-row">
-              <span class="profile-info-label">رقم الهوية :</span>
-              <span class="profile-info-val">10203050</span>
-            </div>
-            <div class="profile-info-row">
-              <span class="profile-info-label">المسمي الوظيفي :</span>
-              <span class="profile-info-val">مسؤال</span>
-            </div>
-
-            <div class="profile-info-row">
-              <span class="profile-info-label">البريد الالكتروني :</span>
-              <span class="profile-info-val" style="direction: ltr;">moahme@icloud.com</span>
-            </div>
-            <div class="profile-info-row">
-              <span class="profile-info-label">العنوان :</span>
-              <span class="profile-info-val">الرياض حي العليا</span>
-            </div>
-
-            <div class="profile-info-row">
-              <span class="profile-info-label">الرقم الوظيفي :</span>
-              <span class="profile-info-val">123</span>
-            </div>
-            <div class="profile-info-row">
-              <span class="profile-info-label">الصلاحيات :</span>
-              <span class="profile-info-val"><a href="#" style="color: #FDBA33; font-weight: 700; text-decoration: none;">كل الصلاحيات</a></span>
-            </div>
-
-            <div class="profile-info-row">
-              <span class="profile-info-label">الرسالة :</span>
-              <span class="profile-info-val">نص بديل</span>
-            </div>
-            <div class="profile-info-row">
-              <span class="profile-info-label">تاريخ التوظيف :</span>
-              <span class="profile-info-val">20/10/2025</span>
-            </div>
-
-            <div class="profile-info-row" style="grid-column: span 2;">
-              <span class="profile-info-label">الحالة :</span>
-              <span class="profile-info-val" style="color: #10B981; font-weight: 700;">حساب فعال</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="modal-footer" style="justify-content: flex-start; gap: 10px;">
-        <button type="button" class="btn-modal-primary" data-modal-target="editProfileModal">تعديل</button>
-        <button type="button" class="btn-modal-cancel" data-modal-close>إلغاء</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Edit Profile Modal (تعديل الملف الشخصي --> -->
-  <div class="modal-overlay" id="editProfileModal">
-    <div class="modal-dialog" style="max-width: 580px;">
-      <div class="modal-header">
-        <h3 class="modal-title">تعديل الملف الشخصي</h3>
-        <button class="modal-close-btn" data-modal-close aria-label="إغلاق">
-          <i data-lucide="x"></i>
-        </button>
-      </div>
-
-      <form id="editProfileForm">
-        <div class="modal-body" style="padding: 20px 24px;">
-          <!-- Upload Image Box matching -->
-          <div class="profile-upload-zone">
-            <div class="upload-icon-box">
-              <i data-lucide="image"></i>
-            </div>
-            <button type="button" class="btn-upload-pic">
-              <i data-lucide="download"></i>
-              <span>تحميل الصورة</span>
-            </button>
-            <p class="upload-helper-text">يجب أن يكون حجم الصورة أقل من 5 ميجا بايت<br>ويجب أن تكون بنسبة 1:1</p>
-          </div>
-
-          <!-- Input Fields 2-Columns matching -->
-          <div class="modal-form-row">
-            <div class="modal-form-group">
-              <label class="modal-label">الاسم</label>
-              <input type="text" class="modal-input" placeholder="ادخل الاسم" value="محمد السيد">
-            </div>
-            <div class="modal-form-group">
-              <label class="modal-label">البريد الالكتروني</label>
-              <input type="email" class="modal-input" placeholder="ادخل البريد الالكتروني" value="moahme@icloud.com">
-            </div>
-          </div>
-
-          <div class="modal-form-row" style="margin-top: 10px;">
-            <div class="modal-form-group">
-              <label class="modal-label">رقم الجوال</label>
-              <input type="tel" class="modal-input" placeholder="ادخل الرقم" value="112345689">
-            </div>
-            <div class="modal-form-group">
-              <label class="modal-label">رقم الهوية</label>
-              <input type="text" class="modal-input" placeholder="ادخل الرقم" value="10203050">
-            </div>
-          </div>
-
-          <div class="modal-form-row" style="margin-top: 10px;">
-            <div class="modal-form-group">
-              <label class="modal-label">المسمي الوظيفي</label>
-              <input type="text" class="modal-input" placeholder="ادخل المسمي الوظيفي" value="مسؤال">
-            </div>
-            <div class="modal-form-group">
-              <label class="modal-label">الرقم الوظيفي</label>
-              <input type="text" class="modal-input" placeholder="ادخل الرقم" value="123">
-            </div>
-          </div>
-
-          <div class="modal-form-group" style="margin-top: 10px;">
-            <label class="modal-label">العنوان</label>
-            <input type="text" class="modal-input" placeholder="ادخل العنوان" value="الرياض حي العليا">
-          </div>
-        </div>
-
-        <div class="modal-footer" style="justify-content: flex-start; gap: 10px;">
-          <button type="submit" class="btn-modal-primary">حفظ</button>
+        <div class="modal-footer" style="justify-content: flex-start; gap: 10px">
+          <button type="button" class="btn-modal-primary" data-modal-target="editProfileModal">
+            تعديل
+          </button>
           <button type="button" class="btn-modal-cancel" data-modal-close>إلغاء</button>
         </div>
-      </form>
-    </div>
-  </div>
-
-  <!-- Logout Modal -->
-  <div class="modal-overlay" id="logoutModal">
-    <div class="modal-dialog" style="max-width: 420px; text-align: center;">
-      <div class="modal-header">
-        <h3 class="modal-title">تسجيل الخروج</h3>
-        <button class="modal-close-btn" data-modal-close aria-label="إغلاق">
-          <i data-lucide="x"></i>
-        </button>
       </div>
-      <div class="modal-body" style="padding: 28px 24px 20px 24px; text-align: center;">
-        <div class="logout-icon-gold-circle">
-          <i data-lucide="log-out"></i>
+    </div>
+
+    <!-- Edit Profile Modal (تعديل الملف الشخصي -->
+    -->
+    <div class="modal-overlay" id="editProfileModal">
+      <div class="modal-dialog" style="max-width: 580px">
+        <div class="modal-header">
+          <h3 class="modal-title">تعديل الملف الشخصي</h3>
+          <button class="modal-close-btn" data-modal-close aria-label="إغلاق">
+            <i data-lucide="x"></i>
+          </button>
         </div>
-        <h3 style="font-size: 16px; font-weight: 700; color: #111827; margin-bottom: 6px;">تسجيل الخروج</h3>
-        <p style="font-size: 12.5px; color: #6B7280; line-height: 1.5;">هل أنت متأكد أنك تريد تسجيل الخروج من حسابك؟</p>
-      </div>
-      <div class="modal-footer" style="display: flex; gap: 10px; padding: 14px 24px 20px 24px; border-top: none;">
-        <a href="login.html" class="btn-modal-primary" style="flex: 1; text-align: center; text-decoration: none; height: 42px; display: flex; align-items: center; justify-content: center;">تأكيد</a>
-        <button type="button" class="btn-modal-cancel" data-modal-close style="flex: 1; height: 42px;">إلغاء</button>
+
+        <form id="editProfileForm">
+          <div class="modal-body" style="padding: 20px 24px">
+            <!-- Upload Image Box matching -->
+            <div class="profile-upload-zone">
+              <div class="upload-icon-box">
+                <i data-lucide="image"></i>
+              </div>
+              <button type="button" class="btn-upload-pic">
+                <i data-lucide="download"></i>
+                <span>تحميل الصورة</span>
+              </button>
+              <p class="upload-helper-text">
+                يجب أن يكون حجم الصورة أقل من 5 ميجا بايت<br />ويجب أن تكون بنسبة 1:1
+              </p>
+            </div>
+
+            <!-- Input Fields 2-Columns matching -->
+            <div class="modal-form-row">
+              <div class="modal-form-group">
+                <label class="modal-label">الاسم</label>
+                <input
+                  type="text"
+                  class="modal-input"
+                  placeholder="ادخل الاسم"
+                  value="محمد السيد"
+                />
+              </div>
+              <div class="modal-form-group">
+                <label class="modal-label">البريد الالكتروني</label>
+                <input
+                  type="email"
+                  class="modal-input"
+                  placeholder="ادخل البريد الالكتروني"
+                  value="moahme@icloud.com"
+                />
+              </div>
+            </div>
+
+            <div class="modal-form-row" style="margin-top: 10px">
+              <div class="modal-form-group">
+                <label class="modal-label">رقم الجوال</label>
+                <input type="tel" class="modal-input" placeholder="ادخل الرقم" value="112345689" />
+              </div>
+              <div class="modal-form-group">
+                <label class="modal-label">رقم الهوية</label>
+                <input type="text" class="modal-input" placeholder="ادخل الرقم" value="10203050" />
+              </div>
+            </div>
+
+            <div class="modal-form-row" style="margin-top: 10px">
+              <div class="modal-form-group">
+                <label class="modal-label">المسمي الوظيفي</label>
+                <input
+                  type="text"
+                  class="modal-input"
+                  placeholder="ادخل المسمي الوظيفي"
+                  value="مسؤال"
+                />
+              </div>
+              <div class="modal-form-group">
+                <label class="modal-label">الرقم الوظيفي</label>
+                <input type="text" class="modal-input" placeholder="ادخل الرقم" value="123" />
+              </div>
+            </div>
+
+            <div class="modal-form-group" style="margin-top: 10px">
+              <label class="modal-label">العنوان</label>
+              <input
+                type="text"
+                class="modal-input"
+                placeholder="ادخل العنوان"
+                value="الرياض حي العليا"
+              />
+            </div>
+          </div>
+
+          <div class="modal-footer" style="justify-content: flex-start; gap: 10px">
+            <button type="submit" class="btn-modal-primary">حفظ</button>
+            <button type="button" class="btn-modal-cancel" data-modal-close>إلغاء</button>
+          </div>
+        </form>
       </div>
     </div>
-  </div>
 
-  <!-- JavaScript -->
+    <!-- Logout Modal -->
+    <div class="modal-overlay" id="logoutModal">
+      <div class="modal-dialog" style="max-width: 420px; text-align: center">
+        <div class="modal-header">
+          <h3 class="modal-title">تسجيل الخروج</h3>
+          <button class="modal-close-btn" data-modal-close aria-label="إغلاق">
+            <i data-lucide="x"></i>
+          </button>
+        </div>
+        <div class="modal-body" style="padding: 28px 24px 20px 24px; text-align: center">
+          <div class="logout-icon-gold-circle">
+            <i data-lucide="log-out"></i>
+          </div>
+          <h3 style="font-size: 16px; font-weight: 700; color: #111827; margin-bottom: 6px">
+            تسجيل الخروج
+          </h3>
+          <p style="font-size: 12.5px; color: #6b7280; line-height: 1.5">
+            هل أنت متأكد أنك تريد تسجيل الخروج من حسابك؟
+          </p>
+        </div>
+        <div
+          class="modal-footer"
+          style="display: flex; gap: 10px; padding: 14px 24px 20px 24px; border-top: none"
+        >
+          <a
+            href="login.html"
+            class="btn-modal-primary"
+            style="
+              flex: 1;
+              text-align: center;
+              text-decoration: none;
+              height: 42px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            "
+            >تأكيد</a
+          >
+          <button
+            type="button"
+            class="btn-modal-cancel"
+            data-modal-close
+            style="flex: 1; height: 42px"
+          >
+            إلغاء
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript -->
     <script src="./js/lucide.min.js"></script>
-  <script src="./js/dashboard.js"></script>
-  <script>
-    function togglePasswordVisibility(btn) {
-      const wrap = btn.closest('.modal-input-eye-wrap');
-      const input = wrap.querySelector('input');
-      if (input.type === 'password') {
-        input.type = 'text';
-        btn.innerHTML = `<i data-lucide="eye-off"></i>`;
-      } else {
-        input.type = 'password';
-        btn.innerHTML = `<i data-lucide="eye"></i>`;
+    <script src="./js/dashboard.js"></script>
+    <script>
+      function togglePasswordVisibility(btn) {
+        const wrap = btn.closest(".modal-input-eye-wrap");
+        const input = wrap.querySelector("input");
+        if (input.type === "password") {
+          input.type = "text";
+          btn.innerHTML = `<i data-lucide="eye-off"></i>`;
+        } else {
+          input.type = "password";
+          btn.innerHTML = `<i data-lucide="eye"></i>`;
+        }
       }
-    }
-  </script>
-</body>
+    </script>
+  </body>
 </html>

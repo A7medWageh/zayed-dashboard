@@ -5,10 +5,12 @@
    Commandment 5: Full RTL & Arabic Support (Cairo / Tajawal / IBM Plex Sans Arabic)
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Tajawal:wght@400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Tajawal:wght@400;500;700&display=swap");
 
 /* Reset */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -22,7 +24,7 @@ html {
 body {
   direction: rtl;
   text-align: right;
-  font-family: 'Cairo', 'Tajawal', 'IBM Plex Sans Arabic', sans-serif;
+  font-family: "Cairo", "Tajawal", "IBM Plex Sans Arabic", sans-serif;
   background-color: #131313;
   margin: 0;
   padding: 0;
@@ -34,7 +36,7 @@ body {
 }
 
 body.container-standalone-body {
-  background-color: #F8F8F8;
+  background-color: #f8f8f8;
 }
 
 /* ====================================================
@@ -50,8 +52,8 @@ body.container-standalone-body {
   min-height: 100vh;
   position: relative;
   overflow: hidden;
-  background-color: #FFFFFF;
-  background-image: url('./assets/Login_WhatsApp_Image_2025-11-02_at_22_43__414-9079.png');
+  background-color: #ffffff;
+  background-image: url("./assets/Login_WhatsApp_Image_2025-11-02_at_22_43__414-9079.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -116,7 +118,7 @@ body.container-standalone-body {
 .whatsapp-image-2025-11-02-at-2 {
   width: 1440px;
   height: 1024px;
-  background-image: url('./assets/Login_WhatsApp_Image_2025-11-02_at_22_43__414-9079.png');
+  background-image: url("./assets/Login_WhatsApp_Image_2025-11-02_at_22_43__414-9079.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -126,7 +128,7 @@ body.container-standalone-body {
 .rectangle-42076 {
   width: 1440px;
   height: 1024px;
-  background-color: rgba(19, 19, 19, 0.40);
+  background-color: rgba(19, 19, 19, 0.4);
   z-index: 7;
 }
 
@@ -140,9 +142,11 @@ body.container-standalone-body {
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  background-color: #F8F8F8;
+  background-color: #f8f8f8;
   border-radius: 24px;
-  box-shadow: 0px 8px 10px -6px rgba(0, 0, 0, 0.10), 0px 20px 25px -5px rgba(0, 0, 0, 0.10);
+  box-shadow:
+    0px 8px 10px -6px rgba(0, 0, 0, 0.1),
+    0px 20px 25px -5px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   position: relative;
   z-index: 10;
@@ -172,8 +176,8 @@ body.container-standalone-body {
 .container > .container:first-child {
   width: 448px;
   height: 83px;
-  background: linear-gradient(180deg, rgba(253, 186, 51, 0.20) 0%, rgba(253, 186, 51, 0.05) 100%);
-  border-bottom: 1px solid rgba(38, 38, 38, 0.10);
+  background: linear-gradient(180deg, rgba(253, 186, 51, 0.2) 0%, rgba(253, 186, 51, 0.05) 100%);
+  border-bottom: 1px solid rgba(38, 38, 38, 0.1);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -295,7 +299,7 @@ body.container-standalone-body {
   width: fit-content;
   min-width: fit-content;
   background-color: transparent;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 400;
   font-size: 4px;
   line-height: normal;
@@ -383,7 +387,7 @@ body.container-standalone-body {
   width: fit-content;
   min-width: fit-content;
   height: auto;
-  font-family: 'IBM Plex Sans Arabic', 'Cairo', 'Tajawal', sans-serif;
+  font-family: "IBM Plex Sans Arabic", "Cairo", "Tajawal", sans-serif;
   font-weight: 700;
   font-size: 16px;
   line-height: normal;
@@ -402,7 +406,7 @@ p.reset-password {
   width: fit-content;
   min-width: fit-content;
   height: auto;
-  font-family: 'Cairo', 'Tajawal', 'IBM Plex Sans Arabic', sans-serif;
+  font-family: "Cairo", "Tajawal", "IBM Plex Sans Arabic", sans-serif;
   font-weight: 700;
   font-size: 20px;
   line-height: 24px;
@@ -421,12 +425,12 @@ small.your-new-password-mu {
   width: fit-content;
   min-width: fit-content;
   height: auto;
-  font-family: 'Cairo', 'Tajawal', 'IBM Plex Sans Arabic', sans-serif;
+  font-family: "Cairo", "Tajawal", "IBM Plex Sans Arabic", sans-serif;
   font-weight: 400;
   font-size: 12px;
   line-height: 20px;
   text-align: right;
-  color: #6E6B7B;
+  color: #6e6b7b;
   background-color: transparent;
   display: block;
   white-space: nowrap;
@@ -480,7 +484,7 @@ small.your-new-password-mu {
   width: fit-content;
   min-width: fit-content;
   height: auto;
-  font-family: 'Cairo', 'Tajawal', 'IBM Plex Sans Arabic', sans-serif;
+  font-family: "Cairo", "Tajawal", "IBM Plex Sans Arabic", sans-serif;
   font-weight: 700;
   font-size: 14px;
   line-height: 20px;
@@ -515,25 +519,27 @@ small.your-new-password-mu {
   align-items: center;
   justify-content: flex-start;
   padding: 12px 16px 12px 44px;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border-radius: 12px;
-  border: 1px solid #FFFFFF;
-  font-family: 'Cairo', 'Tajawal', 'IBM Plex Sans Arabic', sans-serif;
+  border: 1px solid #ffffff;
+  font-family: "Cairo", "Tajawal", "IBM Plex Sans Arabic", sans-serif;
   font-weight: 400;
   font-size: 16px;
   text-align: right;
   direction: rtl;
   outline: none;
   color: #131313;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .email-input::placeholder {
-  color: rgba(10, 10, 10, 0.50);
+  color: rgba(10, 10, 10, 0.5);
 }
 
 .email-input:focus {
-  border-color: #FDBA33;
+  border-color: #fdba33;
   box-shadow: 0 0 0 2px rgba(253, 186, 51, 0.2);
 }
 
@@ -559,21 +565,23 @@ small.your-new-password-mu {
   align-items: center;
   justify-content: flex-start;
   padding: 12px 48px 12px 44px;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border-radius: 12px;
-  border: 1px solid #FFFFFF;
-  font-family: 'Cairo', 'Tajawal', 'IBM Plex Sans Arabic', sans-serif;
+  border: 1px solid #ffffff;
+  font-family: "Cairo", "Tajawal", "IBM Plex Sans Arabic", sans-serif;
   font-weight: 400;
   font-size: 16px;
   text-align: right;
   direction: rtl;
   outline: none;
   color: #131313;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .password-input:focus {
-  border-color: #FDBA33;
+  border-color: #fdba33;
   box-shadow: 0 0 0 2px rgba(253, 186, 51, 0.2);
 }
 
@@ -624,12 +632,12 @@ img.button {
 .frame-2085664965 > .el- {
   width: fit-content;
   min-width: fit-content;
-  font-family: 'Cairo', 'Tajawal', 'IBM Plex Sans Arabic', sans-serif;
+  font-family: "Cairo", "Tajawal", "IBM Plex Sans Arabic", sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
   text-align: right;
-  color: rgba(10, 10, 10, 0.50);
+  color: rgba(10, 10, 10, 0.5);
   background-color: transparent;
   white-space: nowrap;
   pointer-events: none;
@@ -657,12 +665,14 @@ button.button {
   justify-content: center;
   gap: 8px;
   padding: 12px 158.21875px;
-  background-color: #FDBA33;
+  background-color: #fdba33;
   border-radius: 12px;
   border: none;
   cursor: pointer;
   outline: none;
-  transition: background-color 0.2s ease, transform 0.1s ease;
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease;
   margin: 0 auto;
 }
 
@@ -678,7 +688,7 @@ button.button:active {
 button.button > p.el- {
   width: fit-content;
   min-width: fit-content;
-  font-family: 'Cairo', 'Tajawal', 'IBM Plex Sans Arabic', sans-serif;
+  font-family: "Cairo", "Tajawal", "IBM Plex Sans Arabic", sans-serif;
   font-weight: 700;
   font-size: 16px;
   line-height: 24px;
@@ -704,12 +714,12 @@ button.button > .icon {
 .container > .container:last-child > p.el- {
   width: fit-content;
   min-width: fit-content;
-  font-family: 'Cairo', 'Tajawal', 'IBM Plex Sans Arabic', sans-serif;
+  font-family: "Cairo", "Tajawal", "IBM Plex Sans Arabic", sans-serif;
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
   text-align: center;
-  color: #A1A1A1;
+  color: #a1a1a1;
   background-color: transparent;
   white-space: nowrap;
   direction: rtl;
@@ -740,7 +750,7 @@ button.button > .icon {
 
 .frame-2085664977 > p.el- {
   width: fit-content;
-  font-family: 'Cairo', 'Tajawal', 'IBM Plex Sans Arabic', sans-serif;
+  font-family: "Cairo", "Tajawal", "IBM Plex Sans Arabic", sans-serif;
   font-weight: 500;
   font-size: 14px;
   color: #131313;
@@ -750,7 +760,7 @@ button.button > .icon {
 }
 
 .frame-2085664977:hover > p.el- {
-  color: #FDBA33;
+  color: #fdba33;
 }
 
 /* ====================================================
@@ -781,21 +791,23 @@ button.button > .icon {
 .el-18-input-inputgroups-2-inpu {
   width: 56px;
   height: 56px;
-  background-color: #FFFFFF;
-  border: 1px solid #D8D6DE;
+  background-color: #ffffff;
+  border: 1px solid #d8d6de;
   border-radius: 12px;
-  font-family: 'Cairo', 'Tajawal', 'IBM Plex Sans Arabic', sans-serif;
+  font-family: "Cairo", "Tajawal", "IBM Plex Sans Arabic", sans-serif;
   font-weight: 700;
   font-size: 22px;
   text-align: center;
   color: #131313;
   outline: none;
   flex-shrink: 0;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .otp-box:focus {
-  border-color: #FDBA33;
+  border-color: #fdba33;
   box-shadow: 0 0 0 3px rgba(253, 186, 51, 0.2);
 }
 
@@ -803,12 +815,12 @@ button.button > .icon {
   width: fit-content;
   max-width: 400px;
   background-color: transparent;
-  font-family: 'Cairo', 'Tajawal', 'IBM Plex Sans Arabic', sans-serif;
+  font-family: "Cairo", "Tajawal", "IBM Plex Sans Arabic", sans-serif;
   font-weight: 400;
   font-size: 10px;
   line-height: 14px;
   text-align: center;
-  color: #6E6B7B;
+  color: #6e6b7b;
   direction: rtl;
   white-space: nowrap;
 }

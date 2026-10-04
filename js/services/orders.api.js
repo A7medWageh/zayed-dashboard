@@ -2,8 +2,8 @@
  * AZ Studio - Orders & Quotations API Service
  */
 
-import { HttpClient } from './http.js';
-import { API_CONFIG } from '../config/api.config.js';
+import { HttpClient } from "./http.js";
+import { API_CONFIG } from "../config/api.config.js";
 
 export const OrdersApi = {
   /**
@@ -11,7 +11,9 @@ export const OrdersApi = {
    */
   async getOrders(params = {}) {
     const query = new URLSearchParams(params).toString();
-    const endpoint = query ? `${API_CONFIG.ENDPOINTS.ORDERS.LIST}?${query}` : API_CONFIG.ENDPOINTS.ORDERS.LIST;
+    const endpoint = query
+      ? `${API_CONFIG.ENDPOINTS.ORDERS.LIST}?${query}`
+      : API_CONFIG.ENDPOINTS.ORDERS.LIST;
     return HttpClient.get(endpoint);
   },
 
@@ -39,7 +41,7 @@ export const OrdersApi = {
   /**
    * Export orders report (Excel/PDF/CSV)
    */
-  async exportOrders(format = 'excel') {
+  async exportOrders(format = "excel") {
     return HttpClient.get(`${API_CONFIG.ENDPOINTS.ORDERS.EXPORT}?format=${format}`);
-  }
+  },
 };

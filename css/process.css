@@ -113,16 +113,20 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
   position: relative;
   min-height: 220px;
-   border-color: rgba(253, 186, 51, 0.45);
-  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.6), 0 0 24px rgba(253, 186, 51, 0.1);
+  border-color: rgba(253, 186, 51, 0.45);
+  box-shadow:
+    0 14px 32px rgba(0, 0, 0, 0.6),
+    0 0 24px rgba(253, 186, 51, 0.1);
 }
 
 .process-step-card:hover {
   transform: translateY(-4px);
- 
 }
 
 .process-step-number {
@@ -139,7 +143,10 @@
   justify-content: center;
   margin-bottom: 22px;
   font-family: "IBM Plex Sans Arabic", sans-serif;
-  transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease;
 }
 
 .process-step-card:hover .process-step-number {
@@ -231,13 +238,18 @@
   align-items: flex-start;
   text-align: right;
   direction: rtl;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease, box-shadow 0.25s ease;
+  transition:
+    transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .our-value2-card:hover {
   transform: translateY(-4px);
   border-color: rgba(253, 186, 51, 0.45);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.6), 0 0 24px rgba(253, 186, 51, 0.08);
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.6),
+    0 0 24px rgba(253, 186, 51, 0.08);
 }
 
 .our-value2-span {
@@ -310,13 +322,18 @@
   gap: 16px;
   direction: rtl;
   text-align: right;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease, box-shadow 0.25s ease;
+  transition:
+    transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .sec3-card:hover {
   border-color: rgba(253, 186, 51, 0.45);
   transform: translateY(-3px);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.5), 0 0 20px rgba(253, 186, 51, 0.08);
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.5),
+    0 0 20px rgba(253, 186, 51, 0.08);
 }
 
 .sec3-card-icon {
@@ -380,7 +397,12 @@
   transform: translateX(-50%);
   width: 350px;
   height: 20px;
-  background: radial-gradient(ellipse at bottom, rgba(253, 186, 51, 0.35) 0%, rgba(253, 186, 51, 0.08) 50%, transparent 75%);
+  background: radial-gradient(
+    ellipse at bottom,
+    rgba(253, 186, 51, 0.35) 0%,
+    rgba(253, 186, 51, 0.08) 50%,
+    transparent 75%
+  );
   pointer-events: none;
   z-index: 1;
 }
@@ -607,7 +629,6 @@
   }
 
   .sec4-process .d-flex.gap-2 {
-    
     gap: 12px !important;
     width: 100% !important;
     max-width: 320px !important;

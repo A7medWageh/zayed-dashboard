@@ -1,37 +1,40 @@
 /* AZ Studio Dashboard - Exact 
    Directly synced with */
 
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap");
 
 :root {
   /* Exact */
-  --primary-color: #FDBA33;
+  --primary-color: #fdba33;
   --primary-hover: #e5a52a;
   --text-dark: #131313;
-  --text-secondary: #6E6B7B;
-  --text-muted: #A1A1A1;
-  
-  --card-bg: #F8F8F8;
-  --header-bg: linear-gradient(180deg, rgba(253, 186, 51, 0.20) 0%, rgba(253, 186, 51, 0.05) 100%);
-  --header-border: rgba(38, 38, 38, 0.10);
-  
-  --input-bg: #FFFFFF;
-  --input-border: #FFFFFF;
-  --input-border-focus: #FDBA33;
-  --placeholder-color: rgba(10, 10, 10, 0.50);
-  
-  --border-otp: #D8D6DE;
-  
+  --text-secondary: #6e6b7b;
+  --text-muted: #a1a1a1;
+
+  --card-bg: #f8f8f8;
+  --header-bg: linear-gradient(180deg, rgba(253, 186, 51, 0.2) 0%, rgba(253, 186, 51, 0.05) 100%);
+  --header-border: rgba(38, 38, 38, 0.1);
+
+  --input-bg: #ffffff;
+  --input-border: #ffffff;
+  --input-border-focus: #fdba33;
+  --placeholder-color: rgba(10, 10, 10, 0.5);
+
+  --border-otp: #d8d6de;
+
   /* Typography */
-  --font-arabic: 'IBM Plex Sans Arabic', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-inter: 'Inter', sans-serif;
-  
+  --font-arabic:
+    "IBM Plex Sans Arabic", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-inter: "Inter", sans-serif;
+
   /* Shadows from */
-  --shadow-1: 0 8px 10px -6px rgba(0, 0, 0, 0.10);
-  --shadow-2: 0 20px 25px -5px rgba(0, 0, 0, 0.10);
+  --shadow-1: 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  --shadow-2: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -45,7 +48,7 @@ html {
 body {
   font-family: var(--font-arabic);
   background-color: #131313;
-  background-image: url('../assets/images/studio-bg.png');
+  background-image: url("../assets/images/studio-bg.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -177,7 +180,9 @@ body {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
   display: flex;
   align-items: center;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
 }
 
 .input-wrapper:focus-within {
@@ -291,7 +296,9 @@ body {
   justify-content: center;
   gap: 8px;
   cursor: pointer;
-  transition: background-color 0.2s, transform 0.1s;
+  transition:
+    background-color 0.2s,
+    transform 0.1s;
 }
 
 .btn-submit:hover {
@@ -361,7 +368,7 @@ body {
   width: 56px;
   height: 56px;
   border-radius: 12px;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border: 1px solid var(--border-otp);
   text-align: center;
   font-family: var(--font-inter), sans-serif;
@@ -369,7 +376,9 @@ body {
   font-weight: 600;
   color: var(--text-dark);
   outline: none;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
 }
 
 .otp-box:focus {
@@ -398,7 +407,7 @@ body {
 .resend-btn {
   background: none;
   border: none;
-  color: #D97706;
+  color: #d97706;
   font-family: var(--font-arabic);
   font-size: 14px;
   font-weight: 600;
@@ -419,15 +428,17 @@ body {
   bottom: 24px;
   left: 50%;
   transform: translateX(-50%) translateY(100px);
-  background: #1F2937;
-  color: #FFFFFF;
+  background: #1f2937;
+  color: #ffffff;
   padding: 10px 20px;
   border-radius: 10px;
   font-size: 13px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
   z-index: 9999;
   opacity: 0;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
   pointer-events: none;
 }
 
@@ -437,18 +448,18 @@ body {
 }
 
 .toast-msg.success {
-  background: #065F46;
-  border-right: 4px solid #10B981;
+  background: #065f46;
+  border-right: 4px solid #10b981;
 }
 
 .toast-msg.error {
-  background: #991B1B;
-  border-right: 4px solid #EF4444;
+  background: #991b1b;
+  border-right: 4px solid #ef4444;
 }
 
 .field-error {
   font-size: 12px;
-  color: #DC2626;
+  color: #dc2626;
   min-height: 16px;
   display: none;
   text-align: right;

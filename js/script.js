@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  if (typeof lucide !== 'undefined' && lucide.createIcons) {
+  if (typeof lucide !== "undefined" && lucide.createIcons) {
     lucide.createIcons();
   }
   const menuButton = document.querySelector(".menu-button");
@@ -38,12 +38,16 @@ document.addEventListener("DOMContentLoaded", () => {
       ticking = false;
     }
 
-    window.addEventListener("scroll", () => {
-      if (!ticking) {
-        requestAnimationFrame(onScroll);
-        ticking = true;
-      }
-    }, { passive: true });
+    window.addEventListener(
+      "scroll",
+      () => {
+        if (!ticking) {
+          requestAnimationFrame(onScroll);
+          ticking = true;
+        }
+      },
+      { passive: true }
+    );
   })();
 
   // ScrollSpy — home page only
@@ -55,16 +59,18 @@ document.addEventListener("DOMContentLoaded", () => {
     window.location.pathname.endsWith("/");
 
   if (isHomePage) {
-    const menuLinks = Array.from(document.querySelectorAll("#main-navigation .nav-links a.nav-link, #main-menu a.nav-link"));
+    const menuLinks = Array.from(
+      document.querySelectorAll("#main-navigation .nav-links a.nav-link, #main-menu a.nav-link")
+    );
 
     const sectionNavMapping = [
-      { id: "home",     text: "الرئيسية",  href: "index.html" },
-      { id: "about",    text: "من نحن",    href: "about.html" },
-      { id: "services", text: "الخدمات",   href: "services.html" },
-      { id: "packages", text: "الباقات",   href: "packages.html" },
-      { id: "work",     text: "المخرجات",  href: "work.html" },
-      { id: "sectors",  text: "القطاعات",  href: "sectors.html" },
-      { id: "contact",  text: "اتصل بنا", href: "contact.html" },
+      { id: "home", text: "الرئيسية", href: "index.html" },
+      { id: "about", text: "من نحن", href: "about.html" },
+      { id: "services", text: "الخدمات", href: "services.html" },
+      { id: "packages", text: "الباقات", href: "packages.html" },
+      { id: "work", text: "المخرجات", href: "work.html" },
+      { id: "sectors", text: "القطاعات", href: "sectors.html" },
+      { id: "contact", text: "اتصل بنا", href: "contact.html" },
     ];
 
     const trackedSections = sectionNavMapping
@@ -73,13 +79,18 @@ document.addEventListener("DOMContentLoaded", () => {
         const link = menuLinks.find((l) => {
           const href = l.getAttribute("href") || "";
           const txt = l.textContent.trim();
-          return href === item.href || href === `#${item.id}` || href.endsWith(item.href) || txt === item.text;
+          return (
+            href === item.href ||
+            href === `#${item.id}` ||
+            href.endsWith(item.href) ||
+            txt === item.text
+          );
         });
         return el && link ? { el, link, id: item.id } : null;
       })
       .filter(Boolean);
 
-    function setActiveLink(targetLink) {
+    const setActiveLink = (targetLink) => {
       if (!targetLink) return;
       menuLinks.forEach((link) => {
         link.classList.remove("active", "is-active");
@@ -87,9 +98,9 @@ document.addEventListener("DOMContentLoaded", () => {
       });
       targetLink.classList.add("active", "is-active");
       targetLink.setAttribute("aria-current", "page");
-    }
+    };
 
-    function updateActiveNav() {
+    const updateActiveNav = () => {
       const scrollY = window.scrollY;
       const headerHeight = document.querySelector(".site-header")?.offsetHeight || 80;
 
@@ -111,7 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       if (activeItem) setActiveLink(activeItem.link);
-    }
+    };
 
     window.addEventListener("scroll", updateActiveNav, { passive: true });
     window.addEventListener("resize", updateActiveNav);
@@ -174,7 +185,14 @@ document.addEventListener("DOMContentLoaded", () => {
         desc: "تجهيز استوديو متكامل لمدة 4 ساعات تصوير مع إضاءة احترافية وفني مرافق",
         price: "4500.00",
         save: "وفر حتى 15% شهرياً",
-        features: ["4 ساعات تصوير استوديو", "طاقم إضاءة وصوت أساسي", "كروما خضراء وخلفيات متعددة", "إنترنت فايبر فائق السرعة", "غرفة استراحة وتجهيز VIP", "دعم فني طوال الجلسة"]
+        features: [
+          "4 ساعات تصوير استوديو",
+          "طاقم إضاءة وصوت أساسي",
+          "كروما خضراء وخلفيات متعددة",
+          "إنترنت فايبر فائق السرعة",
+          "غرفة استراحة وتجهيز VIP",
+          "دعم فني طوال الجلسة",
+        ],
       },
       {
         title: "يوم كامل",
@@ -182,15 +200,29 @@ document.addEventListener("DOMContentLoaded", () => {
         price: "8500.00",
         save: "وفر حتى 20% شهرياً",
         featured: true,
-        features: ["8 ساعات تصوير استوديو", "طاقم إضاءة سينمائية كامل", "كاميرات سينمائية 4K / 8K", "مهندس صوت وفني إضاءة", "مراجعة فورية للمواد المصورة", "تخزين سحابي فوري للملفات"]
+        features: [
+          "8 ساعات تصوير استوديو",
+          "طاقم إضاءة سينمائية كامل",
+          "كاميرات سينمائية 4K / 8K",
+          "مهندس صوت وفني إضاءة",
+          "مراجعة فورية للمواد المصورة",
+          "تخزين سحابي فوري للملفات",
+        ],
       },
       {
         title: "إنتاج شهري",
         desc: "اشتراك شهري مخصص للمؤسسات وصناع المحتوى بمعدل 4 أيام تصوير شهرياً",
         price: "18000.00",
         save: "وفر حتى 30% شهرياً",
-        features: ["4 أيام استوديو كاملة شهرياً", "أولوية الحجز والجدولة", "طاقم إنتاج مفرغ", "تخزين وأرشفة دائمة", "معدات ومؤثرات بصرية خاصة", "خدمات مونتاج وتلوين أولية"]
-      }
+        features: [
+          "4 أيام استوديو كاملة شهرياً",
+          "أولوية الحجز والجدولة",
+          "طاقم إنتاج مفرغ",
+          "تخزين وأرشفة دائمة",
+          "معدات ومؤثرات بصرية خاصة",
+          "خدمات مونتاج وتلوين أولية",
+        ],
+      },
     ],
     podcast: [
       {
@@ -198,7 +230,14 @@ document.addEventListener("DOMContentLoaded", () => {
         desc: "تسجيل حلقة بودكاست حتى 60 دقيقة في استوديو معزول صوتياً بأحدث المايكات",
         price: "2500.00",
         save: "وفر حتى 10%",
-        features: ["تسجيل حلقة حتى 60 دقيقة", "مايكات Shure SM7B الاحترافية", "تصوير متعدد الكاميرات 4K", "مكس وماسترينج صوتي", "تسليم ملفات الصوت والفيديو", "مقتطف ترويجي (ريلز) للحلقة"]
+        features: [
+          "تسجيل حلقة حتى 60 دقيقة",
+          "مايكات Shure SM7B الاحترافية",
+          "تصوير متعدد الكاميرات 4K",
+          "مكس وماسترينج صوتي",
+          "تسليم ملفات الصوت والفيديو",
+          "مقتطف ترويجي (ريلز) للحلقة",
+        ],
       },
       {
         title: "موسم بودكاست",
@@ -206,15 +245,29 @@ document.addEventListener("DOMContentLoaded", () => {
         price: "12000.00",
         save: "وفر حتى 25%",
         featured: true,
-        features: ["6 حلقات كاملة (حتى 60 دقيقة)", "هوية بصرية وإنترو احترافي", "مونتاج وتلوين سينمائي", "3 مقتطفات ريلز لكل حلقة", "نشر وتوزيع على المنصات", "تقرير أداء واستماع شهري"]
+        features: [
+          "6 حلقات كاملة (حتى 60 دقيقة)",
+          "هوية بصرية وإنترو احترافي",
+          "مونتاج وتلوين سينمائي",
+          "3 مقتطفات ريلز لكل حلقة",
+          "نشر وتوزيع على المنصات",
+          "تقرير أداء واستماع شهري",
+        ],
       },
       {
         title: "شبكة بودكاست",
         desc: "حل إنتاجي شامل للمؤسسات الكبرى يشمل 12 حلقة وإنتاج محتوى ترويجي متكامل",
         price: "24000.00",
         save: "وفر حتى 35%",
-        features: ["12 حلقة على مدار 3 أشهر", "إدارة وتوزيع الحلقات على المنصات", "تصوير وإخراج VIP", "سلسلة ريلز وتيك توك موسعة", "جلسات استشارية لإعداد المحتوى", "فريق عمل مخصص بالكامل"]
-      }
+        features: [
+          "12 حلقة على مدار 3 أشهر",
+          "إدارة وتوزيع الحلقات على المنصات",
+          "تصوير وإخراج VIP",
+          "سلسلة ريلز وتيك توك موسعة",
+          "جلسات استشارية لإعداد المحتوى",
+          "فريق عمل مخصص بالكامل",
+        ],
+      },
     ],
     audio: [
       {
@@ -222,7 +275,14 @@ document.addEventListener("DOMContentLoaded", () => {
         desc: "تسجيل صوتي إعلاني أو وثائقي بأصوات معتمدة وخيارات لهجات متعددة",
         price: "1500.00",
         save: "تسليم سريع",
-        features: ["تسجيل صوتي حتى دقيقتين", "أصوات معتمدة سعودية وعربية", "هندسة صوتية وماسترينج", "تعديلين مجانيين على الأداء", "تسليم بجودة WAV و MP3", "ترخيص استخدام إعلامي تجاري"]
+        features: [
+          "تسجيل صوتي حتى دقيقتين",
+          "أصوات معتمدة سعودية وعربية",
+          "هندسة صوتية وماسترينج",
+          "تعديلين مجانيين على الأداء",
+          "تسليم بجودة WAV و MP3",
+          "ترخيص استخدام إعلامي تجاري",
+        ],
       },
       {
         title: "هوية صوتية",
@@ -230,16 +290,30 @@ document.addEventListener("DOMContentLoaded", () => {
         price: "6000.00",
         save: "وفر حتى 20%",
         featured: true,
-        features: ["شعار صوتي فريد (Audio Logo)", "موسيقى خاصة بالهوية المؤسسية", "نغمات انتظار وتطبيقات", "حقوق ملكية وتأليف حصرية", "دليل استخدام الهوية الصوتية", "تسليم كافة الطبقات الصوتية"]
+        features: [
+          "شعار صوتي فريد (Audio Logo)",
+          "موسيقى خاصة بالهوية المؤسسية",
+          "نغمات انتظار وتطبيقات",
+          "حقوق ملكية وتأليف حصرية",
+          "دليل استخدام الهوية الصوتية",
+          "تسليم كافة الطبقات الصوتية",
+        ],
       },
       {
         title: "هندسة وماسترينج",
         desc: "معالجة وتحسين الملفات الصوتية وإزالة الضوضاء بجودة محطات البث الإذاعي",
         price: "3500.00",
         save: "دقة استثنائية",
-        features: ["معالجة حتى 10 مسارات صوتية", "إزالة الضوضاء والترددات المزعجة", "موازنة ديناميكية واحترافية", "مطابقة معايير البث العالمية", "تسليم نسخ متعددة المنصات", "دعم ومراجعة دقيقة مع المهندس"]
-      }
-    ]
+        features: [
+          "معالجة حتى 10 مسارات صوتية",
+          "إزالة الضوضاء والترددات المزعجة",
+          "موازنة ديناميكية واحترافية",
+          "مطابقة معايير البث العالمية",
+          "تسليم نسخ متعددة المنصات",
+          "دعم ومراجعة دقيقة مع المهندس",
+        ],
+      },
+    ],
   };
 
   function renderPackageCards(cards) {

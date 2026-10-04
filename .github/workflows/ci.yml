@@ -2,12 +2,13 @@ name: Frontend CI & Code Quality
 
 on:
   push:
-    branches: [ main ]
+    branches: [main, develop]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
-  lint-and-validate:
+  lint-format-test:
+    name: Lint, Format Check & Unit Tests
     runs-on: ubuntu-latest
 
     steps:
@@ -18,13 +19,51 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
+          cache: "npm"
 
       - name: Install dependencies
-        run: npm ci || npm install
+        run: npm ci
 
-      - name: Code Quality & Lint Check
+      - name: Lint (ESLint)
         run: npm run lint
 
-      - name: Run Tests
-        run: npm run test || echo "Tests completed"
+      - name: Format check (Prettier)
+        run: npm run format:check
+
+      - name: Run unit tests (Vitest)
+        run: npm run test
+
+  html-validate:
+    name: HTML Structure Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+      - run: npm ci
+      - name: Check for inline event handlers (onclick/onsubmit) in HTML
+        run: |
+          echo "Scanning for inline event handlers..."
+          FOUND=$(grep -rn "onclick=\|onsubmit=\|oninput=\|onchange=" --include="*.html" \
+            --exclude-dir=node_modules --exclude-dir=dist --exclude-dir=studio-zayed-dashboard \
+            --exclude-dir=zayed-dashboard . || true)
+          if [ -n "$FOUND" ]; then
+            echo "❌ Inline event handlers found:"
+            echo "$FOUND"
+            exit 1
+          fi
+          echo "✅ No inline event handlers found."
+      - name: Check for document.write usage
+        run: |
+          echo "Scanning for document.write..."
+          FOUND=$(grep -rn "document\.write(" --include="*.html" --include="*.js" \
+            --exclude-dir=node_modules --exclude-dir=dist --exclude-dir=studio-zayed-dashboard \
+            --exclude-dir=zayed-dashboard . || true)
+          if [ -n "$FOUND" ]; then
+            echo "❌ document.write() found:"
+            echo "$FOUND"
+            exit 1
+          fi
+          echo "✅ No document.write() usage found."

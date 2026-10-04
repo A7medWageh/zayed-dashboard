@@ -21,11 +21,11 @@
   top: 0%;
   left: 80%;
   width: 113.453px;
-height: 552.008px;
-transform: rotate(26.691deg);
+  height: 552.008px;
+  transform: rotate(26.691deg);
 
-background: linear-gradient(180deg, rgba(253, 186, 51, 0.24) 0%, rgba(253, 186, 51, 0.00) 100%);
-filter: blur(40px);
+  background: linear-gradient(180deg, rgba(253, 186, 51, 0.24) 0%, rgba(253, 186, 51, 0) 100%);
+  filter: blur(40px);
 }
 .work-hero .content-wrap {
   display: flex;
@@ -76,14 +76,16 @@ filter: blur(40px);
   border-radius: 20px;
   padding: 24px;
   background-color: #060504;
-  border: 1px solid #F1F5F9;
+  border: 1px solid #f1f5f9;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
   text-align: right;
   direction: rtl;
-  transition: transform 0.2s ease, border-color 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .output-card > div:first-child {
@@ -111,7 +113,7 @@ filter: blur(40px);
   font-size: 19px;
   line-height: 28px;
   text-align: right;
-  color: #FFFFFF;
+  color: #ffffff;
   margin-bottom: 14px;
   width: 100%;
 }
@@ -145,7 +147,7 @@ filter: blur(40px);
 }
 
 .output-card-text .section-lead strong {
-  color: #FFFFFF !important;
+  color: #ffffff !important;
   font-weight: 700 !important;
   display: inline !important;
   margin-left: 5px !important;
@@ -169,7 +171,9 @@ filter: blur(40px);
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
 }
 
 .output-btn-card:hover {
@@ -178,11 +182,6 @@ filter: blur(40px);
 }
 
 /* ................out put ...................... */
-
-
-
-
-
 
 /* ── User Custom Content Section (Full width outer with container inside) ── */
 .work-custom-content {
@@ -328,7 +327,7 @@ filter: blur(40px);
   }
 
   .output-card-text .section-lead strong {
-    color: #FFFFFF !important;
+    color: #ffffff !important;
     font-weight: 700 !important;
     display: inline !important;
     margin-left: 5px !important;

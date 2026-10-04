@@ -1,0 +1,6 @@
+dist/
+node_modules/
+studio-zayed-dashboard/
+zayed-dashboard/
+scratch/
+js/lucide.min.js

@@ -1,915 +1,1923 @@
-<!DOCTYPE html>
+﻿<!doctype html>
 <html lang="ar" dir="rtl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AZ Studio - الأدوار</title>
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./css/tokens.css">
-  <link rel="stylesheet" href="./css/components.css">
-  <link rel="stylesheet" href="./css/dashboard.css">
-  <link rel="stylesheet" href="./css/responsive.css">
-  <script src="./js/authGuard.js"></script>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AZ Studio - الأدوار</title>
 
-  <!-- SIDEBAR -->
-  <aside class="sidebar">
-    <!-- Sidebar Close Button (Mobile) --> -->
-    <button type="button" class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="إغلاق القائمة">
-      <i data-lucide="x"></i>
-    </button>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/tokens.css" />
+    <link rel="stylesheet" href="./css/components.css" />
+    <link rel="stylesheet" href="./css/dashboard.css" />
+    <link rel="stylesheet" href="./css/responsive.css" />
+    <script src="./js/authGuard.js"></script>
+  </head>
+  <body>
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <!-- Sidebar Close Button (Mobile) -->
+      -->
+      <button
+        type="button"
+        class="sidebar-close-btn"
+        id="sidebarCloseBtn"
+        aria-label="إغلاق القائمة"
+      >
+        <i data-lucide="x"></i>
+      </button>
 
-    <!-- Logo Area -->
-    <div class="sidebar-logo-area">
-      <img src="./assets/az-studio-logo.svg" alt="AZ Studio Logo" />
-    </div>
+      <!-- Logo Area -->
+      <div class="sidebar-logo-area">
+        <img src="./assets/az-studio-logo.svg" alt="AZ Studio Logo" />
+      </div>
 
-    <!-- Menu Navigation -->
-    <nav class="sidebar-menu">
-      <!-- لوحة التحكم -->
-      <a href="index.html" class="sidebar-item">
-        <div class="sidebar-item-content">
-          <i data-lucide="layout-grid"></i>
-          <span>لوحة التحكم</span>
-        </div>
-      </a>
-
-      <!-- الطلبات -->
-      <div class="sidebar-group">
-        <button type="button" class="sidebar-item sidebar-accordion-toggle">
+      <!-- Menu Navigation -->
+      <nav class="sidebar-menu">
+        <!-- لوحة التحكم -->
+        <a href="index.html" class="sidebar-item">
           <div class="sidebar-item-content">
-            <i data-lucide="shopping-bag"></i>
-            <span>الطلبات</span>
+            <i data-lucide="layout-grid"></i>
+            <span>لوحة التحكم</span>
           </div>
-          <i data-lucide="chevron-down" class="sidebar-chevron"></i>
-        </button>
-        <div class="sidebar-submenu">
-          <a href="orders.html" class="sidebar-subitem">طلبات الخدمات</a>
-          <a href="orders.html?tab=quotations" class="sidebar-subitem">طلبات عروض الاسعار</a>
-          <a href="orders.html?tab=packages" class="sidebar-subitem">طلبات الاشتراك في باقة</a>
-        </div>
-      </div>
+        </a>
 
-      <!-- الخدمات -->
-      <a href="services.html" class="sidebar-item">
-        <div class="sidebar-item-content">
-          <i data-lucide="settings"></i>
-          <span>الخدمات</span>
+        <!-- الطلبات -->
+        <div class="sidebar-group">
+          <button type="button" class="sidebar-item sidebar-accordion-toggle">
+            <div class="sidebar-item-content">
+              <i data-lucide="shopping-bag"></i>
+              <span>الطلبات</span>
+            </div>
+            <i data-lucide="chevron-down" class="sidebar-chevron"></i>
+          </button>
+          <div class="sidebar-submenu">
+            <a href="orders.html" class="sidebar-subitem">طلبات الخدمات</a>
+            <a href="orders.html?tab=quotations" class="sidebar-subitem">طلبات عروض الاسعار</a>
+            <a href="orders.html?tab=packages" class="sidebar-subitem">طلبات الاشتراك في باقة</a>
+          </div>
         </div>
-      </a>
 
-      <!-- الباقات -->
-      <div class="sidebar-group">
-        <button type="button" class="sidebar-item sidebar-accordion-toggle">
+        <!-- الخدمات -->
+        <a href="services.html" class="sidebar-item">
           <div class="sidebar-item-content">
-            <i data-lucide="package"></i>
-            <span>الباقات</span>
+            <i data-lucide="settings"></i>
+            <span>الخدمات</span>
           </div>
-          <i data-lucide="chevron-down" class="sidebar-chevron"></i>
-        </button>
-        <div class="sidebar-submenu">
-          <a href="packages.html?category=social" class="sidebar-subitem">السوشيال ميديا</a>
-          <a href="packages.html?category=studio" class="sidebar-subitem">الاستوديو والإنتاج</a>
-          <a href="packages.html?category=podcast" class="sidebar-subitem">البودكاست</a>
-          <a href="packages.html?category=audio" class="sidebar-subitem">استوديو الصوت</a>
-        </div>
-      </div>
+        </a>
 
-      <!-- المشرفين -->
-      <a href="supervisors.html" class="sidebar-item">
-        <div class="sidebar-item-content">
-          <i data-lucide="users"></i>
-          <span>المشرفين</span>
+        <!-- الباقات -->
+        <div class="sidebar-group">
+          <button type="button" class="sidebar-item sidebar-accordion-toggle">
+            <div class="sidebar-item-content">
+              <i data-lucide="package"></i>
+              <span>الباقات</span>
+            </div>
+            <i data-lucide="chevron-down" class="sidebar-chevron"></i>
+          </button>
+          <div class="sidebar-submenu">
+            <a href="packages.html?category=social" class="sidebar-subitem">السوشيال ميديا</a>
+            <a href="packages.html?category=studio" class="sidebar-subitem">الاستوديو والإنتاج</a>
+            <a href="packages.html?category=podcast" class="sidebar-subitem">البودكاست</a>
+            <a href="packages.html?category=audio" class="sidebar-subitem">استوديو الصوت</a>
+          </div>
         </div>
-      </a>
 
-      <!-- الأدوار (Active) --> -->
-      <a href="roles.html" class="sidebar-item active">
-        <div class="sidebar-item-content">
-          <i data-lucide="shield"></i>
-          <span>الأدوار</span>
-        </div>
-      </a>
-
-      <!-- تواصل معانا -->
-      <a href="contact.html" class="sidebar-item">
-        <div class="sidebar-item-content">
-          <i data-lucide="phone"></i>
-          <span>تواصل معانا</span>
-        </div>
-      </a>
-
-      <!-- اعدادات الموقع الالكتروني -->
-      <div class="sidebar-group">
-        <button type="button" class="sidebar-item sidebar-accordion-toggle">
+        <!-- المشرفين -->
+        <a href="supervisors.html" class="sidebar-item">
           <div class="sidebar-item-content">
-            <i data-lucide="circle"></i>
-            <span>اعدادات الموقع الالكتروني</span>
+            <i data-lucide="users"></i>
+            <span>المشرفين</span>
           </div>
-          <i data-lucide="chevron-down" class="sidebar-chevron"></i>
-        </button>
-        <div class="sidebar-submenu">
-          <a href="settings.html?tab=home" class="sidebar-subitem">الصفحة الرئيسية</a>
-          <a href="settings.html?tab=seo" class="sidebar-subitem">قسم SEO</a>
-          <a href="settings.html?tab=about" class="sidebar-subitem">من نحن</a>
-          <a href="settings.html?tab=workflow" class="sidebar-subitem">آلية العمل</a>
-          <a href="settings.html?tab=outputs" class="sidebar-subitem">المخرجات</a>
-          <a href="settings.html?tab=sectors" class="sidebar-subitem">القطاعات</a>
-          <a href="settings.html?tab=faq" class="sidebar-subitem">الأسئلة الشائعة</a>
-          <a href="settings.html?tab=terms" class="sidebar-subitem">شروط الاستخدام</a>
-          <a href="settings.html?tab=privacy" class="sidebar-subitem">سياسة الخصوصية</a>
-          <a href="settings.html?tab=footer" class="sidebar-subitem">الفوتر</a>
-        </div>
-      </div>
-    </nav>
+        </a>
 
-    <!-- Logout Button -->
-    <button type="button" class="sidebar-logout" data-modal-target="logoutModal" style="border: none; cursor: pointer; width: 100%;">
-      <span>تسجيل الخروج</span>
-      <i data-lucide="log-out"></i>
-    </button>
-  </aside>
-
-  <!-- MAIN CONTENT -->
-  <main class="main-content">
-    <!-- Header -->
-    <header class="header-bar">
-      <!-- Right Side: Hamburger Toggle (Mobile) + Welcome Title --> -->
-      <div class="header-right-side">
-        <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="فتح القائمة">
-          <i data-lucide="menu"></i>
-        </button>
-        <div class="header-welcome">
-          <h1>الأدوار</h1>
-          <p>إدارة أدوار المستخدمين وتحديد صلاحيات الوصول لكل دور</p>
-        </div>
-      </div>
-
-      <!-- Left Side: User Actions (Notifications & Avatar Dropdown) --> -->
-      <div class="header-user-actions">
-        <!-- Theme Toggle (Sun / Moon) --> -->
-        <button type="button" class="theme-toggle-btn" id="themeToggleBtn" title="تبديل الوضع الليلي / النهاري" aria-label="تبديل الوضع">
-          <i data-lucide="sun" class="sun-icon"></i>
-          <i data-lucide="moon" class="moon-icon"></i>
-        </button>
-
-        <!-- Notification Bell -->
-        <div class="notif-bell-btn" id="notifBtn" style="cursor: pointer;">
-          <i data-lucide="bell"></i>
-        </div>
-
-        <!-- User Profile Trigger -->
-        <div class="user-profile-widget" id="userProfileBtn" style="cursor: pointer;">
-          <img class="user-avatar-img" src="./assets/images/Ellipse 3255.png" alt="User Profile" />
-          <div class="user-text-meta">
-            <span class="user-name-text">محمد المعتصم باللة السيد</span>
-            <span class="user-email-text">mohamedmoatasembalbol@icloud.com</span>
+        <!-- الأدوار (Active) -->
+        -->
+        <a href="roles.html" class="sidebar-item active">
+          <div class="sidebar-item-content">
+            <i data-lucide="shield"></i>
+            <span>الأدوار</span>
           </div>
-          <i data-lucide="chevron-down" class="user-chevron"></i>
-        </div>
+        </a>
 
-        <!-- Floating Notification Dropdown -->
-        <div class="custom-dropdown-panel" id="notifDropdown">
-          <div style="padding: 12px 16px; border-bottom: 1px solid #EAECF0; font-weight: 700; font-size: 13px; color: #111827; display: flex; justify-content: space-between; align-items: center;">
-            <span>الإشعارات</span>
-            <span style="font-size: 11px; background: #FEF3C7; color: #D97706; padding: 2px 8px; border-radius: 999px; font-weight: 600;">3 جديدة</span>
+        <!-- تواصل معانا -->
+        <a href="contact.html" class="sidebar-item">
+          <div class="sidebar-item-content">
+            <i data-lucide="phone"></i>
+            <span>تواصل معانا</span>
           </div>
-          <div style="max-height: 260px; overflow-y: auto;">
-            <a href="orders.html" class="dropdown-item" style="border-bottom: 1px solid #F3F4F6; padding: 10px 14px; display: flex; gap: 10px; align-items: flex-start;">
-              <div style="width: 8px; height: 8px; border-radius: 50%; background: #10B981; margin-top: 6px; flex-shrink: 0;"></div>
-              <div>
-                <div style="font-weight: 600; font-size: 12px; color: #111827;">طلب خدمة جديد #1025</div>
-                <div style="font-size: 11px; color: #6B7280;">قام محمد السيد بطلب انتاج فيديو مؤسسي</div>
-                <div style="font-size: 10px; color: #9CA3AF; margin-top: 2px;">منذ 5 دقائق</div>
-              </div>
-            </a>
-            <a href="orders.html" class="dropdown-item" style="border-bottom: 1px solid #F3F4F6; padding: 10px 14px; display: flex; gap: 10px; align-items: flex-start;">
-              <div style="width: 8px; height: 8px; border-radius: 50%; background: #3B82F6; margin-top: 6px; flex-shrink: 0;"></div>
-              <div>
-                <div style="font-weight: 600; font-size: 12px; color: #111827;">طلب اشتراك باقة جديد #1024</div>
-                <div style="font-size: 11px; color: #6B7280;">قام أحمد علي بطلب باقة السوشيال ميديا</div>
-                <div style="font-size: 10px; color: #9CA3AF; margin-top: 2px;">منذ ساعة</div>
-              </div>
-            </a>
-            <a href="contact.html" class="dropdown-item" style="padding: 10px 14px; display: flex; gap: 10px; align-items: flex-start;">
-              <div style="width: 8px; height: 8px; border-radius: 50%; background: #F59E0B; margin-top: 6px; flex-shrink: 0;"></div>
-              <div>
-                <div style="font-weight: 600; font-size: 12px; color: #111827;">رسالة تواصل جديدة</div>
-                <div style="font-size: 11px; color: #6B7280;">استفسار بخصوص خدمات البودكاست</div>
-                <div style="font-size: 10px; color: #9CA3AF; margin-top: 2px;">منذ 3 ساعات</div>
-              </div>
-            </a>
-          </div>
-          <a href="orders.html" style="display: block; padding: 10px; text-align: center; font-size: 11.5px; color: #D97706; font-weight: 600; text-decoration: none; border-top: 1px solid #EAECF0; background: #FFFDF5;">عرض جميع الطلبات</a>
-        </div>
+        </a>
 
-        <!-- Floating User Dropdown -->
-        <div class="user-dropdown-card" id="userDropdown">
-          <div class="user-dropdown-header">
-            <img class="avatar-thumb" style="object-fit: cover;" src="./assets/images/Ellipse 3255.png" alt="User Profile" />
-            <div class="user-dropdown-meta">
-              <span class="user-dropdown-name">محمد المعتصم باللة السيد</span>
-              <span class="user-dropdown-email">mohamedmoatasembalbol@icloud.com</span>
+        <!-- اعدادات الموقع الالكتروني -->
+        <div class="sidebar-group">
+          <button type="button" class="sidebar-item sidebar-accordion-toggle">
+            <div class="sidebar-item-content">
+              <i data-lucide="circle"></i>
+              <span>اعدادات الموقع الالكتروني</span>
             </div>
-          </div>
-          <button type="button" class="user-dropdown-item" data-modal-target="viewProfileModal">
-            <i data-lucide="user"></i>
-            <span>عرض الملف الشخصي</span>
+            <i data-lucide="chevron-down" class="sidebar-chevron"></i>
           </button>
-          <button type="button" class="user-dropdown-item logout-item" data-modal-target="logoutModal">
-            <i data-lucide="log-out"></i>
-            <span>تسجيل الخروج</span>
+          <div class="sidebar-submenu">
+            <a href="settings.html?tab=home" class="sidebar-subitem">الصفحة الرئيسية</a>
+            <a href="settings.html?tab=seo" class="sidebar-subitem">قسم SEO</a>
+            <a href="settings.html?tab=about" class="sidebar-subitem">من نحن</a>
+            <a href="settings.html?tab=workflow" class="sidebar-subitem">آلية العمل</a>
+            <a href="settings.html?tab=outputs" class="sidebar-subitem">المخرجات</a>
+            <a href="settings.html?tab=sectors" class="sidebar-subitem">القطاعات</a>
+            <a href="settings.html?tab=faq" class="sidebar-subitem">الأسئلة الشائعة</a>
+            <a href="settings.html?tab=terms" class="sidebar-subitem">شروط الاستخدام</a>
+            <a href="settings.html?tab=privacy" class="sidebar-subitem">سياسة الخصوصية</a>
+            <a href="settings.html?tab=footer" class="sidebar-subitem">الفوتر</a>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Logout Button -->
+      <button
+        type="button"
+        class="sidebar-logout"
+        data-modal-target="logoutModal"
+        style="border: none; cursor: pointer; width: 100%"
+      >
+        <span>تسجيل الخروج</span>
+        <i data-lucide="log-out"></i>
+      </button>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+      <!-- Header -->
+      <header class="header-bar">
+        <!-- Right Side: Hamburger Toggle (Mobile) + Welcome Title -->
+        -->
+        <div class="header-right-side">
+          <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="فتح القائمة">
+            <i data-lucide="menu"></i>
           </button>
-        </div>
-      </div>
-    </header>
-
-    <!-- Main Card Container (Matching Image 1) --> -->
-    <section class="table-card-container" style="padding: 24px; background: #FFFFFF; border: 1px solid #EAECF0; border-radius: 14px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);">
-      
-      <!-- Title & Actions Bar matching Image 1 -->
-      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; flex-wrap: wrap; gap: 16px;">
-        <!-- Right in RTL: Title -->
-        <h2 style="font-size: 16px; font-weight: 700; color: #111827; margin: 0;">الأدوار</h2>
-        
-        <!-- Left in RTL: Actions (Search, Add) --> -->
-        <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
-          <!-- Search Box -->
-          <div class="orders-search-box" style="margin: 0; min-width: 220px; position: relative;">
-            <i data-lucide="search" style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); pointer-events: none;"></i>
-            <input type="text" class="table-search-input" placeholder="البحث">
+          <div class="header-welcome">
+            <h1>الأدوار</h1>
+            <p>إدارة أدوار المستخدمين وتحديد صلاحيات الوصول لكل دور</p>
           </div>
+        </div>
 
-          <!-- Add Role Button (Opens Add Role Modal) --> -->
-          <button type="button" class="btn-modal-primary" data-modal-target="addRoleModal" style="background: #ECA02F; color: #FFFFFF; height: 38px; display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 0 18px; border-radius: 8px; font-weight: 700; font-size: 13px; border: none; cursor: pointer; transition: background 0.2s ease;">
-            <i data-lucide="plus"></i>
-            <span>إضافة</span>
+        <!-- Left Side: User Actions (Notifications & Avatar Dropdown) -->
+        -->
+        <div class="header-user-actions">
+          <!-- Theme Toggle (Sun / Moon) -->
+          -->
+          <button
+            type="button"
+            class="theme-toggle-btn"
+            id="themeToggleBtn"
+            title="تبديل الوضع الليلي / النهاري"
+            aria-label="تبديل الوضع"
+          >
+            <i data-lucide="sun" class="sun-icon"></i>
+            <i data-lucide="moon" class="moon-icon"></i>
           </button>
-        </div>
-      </div>
 
-      <!-- Roles Table matching Image 1 -->
-      <div class="table-responsive-box" style="overflow-x: auto;">
-        <table class="admin-table">
-          <thead>
-            <tr style="background: #F9FAFB; border-bottom: 1px solid #EAECF0;">
-              <th style="padding: 14px 16px; font-size: 12px; font-weight: 700; color: #4B5563; text-align: right; width: 22%;">الدور</th>
-              <th style="padding: 14px 16px; font-size: 12px; font-weight: 700; color: #4B5563; text-align: right; width: 63%;">الصلاحيات</th>
-              <th style="padding: 14px 16px; font-size: 12px; font-weight: 700; color: #4B5563; text-align: left; width: 15%;">الإجراء</th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- 18 Repeated Rows matching screenshot -->
-            <!-- Row 1 -->
-            <tr>
-              <td style="padding: 14px 16px; font-size: 12.5px; color: #374151; font-weight: 500;">مشرف عام</td>
-              <td style="padding: 14px 16px; font-size: 12px; color: #6B7280;">هذا النص يمكن أن يستبدل بنص بديل يعبر عن المعنى</td>
-              <td style="padding: 14px 16px; text-align: left;">
-                <div class="roles-action-btns" style="justify-content: flex-end;">
-                  <button type="button" class="btn-action-edit" data-modal-target="editRoleModal" aria-label="تعديل">
-                    <i data-lucide="edit"></i>
-                  </button>
-                  <button type="button" class="btn-action-delete" data-modal-target="deleteRoleModal" aria-label="حذف">
-                    <i data-lucide="trash-2"></i>
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <!-- Row 2 -->
-            <tr>
-              <td style="padding: 14px 16px; font-size: 12.5px; color: #374151; font-weight: 500;">مشرف عام</td>
-              <td style="padding: 14px 16px; font-size: 12px; color: #6B7280;">هذا النص يمكن أن يستبدل بنص بديل يعبر عن المعنى</td>
-              <td style="padding: 14px 16px; text-align: left;">
-                <div class="roles-action-btns" style="justify-content: flex-end;">
-                  <button type="button" class="btn-action-edit" data-modal-target="editRoleModal" aria-label="تعديل">
-                    <i data-lucide="edit"></i>
-                  </button>
-                  <button type="button" class="btn-action-delete" data-modal-target="deleteRoleModal" aria-label="حذف">
-                    <i data-lucide="trash-2"></i>
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <!-- Row 3 -->
-            <tr>
-              <td style="padding: 14px 16px; font-size: 12.5px; color: #374151; font-weight: 500;">مشرف عام</td>
-              <td style="padding: 14px 16px; font-size: 12px; color: #6B7280;">هذا النص يمكن أن يستبدل بنص بديل يعبر عن المعنى</td>
-              <td style="padding: 14px 16px; text-align: left;">
-                <div class="roles-action-btns" style="justify-content: flex-end;">
-                  <button type="button" class="btn-action-edit" data-modal-target="editRoleModal" aria-label="تعديل">
-                    <i data-lucide="edit"></i>
-                  </button>
-                  <button type="button" class="btn-action-delete" data-modal-target="deleteRoleModal" aria-label="حذف">
-                    <i data-lucide="trash-2"></i>
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <!-- Row 4 -->
-            <tr>
-              <td style="padding: 14px 16px; font-size: 12.5px; color: #374151; font-weight: 500;">مشرف عام</td>
-              <td style="padding: 14px 16px; font-size: 12px; color: #6B7280;">هذا النص يمكن أن يستبدل بنص بديل يعبر عن المعنى</td>
-              <td style="padding: 14px 16px; text-align: left;">
-                <div class="roles-action-btns" style="justify-content: flex-end;">
-                  <button type="button" class="btn-action-edit" data-modal-target="editRoleModal" aria-label="تعديل">
-                    <i data-lucide="edit"></i>
-                  </button>
-                  <button type="button" class="btn-action-delete" data-modal-target="deleteRoleModal" aria-label="حذف">
-                    <i data-lucide="trash-2"></i>
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <!-- Row 5 -->
-            <tr>
-              <td style="padding: 14px 16px; font-size: 12.5px; color: #374151; font-weight: 500;">مشرف عام</td>
-              <td style="padding: 14px 16px; font-size: 12px; color: #6B7280;">هذا النص يمكن أن يستبدل بنص بديل يعبر عن المعنى</td>
-              <td style="padding: 14px 16px; text-align: left;">
-                <div class="roles-action-btns" style="justify-content: flex-end;">
-                  <button type="button" class="btn-action-edit" data-modal-target="editRoleModal" aria-label="تعديل">
-                    <i data-lucide="edit"></i>
-                  </button>
-                  <button type="button" class="btn-action-delete" data-modal-target="deleteRoleModal" aria-label="حذف">
-                    <i data-lucide="trash-2"></i>
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <!-- Row 6 -->
-            <tr>
-              <td style="padding: 14px 16px; font-size: 12.5px; color: #374151; font-weight: 500;">مشرف عام</td>
-              <td style="padding: 14px 16px; font-size: 12px; color: #6B7280;">هذا النص يمكن أن يستبدل بنص بديل يعبر عن المعنى</td>
-              <td style="padding: 14px 16px; text-align: left;">
-                <div class="roles-action-btns" style="justify-content: flex-end;">
-                  <button type="button" class="btn-action-edit" data-modal-target="editRoleModal" aria-label="تعديل">
-                    <i data-lucide="edit"></i>
-                  </button>
-                  <button type="button" class="btn-action-delete" data-modal-target="deleteRoleModal" aria-label="حذف">
-                    <i data-lucide="trash-2"></i>
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <!-- Row 7 -->
-            <tr>
-              <td style="padding: 14px 16px; font-size: 12.5px; color: #374151; font-weight: 500;">مشرف عام</td>
-              <td style="padding: 14px 16px; font-size: 12px; color: #6B7280;">هذا النص يمكن أن يستبدل بنص بديل يعبر عن المعنى</td>
-              <td style="padding: 14px 16px; text-align: left;">
-                <div class="roles-action-btns" style="justify-content: flex-end;">
-                  <button type="button" class="btn-action-edit" data-modal-target="editRoleModal" aria-label="تعديل">
-                    <i data-lucide="edit"></i>
-                  </button>
-                  <button type="button" class="btn-action-delete" data-modal-target="deleteRoleModal" aria-label="حذف">
-                    <i data-lucide="trash-2"></i>
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <!-- Row 8 -->
-            <tr>
-              <td style="padding: 14px 16px; font-size: 12.5px; color: #374151; font-weight: 500;">مشرف عام</td>
-              <td style="padding: 14px 16px; font-size: 12px; color: #6B7280;">هذا النص يمكن أن يستبدل بنص بديل يعبر عن المعنى</td>
-              <td style="padding: 14px 16px; text-align: left;">
-                <div class="roles-action-btns" style="justify-content: flex-end;">
-                  <button type="button" class="btn-action-edit" data-modal-target="editRoleModal" aria-label="تعديل">
-                    <i data-lucide="edit"></i>
-                  </button>
-                  <button type="button" class="btn-action-delete" data-modal-target="deleteRoleModal" aria-label="حذف">
-                    <i data-lucide="trash-2"></i>
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <!-- Row 9 -->
-            <tr>
-              <td style="padding: 14px 16px; font-size: 12.5px; color: #374151; font-weight: 500;">مشرف عام</td>
-              <td style="padding: 14px 16px; font-size: 12px; color: #6B7280;">هذا النص يمكن أن يستبدل بنص بديل يعبر عن المعنى</td>
-              <td style="padding: 14px 16px; text-align: left;">
-                <div class="roles-action-btns" style="justify-content: flex-end;">
-                  <button type="button" class="btn-action-edit" data-modal-target="editRoleModal" aria-label="تعديل">
-                    <i data-lucide="edit"></i>
-                  </button>
-                  <button type="button" class="btn-action-delete" data-modal-target="deleteRoleModal" aria-label="حذف">
-                    <i data-lucide="trash-2"></i>
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <!-- Row 10 -->
-            <tr>
-              <td style="padding: 14px 16px; font-size: 12.5px; color: #374151; font-weight: 500;">مشرف عام</td>
-              <td style="padding: 14px 16px; font-size: 12px; color: #6B7280;">هذا النص يمكن أن يستبدل بنص بديل يعبر عن المعنى</td>
-              <td style="padding: 14px 16px; text-align: left;">
-                <div class="roles-action-btns" style="justify-content: flex-end;">
-                  <button type="button" class="btn-action-edit" data-modal-target="editRoleModal" aria-label="تعديل">
-                    <i data-lucide="edit"></i>
-                  </button>
-                  <button type="button" class="btn-action-delete" data-modal-target="deleteRoleModal" aria-label="حذف">
-                    <i data-lucide="trash-2"></i>
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <!-- Row 11 -->
-            <tr>
-              <td style="padding: 14px 16px; font-size: 12.5px; color: #374151; font-weight: 500;">مشرف عام</td>
-              <td style="padding: 14px 16px; font-size: 12px; color: #6B7280;">هذا النص يمكن أن يستبدل بنص بديل يعبر عن المعنى</td>
-              <td style="padding: 14px 16px; text-align: left;">
-                <div class="roles-action-btns" style="justify-content: flex-end;">
-                  <button type="button" class="btn-action-edit" data-modal-target="editRoleModal" aria-label="تعديل">
-                    <i data-lucide="edit"></i>
-                  </button>
-                  <button type="button" class="btn-action-delete" data-modal-target="deleteRoleModal" aria-label="حذف">
-                    <i data-lucide="trash-2"></i>
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <!-- Row 12 -->
-            <tr>
-              <td style="padding: 14px 16px; font-size: 12.5px; color: #374151; font-weight: 500;">مشرف عام</td>
-              <td style="padding: 14px 16px; font-size: 12px; color: #6B7280;">هذا النص يمكن أن يستبدل بنص بديل يعبر عن المعنى</td>
-              <td style="padding: 14px 16px; text-align: left;">
-                <div class="roles-action-btns" style="justify-content: flex-end;">
-                  <button type="button" class="btn-action-edit" data-modal-target="editRoleModal" aria-label="تعديل">
-                    <i data-lucide="edit"></i>
-                  </button>
-                  <button type="button" class="btn-action-delete" data-modal-target="deleteRoleModal" aria-label="حذف">
-                    <i data-lucide="trash-2"></i>
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <!-- Row 13 -->
-            <tr>
-              <td style="padding: 14px 16px; font-size: 12.5px; color: #374151; font-weight: 500;">مشرف عام</td>
-              <td style="padding: 14px 16px; font-size: 12px; color: #6B7280;">هذا النص يمكن أن يستبدل بنص بديل يعبر عن المعنى</td>
-              <td style="padding: 14px 16px; text-align: left;">
-                <div class="roles-action-btns" style="justify-content: flex-end;">
-                  <button type="button" class="btn-action-edit" data-modal-target="editRoleModal" aria-label="تعديل">
-                    <i data-lucide="edit"></i>
-                  </button>
-                  <button type="button" class="btn-action-delete" data-modal-target="deleteRoleModal" aria-label="حذف">
-                    <i data-lucide="trash-2"></i>
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <!-- Row 14 -->
-            <tr>
-              <td style="padding: 14px 16px; font-size: 12.5px; color: #374151; font-weight: 500;">مشرف عام</td>
-              <td style="padding: 14px 16px; font-size: 12px; color: #6B7280;">هذا النص يمكن أن يستبدل بنص بديل يعبر عن المعنى</td>
-              <td style="padding: 14px 16px; text-align: left;">
-                <div class="roles-action-btns" style="justify-content: flex-end;">
-                  <button type="button" class="btn-action-edit" data-modal-target="editRoleModal" aria-label="تعديل">
-                    <i data-lucide="edit"></i>
-                  </button>
-                  <button type="button" class="btn-action-delete" data-modal-target="deleteRoleModal" aria-label="حذف">
-                    <i data-lucide="trash-2"></i>
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <!-- Row 15 -->
-            <tr>
-              <td style="padding: 14px 16px; font-size: 12.5px; color: #374151; font-weight: 500;">مشرف عام</td>
-              <td style="padding: 14px 16px; font-size: 12px; color: #6B7280;">هذا النص يمكن أن يستبدل بنص بديل يعبر عن المعنى</td>
-              <td style="padding: 14px 16px; text-align: left;">
-                <div class="roles-action-btns" style="justify-content: flex-end;">
-                  <button type="button" class="btn-action-edit" data-modal-target="editRoleModal" aria-label="تعديل">
-                    <i data-lucide="edit"></i>
-                  </button>
-                  <button type="button" class="btn-action-delete" data-modal-target="deleteRoleModal" aria-label="حذف">
-                    <i data-lucide="trash-2"></i>
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <!-- Row 16 -->
-            <tr>
-              <td style="padding: 14px 16px; font-size: 12.5px; color: #374151; font-weight: 500;">مشرف عام</td>
-              <td style="padding: 14px 16px; font-size: 12px; color: #6B7280;">هذا النص يمكن أن يستبدل بنص بديل يعبر عن المعنى</td>
-              <td style="padding: 14px 16px; text-align: left;">
-                <div class="roles-action-btns" style="justify-content: flex-end;">
-                  <button type="button" class="btn-action-edit" data-modal-target="editRoleModal" aria-label="تعديل">
-                    <i data-lucide="edit"></i>
-                  </button>
-                  <button type="button" class="btn-action-delete" data-modal-target="deleteRoleModal" aria-label="حذف">
-                    <i data-lucide="trash-2"></i>
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <!-- Row 17 -->
-            <tr>
-              <td style="padding: 14px 16px; font-size: 12.5px; color: #374151; font-weight: 500;">مشرف عام</td>
-              <td style="padding: 14px 16px; font-size: 12px; color: #6B7280;">هذا النص يمكن أن يستبدل بنص بديل يعبر عن المعنى</td>
-              <td style="padding: 14px 16px; text-align: left;">
-                <div class="roles-action-btns" style="justify-content: flex-end;">
-                  <button type="button" class="btn-action-edit" data-modal-target="editRoleModal" aria-label="تعديل">
-                    <i data-lucide="edit"></i>
-                  </button>
-                  <button type="button" class="btn-action-delete" data-modal-target="deleteRoleModal" aria-label="حذف">
-                    <i data-lucide="trash-2"></i>
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <!-- Row 18 -->
-            <tr>
-              <td style="padding: 14px 16px; font-size: 12.5px; color: #374151; font-weight: 500;">مشرف عام</td>
-              <td style="padding: 14px 16px; font-size: 12px; color: #6B7280;">هذا النص يمكن أن يستبدل بنص بديل يعبر عن المعنى</td>
-              <td style="padding: 14px 16px; text-align: left;">
-                <div class="roles-action-btns" style="justify-content: flex-end;">
-                  <button type="button" class="btn-action-edit" data-modal-target="editRoleModal" aria-label="تعديل">
-                    <i data-lucide="edit"></i>
-                  </button>
-                  <button type="button" class="btn-action-delete" data-modal-target="deleteRoleModal" aria-label="حذف">
-                    <i data-lucide="trash-2"></i>
-                  </button>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <!-- Pagination Footer matching Image 1 -->
-      <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 24px; padding-top: 18px; border-top: 1px solid #F3F4F6; flex-wrap: wrap; gap: 16px;">
-        <!-- Left in RTL: Page Numbers -->
-        <div class="pagination-controls" style="display: flex; gap: 6px; align-items: center;">
-          <a href="#" class="page-btn" style="width: 32px; height: 32px; border-radius: 6px; border: 1px solid #E5E7EB; background: #fff; color: #6B7280; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; font-size: 12px;">&lt;</a>
-          <a href="#" class="page-btn" style="width: 32px; height: 32px; border-radius: 6px; border: 1px solid #E5E7EB; background: #fff; color: #6B7280; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; font-size: 12px;">1</a>
-          <a href="#" class="page-btn active" style="width: 32px; height: 32px; border-radius: 6px; border: 1px solid #ECA02F; background: #ECA02F; color: #fff; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; font-size: 12px; font-weight: 700;">2</a>
-          <a href="#" class="page-btn" style="width: 32px; height: 32px; border-radius: 6px; border: 1px solid #E5E7EB; background: #fff; color: #6B7280; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; font-size: 12px;">3</a>
-          <a href="#" class="page-btn" style="width: 32px; height: 32px; border-radius: 6px; border: 1px solid #E5E7EB; background: #fff; color: #6B7280; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; font-size: 12px;">4</a>
-          <a href="#" class="page-btn" style="width: 32px; height: 32px; border-radius: 6px; border: 1px solid #E5E7EB; background: #fff; color: #6B7280; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; font-size: 12px;">5</a>
-          <a href="#" class="page-btn" style="width: 32px; height: 32px; border-radius: 6px; border: 1px solid #E5E7EB; background: #fff; color: #6B7280; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; font-size: 12px;">&gt;</a>
-        </div>
-
-        <!-- Right in RTL: Rows Per Page -->
-        <div style="display: flex; align-items: center; gap: 8px; font-size: 12px; color: #6B7280;">
-          <span>حدد عدد صفوف السجلات لكل صفحة</span>
-          <div class="orders-filter-select" style="padding: 4px 10px; border: 1px solid #E5E7EB; border-radius: 6px; background: #fff; display: flex; align-items: center; gap: 6px; cursor: pointer;">
-            <span>10</span>
-            <i data-lucide="chevron-down"></i>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- MODALS SYSTEM (Matching Image 2, 3, 4) --> -->
-
-  <!-- Delete Confirmation Modal (تأكيد الإجراء - Matching Image 2) -->
-  <div class="modal-overlay" id="deleteRoleModal">
-    <div class="modal-dialog" style="max-width: 480px; text-align: center; border-radius: 14px;">
-      <div class="modal-header" style="border-bottom: 1px solid #F3F4F6; padding: 16px 20px;">
-        <h3 class="modal-title" style="font-size: 15px; font-weight: 700; color: #111827;">تأكيد الإجراء</h3>
-        <button class="modal-close-btn" data-modal-close aria-label="إغلاق">
-          <i data-lucide="x"></i>
-        </button>
-      </div>
-      <div class="modal-body" style="padding: 28px 24px 20px 24px; text-align: center;">
-        <!-- Warning Triangle Icon -->
-        <div style="width: 54px; height: 54px; border-radius: 50%; background: #FEE2E2; color: #EF4444; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;">
-          <i data-lucide="alert-triangle"></i>
-        </div>
-        <h3 style="font-size: 16px; font-weight: 700; color: #111827; margin-bottom: 8px;">حذف الدور</h3>
-        <p style="font-size: 12.5px; color: #6B7280; line-height: 1.6; margin: 0;">هل أنت متأكد من حذف الدور "مشرف عام"؟ لا يمكن التراجع عن هذا الإجراء.</p>
-      </div>
-      <div class="modal-footer" style="justify-content: center; gap: 12px; padding: 0 24px 24px 24px; border-top: none;">
-        <button type="button" class="btn-modal-danger" id="btnConfirmDeleteRole" style="background: #EF4444; color: #fff; border: none; padding: 9px 28px; border-radius: 8px; font-weight: 700; font-size: 13px; cursor: pointer;" onclick="showToast('تم حذف الدور بنجاح', 'success'); closeModal();">تأكيد</button>
-        <button type="button" class="btn-modal-cancel" data-modal-close style="background: #fff; border: 1px solid #E5E7EB; color: #374151; padding: 9px 28px; border-radius: 8px; font-weight: 600; font-size: 13px; cursor: pointer;">إلغاء</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Add Role Modal (إضافة دور - Matching Image 3) --> -->
-  <div class="modal-overlay" id="addRoleModal">
-    <div class="modal-dialog" style="max-width: 680px; border-radius: 14px;">
-      <div class="modal-header" style="border-bottom: 1px solid #F3F4F6; padding: 16px 22px;">
-        <h3 class="modal-title" style="font-size: 15px; font-weight: 700; color: #111827;">إضافة دور</h3>
-        <button class="modal-close-btn" data-modal-close aria-label="إغلاق">
-          <i data-lucide="x"></i>
-        </button>
-      </div>
-      <form onsubmit="event.preventDefault(); showToast('تمت إضافة الدور بنجاح', 'success'); closeModal();">
-        <div class="modal-body">
-          
-          <!-- 2-Column Name Inputs (AR / EN) --> -->
-          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 18px; margin-bottom: 16px;">
-            <div class="modal-form-group">
-              <label class="modal-label" style="font-size: 12px; font-weight: 700; color: #374151; margin-bottom: 6px; display: block;">اسم الدور ( AR )</label>
-              <input type="text" class="modal-input" placeholder="ادخل الاسم" required style="width: 100%; height: 40px; padding: 0 12px; border-radius: 8px; border: 1px solid #E5E7EB; font-size: 12.5px;">
-            </div>
-            <div class="modal-form-group">
-              <label class="modal-label" style="font-size: 12px; font-weight: 700; color: #374151; margin-bottom: 6px; display: block;">اسم الدور ( EN )</label>
-              <input type="text" class="modal-input" placeholder="ادخل الاسم" required style="width: 100%; height: 40px; padding: 0 12px; border-radius: 8px; border: 1px solid #E5E7EB; font-size: 12.5px; text-align: right;">
-            </div>
+          <!-- Notification Bell -->
+          <div class="notif-bell-btn" id="notifBtn" style="cursor: pointer">
+            <i data-lucide="bell"></i>
           </div>
 
-          <!-- Section 1: الصلاحيات ( AR ) --> -->
-          <div class="perm-section-title">الصلاحيات ( AR )</div>
-          <div class="perm-checkbox-grid">
-            <label class="perm-checkbox-item"><input type="checkbox" checked><span>إضافة فواتير لكل العملاء</span></label>
-            <label class="perm-checkbox-item"><input type="checkbox" checked><span>إضافة فواتير لكل العملاء</span></label>
-            <label class="perm-checkbox-item"><input type="checkbox"><span>إضافة فواتير لكل العملاء</span></label>
-            
-            <label class="perm-checkbox-item"><input type="checkbox" checked><span>إضافة فواتير لكل العملاء</span></label>
-            <label class="perm-checkbox-item"><input type="checkbox"><span>إضافة فواتير لكل العملاء</span></label>
-            <label class="perm-checkbox-item"><input type="checkbox"><span>إضافة فواتير لكل العملاء</span></label>
-            
-            <label class="perm-checkbox-item"><input type="checkbox"><span>إضافة فواتير لكل العملاء</span></label>
-            <label class="perm-checkbox-item"><input type="checkbox"><span>إضافة فواتير لكل العملاء</span></label>
-            <label class="perm-checkbox-item"><input type="checkbox" checked><span>إضافة فواتير لكل العملاء</span></label>
-            
-            <label class="perm-checkbox-item"><input type="checkbox"><span>إضافة فواتير لكل العملاء</span></label>
-            <label class="perm-checkbox-item"><input type="checkbox"><span>إضافة فواتير لكل العملاء</span></label>
-            <label class="perm-checkbox-item"><input type="checkbox" checked><span>إضافة فواتير لكل العملاء</span></label>
+          <!-- User Profile Trigger -->
+          <div class="user-profile-widget" id="userProfileBtn" style="cursor: pointer">
+            <img
+              class="user-avatar-img"
+              src="./assets/images/Ellipse 3255.png"
+              alt="User Profile"
+            />
+            <div class="user-text-meta">
+              <span class="user-name-text">محمد المعتصم باللة السيد</span>
+              <span class="user-email-text">mohamedmoatasembalbol@icloud.com</span>
+            </div>
+            <i data-lucide="chevron-down" class="user-chevron"></i>
           </div>
 
-          <!-- Section 2: الصلاحيات ( EN ) --> -->
-          <div class="perm-section-title">الصلاحيات ( EN )</div>
-          <div class="perm-checkbox-grid">
-            <label class="perm-checkbox-item"><input type="checkbox"><span>إضافة فواتير لكل العملاء</span></label>
-            <label class="perm-checkbox-item"><input type="checkbox" checked><span>إضافة فواتير لكل العملاء</span></label>
-            <label class="perm-checkbox-item"><input type="checkbox"><span>إضافة فواتير لكل العملاء</span></label>
-            
-            <label class="perm-checkbox-item"><input type="checkbox" checked><span>إضافة فواتير لكل العملاء</span></label>
-            <label class="perm-checkbox-item"><input type="checkbox"><span>إضافة فواتير لكل العملاء</span></label>
-            <label class="perm-checkbox-item"><input type="checkbox"><span>إضافة فواتير لكل العملاء</span></label>
-            
-            <label class="perm-checkbox-item"><input type="checkbox"><span>إضافة فواتير لكل العملاء</span></label>
-            <label class="perm-checkbox-item"><input type="checkbox"><span>إضافة فواتير لكل العملاء</span></label>
-            <label class="perm-checkbox-item"><input type="checkbox" checked><span>إضافة فواتير لكل العملاء</span></label>
-            
-            <label class="perm-checkbox-item"><input type="checkbox"><span>إضافة فواتير لكل العملاء</span></label>
-            <label class="perm-checkbox-item"><input type="checkbox"><span>إضافة فواتير لكل العملاء</span></label>
-            <label class="perm-checkbox-item"><input type="checkbox" checked><span>إضافة فواتير لكل العملاء</span></label>
+          <!-- Floating Notification Dropdown -->
+          <div class="custom-dropdown-panel" id="notifDropdown">
+            <div
+              style="
+                padding: 12px 16px;
+                border-bottom: 1px solid #eaecf0;
+                font-weight: 700;
+                font-size: 13px;
+                color: #111827;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+              "
+            >
+              <span>الإشعارات</span>
+              <span
+                style="
+                  font-size: 11px;
+                  background: #fef3c7;
+                  color: #d97706;
+                  padding: 2px 8px;
+                  border-radius: 999px;
+                  font-weight: 600;
+                "
+                >3 جديدة</span
+              >
+            </div>
+            <div style="max-height: 260px; overflow-y: auto">
+              <a
+                href="orders.html"
+                class="dropdown-item"
+                style="
+                  border-bottom: 1px solid #f3f4f6;
+                  padding: 10px 14px;
+                  display: flex;
+                  gap: 10px;
+                  align-items: flex-start;
+                "
+              >
+                <div
+                  style="
+                    width: 8px;
+                    height: 8px;
+                    border-radius: 50%;
+                    background: #10b981;
+                    margin-top: 6px;
+                    flex-shrink: 0;
+                  "
+                ></div>
+                <div>
+                  <div style="font-weight: 600; font-size: 12px; color: #111827">
+                    طلب خدمة جديد #1025
+                  </div>
+                  <div style="font-size: 11px; color: #6b7280">
+                    قام محمد السيد بطلب انتاج فيديو مؤسسي
+                  </div>
+                  <div style="font-size: 10px; color: #9ca3af; margin-top: 2px">منذ 5 دقائق</div>
+                </div>
+              </a>
+              <a
+                href="orders.html"
+                class="dropdown-item"
+                style="
+                  border-bottom: 1px solid #f3f4f6;
+                  padding: 10px 14px;
+                  display: flex;
+                  gap: 10px;
+                  align-items: flex-start;
+                "
+              >
+                <div
+                  style="
+                    width: 8px;
+                    height: 8px;
+                    border-radius: 50%;
+                    background: #3b82f6;
+                    margin-top: 6px;
+                    flex-shrink: 0;
+                  "
+                ></div>
+                <div>
+                  <div style="font-weight: 600; font-size: 12px; color: #111827">
+                    طلب اشتراك باقة جديد #1024
+                  </div>
+                  <div style="font-size: 11px; color: #6b7280">
+                    قام أحمد علي بطلب باقة السوشيال ميديا
+                  </div>
+                  <div style="font-size: 10px; color: #9ca3af; margin-top: 2px">منذ ساعة</div>
+                </div>
+              </a>
+              <a
+                href="contact.html"
+                class="dropdown-item"
+                style="padding: 10px 14px; display: flex; gap: 10px; align-items: flex-start"
+              >
+                <div
+                  style="
+                    width: 8px;
+                    height: 8px;
+                    border-radius: 50%;
+                    background: #f59e0b;
+                    margin-top: 6px;
+                    flex-shrink: 0;
+                  "
+                ></div>
+                <div>
+                  <div style="font-weight: 600; font-size: 12px; color: #111827">
+                    رسالة تواصل جديدة
+                  </div>
+                  <div style="font-size: 11px; color: #6b7280">استفسار بخصوص خدمات البودكاست</div>
+                  <div style="font-size: 10px; color: #9ca3af; margin-top: 2px">منذ 3 ساعات</div>
+                </div>
+              </a>
+            </div>
+            <a
+              href="orders.html"
+              style="
+                display: block;
+                padding: 10px;
+                text-align: center;
+                font-size: 11.5px;
+                color: #d97706;
+                font-weight: 600;
+                text-decoration: none;
+                border-top: 1px solid #eaecf0;
+                background: #fffdf5;
+              "
+              >عرض جميع الطلبات</a
+            >
           </div>
 
-        </div>
-        <div class="modal-footer" style="justify-content: flex-start; gap: 12px; padding: 14px 22px; border-top: 1px solid #F3F4F6;">
-          <button type="submit" class="btn-modal-primary" style="background: #ECA02F; color: #FFFFFF; border: none; padding: 9px 32px; border-radius: 8px; font-weight: 700; font-size: 13px; cursor: pointer;">إضافة</button>
-          <button type="button" class="btn-modal-cancel" data-modal-close style="background: #fff; border: 1px solid #E5E7EB; color: #374151; padding: 9px 32px; border-radius: 8px; font-weight: 600; font-size: 13px; cursor: pointer;">إلغاء</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <!-- Edit Role Modal (تعديل دور - Matching Image 4) --> -->
-  <div class="modal-overlay" id="editRoleModal">
-    <div class="modal-dialog" style="max-width: 680px; border-radius: 14px;">
-      <div class="modal-header" style="border-bottom: 1px solid #F3F4F6; padding: 16px 22px;">
-        <h3 class="modal-title" style="font-size: 15px; font-weight: 700; color: #111827;">تعديل دور</h3>
-        <button class="modal-close-btn" data-modal-close aria-label="إغلاق">
-          <i data-lucide="x"></i>
-        </button>
-      </div>
-      <form onsubmit="event.preventDefault(); showToast('تم حفظ التعديلات بنجاح', 'success'); closeModal();">
-        <div class="modal-body">
-          
-          <!-- 2-Column Name Inputs (AR / EN) --> -->
-          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 18px; margin-bottom: 16px;">
-            <div class="modal-form-group">
-              <label class="modal-label" style="font-size: 12px; font-weight: 700; color: #374151; margin-bottom: 6px; display: block;">اسم الدور ( AR )</label>
-              <input type="text" class="modal-input" value="مشرف عام" required style="width: 100%; height: 40px; padding: 0 12px; border-radius: 8px; border: 1px solid #E5E7EB; font-size: 12.5px;">
+          <!-- Floating User Dropdown -->
+          <div class="user-dropdown-card" id="userDropdown">
+            <div class="user-dropdown-header">
+              <img
+                class="avatar-thumb"
+                style="object-fit: cover"
+                src="./assets/images/Ellipse 3255.png"
+                alt="User Profile"
+              />
+              <div class="user-dropdown-meta">
+                <span class="user-dropdown-name">محمد المعتصم باللة السيد</span>
+                <span class="user-dropdown-email">mohamedmoatasembalbol@icloud.com</span>
+              </div>
             </div>
-            <div class="modal-form-group">
-              <label class="modal-label" style="font-size: 12px; font-weight: 700; color: #374151; margin-bottom: 6px; display: block;">اسم الدور ( EN )</label>
-              <input type="text" class="modal-input" value="General Supervisor" required style="width: 100%; height: 40px; padding: 0 12px; border-radius: 8px; border: 1px solid #E5E7EB; font-size: 12.5px; text-align: right;">
-            </div>
-          </div>
-
-          <!-- Section 1: الصلاحيات ( AR ) --> -->
-          <div class="perm-section-title">الصلاحيات ( AR )</div>
-          <div class="perm-checkbox-grid">
-            <label class="perm-checkbox-item"><input type="checkbox" checked><span>إضافة فواتير لكل العملاء</span></label>
-            <label class="perm-checkbox-item"><input type="checkbox" checked><span>إضافة فواتير لكل العملاء</span></label>
-            <label class="perm-checkbox-item"><input type="checkbox"><span>إضافة فواتير لكل العملاء</span></label>
-            
-            <label class="perm-checkbox-item"><input type="checkbox" checked><span>إضافة فواتير لكل العملاء</span></label>
-            <label class="perm-checkbox-item"><input type="checkbox"><span>إضافة فواتير لكل العملاء</span></label>
-            <label class="perm-checkbox-item"><input type="checkbox"><span>إضافة فواتير لكل العملاء</span></label>
-            
-            <label class="perm-checkbox-item"><input type="checkbox"><span>إضافة فواتير لكل العملاء</span></label>
-            <label class="perm-checkbox-item"><input type="checkbox"><span>إضافة فواتير لكل العملاء</span></label>
-            <label class="perm-checkbox-item"><input type="checkbox" checked><span>إضافة فواتير لكل العملاء</span></label>
-            
-            <label class="perm-checkbox-item"><input type="checkbox"><span>إضافة فواتير لكل العملاء</span></label>
-            <label class="perm-checkbox-item"><input type="checkbox"><span>إضافة فواتير لكل العملاء</span></label>
-            <label class="perm-checkbox-item"><input type="checkbox" checked><span>إضافة فواتير لكل العملاء</span></label>
-          </div>
-
-          <!-- Section 2: الصلاحيات ( EN ) --> -->
-          <div class="perm-section-title">الصلاحيات ( EN )</div>
-          <div class="perm-checkbox-grid">
-            <label class="perm-checkbox-item"><input type="checkbox"><span>إضافة فواتير لكل العملاء</span></label>
-            <label class="perm-checkbox-item"><input type="checkbox" checked><span>إضافة فواتير لكل العملاء</span></label>
-            <label class="perm-checkbox-item"><input type="checkbox"><span>إضافة فواتير لكل العملاء</span></label>
-            
-            <label class="perm-checkbox-item"><input type="checkbox" checked><span>إضافة فواتير لكل العملاء</span></label>
-            <label class="perm-checkbox-item"><input type="checkbox"><span>إضافة فواتير لكل العملاء</span></label>
-            <label class="perm-checkbox-item"><input type="checkbox"><span>إضافة فواتير لكل العملاء</span></label>
-            
-            <label class="perm-checkbox-item"><input type="checkbox"><span>إضافة فواتير لكل العملاء</span></label>
-            <label class="perm-checkbox-item"><input type="checkbox"><span>إضافة فواتير لكل العملاء</span></label>
-            <label class="perm-checkbox-item"><input type="checkbox" checked><span>إضافة فواتير لكل العملاء</span></label>
-            
-            <label class="perm-checkbox-item"><input type="checkbox"><span>إضافة فواتير لكل العملاء</span></label>
-            <label class="perm-checkbox-item"><input type="checkbox"><span>إضافة فواتير لكل العملاء</span></label>
-            <label class="perm-checkbox-item"><input type="checkbox" checked><span>إضافة فواتير لكل العملاء</span></label>
-          </div>
-
-        </div>
-        <div class="modal-footer" style="justify-content: flex-start; gap: 12px; padding: 14px 22px; border-top: 1px solid #F3F4F6;">
-          <button type="submit" class="btn-modal-primary" style="background: #ECA02F; color: #FFFFFF; border: none; padding: 9px 32px; border-radius: 8px; font-weight: 700; font-size: 13px; cursor: pointer;">حفظ</button>
-          <button type="button" class="btn-modal-cancel" data-modal-close style="background: #fff; border: 1px solid #E5E7EB; color: #374151; padding: 9px 32px; border-radius: 8px; font-weight: 600; font-size: 13px; cursor: pointer;">إلغاء</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <!-- Global Modals (Logout & Profile) --> -->
-  <div class="modal-overlay" id="logoutModal">
-    <div class="modal-dialog" style="max-width: 440px; text-align: center;">
-      <div class="modal-body" style="padding: 32px 24px 20px 24px; text-align: center;">
-        <div class="delete-icon-wrap">
-          <i data-lucide="log-out"></i>
-        </div>
-        <h3 style="font-size: 18px; font-weight: 700; color: #111827; margin-bottom: 8px;">تسجيل الخروج</h3>
-        <p style="font-size: 13px; color: #6B7280;">هل أنت متأكد من رغبتك في تسجيل الخروج من لوحة تحكم AZ Studio؟</p>
-      </div>
-      <div class="modal-footer" style="justify-content: center; gap: 12px; padding-bottom: 24px;">
-        <button type="button" class="btn-modal-cancel" data-modal-close style="min-width: 110px;">إلغاء</button>
-        <a href="login.html" class="btn-modal-danger" style="min-width: 130px; text-decoration: none; text-align: center;">تأكيد الخروج</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- View Profile Modal (عرض الملف الشخصي --> -->
-  <div class="modal-overlay" id="viewProfileModal">
-    <div class="modal-dialog" style="max-width: 580px;">
-      <div class="modal-header">
-        <h3 class="modal-title">عرض الملف الشخصي</h3>
-        <button class="modal-close-btn" data-modal-close aria-label="إغلاق">
-          <i data-lucide="x"></i>
-        </button>
-      </div>
-
-      <div class="modal-body" style="padding: 20px 24px;">
-        <div class="profile-view-box">
-          <!-- Section Bar -->
-          <div class="profile-section-title-bar">
-            <span>بيانات الملف الشخصي</span>
-            <i data-lucide="chevron-up"></i>
-          </div>
-
-          <!-- Studio Image Center Avatar -->
-          <div class="profile-avatar-banner">
-            <img src="./assets/images/Ellipse 3255.png" alt="Profile Picture" />
-          </div>
-
-          <!-- 2-Column Info Grid matching -->
-          <div class="profile-info-two-col">
-            <div class="profile-info-row">
-              <span class="profile-info-label">الاسم :</span>
-              <span class="profile-info-val">محمد السيد</span>
-            </div>
-            <div class="profile-info-row">
-              <span class="profile-info-label">رقم الجوال :</span>
-              <span class="profile-info-val" style="direction: ltr;">112345689</span>
-            </div>
-
-            <div class="profile-info-row">
-              <span class="profile-info-label">رقم الهوية :</span>
-              <span class="profile-info-val">10203050</span>
-            </div>
-            <div class="profile-info-row">
-              <span class="profile-info-label">المسمي الوظيفي :</span>
-              <span class="profile-info-val">مسؤال</span>
-            </div>
-
-            <div class="profile-info-row">
-              <span class="profile-info-label">البريد الالكتروني :</span>
-              <span class="profile-info-val" style="direction: ltr;">moahme@icloud.com</span>
-            </div>
-            <div class="profile-info-row">
-              <span class="profile-info-label">العنوان :</span>
-              <span class="profile-info-val">الرياض حي العليا</span>
-            </div>
-
-            <div class="profile-info-row">
-              <span class="profile-info-label">الرقم الوظيفي :</span>
-              <span class="profile-info-val">123</span>
-            </div>
-            <div class="profile-info-row">
-              <span class="profile-info-label">الصلاحيات :</span>
-              <span class="profile-info-val"><a href="#" style="color: #FDBA33; font-weight: 700; text-decoration: none;">كل الصلاحيات</a></span>
-            </div>
-
-            <div class="profile-info-row">
-              <span class="profile-info-label">الرسالة :</span>
-              <span class="profile-info-val">نص بديل</span>
-            </div>
-            <div class="profile-info-row">
-              <span class="profile-info-label">تاريخ التوظيف :</span>
-              <span class="profile-info-val">20/10/2025</span>
-            </div>
-
-            <div class="profile-info-row" style="grid-column: span 2;">
-              <span class="profile-info-label">الحالة :</span>
-              <span class="profile-info-val" style="color: #10B981; font-weight: 700;">حساب فعال</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="modal-footer" style="justify-content: flex-start; gap: 10px;">
-        <button type="button" class="btn-modal-primary" data-modal-target="editProfileModal">تعديل</button>
-        <button type="button" class="btn-modal-cancel" data-modal-close>إلغاء</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Edit Profile Modal (تعديل الملف الشخصي --> -->
-  <div class="modal-overlay" id="editProfileModal">
-    <div class="modal-dialog" style="max-width: 580px;">
-      <div class="modal-header">
-        <h3 class="modal-title">تعديل الملف الشخصي</h3>
-        <button class="modal-close-btn" data-modal-close aria-label="إغلاق">
-          <i data-lucide="x"></i>
-        </button>
-      </div>
-
-      <form id="editProfileForm">
-        <div class="modal-body" style="padding: 20px 24px;">
-          <!-- Upload Image Box matching -->
-          <div class="profile-upload-zone">
-            <div class="upload-icon-box">
-              <i data-lucide="image"></i>
-            </div>
-            <button type="button" class="btn-upload-pic">
-              <i data-lucide="download"></i>
-              <span>تحميل الصورة</span>
+            <button type="button" class="user-dropdown-item" data-modal-target="viewProfileModal">
+              <i data-lucide="user"></i>
+              <span>عرض الملف الشخصي</span>
             </button>
-            <p class="upload-helper-text">يجب أن يكون حجم الصورة أقل من 5 ميجا بايت<br>ويجب أن تكون بنسبة 1:1</p>
+            <button
+              type="button"
+              class="user-dropdown-item logout-item"
+              data-modal-target="logoutModal"
+            >
+              <i data-lucide="log-out"></i>
+              <span>تسجيل الخروج</span>
+            </button>
           </div>
+        </div>
+      </header>
 
-          <!-- Input Fields 2-Columns matching -->
-          <div class="modal-form-row">
-            <div class="modal-form-group">
-              <label class="modal-label">الاسم</label>
-              <input type="text" class="modal-input" placeholder="ادخل الاسم" value="محمد السيد">
-            </div>
-            <div class="modal-form-group">
-              <label class="modal-label">البريد الالكتروني</label>
-              <input type="email" class="modal-input" placeholder="ادخل البريد الالكتروني" value="moahme@icloud.com">
-            </div>
-          </div>
+      <!-- Main Card Container (Matching Image 1) -->
+      -->
+      <section
+        class="table-card-container"
+        style="
+          padding: 24px;
+          background: #ffffff;
+          border: 1px solid #eaecf0;
+          border-radius: 14px;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+        "
+      >
+        <!-- Title & Actions Bar matching Image 1 -->
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+            gap: 16px;
+          "
+        >
+          <!-- Right in RTL: Title -->
+          <h2 style="font-size: 16px; font-weight: 700; color: #111827; margin: 0">الأدوار</h2>
 
-          <div class="modal-form-row" style="margin-top: 10px;">
-            <div class="modal-form-group">
-              <label class="modal-label">رقم الجوال</label>
-              <input type="tel" class="modal-input" placeholder="ادخل الرقم" value="112345689">
+          <!-- Left in RTL: Actions (Search, Add) -->
+          -->
+          <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap">
+            <!-- Search Box -->
+            <div class="orders-search-box" style="margin: 0; min-width: 220px; position: relative">
+              <i
+                data-lucide="search"
+                style="
+                  position: absolute;
+                  right: 12px;
+                  top: 50%;
+                  transform: translateY(-50%);
+                  pointer-events: none;
+                "
+              ></i>
+              <input type="text" class="table-search-input" placeholder="البحث" />
             </div>
-            <div class="modal-form-group">
-              <label class="modal-label">رقم الهوية</label>
-              <input type="text" class="modal-input" placeholder="ادخل الرقم" value="10203050">
-            </div>
-          </div>
 
-          <div class="modal-form-row" style="margin-top: 10px;">
-            <div class="modal-form-group">
-              <label class="modal-label">المسمي الوظيفي</label>
-              <input type="text" class="modal-input" placeholder="ادخل المسمي الوظيفي" value="مسؤال">
-            </div>
-            <div class="modal-form-group">
-              <label class="modal-label">الرقم الوظيفي</label>
-              <input type="text" class="modal-input" placeholder="ادخل الرقم" value="123">
-            </div>
-          </div>
-
-          <div class="modal-form-group" style="margin-top: 10px;">
-            <label class="modal-label">العنوان</label>
-            <input type="text" class="modal-input" placeholder="ادخل العنوان" value="الرياض حي العليا">
+            <!-- Add Role Button (Opens Add Role Modal) -->
+            -->
+            <button
+              type="button"
+              class="btn-modal-primary"
+              data-modal-target="addRoleModal"
+              style="
+                background: #eca02f;
+                color: #ffffff;
+                height: 38px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                gap: 6px;
+                padding: 0 18px;
+                border-radius: 8px;
+                font-weight: 700;
+                font-size: 13px;
+                border: none;
+                cursor: pointer;
+                transition: background 0.2s ease;
+              "
+            >
+              <i data-lucide="plus"></i>
+              <span>إضافة</span>
+            </button>
           </div>
         </div>
 
-        <div class="modal-footer" style="justify-content: flex-start; gap: 10px;">
-          <button type="submit" class="btn-modal-primary">حفظ</button>
+        <!-- Roles Table matching Image 1 -->
+        <div class="table-responsive-box" style="overflow-x: auto">
+          <table class="admin-table">
+            <thead>
+              <tr style="background: #f9fafb; border-bottom: 1px solid #eaecf0">
+                <th
+                  style="
+                    padding: 14px 16px;
+                    font-size: 12px;
+                    font-weight: 700;
+                    color: #4b5563;
+                    text-align: right;
+                    width: 22%;
+                  "
+                >
+                  الدور
+                </th>
+                <th
+                  style="
+                    padding: 14px 16px;
+                    font-size: 12px;
+                    font-weight: 700;
+                    color: #4b5563;
+                    text-align: right;
+                    width: 63%;
+                  "
+                >
+                  الصلاحيات
+                </th>
+                <th
+                  style="
+                    padding: 14px 16px;
+                    font-size: 12px;
+                    font-weight: 700;
+                    color: #4b5563;
+                    text-align: left;
+                    width: 15%;
+                  "
+                >
+                  الإجراء
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- 18 Repeated Rows matching screenshot -->
+              <!-- Row 1 -->
+              <tr>
+                <td style="padding: 14px 16px; font-size: 12.5px; color: #374151; font-weight: 500">
+                  مشرف عام
+                </td>
+                <td style="padding: 14px 16px; font-size: 12px; color: #6b7280">
+                  هذا النص يمكن أن يستبدل بنص بديل يعبر عن المعنى
+                </td>
+                <td style="padding: 14px 16px; text-align: left">
+                  <div class="roles-action-btns" style="justify-content: flex-end">
+                    <button
+                      type="button"
+                      class="btn-action-edit"
+                      data-modal-target="editRoleModal"
+                      aria-label="تعديل"
+                    >
+                      <i data-lucide="edit"></i>
+                    </button>
+                    <button
+                      type="button"
+                      class="btn-action-delete"
+                      data-modal-target="deleteRoleModal"
+                      aria-label="حذف"
+                    >
+                      <i data-lucide="trash-2"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              <!-- Row 2 -->
+              <tr>
+                <td style="padding: 14px 16px; font-size: 12.5px; color: #374151; font-weight: 500">
+                  مشرف عام
+                </td>
+                <td style="padding: 14px 16px; font-size: 12px; color: #6b7280">
+                  هذا النص يمكن أن يستبدل بنص بديل يعبر عن المعنى
+                </td>
+                <td style="padding: 14px 16px; text-align: left">
+                  <div class="roles-action-btns" style="justify-content: flex-end">
+                    <button
+                      type="button"
+                      class="btn-action-edit"
+                      data-modal-target="editRoleModal"
+                      aria-label="تعديل"
+                    >
+                      <i data-lucide="edit"></i>
+                    </button>
+                    <button
+                      type="button"
+                      class="btn-action-delete"
+                      data-modal-target="deleteRoleModal"
+                      aria-label="حذف"
+                    >
+                      <i data-lucide="trash-2"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              <!-- Row 3 -->
+              <tr>
+                <td style="padding: 14px 16px; font-size: 12.5px; color: #374151; font-weight: 500">
+                  مشرف عام
+                </td>
+                <td style="padding: 14px 16px; font-size: 12px; color: #6b7280">
+                  هذا النص يمكن أن يستبدل بنص بديل يعبر عن المعنى
+                </td>
+                <td style="padding: 14px 16px; text-align: left">
+                  <div class="roles-action-btns" style="justify-content: flex-end">
+                    <button
+                      type="button"
+                      class="btn-action-edit"
+                      data-modal-target="editRoleModal"
+                      aria-label="تعديل"
+                    >
+                      <i data-lucide="edit"></i>
+                    </button>
+                    <button
+                      type="button"
+                      class="btn-action-delete"
+                      data-modal-target="deleteRoleModal"
+                      aria-label="حذف"
+                    >
+                      <i data-lucide="trash-2"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              <!-- Row 4 -->
+              <tr>
+                <td style="padding: 14px 16px; font-size: 12.5px; color: #374151; font-weight: 500">
+                  مشرف عام
+                </td>
+                <td style="padding: 14px 16px; font-size: 12px; color: #6b7280">
+                  هذا النص يمكن أن يستبدل بنص بديل يعبر عن المعنى
+                </td>
+                <td style="padding: 14px 16px; text-align: left">
+                  <div class="roles-action-btns" style="justify-content: flex-end">
+                    <button
+                      type="button"
+                      class="btn-action-edit"
+                      data-modal-target="editRoleModal"
+                      aria-label="تعديل"
+                    >
+                      <i data-lucide="edit"></i>
+                    </button>
+                    <button
+                      type="button"
+                      class="btn-action-delete"
+                      data-modal-target="deleteRoleModal"
+                      aria-label="حذف"
+                    >
+                      <i data-lucide="trash-2"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              <!-- Row 5 -->
+              <tr>
+                <td style="padding: 14px 16px; font-size: 12.5px; color: #374151; font-weight: 500">
+                  مشرف عام
+                </td>
+                <td style="padding: 14px 16px; font-size: 12px; color: #6b7280">
+                  هذا النص يمكن أن يستبدل بنص بديل يعبر عن المعنى
+                </td>
+                <td style="padding: 14px 16px; text-align: left">
+                  <div class="roles-action-btns" style="justify-content: flex-end">
+                    <button
+                      type="button"
+                      class="btn-action-edit"
+                      data-modal-target="editRoleModal"
+                      aria-label="تعديل"
+                    >
+                      <i data-lucide="edit"></i>
+                    </button>
+                    <button
+                      type="button"
+                      class="btn-action-delete"
+                      data-modal-target="deleteRoleModal"
+                      aria-label="حذف"
+                    >
+                      <i data-lucide="trash-2"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              <!-- Row 6 -->
+              <tr>
+                <td style="padding: 14px 16px; font-size: 12.5px; color: #374151; font-weight: 500">
+                  مشرف عام
+                </td>
+                <td style="padding: 14px 16px; font-size: 12px; color: #6b7280">
+                  هذا النص يمكن أن يستبدل بنص بديل يعبر عن المعنى
+                </td>
+                <td style="padding: 14px 16px; text-align: left">
+                  <div class="roles-action-btns" style="justify-content: flex-end">
+                    <button
+                      type="button"
+                      class="btn-action-edit"
+                      data-modal-target="editRoleModal"
+                      aria-label="تعديل"
+                    >
+                      <i data-lucide="edit"></i>
+                    </button>
+                    <button
+                      type="button"
+                      class="btn-action-delete"
+                      data-modal-target="deleteRoleModal"
+                      aria-label="حذف"
+                    >
+                      <i data-lucide="trash-2"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              <!-- Row 7 -->
+              <tr>
+                <td style="padding: 14px 16px; font-size: 12.5px; color: #374151; font-weight: 500">
+                  مشرف عام
+                </td>
+                <td style="padding: 14px 16px; font-size: 12px; color: #6b7280">
+                  هذا النص يمكن أن يستبدل بنص بديل يعبر عن المعنى
+                </td>
+                <td style="padding: 14px 16px; text-align: left">
+                  <div class="roles-action-btns" style="justify-content: flex-end">
+                    <button
+                      type="button"
+                      class="btn-action-edit"
+                      data-modal-target="editRoleModal"
+                      aria-label="تعديل"
+                    >
+                      <i data-lucide="edit"></i>
+                    </button>
+                    <button
+                      type="button"
+                      class="btn-action-delete"
+                      data-modal-target="deleteRoleModal"
+                      aria-label="حذف"
+                    >
+                      <i data-lucide="trash-2"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              <!-- Row 8 -->
+              <tr>
+                <td style="padding: 14px 16px; font-size: 12.5px; color: #374151; font-weight: 500">
+                  مشرف عام
+                </td>
+                <td style="padding: 14px 16px; font-size: 12px; color: #6b7280">
+                  هذا النص يمكن أن يستبدل بنص بديل يعبر عن المعنى
+                </td>
+                <td style="padding: 14px 16px; text-align: left">
+                  <div class="roles-action-btns" style="justify-content: flex-end">
+                    <button
+                      type="button"
+                      class="btn-action-edit"
+                      data-modal-target="editRoleModal"
+                      aria-label="تعديل"
+                    >
+                      <i data-lucide="edit"></i>
+                    </button>
+                    <button
+                      type="button"
+                      class="btn-action-delete"
+                      data-modal-target="deleteRoleModal"
+                      aria-label="حذف"
+                    >
+                      <i data-lucide="trash-2"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              <!-- Row 9 -->
+              <tr>
+                <td style="padding: 14px 16px; font-size: 12.5px; color: #374151; font-weight: 500">
+                  مشرف عام
+                </td>
+                <td style="padding: 14px 16px; font-size: 12px; color: #6b7280">
+                  هذا النص يمكن أن يستبدل بنص بديل يعبر عن المعنى
+                </td>
+                <td style="padding: 14px 16px; text-align: left">
+                  <div class="roles-action-btns" style="justify-content: flex-end">
+                    <button
+                      type="button"
+                      class="btn-action-edit"
+                      data-modal-target="editRoleModal"
+                      aria-label="تعديل"
+                    >
+                      <i data-lucide="edit"></i>
+                    </button>
+                    <button
+                      type="button"
+                      class="btn-action-delete"
+                      data-modal-target="deleteRoleModal"
+                      aria-label="حذف"
+                    >
+                      <i data-lucide="trash-2"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              <!-- Row 10 -->
+              <tr>
+                <td style="padding: 14px 16px; font-size: 12.5px; color: #374151; font-weight: 500">
+                  مشرف عام
+                </td>
+                <td style="padding: 14px 16px; font-size: 12px; color: #6b7280">
+                  هذا النص يمكن أن يستبدل بنص بديل يعبر عن المعنى
+                </td>
+                <td style="padding: 14px 16px; text-align: left">
+                  <div class="roles-action-btns" style="justify-content: flex-end">
+                    <button
+                      type="button"
+                      class="btn-action-edit"
+                      data-modal-target="editRoleModal"
+                      aria-label="تعديل"
+                    >
+                      <i data-lucide="edit"></i>
+                    </button>
+                    <button
+                      type="button"
+                      class="btn-action-delete"
+                      data-modal-target="deleteRoleModal"
+                      aria-label="حذف"
+                    >
+                      <i data-lucide="trash-2"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              <!-- Row 11 -->
+              <tr>
+                <td style="padding: 14px 16px; font-size: 12.5px; color: #374151; font-weight: 500">
+                  مشرف عام
+                </td>
+                <td style="padding: 14px 16px; font-size: 12px; color: #6b7280">
+                  هذا النص يمكن أن يستبدل بنص بديل يعبر عن المعنى
+                </td>
+                <td style="padding: 14px 16px; text-align: left">
+                  <div class="roles-action-btns" style="justify-content: flex-end">
+                    <button
+                      type="button"
+                      class="btn-action-edit"
+                      data-modal-target="editRoleModal"
+                      aria-label="تعديل"
+                    >
+                      <i data-lucide="edit"></i>
+                    </button>
+                    <button
+                      type="button"
+                      class="btn-action-delete"
+                      data-modal-target="deleteRoleModal"
+                      aria-label="حذف"
+                    >
+                      <i data-lucide="trash-2"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              <!-- Row 12 -->
+              <tr>
+                <td style="padding: 14px 16px; font-size: 12.5px; color: #374151; font-weight: 500">
+                  مشرف عام
+                </td>
+                <td style="padding: 14px 16px; font-size: 12px; color: #6b7280">
+                  هذا النص يمكن أن يستبدل بنص بديل يعبر عن المعنى
+                </td>
+                <td style="padding: 14px 16px; text-align: left">
+                  <div class="roles-action-btns" style="justify-content: flex-end">
+                    <button
+                      type="button"
+                      class="btn-action-edit"
+                      data-modal-target="editRoleModal"
+                      aria-label="تعديل"
+                    >
+                      <i data-lucide="edit"></i>
+                    </button>
+                    <button
+                      type="button"
+                      class="btn-action-delete"
+                      data-modal-target="deleteRoleModal"
+                      aria-label="حذف"
+                    >
+                      <i data-lucide="trash-2"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              <!-- Row 13 -->
+              <tr>
+                <td style="padding: 14px 16px; font-size: 12.5px; color: #374151; font-weight: 500">
+                  مشرف عام
+                </td>
+                <td style="padding: 14px 16px; font-size: 12px; color: #6b7280">
+                  هذا النص يمكن أن يستبدل بنص بديل يعبر عن المعنى
+                </td>
+                <td style="padding: 14px 16px; text-align: left">
+                  <div class="roles-action-btns" style="justify-content: flex-end">
+                    <button
+                      type="button"
+                      class="btn-action-edit"
+                      data-modal-target="editRoleModal"
+                      aria-label="تعديل"
+                    >
+                      <i data-lucide="edit"></i>
+                    </button>
+                    <button
+                      type="button"
+                      class="btn-action-delete"
+                      data-modal-target="deleteRoleModal"
+                      aria-label="حذف"
+                    >
+                      <i data-lucide="trash-2"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              <!-- Row 14 -->
+              <tr>
+                <td style="padding: 14px 16px; font-size: 12.5px; color: #374151; font-weight: 500">
+                  مشرف عام
+                </td>
+                <td style="padding: 14px 16px; font-size: 12px; color: #6b7280">
+                  هذا النص يمكن أن يستبدل بنص بديل يعبر عن المعنى
+                </td>
+                <td style="padding: 14px 16px; text-align: left">
+                  <div class="roles-action-btns" style="justify-content: flex-end">
+                    <button
+                      type="button"
+                      class="btn-action-edit"
+                      data-modal-target="editRoleModal"
+                      aria-label="تعديل"
+                    >
+                      <i data-lucide="edit"></i>
+                    </button>
+                    <button
+                      type="button"
+                      class="btn-action-delete"
+                      data-modal-target="deleteRoleModal"
+                      aria-label="حذف"
+                    >
+                      <i data-lucide="trash-2"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              <!-- Row 15 -->
+              <tr>
+                <td style="padding: 14px 16px; font-size: 12.5px; color: #374151; font-weight: 500">
+                  مشرف عام
+                </td>
+                <td style="padding: 14px 16px; font-size: 12px; color: #6b7280">
+                  هذا النص يمكن أن يستبدل بنص بديل يعبر عن المعنى
+                </td>
+                <td style="padding: 14px 16px; text-align: left">
+                  <div class="roles-action-btns" style="justify-content: flex-end">
+                    <button
+                      type="button"
+                      class="btn-action-edit"
+                      data-modal-target="editRoleModal"
+                      aria-label="تعديل"
+                    >
+                      <i data-lucide="edit"></i>
+                    </button>
+                    <button
+                      type="button"
+                      class="btn-action-delete"
+                      data-modal-target="deleteRoleModal"
+                      aria-label="حذف"
+                    >
+                      <i data-lucide="trash-2"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              <!-- Row 16 -->
+              <tr>
+                <td style="padding: 14px 16px; font-size: 12.5px; color: #374151; font-weight: 500">
+                  مشرف عام
+                </td>
+                <td style="padding: 14px 16px; font-size: 12px; color: #6b7280">
+                  هذا النص يمكن أن يستبدل بنص بديل يعبر عن المعنى
+                </td>
+                <td style="padding: 14px 16px; text-align: left">
+                  <div class="roles-action-btns" style="justify-content: flex-end">
+                    <button
+                      type="button"
+                      class="btn-action-edit"
+                      data-modal-target="editRoleModal"
+                      aria-label="تعديل"
+                    >
+                      <i data-lucide="edit"></i>
+                    </button>
+                    <button
+                      type="button"
+                      class="btn-action-delete"
+                      data-modal-target="deleteRoleModal"
+                      aria-label="حذف"
+                    >
+                      <i data-lucide="trash-2"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              <!-- Row 17 -->
+              <tr>
+                <td style="padding: 14px 16px; font-size: 12.5px; color: #374151; font-weight: 500">
+                  مشرف عام
+                </td>
+                <td style="padding: 14px 16px; font-size: 12px; color: #6b7280">
+                  هذا النص يمكن أن يستبدل بنص بديل يعبر عن المعنى
+                </td>
+                <td style="padding: 14px 16px; text-align: left">
+                  <div class="roles-action-btns" style="justify-content: flex-end">
+                    <button
+                      type="button"
+                      class="btn-action-edit"
+                      data-modal-target="editRoleModal"
+                      aria-label="تعديل"
+                    >
+                      <i data-lucide="edit"></i>
+                    </button>
+                    <button
+                      type="button"
+                      class="btn-action-delete"
+                      data-modal-target="deleteRoleModal"
+                      aria-label="حذف"
+                    >
+                      <i data-lucide="trash-2"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              <!-- Row 18 -->
+              <tr>
+                <td style="padding: 14px 16px; font-size: 12.5px; color: #374151; font-weight: 500">
+                  مشرف عام
+                </td>
+                <td style="padding: 14px 16px; font-size: 12px; color: #6b7280">
+                  هذا النص يمكن أن يستبدل بنص بديل يعبر عن المعنى
+                </td>
+                <td style="padding: 14px 16px; text-align: left">
+                  <div class="roles-action-btns" style="justify-content: flex-end">
+                    <button
+                      type="button"
+                      class="btn-action-edit"
+                      data-modal-target="editRoleModal"
+                      aria-label="تعديل"
+                    >
+                      <i data-lucide="edit"></i>
+                    </button>
+                    <button
+                      type="button"
+                      class="btn-action-delete"
+                      data-modal-target="deleteRoleModal"
+                      aria-label="حذف"
+                    >
+                      <i data-lucide="trash-2"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Pagination Footer matching Image 1 -->
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 24px;
+            padding-top: 18px;
+            border-top: 1px solid #f3f4f6;
+            flex-wrap: wrap;
+            gap: 16px;
+          "
+        >
+          <!-- Left in RTL: Page Numbers -->
+          <div class="pagination-controls" style="display: flex; gap: 6px; align-items: center">
+            <button
+              type="button"
+              class="page-btn"
+              style="
+                width: 32px;
+                height: 32px;
+                border-radius: 6px;
+                border: 1px solid #e5e7eb;
+                background: #fff;
+                color: #6b7280;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                text-decoration: none;
+                font-size: 12px;
+              "
+            >
+              &lt;
+            </button>
+            <button
+              type="button"
+              class="page-btn"
+              style="
+                width: 32px;
+                height: 32px;
+                border-radius: 6px;
+                border: 1px solid #e5e7eb;
+                background: #fff;
+                color: #6b7280;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                text-decoration: none;
+                font-size: 12px;
+              "
+            >
+              1
+            </button>
+            <button
+              type="button"
+              class="page-btn active"
+              style="
+                width: 32px;
+                height: 32px;
+                border-radius: 6px;
+                border: 1px solid #eca02f;
+                background: #eca02f;
+                color: #fff;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                text-decoration: none;
+                font-size: 12px;
+                font-weight: 700;
+              "
+            >
+              2
+            </button>
+            <button
+              type="button"
+              class="page-btn"
+              style="
+                width: 32px;
+                height: 32px;
+                border-radius: 6px;
+                border: 1px solid #e5e7eb;
+                background: #fff;
+                color: #6b7280;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                text-decoration: none;
+                font-size: 12px;
+              "
+            >
+              3
+            </button>
+            <button
+              type="button"
+              class="page-btn"
+              style="
+                width: 32px;
+                height: 32px;
+                border-radius: 6px;
+                border: 1px solid #e5e7eb;
+                background: #fff;
+                color: #6b7280;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                text-decoration: none;
+                font-size: 12px;
+              "
+            >
+              4
+            </button>
+            <button
+              type="button"
+              class="page-btn"
+              style="
+                width: 32px;
+                height: 32px;
+                border-radius: 6px;
+                border: 1px solid #e5e7eb;
+                background: #fff;
+                color: #6b7280;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                text-decoration: none;
+                font-size: 12px;
+              "
+            >
+              5
+            </button>
+            <button
+              type="button"
+              class="page-btn"
+              style="
+                width: 32px;
+                height: 32px;
+                border-radius: 6px;
+                border: 1px solid #e5e7eb;
+                background: #fff;
+                color: #6b7280;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                text-decoration: none;
+                font-size: 12px;
+              "
+            >
+              &gt;
+            </button>
+          </div>
+
+          <!-- Right in RTL: Rows Per Page -->
+          <div
+            style="display: flex; align-items: center; gap: 8px; font-size: 12px; color: #6b7280"
+          >
+            <span>حدد عدد صفوف السجلات لكل صفحة</span>
+            <div
+              class="orders-filter-select"
+              style="
+                padding: 4px 10px;
+                border: 1px solid #e5e7eb;
+                border-radius: 6px;
+                background: #fff;
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                cursor: pointer;
+              "
+            >
+              <span>10</span>
+              <i data-lucide="chevron-down"></i>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- MODALS SYSTEM (Matching Image 2, 3, 4) -->
+    -->
+
+    <!-- Delete Confirmation Modal (تأكيد الإجراء - Matching Image 2) -->
+    <div class="modal-overlay" id="deleteRoleModal">
+      <div class="modal-dialog" style="max-width: 480px; text-align: center; border-radius: 14px">
+        <div class="modal-header" style="border-bottom: 1px solid #f3f4f6; padding: 16px 20px">
+          <h3 class="modal-title" style="font-size: 15px; font-weight: 700; color: #111827">
+            تأكيد الإجراء
+          </h3>
+          <button class="modal-close-btn" data-modal-close aria-label="إغلاق">
+            <i data-lucide="x"></i>
+          </button>
+        </div>
+        <div class="modal-body" style="padding: 28px 24px 20px 24px; text-align: center">
+          <!-- Warning Triangle Icon -->
+          <div
+            style="
+              width: 54px;
+              height: 54px;
+              border-radius: 50%;
+              background: #fee2e2;
+              color: #ef4444;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              margin: 0 auto 16px;
+            "
+          >
+            <i data-lucide="alert-triangle"></i>
+          </div>
+          <h3 style="font-size: 16px; font-weight: 700; color: #111827; margin-bottom: 8px">
+            حذف الدور
+          </h3>
+          <p style="font-size: 12.5px; color: #6b7280; line-height: 1.6; margin: 0">
+            هل أنت متأكد من حذف الدور "مشرف عام"؟ لا يمكن التراجع عن هذا الإجراء.
+          </p>
+        </div>
+        <div
+          class="modal-footer"
+          style="justify-content: center; gap: 12px; padding: 0 24px 24px 24px; border-top: none"
+        >
+          <button
+            type="button"
+            class="btn-modal-danger"
+            id="btnConfirmDeleteRole"
+            style="
+              background: #ef4444;
+              color: #fff;
+              border: none;
+              padding: 9px 28px;
+              border-radius: 8px;
+              font-weight: 700;
+              font-size: 13px;
+              cursor: pointer;
+            "
+            data-confirm-delete
+            data-toast-msg="تم حذف الدور بنجاح"
+          >
+            تأكيد
+          </button>
+          <button
+            type="button"
+            class="btn-modal-cancel"
+            data-modal-close
+            style="
+              background: #fff;
+              border: 1px solid #e5e7eb;
+              color: #374151;
+              padding: 9px 28px;
+              border-radius: 8px;
+              font-weight: 600;
+              font-size: 13px;
+              cursor: pointer;
+            "
+          >
+            إلغاء
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add Role Modal (إضافة دور - Matching Image 3) -->
+    -->
+    <div class="modal-overlay" id="addRoleModal">
+      <div class="modal-dialog" style="max-width: 680px; border-radius: 14px">
+        <div class="modal-header" style="border-bottom: 1px solid #f3f4f6; padding: 16px 22px">
+          <h3 class="modal-title" style="font-size: 15px; font-weight: 700; color: #111827">
+            إضافة دور
+          </h3>
+          <button class="modal-close-btn" data-modal-close aria-label="إغلاق">
+            <i data-lucide="x"></i>
+          </button>
+        </div>
+        <form data-form-toast="تمت إضافة الدور بنجاح">
+          <div class="modal-body">
+            <!-- 2-Column Name Inputs (AR / EN) -->
+            -->
+            <div
+              style="
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 14px 18px;
+                margin-bottom: 16px;
+              "
+            >
+              <div class="modal-form-group">
+                <label
+                  class="modal-label"
+                  style="
+                    font-size: 12px;
+                    font-weight: 700;
+                    color: #374151;
+                    margin-bottom: 6px;
+                    display: block;
+                  "
+                  >اسم الدور ( AR )</label
+                >
+                <input
+                  type="text"
+                  class="modal-input"
+                  placeholder="ادخل الاسم"
+                  required
+                  style="
+                    width: 100%;
+                    height: 40px;
+                    padding: 0 12px;
+                    border-radius: 8px;
+                    border: 1px solid #e5e7eb;
+                    font-size: 12.5px;
+                  "
+                />
+              </div>
+              <div class="modal-form-group">
+                <label
+                  class="modal-label"
+                  style="
+                    font-size: 12px;
+                    font-weight: 700;
+                    color: #374151;
+                    margin-bottom: 6px;
+                    display: block;
+                  "
+                  >اسم الدور ( EN )</label
+                >
+                <input
+                  type="text"
+                  class="modal-input"
+                  placeholder="ادخل الاسم"
+                  required
+                  style="
+                    width: 100%;
+                    height: 40px;
+                    padding: 0 12px;
+                    border-radius: 8px;
+                    border: 1px solid #e5e7eb;
+                    font-size: 12.5px;
+                    text-align: right;
+                  "
+                />
+              </div>
+            </div>
+
+            <!-- Section 1: الصلاحيات ( AR ) -->
+            -->
+            <div class="perm-section-title">الصلاحيات ( AR )</div>
+            <div class="perm-checkbox-grid">
+              <label class="perm-checkbox-item"
+                ><input type="checkbox" checked /><span>إضافة فواتير لكل العملاء</span></label
+              >
+              <label class="perm-checkbox-item"
+                ><input type="checkbox" checked /><span>إضافة فواتير لكل العملاء</span></label
+              >
+              <label class="perm-checkbox-item"
+                ><input type="checkbox" /><span>إضافة فواتير لكل العملاء</span></label
+              >
+
+              <label class="perm-checkbox-item"
+                ><input type="checkbox" checked /><span>إضافة فواتير لكل العملاء</span></label
+              >
+              <label class="perm-checkbox-item"
+                ><input type="checkbox" /><span>إضافة فواتير لكل العملاء</span></label
+              >
+              <label class="perm-checkbox-item"
+                ><input type="checkbox" /><span>إضافة فواتير لكل العملاء</span></label
+              >
+
+              <label class="perm-checkbox-item"
+                ><input type="checkbox" /><span>إضافة فواتير لكل العملاء</span></label
+              >
+              <label class="perm-checkbox-item"
+                ><input type="checkbox" /><span>إضافة فواتير لكل العملاء</span></label
+              >
+              <label class="perm-checkbox-item"
+                ><input type="checkbox" checked /><span>إضافة فواتير لكل العملاء</span></label
+              >
+
+              <label class="perm-checkbox-item"
+                ><input type="checkbox" /><span>إضافة فواتير لكل العملاء</span></label
+              >
+              <label class="perm-checkbox-item"
+                ><input type="checkbox" /><span>إضافة فواتير لكل العملاء</span></label
+              >
+              <label class="perm-checkbox-item"
+                ><input type="checkbox" checked /><span>إضافة فواتير لكل العملاء</span></label
+              >
+            </div>
+
+            <!-- Section 2: الصلاحيات ( EN ) -->
+            -->
+            <div class="perm-section-title">الصلاحيات ( EN )</div>
+            <div class="perm-checkbox-grid">
+              <label class="perm-checkbox-item"
+                ><input type="checkbox" /><span>إضافة فواتير لكل العملاء</span></label
+              >
+              <label class="perm-checkbox-item"
+                ><input type="checkbox" checked /><span>إضافة فواتير لكل العملاء</span></label
+              >
+              <label class="perm-checkbox-item"
+                ><input type="checkbox" /><span>إضافة فواتير لكل العملاء</span></label
+              >
+
+              <label class="perm-checkbox-item"
+                ><input type="checkbox" checked /><span>إضافة فواتير لكل العملاء</span></label
+              >
+              <label class="perm-checkbox-item"
+                ><input type="checkbox" /><span>إضافة فواتير لكل العملاء</span></label
+              >
+              <label class="perm-checkbox-item"
+                ><input type="checkbox" /><span>إضافة فواتير لكل العملاء</span></label
+              >
+
+              <label class="perm-checkbox-item"
+                ><input type="checkbox" /><span>إضافة فواتير لكل العملاء</span></label
+              >
+              <label class="perm-checkbox-item"
+                ><input type="checkbox" /><span>إضافة فواتير لكل العملاء</span></label
+              >
+              <label class="perm-checkbox-item"
+                ><input type="checkbox" checked /><span>إضافة فواتير لكل العملاء</span></label
+              >
+
+              <label class="perm-checkbox-item"
+                ><input type="checkbox" /><span>إضافة فواتير لكل العملاء</span></label
+              >
+              <label class="perm-checkbox-item"
+                ><input type="checkbox" /><span>إضافة فواتير لكل العملاء</span></label
+              >
+              <label class="perm-checkbox-item"
+                ><input type="checkbox" checked /><span>إضافة فواتير لكل العملاء</span></label
+              >
+            </div>
+          </div>
+          <div
+            class="modal-footer"
+            style="
+              justify-content: flex-start;
+              gap: 12px;
+              padding: 14px 22px;
+              border-top: 1px solid #f3f4f6;
+            "
+          >
+            <button
+              type="submit"
+              class="btn-modal-primary"
+              style="
+                background: #eca02f;
+                color: #ffffff;
+                border: none;
+                padding: 9px 32px;
+                border-radius: 8px;
+                font-weight: 700;
+                font-size: 13px;
+                cursor: pointer;
+              "
+            >
+              إضافة
+            </button>
+            <button
+              type="button"
+              class="btn-modal-cancel"
+              data-modal-close
+              style="
+                background: #fff;
+                border: 1px solid #e5e7eb;
+                color: #374151;
+                padding: 9px 32px;
+                border-radius: 8px;
+                font-weight: 600;
+                font-size: 13px;
+                cursor: pointer;
+              "
+            >
+              إلغاء
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Edit Role Modal (تعديل دور - Matching Image 4) -->
+    -->
+    <div class="modal-overlay" id="editRoleModal">
+      <div class="modal-dialog" style="max-width: 680px; border-radius: 14px">
+        <div class="modal-header" style="border-bottom: 1px solid #f3f4f6; padding: 16px 22px">
+          <h3 class="modal-title" style="font-size: 15px; font-weight: 700; color: #111827">
+            تعديل دور
+          </h3>
+          <button class="modal-close-btn" data-modal-close aria-label="إغلاق">
+            <i data-lucide="x"></i>
+          </button>
+        </div>
+        <form data-form-toast="تم حفظ التعديلات بنجاح">
+          <div class="modal-body">
+            <!-- 2-Column Name Inputs (AR / EN) -->
+            -->
+            <div
+              style="
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 14px 18px;
+                margin-bottom: 16px;
+              "
+            >
+              <div class="modal-form-group">
+                <label
+                  class="modal-label"
+                  style="
+                    font-size: 12px;
+                    font-weight: 700;
+                    color: #374151;
+                    margin-bottom: 6px;
+                    display: block;
+                  "
+                  >اسم الدور ( AR )</label
+                >
+                <input
+                  type="text"
+                  class="modal-input"
+                  value="مشرف عام"
+                  required
+                  style="
+                    width: 100%;
+                    height: 40px;
+                    padding: 0 12px;
+                    border-radius: 8px;
+                    border: 1px solid #e5e7eb;
+                    font-size: 12.5px;
+                  "
+                />
+              </div>
+              <div class="modal-form-group">
+                <label
+                  class="modal-label"
+                  style="
+                    font-size: 12px;
+                    font-weight: 700;
+                    color: #374151;
+                    margin-bottom: 6px;
+                    display: block;
+                  "
+                  >اسم الدور ( EN )</label
+                >
+                <input
+                  type="text"
+                  class="modal-input"
+                  value="General Supervisor"
+                  required
+                  style="
+                    width: 100%;
+                    height: 40px;
+                    padding: 0 12px;
+                    border-radius: 8px;
+                    border: 1px solid #e5e7eb;
+                    font-size: 12.5px;
+                    text-align: right;
+                  "
+                />
+              </div>
+            </div>
+
+            <!-- Section 1: الصلاحيات ( AR ) -->
+            -->
+            <div class="perm-section-title">الصلاحيات ( AR )</div>
+            <div class="perm-checkbox-grid">
+              <label class="perm-checkbox-item"
+                ><input type="checkbox" checked /><span>إضافة فواتير لكل العملاء</span></label
+              >
+              <label class="perm-checkbox-item"
+                ><input type="checkbox" checked /><span>إضافة فواتير لكل العملاء</span></label
+              >
+              <label class="perm-checkbox-item"
+                ><input type="checkbox" /><span>إضافة فواتير لكل العملاء</span></label
+              >
+
+              <label class="perm-checkbox-item"
+                ><input type="checkbox" checked /><span>إضافة فواتير لكل العملاء</span></label
+              >
+              <label class="perm-checkbox-item"
+                ><input type="checkbox" /><span>إضافة فواتير لكل العملاء</span></label
+              >
+              <label class="perm-checkbox-item"
+                ><input type="checkbox" /><span>إضافة فواتير لكل العملاء</span></label
+              >
+
+              <label class="perm-checkbox-item"
+                ><input type="checkbox" /><span>إضافة فواتير لكل العملاء</span></label
+              >
+              <label class="perm-checkbox-item"
+                ><input type="checkbox" /><span>إضافة فواتير لكل العملاء</span></label
+              >
+              <label class="perm-checkbox-item"
+                ><input type="checkbox" checked /><span>إضافة فواتير لكل العملاء</span></label
+              >
+
+              <label class="perm-checkbox-item"
+                ><input type="checkbox" /><span>إضافة فواتير لكل العملاء</span></label
+              >
+              <label class="perm-checkbox-item"
+                ><input type="checkbox" /><span>إضافة فواتير لكل العملاء</span></label
+              >
+              <label class="perm-checkbox-item"
+                ><input type="checkbox" checked /><span>إضافة فواتير لكل العملاء</span></label
+              >
+            </div>
+
+            <!-- Section 2: الصلاحيات ( EN ) -->
+            -->
+            <div class="perm-section-title">الصلاحيات ( EN )</div>
+            <div class="perm-checkbox-grid">
+              <label class="perm-checkbox-item"
+                ><input type="checkbox" /><span>إضافة فواتير لكل العملاء</span></label
+              >
+              <label class="perm-checkbox-item"
+                ><input type="checkbox" checked /><span>إضافة فواتير لكل العملاء</span></label
+              >
+              <label class="perm-checkbox-item"
+                ><input type="checkbox" /><span>إضافة فواتير لكل العملاء</span></label
+              >
+
+              <label class="perm-checkbox-item"
+                ><input type="checkbox" checked /><span>إضافة فواتير لكل العملاء</span></label
+              >
+              <label class="perm-checkbox-item"
+                ><input type="checkbox" /><span>إضافة فواتير لكل العملاء</span></label
+              >
+              <label class="perm-checkbox-item"
+                ><input type="checkbox" /><span>إضافة فواتير لكل العملاء</span></label
+              >
+
+              <label class="perm-checkbox-item"
+                ><input type="checkbox" /><span>إضافة فواتير لكل العملاء</span></label
+              >
+              <label class="perm-checkbox-item"
+                ><input type="checkbox" /><span>إضافة فواتير لكل العملاء</span></label
+              >
+              <label class="perm-checkbox-item"
+                ><input type="checkbox" checked /><span>إضافة فواتير لكل العملاء</span></label
+              >
+
+              <label class="perm-checkbox-item"
+                ><input type="checkbox" /><span>إضافة فواتير لكل العملاء</span></label
+              >
+              <label class="perm-checkbox-item"
+                ><input type="checkbox" /><span>إضافة فواتير لكل العملاء</span></label
+              >
+              <label class="perm-checkbox-item"
+                ><input type="checkbox" checked /><span>إضافة فواتير لكل العملاء</span></label
+              >
+            </div>
+          </div>
+          <div
+            class="modal-footer"
+            style="
+              justify-content: flex-start;
+              gap: 12px;
+              padding: 14px 22px;
+              border-top: 1px solid #f3f4f6;
+            "
+          >
+            <button
+              type="submit"
+              class="btn-modal-primary"
+              style="
+                background: #eca02f;
+                color: #ffffff;
+                border: none;
+                padding: 9px 32px;
+                border-radius: 8px;
+                font-weight: 700;
+                font-size: 13px;
+                cursor: pointer;
+              "
+            >
+              حفظ
+            </button>
+            <button
+              type="button"
+              class="btn-modal-cancel"
+              data-modal-close
+              style="
+                background: #fff;
+                border: 1px solid #e5e7eb;
+                color: #374151;
+                padding: 9px 32px;
+                border-radius: 8px;
+                font-weight: 600;
+                font-size: 13px;
+                cursor: pointer;
+              "
+            >
+              إلغاء
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Global Modals (Logout & Profile) -->
+    -->
+    <div class="modal-overlay" id="logoutModal">
+      <div class="modal-dialog" style="max-width: 440px; text-align: center">
+        <div class="modal-body" style="padding: 32px 24px 20px 24px; text-align: center">
+          <div class="delete-icon-wrap">
+            <i data-lucide="log-out"></i>
+          </div>
+          <h3 style="font-size: 18px; font-weight: 700; color: #111827; margin-bottom: 8px">
+            تسجيل الخروج
+          </h3>
+          <p style="font-size: 13px; color: #6b7280">
+            هل أنت متأكد من رغبتك في تسجيل الخروج من لوحة تحكم AZ Studio؟
+          </p>
+        </div>
+        <div class="modal-footer" style="justify-content: center; gap: 12px; padding-bottom: 24px">
+          <button type="button" class="btn-modal-cancel" data-modal-close style="min-width: 110px">
+            إلغاء
+          </button>
+          <a
+            href="login.html"
+            class="btn-modal-danger"
+            style="min-width: 130px; text-decoration: none; text-align: center"
+            >تأكيد الخروج</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- View Profile Modal (عرض الملف الشخصي -->
+    -->
+    <div class="modal-overlay" id="viewProfileModal">
+      <div class="modal-dialog" style="max-width: 580px">
+        <div class="modal-header">
+          <h3 class="modal-title">عرض الملف الشخصي</h3>
+          <button class="modal-close-btn" data-modal-close aria-label="إغلاق">
+            <i data-lucide="x"></i>
+          </button>
+        </div>
+
+        <div class="modal-body" style="padding: 20px 24px">
+          <div class="profile-view-box">
+            <!-- Section Bar -->
+            <div class="profile-section-title-bar">
+              <span>بيانات الملف الشخصي</span>
+              <i data-lucide="chevron-up"></i>
+            </div>
+
+            <!-- Studio Image Center Avatar -->
+            <div class="profile-avatar-banner">
+              <img src="./assets/images/Ellipse 3255.png" alt="Profile Picture" />
+            </div>
+
+            <!-- 2-Column Info Grid matching -->
+            <div class="profile-info-two-col">
+              <div class="profile-info-row">
+                <span class="profile-info-label">الاسم :</span>
+                <span class="profile-info-val">محمد السيد</span>
+              </div>
+              <div class="profile-info-row">
+                <span class="profile-info-label">رقم الجوال :</span>
+                <span class="profile-info-val" style="direction: ltr">112345689</span>
+              </div>
+
+              <div class="profile-info-row">
+                <span class="profile-info-label">رقم الهوية :</span>
+                <span class="profile-info-val">10203050</span>
+              </div>
+              <div class="profile-info-row">
+                <span class="profile-info-label">المسمي الوظيفي :</span>
+                <span class="profile-info-val">مسؤال</span>
+              </div>
+
+              <div class="profile-info-row">
+                <span class="profile-info-label">البريد الالكتروني :</span>
+                <span class="profile-info-val" style="direction: ltr">moahme@icloud.com</span>
+              </div>
+              <div class="profile-info-row">
+                <span class="profile-info-label">العنوان :</span>
+                <span class="profile-info-val">الرياض حي العليا</span>
+              </div>
+
+              <div class="profile-info-row">
+                <span class="profile-info-label">الرقم الوظيفي :</span>
+                <span class="profile-info-val">123</span>
+              </div>
+              <div class="profile-info-row">
+                <span class="profile-info-label">الصلاحيات :</span>
+                <span class="profile-info-val"
+                  ><a href="#" style="color: #fdba33; font-weight: 700; text-decoration: none"
+                    >كل الصلاحيات</a
+                  ></span
+                >
+              </div>
+
+              <div class="profile-info-row">
+                <span class="profile-info-label">الرسالة :</span>
+                <span class="profile-info-val">نص بديل</span>
+              </div>
+              <div class="profile-info-row">
+                <span class="profile-info-label">تاريخ التوظيف :</span>
+                <span class="profile-info-val">20/10/2025</span>
+              </div>
+
+              <div class="profile-info-row" style="grid-column: span 2">
+                <span class="profile-info-label">الحالة :</span>
+                <span class="profile-info-val" style="color: #10b981; font-weight: 700"
+                  >حساب فعال</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer" style="justify-content: flex-start; gap: 10px">
+          <button type="button" class="btn-modal-primary" data-modal-target="editProfileModal">
+            تعديل
+          </button>
           <button type="button" class="btn-modal-cancel" data-modal-close>إلغاء</button>
         </div>
-      </form>
+      </div>
     </div>
-  </div>
+
+    <!-- Edit Profile Modal (تعديل الملف الشخصي -->
+    -->
+    <div class="modal-overlay" id="editProfileModal">
+      <div class="modal-dialog" style="max-width: 580px">
+        <div class="modal-header">
+          <h3 class="modal-title">تعديل الملف الشخصي</h3>
+          <button class="modal-close-btn" data-modal-close aria-label="إغلاق">
+            <i data-lucide="x"></i>
+          </button>
+        </div>
+
+        <form id="editProfileForm">
+          <div class="modal-body" style="padding: 20px 24px">
+            <!-- Upload Image Box matching -->
+            <div class="profile-upload-zone">
+              <div class="upload-icon-box">
+                <i data-lucide="image"></i>
+              </div>
+              <button type="button" class="btn-upload-pic">
+                <i data-lucide="download"></i>
+                <span>تحميل الصورة</span>
+              </button>
+              <p class="upload-helper-text">
+                يجب أن يكون حجم الصورة أقل من 5 ميجا بايت<br />ويجب أن تكون بنسبة 1:1
+              </p>
+            </div>
+
+            <!-- Input Fields 2-Columns matching -->
+            <div class="modal-form-row">
+              <div class="modal-form-group">
+                <label class="modal-label">الاسم</label>
+                <input
+                  type="text"
+                  class="modal-input"
+                  placeholder="ادخل الاسم"
+                  value="محمد السيد"
+                />
+              </div>
+              <div class="modal-form-group">
+                <label class="modal-label">البريد الالكتروني</label>
+                <input
+                  type="email"
+                  class="modal-input"
+                  placeholder="ادخل البريد الالكتروني"
+                  value="moahme@icloud.com"
+                />
+              </div>
+            </div>
+
+            <div class="modal-form-row" style="margin-top: 10px">
+              <div class="modal-form-group">
+                <label class="modal-label">رقم الجوال</label>
+                <input type="tel" class="modal-input" placeholder="ادخل الرقم" value="112345689" />
+              </div>
+              <div class="modal-form-group">
+                <label class="modal-label">رقم الهوية</label>
+                <input type="text" class="modal-input" placeholder="ادخل الرقم" value="10203050" />
+              </div>
+            </div>
+
+            <div class="modal-form-row" style="margin-top: 10px">
+              <div class="modal-form-group">
+                <label class="modal-label">المسمي الوظيفي</label>
+                <input
+                  type="text"
+                  class="modal-input"
+                  placeholder="ادخل المسمي الوظيفي"
+                  value="مسؤال"
+                />
+              </div>
+              <div class="modal-form-group">
+                <label class="modal-label">الرقم الوظيفي</label>
+                <input type="text" class="modal-input" placeholder="ادخل الرقم" value="123" />
+              </div>
+            </div>
+
+            <div class="modal-form-group" style="margin-top: 10px">
+              <label class="modal-label">العنوان</label>
+              <input
+                type="text"
+                class="modal-input"
+                placeholder="ادخل العنوان"
+                value="الرياض حي العليا"
+              />
+            </div>
+          </div>
+
+          <div class="modal-footer" style="justify-content: flex-start; gap: 10px">
+            <button type="submit" class="btn-modal-primary">حفظ</button>
+            <button type="button" class="btn-modal-cancel" data-modal-close>إلغاء</button>
+          </div>
+        </form>
+      </div>
+    </div>
 
     <script src="./js/lucide.min.js"></script>
-  <script src="./js/dashboard.js"></script>
-</body>
+    <script src="./js/dashboard.js"></script>
+  </body>
 </html>

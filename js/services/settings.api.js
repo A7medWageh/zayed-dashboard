@@ -2,13 +2,15 @@
  * AZ Studio - Supervisors, Roles & CMS Settings API Services
  */
 
-import { HttpClient } from './http.js';
-import { API_CONFIG } from '../config/api.config.js';
+import { HttpClient } from "./http.js";
+import { API_CONFIG } from "../config/api.config.js";
 
 export const SupervisorsApi = {
   async getSupervisors(params = {}) {
     const query = new URLSearchParams(params).toString();
-    const endpoint = query ? `${API_CONFIG.ENDPOINTS.SUPERVISORS.LIST}?${query}` : API_CONFIG.ENDPOINTS.SUPERVISORS.LIST;
+    const endpoint = query
+      ? `${API_CONFIG.ENDPOINTS.SUPERVISORS.LIST}?${query}`
+      : API_CONFIG.ENDPOINTS.SUPERVISORS.LIST;
     return HttpClient.get(endpoint);
   },
 
@@ -30,13 +32,15 @@ export const SupervisorsApi = {
 
   async deleteSupervisor(id) {
     return HttpClient.delete(API_CONFIG.ENDPOINTS.SUPERVISORS.DELETE(id));
-  }
+  },
 };
 
 export const RolesApi = {
   async getRoles(params = {}) {
     const query = new URLSearchParams(params).toString();
-    const endpoint = query ? `${API_CONFIG.ENDPOINTS.ROLES.LIST}?${query}` : API_CONFIG.ENDPOINTS.ROLES.LIST;
+    const endpoint = query
+      ? `${API_CONFIG.ENDPOINTS.ROLES.LIST}?${query}`
+      : API_CONFIG.ENDPOINTS.ROLES.LIST;
     return HttpClient.get(endpoint);
   },
 
@@ -58,7 +62,7 @@ export const RolesApi = {
 
   async getPermissionsList() {
     return HttpClient.get(API_CONFIG.ENDPOINTS.ROLES.PERMISSIONS);
-  }
+  },
 };
 
 export const SettingsApi = {
@@ -72,7 +76,7 @@ export const SettingsApi = {
 
   async uploadMedia(formData) {
     return HttpClient.post(API_CONFIG.ENDPOINTS.SETTINGS.UPLOAD_MEDIA, formData, {
-      'Content-Type': 'multipart/form-data'
+      "Content-Type": "multipart/form-data",
     });
-  }
+  },
 };

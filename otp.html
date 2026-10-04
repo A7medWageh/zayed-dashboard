@@ -1,60 +1,134 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl" data-theme="light">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AZ Studio - التحقق الثنائي</title>
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./css/tokens.css">
-  <link rel="stylesheet" href="./css/components.css">
-  <link rel="stylesheet" href="./css/auth.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AZ Studio - التحقق الثنائي</title>
 
-  <div class="auth-page-wrapper">
-    <div class="auth-card">
-      <!-- Card Header with Logo -->
-      <div class="auth-card-header">
-        <img src="./assets/az-studio-logo.svg" alt="AZ Studio - Audiovisual Production" width="160" height="45" />
-      </div>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/tokens.css" />
+    <link rel="stylesheet" href="./css/components.css" />
+    <link rel="stylesheet" href="./css/auth.css" />
+  </head>
+  <body>
+    <div class="auth-page-wrapper">
+      <div class="auth-card">
+        <!-- Card Header with Logo -->
+        <div class="auth-card-header">
+          <img
+            src="./assets/az-studio-logo.svg"
+            alt="AZ Studio - Audiovisual Production"
+            width="160"
+            height="45"
+          />
+        </div>
 
-      <!-- Card Body -->
-      <div class="auth-card-body">
-        <h1 class="auth-title">التحقق الثنائي 💬</h1>
-        <p class="auth-subtitle">تم إرسال رمز التحقق المكون من 6 أرقام إلى بريدك الإلكتروني</p>
+        <!-- Card Body -->
+        <div class="auth-card-body">
+          <h1 class="auth-title">التحقق الثنائي 💬</h1>
+          <p class="auth-subtitle">تم إرسال رمز التحقق المكون من 6 أرقام إلى بريدك الإلكتروني</p>
 
-        <form class="auth-form" id="otpForm" novalidate>
-          <!-- 6-digit OTP Inputs -->
-          <div class="otp-container" role="group" aria-label="رمز التحقق">
-            <input type="text" maxlength="1" class="otp-box" inputmode="numeric" pattern="[0-9]*" aria-label="الرقم الأول" autofocus required />
-            <input type="text" maxlength="1" class="otp-box" inputmode="numeric" pattern="[0-9]*" aria-label="الرقم الثاني" required />
-            <input type="text" maxlength="1" class="otp-box" inputmode="numeric" pattern="[0-9]*" aria-label="الرقم الثالث" required />
-            <input type="text" maxlength="1" class="otp-box" inputmode="numeric" pattern="[0-9]*" aria-label="الرقم الرابع" required />
-            <input type="text" maxlength="1" class="otp-box" inputmode="numeric" pattern="[0-9]*" aria-label="الرقم الخامس" required />
-            <input type="text" maxlength="1" class="otp-box" inputmode="numeric" pattern="[0-9]*" aria-label="الرقم السادس" required />
-          </div>
+          <form class="auth-form" id="otpForm" novalidate>
+            <!-- 6-digit OTP Inputs -->
+            <div class="otp-container" role="group" aria-label="رمز التحقق">
+              <input
+                type="text"
+                maxlength="1"
+                class="otp-box"
+                inputmode="numeric"
+                pattern="[0-9]*"
+                aria-label="الرقم الأول"
+                autofocus
+                required
+              />
+              <input
+                type="text"
+                maxlength="1"
+                class="otp-box"
+                inputmode="numeric"
+                pattern="[0-9]*"
+                aria-label="الرقم الثاني"
+                required
+              />
+              <input
+                type="text"
+                maxlength="1"
+                class="otp-box"
+                inputmode="numeric"
+                pattern="[0-9]*"
+                aria-label="الرقم الثالث"
+                required
+              />
+              <input
+                type="text"
+                maxlength="1"
+                class="otp-box"
+                inputmode="numeric"
+                pattern="[0-9]*"
+                aria-label="الرقم الرابع"
+                required
+              />
+              <input
+                type="text"
+                maxlength="1"
+                class="otp-box"
+                inputmode="numeric"
+                pattern="[0-9]*"
+                aria-label="الرقم الخامس"
+                required
+              />
+              <input
+                type="text"
+                maxlength="1"
+                class="otp-box"
+                inputmode="numeric"
+                pattern="[0-9]*"
+                aria-label="الرقم السادس"
+                required
+              />
+            </div>
 
-          <p class="otp-hint">اكتب رمز الأمان الخاص بك المكون من 6 أرقام</p>
+            <p class="otp-hint">اكتب رمز الأمان الخاص بك المكون من 6 أرقام</p>
 
-          <!-- Submit Button -->
-          <button type="submit" class="btn-auth-submit">
-            <span>فعل الحساب</span>
-          </button>
-        </form>
+            <!-- Submit Button -->
+            <button type="submit" class="btn-auth-submit">
+              <span>فعل الحساب</span>
+            </button>
+          </form>
 
-        <p class="otp-resend-row">
-          لم تحصل علي الرمز ؟ <button type="button" id="btnResendOtp" class="btn-resend-link" style="background: none; border: none; color: var(--brand-primary); cursor: pointer; font-family: inherit; font-size: inherit; text-decoration: underline; padding: 0;">إعادة الإرسال</button> أو <a href="contact.html">اتصل بنا</a>
-        </p>
+          <p class="otp-resend-row">
+            لم تحصل علي الرمز ؟
+            <button
+              type="button"
+              id="btnResendOtp"
+              class="btn-resend-link"
+              style="
+                background: none;
+                border: none;
+                color: var(--brand-primary);
+                cursor: pointer;
+                font-family: inherit;
+                font-size: inherit;
+                text-decoration: underline;
+                padding: 0;
+              "
+            >
+              إعادة الإرسال
+            </button>
+            أو <a href="contact.html">اتصل بنا</a>
+          </p>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div id="toastContainer" role="region" aria-live="polite" aria-label="إشعارات النظام"></div>
+    <div id="toastContainer" role="region" aria-live="polite" aria-label="إشعارات النظام"></div>
 
-  <script src="./js/lucide.min.js"></script>
-  <script type="module" src="./js/auth.js"></script>
-</body>
+    <script src="./js/lucide.min.js"></script>
+    <script type="module" src="./js/auth.js"></script>
+  </body>
 </html>

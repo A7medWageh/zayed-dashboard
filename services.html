@@ -1,640 +1,942 @@
-<!DOCTYPE html>
+﻿<!doctype html>
 <html lang="ar" dir="rtl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AZ Studio - إدارة الخدمات</title>
-  
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  
-  <!-- Styles -->
-  <link rel="stylesheet" href="./css/tokens.css">
-  <link rel="stylesheet" href="./css/components.css">
-  <link rel="stylesheet" href="./css/dashboard.css">
-  <link rel="stylesheet" href="./css/responsive.css">
-  <script src="./js/authGuard.js"></script>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AZ Studio - إدارة الخدمات</title>
 
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="./css/tokens.css" />
+    <link rel="stylesheet" href="./css/components.css" />
+    <link rel="stylesheet" href="./css/dashboard.css" />
+    <link rel="stylesheet" href="./css/responsive.css" />
+    <script src="./js/authGuard.js"></script>
+  </head>
+  <body>
     <!-- SIDEBAR -->
-  <aside class="sidebar">
-    <!-- Sidebar Close Button (Mobile) --> -->
-    <button type="button" class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="إغلاق القائمة">
-      <i data-lucide="x"></i>
-    </button>
+    <aside class="sidebar">
+      <!-- Sidebar Close Button (Mobile) -->
+      -->
+      <button
+        type="button"
+        class="sidebar-close-btn"
+        id="sidebarCloseBtn"
+        aria-label="إغلاق القائمة"
+      >
+        <i data-lucide="x"></i>
+      </button>
 
-    <!-- Logo Area -->
-    <div class="sidebar-logo-area">
-      <img src="./assets/az-studio-logo.svg" alt="AZ Studio Logo" />
-    </div>
+      <!-- Logo Area -->
+      <div class="sidebar-logo-area">
+        <img src="./assets/az-studio-logo.svg" alt="AZ Studio Logo" />
+      </div>
 
-    <!-- Menu Navigation -->
-    <nav class="sidebar-menu">
-      <!-- لوحة التحكم -->
-      <a href="index.html" class="sidebar-item ">
-        <div class="sidebar-item-content">
-          <i data-lucide="layout-grid"></i>
-          <span>لوحة التحكم</span>
-        </div>
-      </a>
-
-      <!-- الطلبات -->
-      <div class="sidebar-group ">
-        <button type="button" class="sidebar-item sidebar-accordion-toggle ">
+      <!-- Menu Navigation -->
+      <nav class="sidebar-menu">
+        <!-- لوحة التحكم -->
+        <a href="index.html" class="sidebar-item">
           <div class="sidebar-item-content">
-            <i data-lucide="shopping-bag"></i>
-            <span>الطلبات</span>
+            <i data-lucide="layout-grid"></i>
+            <span>لوحة التحكم</span>
           </div>
-          <i data-lucide="chevron-down" class="sidebar-chevron"></i>
-        </button>
-        <div class="sidebar-submenu">
-          <a href="orders.html" class="sidebar-subitem">طلبات الخدمات</a>
-          <a href="orders.html?tab=quotations" class="sidebar-subitem">طلبات عروض الاسعار</a>
-          <a href="orders.html?tab=packages" class="sidebar-subitem">طلبات الاشتراك في باقة</a>
-        </div>
-      </div>
+        </a>
 
-      <!-- الخدمات -->
-      <a href="services.html" class="sidebar-item active">
-        <div class="sidebar-item-content">
-          <i data-lucide="settings"></i>
-          <span>الخدمات</span>
-        </div>
-      </a>
-
-      <!-- الباقات -->
-      <div class="sidebar-group ">
-        <button type="button" class="sidebar-item sidebar-accordion-toggle ">
-          <div class="sidebar-item-content">
-            <i data-lucide="package"></i>
-            <span>الباقات</span>
-          </div>
-          <i data-lucide="chevron-down" class="sidebar-chevron"></i>
-        </button>
-        <div class="sidebar-submenu">
-          <a href="packages.html?category=social" class="sidebar-subitem">السوشيال ميديا</a>
-          <a href="packages.html?category=studio" class="sidebar-subitem">الاستوديو والإنتاج</a>
-          <a href="packages.html?category=podcast" class="sidebar-subitem">البودكاست</a>
-          <a href="packages.html?category=audio" class="sidebar-subitem">استوديو الصوت</a>
-        </div>
-      </div>
-
-      <!-- المشرفين -->
-      <a href="supervisors.html" class="sidebar-item ">
-        <div class="sidebar-item-content">
-          <i data-lucide="users"></i>
-          <span>المشرفين</span>
-        </div>
-      </a>
-
-      <!-- الأدوار -->
-      <a href="roles.html" class="sidebar-item ">
-        <div class="sidebar-item-content">
-          <i data-lucide="shield"></i>
-          <span>الأدوار</span>
-        </div>
-      </a>
-
-      <!-- تواصل معانا -->
-      <a href="contact.html" class="sidebar-item ">
-        <div class="sidebar-item-content">
-          <i data-lucide="phone"></i>
-          <span>تواصل معانا</span>
-        </div>
-      </a>
-
-      <!-- اعدادات الموقع الالكتروني -->
-      <div class="sidebar-group ">
-        <button type="button" class="sidebar-item sidebar-accordion-toggle ">
-          <div class="sidebar-item-content">
-            <i data-lucide="circle"></i>
-            <span>اعدادات الموقع الالكتروني</span>
-          </div>
-          <i data-lucide="chevron-down" class="sidebar-chevron"></i>
-        </button>
-        <div class="sidebar-submenu">
-          <a href="settings.html?tab=home" class="sidebar-subitem">الصفحة الرئيسية</a>
-          <a href="settings.html?tab=seo" class="sidebar-subitem">قسم SEO</a>
-          <a href="settings.html?tab=about" class="sidebar-subitem">من نحن</a>
-          <a href="settings.html?tab=workflow" class="sidebar-subitem">آلية العمل</a>
-          <a href="settings.html?tab=outputs" class="sidebar-subitem">المخرجات</a>
-          <a href="settings.html?tab=sectors" class="sidebar-subitem">القطاعات</a>
-          <a href="settings.html?tab=faq" class="sidebar-subitem">الأسئلة الشائعة</a>
-          <a href="settings.html?tab=terms" class="sidebar-subitem">شروط الاستخدام</a>
-          <a href="settings.html?tab=privacy" class="sidebar-subitem">سياسة الخصوصية</a>
-          <a href="settings.html?tab=footer" class="sidebar-subitem">الفوتر</a>
-        </div>
-      </div>
-    </nav>
-
-    <!-- Logout Button -->
-    <button type="button" class="sidebar-logout" data-modal-target="logoutModal" style="border: none; cursor: pointer; width: 100%;">
-      <span>تسجيل الخروج</span>
-      <i data-lucide="log-out"></i>
-    </button>
-  </aside>
-
-  <!-- MAIN CONTENT -->
-  <main class="main-content">
-        <!-- Header -->
-    <header class="header-bar">
-      <!-- Right Side: Hamburger Toggle (Mobile) + Welcome Title --> -->
-      <div class="header-right-side">
-        <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="فتح القائمة">
-          <i data-lucide="menu"></i>
-        </button>
-        <div class="header-welcome">
-          <h1>إدارة الخدمات</h1>
-          <p>إضافة وتعديل الخدمات المقدمة</p>
-        </div>
-      </div>
-
-      <!-- Left Side: User Actions (Notifications & Avatar Dropdown) --> -->
-      <div class="header-user-actions">
-        <!-- Theme Toggle (Sun / Moon) --> -->
-        <button type="button" class="theme-toggle-btn" id="themeToggleBtn" title="تبديل الوضع الليلي / النهاري" aria-label="تبديل الوضع">
-          <i data-lucide="sun" class="sun-icon"></i>
-          <i data-lucide="moon" class="moon-icon"></i>
-        </button>
-
-        <!-- Notification Bell -->
-        <div class="notif-bell-btn" id="notifBtn" style="cursor: pointer;">
-          <i data-lucide="bell"></i>
-        </div>
-
-        <!-- User Profile Trigger -->
-        <div class="user-profile-widget" id="userProfileBtn" style="cursor: pointer;">
-          <img class="user-avatar-img" src="./assets/images/Ellipse 3255.png" alt="User Profile" />
-          <div class="user-text-meta">
-            <span class="user-name-text">محمد المعتصم باللة السيد</span>
-            <span class="user-email-text">mohamedmoatasembalbol@icloud.com</span>
-          </div>
-          <i data-lucide="chevron-down" class="user-chevron"></i>
-        </div>
-
-        <!-- Floating Notification Dropdown -->
-        <div class="custom-dropdown-panel" id="notifDropdown">
-          <div style="padding: 12px 16px; border-bottom: 1px solid #EAECF0; font-weight: 700; font-size: 13px; color: #111827; display: flex; justify-content: space-between; align-items: center;">
-            <span>الإشعارات</span>
-            <span style="font-size: 11px; background: #FEF3C7; color: #D97706; padding: 2px 8px; border-radius: 999px; font-weight: 600;">3 جديدة</span>
-          </div>
-          <div style="max-height: 260px; overflow-y: auto;">
-            <a href="orders.html" class="dropdown-item" style="border-bottom: 1px solid #F3F4F6; padding: 10px 14px; display: flex; gap: 10px; align-items: flex-start;">
-              <div style="width: 8px; height: 8px; border-radius: 50%; background: #10B981; margin-top: 6px; flex-shrink: 0;"></div>
-              <div>
-                <div style="font-weight: 600; font-size: 12px; color: #111827;">طلب خدمة جديد #1025</div>
-                <div style="font-size: 11px; color: #6B7280;">قام محمد السيد بطلب انتاج فيديو مؤسسي</div>
-                <div style="font-size: 10px; color: #9CA3AF; margin-top: 2px;">منذ 5 دقائق</div>
-              </div>
-            </a>
-            <a href="orders.html" class="dropdown-item" style="border-bottom: 1px solid #F3F4F6; padding: 10px 14px; display: flex; gap: 10px; align-items: flex-start;">
-              <div style="width: 8px; height: 8px; border-radius: 50%; background: #3B82F6; margin-top: 6px; flex-shrink: 0;"></div>
-              <div>
-                <div style="font-weight: 600; font-size: 12px; color: #111827;">طلب اشتراك باقة جديد #1024</div>
-                <div style="font-size: 11px; color: #6B7280;">قام أحمد علي بطلب باقة السوشيال ميديا</div>
-                <div style="font-size: 10px; color: #9CA3AF; margin-top: 2px;">منذ ساعة</div>
-              </div>
-            </a>
-            <a href="contact.html" class="dropdown-item" style="padding: 10px 14px; display: flex; gap: 10px; align-items: flex-start;">
-              <div style="width: 8px; height: 8px; border-radius: 50%; background: #F59E0B; margin-top: 6px; flex-shrink: 0;"></div>
-              <div>
-                <div style="font-weight: 600; font-size: 12px; color: #111827;">رسالة تواصل جديدة</div>
-                <div style="font-size: 11px; color: #6B7280;">استفسار بخصوص خدمات البودكاست</div>
-                <div style="font-size: 10px; color: #9CA3AF; margin-top: 2px;">منذ 3 ساعات</div>
-              </div>
-            </a>
-          </div>
-          <a href="orders.html" style="display: block; padding: 10px; text-align: center; font-size: 11.5px; color: #D97706; font-weight: 600; text-decoration: none; border-top: 1px solid #EAECF0; background: #FFFDF5;">عرض جميع الطلبات</a>
-        </div>
-
-        <!-- Floating User Dropdown -->
-        <div class="user-dropdown-card" id="userDropdown">
-          <div class="user-dropdown-header">
-            <img class="avatar-thumb" style="object-fit: cover;" src="./assets/images/Ellipse 3255.png" alt="User Profile" />
-            <div class="user-dropdown-meta">
-              <span class="user-dropdown-name">محمد المعتصم باللة السيد</span>
-              <span class="user-dropdown-email">mohamedmoatasembalbol@icloud.com</span>
+        <!-- الطلبات -->
+        <div class="sidebar-group">
+          <button type="button" class="sidebar-item sidebar-accordion-toggle">
+            <div class="sidebar-item-content">
+              <i data-lucide="shopping-bag"></i>
+              <span>الطلبات</span>
             </div>
-          </div>
-          <button type="button" class="user-dropdown-item" data-modal-target="viewProfileModal">
-            <i data-lucide="user"></i>
-            <span>عرض الملف الشخصي</span>
+            <i data-lucide="chevron-down" class="sidebar-chevron"></i>
           </button>
-          <button type="button" class="user-dropdown-item logout-item" data-modal-target="logoutModal">
-            <i data-lucide="log-out"></i>
-            <span>تسجيل الخروج</span>
+          <div class="sidebar-submenu">
+            <a href="orders.html" class="sidebar-subitem">طلبات الخدمات</a>
+            <a href="orders.html?tab=quotations" class="sidebar-subitem">طلبات عروض الاسعار</a>
+            <a href="orders.html?tab=packages" class="sidebar-subitem">طلبات الاشتراك في باقة</a>
+          </div>
+        </div>
+
+        <!-- الخدمات -->
+        <a href="services.html" class="sidebar-item active">
+          <div class="sidebar-item-content">
+            <i data-lucide="settings"></i>
+            <span>الخدمات</span>
+          </div>
+        </a>
+
+        <!-- الباقات -->
+        <div class="sidebar-group">
+          <button type="button" class="sidebar-item sidebar-accordion-toggle">
+            <div class="sidebar-item-content">
+              <i data-lucide="package"></i>
+              <span>الباقات</span>
+            </div>
+            <i data-lucide="chevron-down" class="sidebar-chevron"></i>
+          </button>
+          <div class="sidebar-submenu">
+            <a href="packages.html?category=social" class="sidebar-subitem">السوشيال ميديا</a>
+            <a href="packages.html?category=studio" class="sidebar-subitem">الاستوديو والإنتاج</a>
+            <a href="packages.html?category=podcast" class="sidebar-subitem">البودكاست</a>
+            <a href="packages.html?category=audio" class="sidebar-subitem">استوديو الصوت</a>
+          </div>
+        </div>
+
+        <!-- المشرفين -->
+        <a href="supervisors.html" class="sidebar-item">
+          <div class="sidebar-item-content">
+            <i data-lucide="users"></i>
+            <span>المشرفين</span>
+          </div>
+        </a>
+
+        <!-- الأدوار -->
+        <a href="roles.html" class="sidebar-item">
+          <div class="sidebar-item-content">
+            <i data-lucide="shield"></i>
+            <span>الأدوار</span>
+          </div>
+        </a>
+
+        <!-- تواصل معانا -->
+        <a href="contact.html" class="sidebar-item">
+          <div class="sidebar-item-content">
+            <i data-lucide="phone"></i>
+            <span>تواصل معانا</span>
+          </div>
+        </a>
+
+        <!-- اعدادات الموقع الالكتروني -->
+        <div class="sidebar-group">
+          <button type="button" class="sidebar-item sidebar-accordion-toggle">
+            <div class="sidebar-item-content">
+              <i data-lucide="circle"></i>
+              <span>اعدادات الموقع الالكتروني</span>
+            </div>
+            <i data-lucide="chevron-down" class="sidebar-chevron"></i>
+          </button>
+          <div class="sidebar-submenu">
+            <a href="settings.html?tab=home" class="sidebar-subitem">الصفحة الرئيسية</a>
+            <a href="settings.html?tab=seo" class="sidebar-subitem">قسم SEO</a>
+            <a href="settings.html?tab=about" class="sidebar-subitem">من نحن</a>
+            <a href="settings.html?tab=workflow" class="sidebar-subitem">آلية العمل</a>
+            <a href="settings.html?tab=outputs" class="sidebar-subitem">المخرجات</a>
+            <a href="settings.html?tab=sectors" class="sidebar-subitem">القطاعات</a>
+            <a href="settings.html?tab=faq" class="sidebar-subitem">الأسئلة الشائعة</a>
+            <a href="settings.html?tab=terms" class="sidebar-subitem">شروط الاستخدام</a>
+            <a href="settings.html?tab=privacy" class="sidebar-subitem">سياسة الخصوصية</a>
+            <a href="settings.html?tab=footer" class="sidebar-subitem">الفوتر</a>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Logout Button -->
+      <button
+        type="button"
+        class="sidebar-logout"
+        data-modal-target="logoutModal"
+        style="border: none; cursor: pointer; width: 100%"
+      >
+        <span>تسجيل الخروج</span>
+        <i data-lucide="log-out"></i>
+      </button>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+      <!-- Header -->
+      <header class="header-bar">
+        <!-- Right Side: Hamburger Toggle (Mobile) + Welcome Title -->
+        -->
+        <div class="header-right-side">
+          <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="فتح القائمة">
+            <i data-lucide="menu"></i>
+          </button>
+          <div class="header-welcome">
+            <h1>إدارة الخدمات</h1>
+            <p>إضافة وتعديل الخدمات المقدمة</p>
+          </div>
+        </div>
+
+        <!-- Left Side: User Actions (Notifications & Avatar Dropdown) -->
+        -->
+        <div class="header-user-actions">
+          <!-- Theme Toggle (Sun / Moon) -->
+          -->
+          <button
+            type="button"
+            class="theme-toggle-btn"
+            id="themeToggleBtn"
+            title="تبديل الوضع الليلي / النهاري"
+            aria-label="تبديل الوضع"
+          >
+            <i data-lucide="sun" class="sun-icon"></i>
+            <i data-lucide="moon" class="moon-icon"></i>
+          </button>
+
+          <!-- Notification Bell -->
+          <div class="notif-bell-btn" id="notifBtn" style="cursor: pointer">
+            <i data-lucide="bell"></i>
+          </div>
+
+          <!-- User Profile Trigger -->
+          <div class="user-profile-widget" id="userProfileBtn" style="cursor: pointer">
+            <img
+              class="user-avatar-img"
+              src="./assets/images/Ellipse 3255.png"
+              alt="User Profile"
+            />
+            <div class="user-text-meta">
+              <span class="user-name-text">محمد المعتصم باللة السيد</span>
+              <span class="user-email-text">mohamedmoatasembalbol@icloud.com</span>
+            </div>
+            <i data-lucide="chevron-down" class="user-chevron"></i>
+          </div>
+
+          <!-- Floating Notification Dropdown -->
+          <div class="custom-dropdown-panel" id="notifDropdown">
+            <div
+              style="
+                padding: 12px 16px;
+                border-bottom: 1px solid #eaecf0;
+                font-weight: 700;
+                font-size: 13px;
+                color: #111827;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+              "
+            >
+              <span>الإشعارات</span>
+              <span
+                style="
+                  font-size: 11px;
+                  background: #fef3c7;
+                  color: #d97706;
+                  padding: 2px 8px;
+                  border-radius: 999px;
+                  font-weight: 600;
+                "
+                >3 جديدة</span
+              >
+            </div>
+            <div style="max-height: 260px; overflow-y: auto">
+              <a
+                href="orders.html"
+                class="dropdown-item"
+                style="
+                  border-bottom: 1px solid #f3f4f6;
+                  padding: 10px 14px;
+                  display: flex;
+                  gap: 10px;
+                  align-items: flex-start;
+                "
+              >
+                <div
+                  style="
+                    width: 8px;
+                    height: 8px;
+                    border-radius: 50%;
+                    background: #10b981;
+                    margin-top: 6px;
+                    flex-shrink: 0;
+                  "
+                ></div>
+                <div>
+                  <div style="font-weight: 600; font-size: 12px; color: #111827">
+                    طلب خدمة جديد #1025
+                  </div>
+                  <div style="font-size: 11px; color: #6b7280">
+                    قام محمد السيد بطلب انتاج فيديو مؤسسي
+                  </div>
+                  <div style="font-size: 10px; color: #9ca3af; margin-top: 2px">منذ 5 دقائق</div>
+                </div>
+              </a>
+              <a
+                href="orders.html"
+                class="dropdown-item"
+                style="
+                  border-bottom: 1px solid #f3f4f6;
+                  padding: 10px 14px;
+                  display: flex;
+                  gap: 10px;
+                  align-items: flex-start;
+                "
+              >
+                <div
+                  style="
+                    width: 8px;
+                    height: 8px;
+                    border-radius: 50%;
+                    background: #3b82f6;
+                    margin-top: 6px;
+                    flex-shrink: 0;
+                  "
+                ></div>
+                <div>
+                  <div style="font-weight: 600; font-size: 12px; color: #111827">
+                    طلب اشتراك باقة جديد #1024
+                  </div>
+                  <div style="font-size: 11px; color: #6b7280">
+                    قام أحمد علي بطلب باقة السوشيال ميديا
+                  </div>
+                  <div style="font-size: 10px; color: #9ca3af; margin-top: 2px">منذ ساعة</div>
+                </div>
+              </a>
+              <a
+                href="contact.html"
+                class="dropdown-item"
+                style="padding: 10px 14px; display: flex; gap: 10px; align-items: flex-start"
+              >
+                <div
+                  style="
+                    width: 8px;
+                    height: 8px;
+                    border-radius: 50%;
+                    background: #f59e0b;
+                    margin-top: 6px;
+                    flex-shrink: 0;
+                  "
+                ></div>
+                <div>
+                  <div style="font-weight: 600; font-size: 12px; color: #111827">
+                    رسالة تواصل جديدة
+                  </div>
+                  <div style="font-size: 11px; color: #6b7280">استفسار بخصوص خدمات البودكاست</div>
+                  <div style="font-size: 10px; color: #9ca3af; margin-top: 2px">منذ 3 ساعات</div>
+                </div>
+              </a>
+            </div>
+            <a
+              href="orders.html"
+              style="
+                display: block;
+                padding: 10px;
+                text-align: center;
+                font-size: 11.5px;
+                color: #d97706;
+                font-weight: 600;
+                text-decoration: none;
+                border-top: 1px solid #eaecf0;
+                background: #fffdf5;
+              "
+              >عرض جميع الطلبات</a
+            >
+          </div>
+
+          <!-- Floating User Dropdown -->
+          <div class="user-dropdown-card" id="userDropdown">
+            <div class="user-dropdown-header">
+              <img
+                class="avatar-thumb"
+                style="object-fit: cover"
+                src="./assets/images/Ellipse 3255.png"
+                alt="User Profile"
+              />
+              <div class="user-dropdown-meta">
+                <span class="user-dropdown-name">محمد المعتصم باللة السيد</span>
+                <span class="user-dropdown-email">mohamedmoatasembalbol@icloud.com</span>
+              </div>
+            </div>
+            <button type="button" class="user-dropdown-item" data-modal-target="viewProfileModal">
+              <i data-lucide="user"></i>
+              <span>عرض الملف الشخصي</span>
+            </button>
+            <button
+              type="button"
+              class="user-dropdown-item logout-item"
+              data-modal-target="logoutModal"
+            >
+              <i data-lucide="log-out"></i>
+              <span>تسجيل الخروج</span>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Card Container (White Box matching Image 1 & 3) -->
+      -->
+      <section class="table-card-container" style="padding: 24px">
+        <!-- Title & Actions Bar matching Image 1 & 3 -->
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+            gap: 16px;
+          "
+        >
+          <!-- Right in RTL: Title -->
+          <h2 style="font-size: 16px; font-weight: 700; color: #111827">الخدمات</h2>
+
+          <!-- Left in RTL: Actions (Search, Export, Add) -->
+          -->
+          <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap">
+            <!-- Search Box -->
+            <div class="orders-search-box" style="margin: 0; min-width: 200px">
+              <i data-lucide="search"></i>
+              <input type="text" class="table-search-input" placeholder="البحث" />
+            </div>
+
+            <!-- Export Dropdown -->
+            <div class="export-btn-wrap">
+              <button type="button" class="btn-export" id="exportDropdownBtn">
+                <i data-lucide="download"></i>
+                <span>تصدير</span>
+              </button>
+              <div class="export-dropdown-menu" id="exportMenu">
+                <button type="button" class="export-item" data-export-format="excel">
+                  <i data-lucide="file-text"></i>
+                  <span>تصدير Excel</span>
+                </button>
+                <button type="button" class="export-item" data-export-format="pdf">
+                  <i data-lucide="file-text"></i>
+                  <span>تصدير PDF</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Add Service Button (Golden) -->
+            -->
+            <a
+              href="add-service.html"
+              class="btn-modal-primary"
+              style="
+                text-decoration: none;
+                height: 38px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                gap: 6px;
+                padding: 0 18px;
+                border-radius: 8px;
+                font-weight: 700;
+                font-size: 13px;
+              "
+            >
+              <i data-lucide="plus"></i>
+              <span>إضافة</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Services Table matching Image 1 & 3 -->
+        <div class="table-responsive-box">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th style="width: 50px; text-align: center">صورة</th>
+                <th>الاسم</th>
+                <th>الوصف</th>
+                <th>المميزات</th>
+                <th>الفوائد الرئيسية</th>
+                <th>عملية العمل</th>
+                <th>ما ستحصل عليه</th>
+                <th style="width: 110px; text-align: center">الاجراء</th>
+              </tr>
+            </thead>
+            <tbody id="servicesTableBody">
+              <!-- Dynamically rendered via js/dashboard.js -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Pagination Footer matching Image 1 & 3 -->
+        <div class="table-pagination-footer">
+          <!-- Rows Per Page (Right in RTL) -->
+          -->
+          <div
+            style="display: flex; align-items: center; gap: 8px; font-size: 11.5px; color: #6b7280"
+          >
+            <span>عدد الصفوف لكل صفحة</span>
+            <div class="orders-filter-select" style="padding: 4px 10px">
+              <span>10</span>
+              <i data-lucide="chevron-down"></i>
+            </div>
+          </div>
+
+          <!-- Page Numbers (Left in RTL) -->
+          -->
+          <div class="pagination-controls">
+            <button type="button" class="page-btn">&lt;</button>
+            <button type="button" class="page-btn">1</button>
+            <button type="button" class="page-btn active">2</button>
+            <button type="button" class="page-btn">3</button>
+            <button type="button" class="page-btn">4</button>
+            <button type="button" class="page-btn">5</button>
+            <button type="button" class="page-btn">&gt;</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- MODALS SYSTEM (Matching Image 4 & universal modals) -->
+    -->
+
+    <!-- View Service Modal (عرض الخدمة - Matching Image 4) -->
+    <div class="modal-overlay" id="viewServiceModal">
+      <div class="modal-dialog" style="max-width: 780px">
+        <div class="modal-header">
+          <h3 class="modal-title">عرض الخدمة</h3>
+          <button class="modal-close-btn" data-modal-close aria-label="إغلاق">
+            <i data-lucide="x"></i>
+          </button>
+        </div>
+
+        <div class="modal-body" style="padding: 20px 24px">
+          <div class="profile-view-box">
+            <!-- Section Bar with arrow -->
+            <div class="profile-section-title-bar">
+              <span>بيانات الخدمة</span>
+              <i data-lucide="chevron-down" style="transform: rotate(180deg)"></i>
+            </div>
+
+            <!-- Large Service Media Icon matching Image 4 -->
+            <div class="service-modal-thumb-large">
+              <i data-lucide="film"></i>
+            </div>
+
+            <!-- 2-Column Info Grid matching Image 4 -->
+            <div class="profile-info-two-col" style="gap: 16px 24px">
+              <div class="profile-info-row">
+                <span class="profile-info-label">اسم الخدمة ( AR ) :</span>
+                <span class="profile-info-val">موشن جرافيك</span>
+              </div>
+              <div class="profile-info-row">
+                <span class="profile-info-label">اسم الخدمة ( EN ) :</span>
+                <span class="profile-info-val">موشن جرافيك</span>
+              </div>
+
+              <div class="profile-info-row">
+                <span class="profile-info-label">الوصف ( AR ) :</span>
+                <span class="profile-info-val">هذا النص يمكن ان يستبدل بنص بديل</span>
+              </div>
+              <div class="profile-info-row">
+                <span class="profile-info-label">الوصف ( EN ) :</span>
+                <span class="profile-info-val">هذا النص يمكن ان يستبدل بنص بديل</span>
+              </div>
+
+              <div class="profile-info-row">
+                <span class="profile-info-label">المميزات ( AR ) :</span>
+                <span class="profile-info-val">هذا النص يمكن ان يستبدل بنص بديل</span>
+              </div>
+              <div class="profile-info-row">
+                <span class="profile-info-label">المميزات ( EN ) :</span>
+                <span class="profile-info-val">هذا النص يمكن ان يستبدل بنص بديل</span>
+              </div>
+
+              <div class="profile-info-row">
+                <span class="profile-info-label">الفوائد الرئيسية ( AR ) :</span>
+                <span class="profile-info-val">هذا النص يمكن ان يستبدل بنص بديل</span>
+              </div>
+              <div class="profile-info-row">
+                <span class="profile-info-label">الفوائد الرئيسية ( EN ) :</span>
+                <span class="profile-info-val">هذا النص يمكن ان يستبدل بنص بديل</span>
+              </div>
+
+              <div class="profile-info-row">
+                <span class="profile-info-label">عملية العمل ( AR ) :</span>
+                <span class="profile-info-val">هذا النص يمكن ان يستبدل بنص بديل</span>
+              </div>
+              <div class="profile-info-row">
+                <span class="profile-info-label">عملية العمل ( EN ) :</span>
+                <span class="profile-info-val">هذا النص يمكن ان يستبدل بنص بديل</span>
+              </div>
+
+              <div class="profile-info-row">
+                <span class="profile-info-label">ما ستحصل علية ( AR ) :</span>
+                <span class="profile-info-val">هذا النص يمكن ان يستبدل بنص بديل</span>
+              </div>
+              <div class="profile-info-row">
+                <span class="profile-info-label">ما ستحصل علية ( EN ) :</span>
+                <span class="profile-info-val">هذا النص يمكن ان يستبدل بنص بديل</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="modal-footer"
+          style="display: flex; gap: 12px; padding: 14px 24px 20px 24px; border-top: none"
+        >
+          <a
+            href="edit-service.html"
+            class="btn-modal-primary"
+            style="
+              flex: 1;
+              text-align: center;
+              text-decoration: none;
+              height: 42px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            "
+            >تعديل</a
+          >
+          <button
+            type="button"
+            class="btn-modal-cancel"
+            data-modal-close
+            style="flex: 1; height: 42px"
+          >
+            الغاء
           </button>
         </div>
       </div>
-    </header>
+    </div>
 
-    <!-- Main Card Container (White Box matching Image 1 & 3) --> -->
-    <section class="table-card-container" style="padding: 24px;">
-      <!-- Title & Actions Bar matching Image 1 & 3 -->
-      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; flex-wrap: wrap; gap: 16px;">
-        <!-- Right in RTL: Title -->
-        <h2 style="font-size: 16px; font-weight: 700; color: #111827;">الخدمات</h2>
-        
-        <!-- Left in RTL: Actions (Search, Export, Add) --> -->
-        <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
-          <!-- Search Box -->
-          <div class="orders-search-box" style="margin: 0; min-width: 200px;">
-            <i data-lucide="search"></i>
-            <input type="text" class="table-search-input" placeholder="البحث">
+    <!-- Delete Confirmation Modal (Matching Image: تاكيد الاجراء) -->
+    -->
+    <div class="modal-overlay" id="deleteModal">
+      <div class="modal-dialog" style="max-width: 440px; text-align: center">
+        <div class="modal-header">
+          <h3 class="modal-title">تاكيد الاجراء</h3>
+          <button class="modal-close-btn" data-modal-close aria-label="إغلاق">
+            <i data-lucide="x"></i>
+          </button>
+        </div>
+        <div class="modal-body" style="padding: 24px 24px 28px 24px; text-align: center">
+          <!-- Header Row with Title and Warning Icon badge -->
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              gap: 10px;
+              margin-bottom: 14px;
+            "
+          >
+            <h3 style="font-size: 16px; font-weight: 700; color: #111827; margin: 0">حذف الخدمة</h3>
+            <div
+              style="
+                width: 36px;
+                height: 36px;
+                border-radius: 8px;
+                background: #fef2f2;
+                color: #ef4444;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+              "
+            >
+              <i data-lucide="alert-triangle"></i>
+            </div>
           </div>
 
-          <!-- Export Dropdown -->
-          <div class="export-btn-wrap">
-            <button type="button" class="btn-export" id="exportDropdownBtn">
-              <i data-lucide="download"></i>
-              <span>تصدير</span>
+          <!-- Warning Subtitle Message -->
+          <p style="font-size: 13px; color: #6b7280; line-height: 1.6; margin-bottom: 24px">
+            هل أنت متأكد من حذف خدمة "بودكاست"؟ لا يمكن التراجع عن هذا الإجراء.
+          </p>
+
+          <!-- Action Buttons (Right: الغاء, Left: تاكيد in RTL) -->
+          -->
+          <div
+            style="
+              display: flex;
+              gap: 12px;
+              justify-content: center;
+              max-width: 260px;
+              margin: 0 auto;
+            "
+          >
+            <button
+              type="button"
+              class="btn-modal-cancel"
+              data-modal-close
+              style="flex: 1; height: 40px; border-radius: 8px; font-weight: 600; font-size: 13px"
+            >
+              الغاء
             </button>
-            <div class="export-dropdown-menu" id="exportMenu">
-              <button type="button" class="export-item" onclick="showToast('جاري تصدير ملف Excel...', 'success')">
-                <i data-lucide="file-text"></i>
-                <span>تصدير Excel</span>
-              </button>
-              <button type="button" class="export-item" onclick="showToast('جاري تصدير ملف PDF...', 'success')">
-                <i data-lucide="file-text"></i>
-                <span>تصدير PDF</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- Add Service Button (Golden) --> -->
-          <a href="add-service.html" class="btn-modal-primary" style="text-decoration: none; height: 38px; display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 0 18px; border-radius: 8px; font-weight: 700; font-size: 13px;">
-            <i data-lucide="plus"></i>
-            <span>إضافة</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- Services Table matching Image 1 & 3 -->
-      <div class="table-responsive-box">
-        <table class="admin-table">
-          <thead>
-            <tr>
-              <th style="width: 50px; text-align: center;">صورة</th>
-              <th>الاسم</th>
-              <th>الوصف</th>
-              <th>المميزات</th>
-              <th>الفوائد الرئيسية</th>
-              <th>عملية العمل</th>
-              <th>ما ستحصل عليه</th>
-              <th style="width: 110px; text-align: center;">الاجراء</th>
-            </tr>
-          </thead>
-          <tbody id="servicesTableBody">
-            <!-- Dynamically rendered via js/dashboard.js -->
-          </tbody>
-        </table>
-      </div>
-
-      <!-- Pagination Footer matching Image 1 & 3 -->
-      <div class="table-pagination-footer">
-        <!-- Rows Per Page (Right in RTL) --> -->
-        <div style="display: flex; align-items: center; gap: 8px; font-size: 11.5px; color: #6B7280;">
-          <span>عدد الصفوف لكل صفحة</span>
-          <div class="orders-filter-select" style="padding: 4px 10px;">
-            <span>10</span>
-            <i data-lucide="chevron-down"></i>
-          </div>
-        </div>
-
-        <!-- Page Numbers (Left in RTL) --> -->
-        <div class="pagination-controls">
-          <a href="#" class="page-btn">&lt;</a>
-          <a href="#" class="page-btn">1</a>
-          <a href="#" class="page-btn active">2</a>
-          <a href="#" class="page-btn">3</a>
-          <a href="#" class="page-btn">4</a>
-          <a href="#" class="page-btn">5</a>
-          <a href="#" class="page-btn">&gt;</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- MODALS SYSTEM (Matching Image 4 & universal modals) --> -->
-
-  <!-- View Service Modal (عرض الخدمة - Matching Image 4) -->
-  <div class="modal-overlay" id="viewServiceModal">
-    <div class="modal-dialog" style="max-width: 780px;">
-      <div class="modal-header">
-        <h3 class="modal-title">عرض الخدمة</h3>
-        <button class="modal-close-btn" data-modal-close aria-label="إغلاق">
-          <i data-lucide="x"></i>
-        </button>
-      </div>
-
-      <div class="modal-body" style="padding: 20px 24px;">
-        <div class="profile-view-box">
-          <!-- Section Bar with arrow -->
-          <div class="profile-section-title-bar">
-            <span>بيانات الخدمة</span>
-            <i data-lucide="chevron-down" style="transform: rotate(180deg);"></i>
-          </div>
-
-          <!-- Large Service Media Icon matching Image 4 -->
-          <div class="service-modal-thumb-large">
-            <i data-lucide="film"></i>
-          </div>
-
-          <!-- 2-Column Info Grid matching Image 4 -->
-          <div class="profile-info-two-col" style="gap: 16px 24px;">
-            <div class="profile-info-row">
-              <span class="profile-info-label">اسم الخدمة ( AR ) :</span>
-              <span class="profile-info-val">موشن جرافيك</span>
-            </div>
-            <div class="profile-info-row">
-              <span class="profile-info-label">اسم الخدمة ( EN ) :</span>
-              <span class="profile-info-val">موشن جرافيك</span>
-            </div>
-
-            <div class="profile-info-row">
-              <span class="profile-info-label">الوصف ( AR ) :</span>
-              <span class="profile-info-val">هذا النص يمكن ان يستبدل بنص بديل</span>
-            </div>
-            <div class="profile-info-row">
-              <span class="profile-info-label">الوصف ( EN ) :</span>
-              <span class="profile-info-val">هذا النص يمكن ان يستبدل بنص بديل</span>
-            </div>
-
-            <div class="profile-info-row">
-              <span class="profile-info-label">المميزات ( AR ) :</span>
-              <span class="profile-info-val">هذا النص يمكن ان يستبدل بنص بديل</span>
-            </div>
-            <div class="profile-info-row">
-              <span class="profile-info-label">المميزات ( EN ) :</span>
-              <span class="profile-info-val">هذا النص يمكن ان يستبدل بنص بديل</span>
-            </div>
-
-            <div class="profile-info-row">
-              <span class="profile-info-label">الفوائد الرئيسية ( AR ) :</span>
-              <span class="profile-info-val">هذا النص يمكن ان يستبدل بنص بديل</span>
-            </div>
-            <div class="profile-info-row">
-              <span class="profile-info-label">الفوائد الرئيسية ( EN ) :</span>
-              <span class="profile-info-val">هذا النص يمكن ان يستبدل بنص بديل</span>
-            </div>
-
-            <div class="profile-info-row">
-              <span class="profile-info-label">عملية العمل ( AR ) :</span>
-              <span class="profile-info-val">هذا النص يمكن ان يستبدل بنص بديل</span>
-            </div>
-            <div class="profile-info-row">
-              <span class="profile-info-label">عملية العمل ( EN ) :</span>
-              <span class="profile-info-val">هذا النص يمكن ان يستبدل بنص بديل</span>
-            </div>
-
-            <div class="profile-info-row">
-              <span class="profile-info-label">ما ستحصل علية ( AR ) :</span>
-              <span class="profile-info-val">هذا النص يمكن ان يستبدل بنص بديل</span>
-            </div>
-            <div class="profile-info-row">
-              <span class="profile-info-label">ما ستحصل علية ( EN ) :</span>
-              <span class="profile-info-val">هذا النص يمكن ان يستبدل بنص بديل</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="modal-footer" style="display: flex; gap: 12px; padding: 14px 24px 20px 24px; border-top: none;">
-        <a href="edit-service.html" class="btn-modal-primary" style="flex: 1; text-align: center; text-decoration: none; height: 42px; display: flex; align-items: center; justify-content: center;">تعديل</a>
-        <button type="button" class="btn-modal-cancel" data-modal-close style="flex: 1; height: 42px;">الغاء</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Delete Confirmation Modal (Matching Image: تاكيد الاجراء) --> -->
-  <div class="modal-overlay" id="deleteModal">
-    <div class="modal-dialog" style="max-width: 440px; text-align: center;">
-      <div class="modal-header">
-        <h3 class="modal-title">تاكيد الاجراء</h3>
-        <button class="modal-close-btn" data-modal-close aria-label="إغلاق">
-          <i data-lucide="x"></i>
-        </button>
-      </div>
-      <div class="modal-body" style="padding: 24px 24px 28px 24px; text-align: center;">
-        <!-- Header Row with Title and Warning Icon badge -->
-        <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 14px;">
-          <h3 style="font-size: 16px; font-weight: 700; color: #111827; margin: 0;">حذف الخدمة</h3>
-          <div style="width: 36px; height: 36px; border-radius: 8px; background: #FEF2F2; color: #EF4444; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-            <i data-lucide="alert-triangle"></i>
-          </div>
-        </div>
-
-        <!-- Warning Subtitle Message -->
-        <p style="font-size: 13px; color: #6B7280; line-height: 1.6; margin-bottom: 24px;">هل أنت متأكد من حذف خدمة "بودكاست"؟ لا يمكن التراجع عن هذا الإجراء.</p>
-
-        <!-- Action Buttons (Right: الغاء, Left: تاكيد in RTL) --> -->
-        <div style="display: flex; gap: 12px; justify-content: center; max-width: 260px; margin: 0 auto;">
-          <button type="button" class="btn-modal-cancel" data-modal-close style="flex: 1; height: 40px; border-radius: 8px; font-weight: 600; font-size: 13px;">الغاء</button>
-          <button type="button" class="btn-modal-primary" style="background: #EF4444; color: #FFFFFF; flex: 1; height: 40px; border-radius: 8px; font-weight: 600; font-size: 13px; border: none; cursor: pointer;" onclick="showToast('تم حذف الخدمة بنجاح', 'success'); closeModal();">تاكيد</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- View Profile Modal (عرض الملف الشخصي --> -->
-  <div class="modal-overlay" id="viewProfileModal">
-    <div class="modal-dialog" style="max-width: 580px;">
-      <div class="modal-header">
-        <h3 class="modal-title">عرض الملف الشخصي</h3>
-        <button class="modal-close-btn" data-modal-close aria-label="إغلاق">
-          <i data-lucide="x"></i>
-        </button>
-      </div>
-
-      <div class="modal-body" style="padding: 20px 24px;">
-        <div class="profile-view-box">
-          <!-- Section Bar -->
-          <div class="profile-section-title-bar">
-            <span>بيانات الملف الشخصي</span>
-            <i data-lucide="chevron-up"></i>
-          </div>
-
-          <!-- Studio Image Center Avatar -->
-          <div class="profile-avatar-banner">
-            <img src="./assets/images/Ellipse 3255.png" alt="Profile Picture" />
-          </div>
-
-          <!-- 2-Column Info Grid matching -->
-          <div class="profile-info-two-col">
-            <div class="profile-info-row">
-              <span class="profile-info-label">الاسم :</span>
-              <span class="profile-info-val">محمد السيد</span>
-            </div>
-            <div class="profile-info-row">
-              <span class="profile-info-label">رقم الجوال :</span>
-              <span class="profile-info-val" style="direction: ltr;">112345689</span>
-            </div>
-
-            <div class="profile-info-row">
-              <span class="profile-info-label">رقم الهوية :</span>
-              <span class="profile-info-val">10203050</span>
-            </div>
-            <div class="profile-info-row">
-              <span class="profile-info-label">المسمي الوظيفي :</span>
-              <span class="profile-info-val">مسؤال</span>
-            </div>
-
-            <div class="profile-info-row">
-              <span class="profile-info-label">البريد الالكتروني :</span>
-              <span class="profile-info-val" style="direction: ltr;">moahme@icloud.com</span>
-            </div>
-            <div class="profile-info-row">
-              <span class="profile-info-label">العنوان :</span>
-              <span class="profile-info-val">الرياض حي العليا</span>
-            </div>
-
-            <div class="profile-info-row">
-              <span class="profile-info-label">الرقم الوظيفي :</span>
-              <span class="profile-info-val">123</span>
-            </div>
-            <div class="profile-info-row">
-              <span class="profile-info-label">الصلاحيات :</span>
-              <span class="profile-info-val"><a href="#" style="color: #FDBA33; font-weight: 700; text-decoration: none;">كل الصلاحيات</a></span>
-            </div>
-
-            <div class="profile-info-row">
-              <span class="profile-info-label">الرسالة :</span>
-              <span class="profile-info-val">نص بديل</span>
-            </div>
-            <div class="profile-info-row">
-              <span class="profile-info-label">تاريخ التوظيف :</span>
-              <span class="profile-info-val">20/10/2025</span>
-            </div>
-
-            <div class="profile-info-row" style="grid-column: span 2;">
-              <span class="profile-info-label">الحالة :</span>
-              <span class="profile-info-val" style="color: #10B981; font-weight: 700;">حساب فعال</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="modal-footer" style="justify-content: flex-start; gap: 10px;">
-        <button type="button" class="btn-modal-primary" data-modal-target="editProfileModal">تعديل</button>
-        <button type="button" class="btn-modal-cancel" data-modal-close>إلغاء</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Edit Profile Modal (تعديل الملف الشخصي --> -->
-  <div class="modal-overlay" id="editProfileModal">
-    <div class="modal-dialog" style="max-width: 580px;">
-      <div class="modal-header">
-        <h3 class="modal-title">تعديل الملف الشخصي</h3>
-        <button class="modal-close-btn" data-modal-close aria-label="إغلاق">
-          <i data-lucide="x"></i>
-        </button>
-      </div>
-
-      <form id="editProfileForm">
-        <div class="modal-body" style="padding: 20px 24px;">
-          <!-- Upload Image Box matching -->
-          <div class="profile-upload-zone">
-            <div class="upload-icon-box">
-              <i data-lucide="image"></i>
-            </div>
-            <button type="button" class="btn-upload-pic">
-              <i data-lucide="download"></i>
-              <span>تحميل الصورة</span>
+            <button
+              type="button"
+              class="btn-modal-primary"
+              style="
+                background: #ef4444;
+                color: #ffffff;
+                flex: 1;
+                height: 40px;
+                border-radius: 8px;
+                font-weight: 600;
+                font-size: 13px;
+                border: none;
+                cursor: pointer;
+              "
+              data-confirm-delete
+              data-toast-msg="تم حذف الخدمة بنجاح"
+            >
+              تاكيد
             </button>
-            <p class="upload-helper-text">يجب أن يكون حجم الصورة أقل من 5 ميجا بايت<br>ويجب أن تكون بنسبة 1:1</p>
           </div>
+        </div>
+      </div>
+    </div>
 
-          <!-- Input Fields 2-Columns matching -->
-          <div class="modal-form-row">
-            <div class="modal-form-group">
-              <label class="modal-label">الاسم</label>
-              <input type="text" class="modal-input" placeholder="ادخل الاسم" value="محمد السيد">
-            </div>
-            <div class="modal-form-group">
-              <label class="modal-label">البريد الالكتروني</label>
-              <input type="email" class="modal-input" placeholder="ادخل البريد الالكتروني" value="moahme@icloud.com">
-            </div>
-          </div>
+    <!-- View Profile Modal (عرض الملف الشخصي -->
+    -->
+    <div class="modal-overlay" id="viewProfileModal">
+      <div class="modal-dialog" style="max-width: 580px">
+        <div class="modal-header">
+          <h3 class="modal-title">عرض الملف الشخصي</h3>
+          <button class="modal-close-btn" data-modal-close aria-label="إغلاق">
+            <i data-lucide="x"></i>
+          </button>
+        </div>
 
-          <div class="modal-form-row" style="margin-top: 10px;">
-            <div class="modal-form-group">
-              <label class="modal-label">رقم الجوال</label>
-              <input type="tel" class="modal-input" placeholder="ادخل الرقم" value="112345689">
+        <div class="modal-body" style="padding: 20px 24px">
+          <div class="profile-view-box">
+            <!-- Section Bar -->
+            <div class="profile-section-title-bar">
+              <span>بيانات الملف الشخصي</span>
+              <i data-lucide="chevron-up"></i>
             </div>
-            <div class="modal-form-group">
-              <label class="modal-label">رقم الهوية</label>
-              <input type="text" class="modal-input" placeholder="ادخل الرقم" value="10203050">
-            </div>
-          </div>
 
-          <div class="modal-form-row" style="margin-top: 10px;">
-            <div class="modal-form-group">
-              <label class="modal-label">المسمي الوظيفي</label>
-              <input type="text" class="modal-input" placeholder="ادخل المسمي الوظيفي" value="مسؤال">
+            <!-- Studio Image Center Avatar -->
+            <div class="profile-avatar-banner">
+              <img src="./assets/images/Ellipse 3255.png" alt="Profile Picture" />
             </div>
-            <div class="modal-form-group">
-              <label class="modal-label">الرقم الوظيفي</label>
-              <input type="text" class="modal-input" placeholder="ادخل الرقم" value="123">
-            </div>
-          </div>
 
-          <div class="modal-form-group" style="margin-top: 10px;">
-            <label class="modal-label">العنوان</label>
-            <input type="text" class="modal-input" placeholder="ادخل العنوان" value="الرياض حي العليا">
+            <!-- 2-Column Info Grid matching -->
+            <div class="profile-info-two-col">
+              <div class="profile-info-row">
+                <span class="profile-info-label">الاسم :</span>
+                <span class="profile-info-val">محمد السيد</span>
+              </div>
+              <div class="profile-info-row">
+                <span class="profile-info-label">رقم الجوال :</span>
+                <span class="profile-info-val" style="direction: ltr">112345689</span>
+              </div>
+
+              <div class="profile-info-row">
+                <span class="profile-info-label">رقم الهوية :</span>
+                <span class="profile-info-val">10203050</span>
+              </div>
+              <div class="profile-info-row">
+                <span class="profile-info-label">المسمي الوظيفي :</span>
+                <span class="profile-info-val">مسؤال</span>
+              </div>
+
+              <div class="profile-info-row">
+                <span class="profile-info-label">البريد الالكتروني :</span>
+                <span class="profile-info-val" style="direction: ltr">moahme@icloud.com</span>
+              </div>
+              <div class="profile-info-row">
+                <span class="profile-info-label">العنوان :</span>
+                <span class="profile-info-val">الرياض حي العليا</span>
+              </div>
+
+              <div class="profile-info-row">
+                <span class="profile-info-label">الرقم الوظيفي :</span>
+                <span class="profile-info-val">123</span>
+              </div>
+              <div class="profile-info-row">
+                <span class="profile-info-label">الصلاحيات :</span>
+                <span class="profile-info-val"
+                  ><a href="#" style="color: #fdba33; font-weight: 700; text-decoration: none"
+                    >كل الصلاحيات</a
+                  ></span
+                >
+              </div>
+
+              <div class="profile-info-row">
+                <span class="profile-info-label">الرسالة :</span>
+                <span class="profile-info-val">نص بديل</span>
+              </div>
+              <div class="profile-info-row">
+                <span class="profile-info-label">تاريخ التوظيف :</span>
+                <span class="profile-info-val">20/10/2025</span>
+              </div>
+
+              <div class="profile-info-row" style="grid-column: span 2">
+                <span class="profile-info-label">الحالة :</span>
+                <span class="profile-info-val" style="color: #10b981; font-weight: 700"
+                  >حساب فعال</span
+                >
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="modal-footer" style="justify-content: flex-start; gap: 10px;">
-          <button type="submit" class="btn-modal-primary">حفظ</button>
+        <div class="modal-footer" style="justify-content: flex-start; gap: 10px">
+          <button type="button" class="btn-modal-primary" data-modal-target="editProfileModal">
+            تعديل
+          </button>
           <button type="button" class="btn-modal-cancel" data-modal-close>إلغاء</button>
         </div>
-      </form>
-    </div>
-  </div>
-
-  <!-- Logout Modal -->
-  <div class="modal-overlay" id="logoutModal">
-    <div class="modal-dialog" style="max-width: 420px; text-align: center;">
-      <div class="modal-header">
-        <h3 class="modal-title">تسجيل الخروج</h3>
-        <button class="modal-close-btn" data-modal-close aria-label="إغلاق">
-          <i data-lucide="x"></i>
-        </button>
       </div>
-      <div class="modal-body" style="padding: 28px 24px 20px 24px; text-align: center;">
-        <div class="logout-icon-gold-circle">
-          <i data-lucide="log-out"></i>
+    </div>
+
+    <!-- Edit Profile Modal (تعديل الملف الشخصي -->
+    -->
+    <div class="modal-overlay" id="editProfileModal">
+      <div class="modal-dialog" style="max-width: 580px">
+        <div class="modal-header">
+          <h3 class="modal-title">تعديل الملف الشخصي</h3>
+          <button class="modal-close-btn" data-modal-close aria-label="إغلاق">
+            <i data-lucide="x"></i>
+          </button>
         </div>
-        <h3 style="font-size: 16px; font-weight: 700; color: #111827; margin-bottom: 6px;">تسجيل الخروج</h3>
-        <p style="font-size: 12.5px; color: #6B7280; line-height: 1.5;">هل أنت متأكد أنك تريد تسجيل الخروج من حسابك؟</p>
-      </div>
-      <div class="modal-footer" style="display: flex; gap: 10px; padding: 14px 24px 20px 24px; border-top: none;">
-        <a href="login.html" class="btn-modal-primary" style="flex: 1; text-align: center; text-decoration: none; height: 42px; display: flex; align-items: center; justify-content: center;">تأكيد</a>
-        <button type="button" class="btn-modal-cancel" data-modal-close style="flex: 1; height: 42px;">إلغاء</button>
+
+        <form id="editProfileForm">
+          <div class="modal-body" style="padding: 20px 24px">
+            <!-- Upload Image Box matching -->
+            <div class="profile-upload-zone">
+              <div class="upload-icon-box">
+                <i data-lucide="image"></i>
+              </div>
+              <button type="button" class="btn-upload-pic">
+                <i data-lucide="download"></i>
+                <span>تحميل الصورة</span>
+              </button>
+              <p class="upload-helper-text">
+                يجب أن يكون حجم الصورة أقل من 5 ميجا بايت<br />ويجب أن تكون بنسبة 1:1
+              </p>
+            </div>
+
+            <!-- Input Fields 2-Columns matching -->
+            <div class="modal-form-row">
+              <div class="modal-form-group">
+                <label class="modal-label">الاسم</label>
+                <input
+                  type="text"
+                  class="modal-input"
+                  placeholder="ادخل الاسم"
+                  value="محمد السيد"
+                />
+              </div>
+              <div class="modal-form-group">
+                <label class="modal-label">البريد الالكتروني</label>
+                <input
+                  type="email"
+                  class="modal-input"
+                  placeholder="ادخل البريد الالكتروني"
+                  value="moahme@icloud.com"
+                />
+              </div>
+            </div>
+
+            <div class="modal-form-row" style="margin-top: 10px">
+              <div class="modal-form-group">
+                <label class="modal-label">رقم الجوال</label>
+                <input type="tel" class="modal-input" placeholder="ادخل الرقم" value="112345689" />
+              </div>
+              <div class="modal-form-group">
+                <label class="modal-label">رقم الهوية</label>
+                <input type="text" class="modal-input" placeholder="ادخل الرقم" value="10203050" />
+              </div>
+            </div>
+
+            <div class="modal-form-row" style="margin-top: 10px">
+              <div class="modal-form-group">
+                <label class="modal-label">المسمي الوظيفي</label>
+                <input
+                  type="text"
+                  class="modal-input"
+                  placeholder="ادخل المسمي الوظيفي"
+                  value="مسؤال"
+                />
+              </div>
+              <div class="modal-form-group">
+                <label class="modal-label">الرقم الوظيفي</label>
+                <input type="text" class="modal-input" placeholder="ادخل الرقم" value="123" />
+              </div>
+            </div>
+
+            <div class="modal-form-group" style="margin-top: 10px">
+              <label class="modal-label">العنوان</label>
+              <input
+                type="text"
+                class="modal-input"
+                placeholder="ادخل العنوان"
+                value="الرياض حي العليا"
+              />
+            </div>
+          </div>
+
+          <div class="modal-footer" style="justify-content: flex-start; gap: 10px">
+            <button type="submit" class="btn-modal-primary">حفظ</button>
+            <button type="button" class="btn-modal-cancel" data-modal-close>إلغاء</button>
+          </div>
+        </form>
       </div>
     </div>
-  </div>
 
-  <!-- JavaScript -->
+    <!-- Logout Modal -->
+    <div class="modal-overlay" id="logoutModal">
+      <div class="modal-dialog" style="max-width: 420px; text-align: center">
+        <div class="modal-header">
+          <h3 class="modal-title">تسجيل الخروج</h3>
+          <button class="modal-close-btn" data-modal-close aria-label="إغلاق">
+            <i data-lucide="x"></i>
+          </button>
+        </div>
+        <div class="modal-body" style="padding: 28px 24px 20px 24px; text-align: center">
+          <div class="logout-icon-gold-circle">
+            <i data-lucide="log-out"></i>
+          </div>
+          <h3 style="font-size: 16px; font-weight: 700; color: #111827; margin-bottom: 6px">
+            تسجيل الخروج
+          </h3>
+          <p style="font-size: 12.5px; color: #6b7280; line-height: 1.5">
+            هل أنت متأكد أنك تريد تسجيل الخروج من حسابك؟
+          </p>
+        </div>
+        <div
+          class="modal-footer"
+          style="display: flex; gap: 10px; padding: 14px 24px 20px 24px; border-top: none"
+        >
+          <a
+            href="login.html"
+            class="btn-modal-primary"
+            style="
+              flex: 1;
+              text-align: center;
+              text-decoration: none;
+              height: 42px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            "
+            >تأكيد</a
+          >
+          <button
+            type="button"
+            class="btn-modal-cancel"
+            data-modal-close
+            style="flex: 1; height: 42px"
+          >
+            إلغاء
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript -->
     <script src="./js/lucide.min.js"></script>
-  <script src="./js/dashboard.js"></script>
-  <script>
-    // Toggle export dropdown
-    const exportBtn = document.getElementById('exportDropdownBtn');
-    const exportMenu = document.getElementById('exportMenu');
-    if (exportBtn && exportMenu) {
-      exportBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        exportMenu.classList.toggle('active');
-      });
-      document.addEventListener('click', () => {
-        exportMenu.classList.remove('active');
-      });
-    }
-  </script>
-</body>
+    <script src="./js/dashboard.js"></script>
+    <script>
+      // Toggle export dropdown
+      const exportBtn = document.getElementById("exportDropdownBtn");
+      const exportMenu = document.getElementById("exportMenu");
+      if (exportBtn && exportMenu) {
+        exportBtn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          exportMenu.classList.toggle("active");
+        });
+        document.addEventListener("click", () => {
+          exportMenu.classList.remove("active");
+        });
+      }
+    </script>
+  </body>
 </html>

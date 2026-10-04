@@ -406,15 +406,52 @@ function initSettingsAccordions() {
 // 5. Sidebar, Header Dropdowns & Theme Manager
 // ==========================================================================
 function initAppShell() {
-  // Mobile Sidebar Toggle
+  // Mobile Sidebar Drawer & Backdrop Overlay
   const sidebar = document.querySelector('.sidebar, .admin-sidebar');
-  const sidebarToggle = document.getElementById('sidebarToggle') || document.querySelector('.btn-sidebar-toggle');
-  
-  if (sidebarToggle && sidebar) {
-    sidebarToggle.addEventListener('click', () => {
-      sidebar.classList.toggle('active');
-    });
+  let backdrop = document.querySelector('.sidebar-backdrop');
+  if (!backdrop) {
+    backdrop = document.createElement('div');
+    backdrop.className = 'sidebar-backdrop';
+    document.body.appendChild(backdrop);
   }
+
+  const openSidebar = () => {
+    if (!sidebar) return;
+    sidebar.classList.add('active', 'show');
+    backdrop.classList.add('active', 'show');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeSidebar = () => {
+    if (!sidebar) return;
+    sidebar.classList.remove('active', 'show');
+    backdrop.classList.remove('active', 'show');
+    document.body.style.overflow = '';
+  };
+
+  document.addEventListener('click', (e) => {
+    if (e.target.closest('.mobile-menu-btn, #mobileMenuBtn, #sidebarToggle, .btn-sidebar-toggle')) {
+      e.preventDefault();
+      openSidebar();
+      return;
+    }
+
+    if (e.target.closest('.sidebar-close-btn, #sidebarCloseBtn, .sidebar-backdrop')) {
+      e.preventDefault();
+      closeSidebar();
+      return;
+    }
+
+    if (window.innerWidth <= 991 && e.target.closest('.sidebar-menu a')) {
+      closeSidebar();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeSidebar();
+    }
+  });
 
   // Header Dropdowns (User profile, Notifications)
   document.addEventListener('click', (e) => {

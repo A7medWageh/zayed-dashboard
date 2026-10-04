@@ -1386,14 +1386,14 @@ p, label, input, textarea, select {
   overflow-x: auto;
 }
 
-.
+.admin-table {
   width: 100%;
   border-collapse: collapse;
   text-align: right;
   font-size: 12px;
 }
 
-.
+.admin-table th {
   padding: 10px 12px;
   color: var(--text-muted);
   font-weight: 600;
@@ -1401,7 +1401,7 @@ p, label, input, textarea, select {
   white-space: nowrap;
 }
 
-.
+.admin-table td {
   padding: 12px;
   border-bottom: 1px solid #F3F4F6;
   color: var(--text-dark);
@@ -1569,8 +1569,6 @@ p, label, input, textarea, select {
   .mobile-menu-btn {
     display: flex;
   }
-}
-
   .charts-row {
     grid-template-columns: 1fr;
   }
@@ -3825,21 +3823,20 @@ p, label, input, textarea, select {
 }
 
 /* 7. Tables in Dark Mode */
-[data-theme="dark"] table.
+[data-theme="dark"] .admin-table,
 [data-theme="dark"] .orders-table,
 [data-theme="dark"] table {
   color: #E5E7EB !important;
   border-color: #222733 !important;
 }
 
-[data-theme="dark"] table.
-[data-theme="dark"] table.
+[data-theme="dark"] .admin-table thead,
 [data-theme="dark"] .orders-table thead,
 [data-theme="dark"] .orders-table thead tr {
   background: #181C24 !important;
 }
 
-[data-theme="dark"] table.
+[data-theme="dark"] .admin-table th,
 [data-theme="dark"] .orders-table th,
 [data-theme="dark"] table th {
   background: #181C24 !important;
@@ -3848,7 +3845,7 @@ p, label, input, textarea, select {
   font-weight: 700 !important;
 }
 
-[data-theme="dark"] table.
+[data-theme="dark"] .admin-table td,
 [data-theme="dark"] .orders-table td,
 [data-theme="dark"] table td {
   background: transparent !important;
@@ -3856,7 +3853,7 @@ p, label, input, textarea, select {
   border-bottom: 1px solid #1F232B !important;
 }
 
-[data-theme="dark"] table.
+[data-theme="dark"] .admin-table tbody tr:hover td,
 [data-theme="dark"] .orders-table tbody tr:hover td,
 [data-theme="dark"] table tbody tr:hover td {
   background: rgba(255, 255, 255, 0.03) !important;

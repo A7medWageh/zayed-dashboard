@@ -437,7 +437,7 @@ function initAppShell() {
 
   // Theme Switching (Dark / Light Mode)
   const themeToggle = document.getElementById('themeToggle') || document.querySelector('.btn-theme-toggle');
-  const savedTheme = localStorage.getItem('az_dashboard_theme') || 'dark';
+  const savedTheme = localStorage.getItem('az_dashboard_theme') || 'light';
   document.documentElement.setAttribute('data-theme', savedTheme);
 
   if (themeToggle) {

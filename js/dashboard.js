@@ -760,4 +760,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-export { toast, modalManager };
+if (typeof window !== "undefined") {
+  window.toast = toast;
+  window.modalManager = modalManager;
+}

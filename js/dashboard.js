@@ -610,6 +610,8 @@ function initAppShell() {
     if (!sidebar) return;
     sidebar.classList.add("active", "show");
     backdrop.classList.add("active", "show");
+    document.body.classList.add("sidebar-open");
+    document.documentElement.classList.add("sidebar-open");
     document.body.style.overflow = "hidden";
   };
 
@@ -617,12 +619,14 @@ function initAppShell() {
     if (!sidebar) return;
     sidebar.classList.remove("active", "show");
     backdrop.classList.remove("active", "show");
+    document.body.classList.remove("sidebar-open");
+    document.documentElement.classList.remove("sidebar-open");
     document.body.style.overflow = "";
   };
 
   const toggleSidebar = () => {
     if (!sidebar) return;
-    if (sidebar.classList.contains("active") || sidebar.classList.contains("show")) {
+    if (sidebar.classList.contains("active") || sidebar.classList.contains("show") || document.body.classList.contains("sidebar-open")) {
       closeSidebar();
     } else {
       openSidebar();

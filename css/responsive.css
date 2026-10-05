@@ -137,7 +137,8 @@ body.sidebar-open .sidebar-backdrop {
     display: inline-flex !important;
   }
 
-  body.sidebar-open .main-content {
+  body.sidebar-open .main-content,
+  body.sidebar-open .header-bar {
     pointer-events: none !important;
   }
 

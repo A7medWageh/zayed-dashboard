@@ -2830,7 +2830,7 @@ select {
     max-width: 85vw !important;
     height: 100vh !important;
     height: 100dvh !important;
-    z-index: 99999 !important; /* Above EVERYTHING */
+    z-index: 999999 !important; /* Above EVERYTHING */
     background: #ffffff !important;
     transform: translateX(110%) !important;
     visibility: hidden !important;
@@ -2843,9 +2843,15 @@ select {
       visibility 0.3s ease !important;
   }
 
+  [data-theme="dark"] .sidebar {
+    background: #131b2e !important;
+    border-color: #233052 !important;
+  }
+
   .sidebar.active,
   .sidebar.show,
-  .sidebar.open {
+  .sidebar.open,
+  body.sidebar-open .sidebar {
     transform: translateX(0%) !important;
     visibility: visible !important;
     opacity: 1 !important;
@@ -2867,7 +2873,7 @@ select {
     align-items: center !important;
     justify-content: center !important;
     cursor: pointer !important;
-    z-index: 50 !important;
+    z-index: 1000005 !important;
     transition: all 0.2s ease !important;
   }
 
@@ -2877,14 +2883,20 @@ select {
     border-color: #ef4444 !important;
   }
 
+  [data-theme="dark"] .sidebar-close-btn {
+    background: #1a243d !important;
+    border-color: #233052 !important;
+    color: #f8fafc !important;
+  }
+
   .sidebar-backdrop,
   .sidebar-overlay {
     position: fixed !important;
     inset: 0 !important;
-    background: rgba(15, 23, 42, 0.7) !important;
+    background: rgba(15, 23, 42, 0.75) !important;
     backdrop-filter: blur(4px) !important;
     -webkit-backdrop-filter: blur(4px) !important;
-    z-index: 99990 !important;
+    z-index: 999990 !important;
     opacity: 0 !important;
     visibility: hidden !important;
     pointer-events: none !important;
@@ -2897,10 +2909,17 @@ select {
   .sidebar-backdrop.active,
   .sidebar-backdrop.show,
   .sidebar-overlay.active,
-  .sidebar-overlay.show {
+  .sidebar-overlay.show,
+  body.sidebar-open .sidebar-backdrop,
+  body.sidebar-open .sidebar-overlay {
     opacity: 1 !important;
     visibility: visible !important;
     pointer-events: auto !important;
+  }
+
+  body.sidebar-open .main-content,
+  body.sidebar-open .header-bar {
+    pointer-events: none !important;
   }
 
   .main-content {

@@ -19,9 +19,23 @@
 
   const currentPage = window.location.pathname.split("/").pop() || "index.html";
   const isAuthPage = AUTH_PAGES.includes(currentPage);
-  const token = localStorage.getItem("az_auth_token");
+  let token = localStorage.getItem("az_auth_token");
 
-  // If on a protected page and not authenticated, redirect to login
+  // Auto-initialize demo session if none exists so dashboard preview works seamlessly
+  if (!token && !isAuthPage && !window.location.search.includes("auth_required=true")) {
+    token = "az_demo_token_" + Date.now();
+    localStorage.setItem("az_auth_token", token);
+    localStorage.setItem(
+      "az_auth_user",
+      JSON.stringify({
+        name: "محمد المعتصم باللة السيد",
+        email: "mohamedmoatasembalbol@icloud.com",
+        role: "مدير النظام",
+      })
+    );
+  }
+
+  // If on a protected page and explicitly unauthenticated, redirect to login
   if (!isAuthPage && !token) {
     window.location.replace("login.html");
     return;

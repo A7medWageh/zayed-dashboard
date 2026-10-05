@@ -745,9 +745,7 @@ function initAppShell() {
 }
 
 // ==========================================================================
-// Initialization on DOM Ready
-// ==========================================================================
-document.addEventListener("DOMContentLoaded", () => {
+function initDashboard() {
   renderSupervisorsTable();
   renderServicesTable();
   renderPackagesTable();
@@ -758,7 +756,13 @@ document.addEventListener("DOMContentLoaded", () => {
   if (typeof lucide !== "undefined" && lucide.createIcons) {
     lucide.createIcons();
   }
-});
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initDashboard);
+} else {
+  initDashboard();
+}
 
 if (typeof window !== "undefined") {
   window.toast = toast;

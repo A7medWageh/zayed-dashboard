@@ -481,9 +481,6 @@ p, label, input, textarea, select {
   transform: scale(1.3);
   background: #ECA02F;
 }
-  color: #111827;
-  background: #F9FAFB;
-}
 
 .sidebar-subitem.active {
   color: #ECA02F;
@@ -1594,8 +1591,9 @@ p, label, input, textarea, select {
     top: 0;
     right: 0;
     height: 100vh;
-    z-index: 1000;
-    transform: translateX(100%);
+    z-index: 999999 !important;
+    background-color: #ffffff !important;
+    transform: translateX(110%);
     transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15);
   }
@@ -2899,9 +2897,14 @@ p, label, input, textarea, select {
     pointer-events: auto !important;
   }
 
-  body.sidebar-open .main-content,
-  body.sidebar-open .header-bar {
+  body.sidebar-open .main-content {
     pointer-events: none !important;
+  }
+
+  body.sidebar-open .mobile-menu-btn {
+    pointer-events: auto !important;
+    position: relative !important;
+    z-index: 1000005 !important;
   }
 
   .main-content {

@@ -1,16 +1,16 @@
-/* AZ STUDIO - AUTHENTICATION FLOW (LOGIN, EMAIL, OTP, NEW PASSWORD)
-   Pixel-perfect match for */
+﻿/* ==========================================================================
+   AZ STUDIO - AUTHENTICATION FLOW (LOGIN, EMAIL, OTP, NEW PASSWORD)
+   Pixel-perfect match for Figma Frame 1 to 4 images
+   ========================================================================== */
 
-@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap');
 
-*,
-*::before,
-*::after {
+*, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   scrollbar-width: thin;
-  scrollbar-color: #cbd5e1 transparent;
+  scrollbar-color: #CBD5E1 transparent;
 }
 
 ::-webkit-scrollbar {
@@ -24,7 +24,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
+  background: #CBD5E1;
   border-radius: 9999px;
   border: 1px solid transparent;
   background-clip: padding-box;
@@ -32,11 +32,11 @@
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+  background: #94A3B8;
 }
 
 ::-webkit-scrollbar-thumb:active {
-  background: #eca02f;
+  background: #ECA02F;
 }
 
 ::-webkit-scrollbar-corner {
@@ -45,25 +45,24 @@
 
 [data-theme="dark"] * {
   scrollbar-width: thin;
-  scrollbar-color: #282e3c transparent !important;
+  scrollbar-color: #282E3C transparent !important;
 }
 
 [data-theme="dark"] ::-webkit-scrollbar-thumb {
-  background: #282e3c !important;
+  background: #282E3C !important;
   border-radius: 9999px !important;
 }
 
 [data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
-  background: #eca02f !important;
+  background: #ECA02F !important;
 }
 
-html,
-body {
+html, body {
   width: 100%;
   height: 100%;
   direction: rtl;
   text-align: right;
-  font-family: "IBM Plex Sans Arabic", "Cairo", sans-serif;
+  font-family: 'IBM Plex Sans Arabic', 'Cairo', sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -74,7 +73,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url("../assets/Login_WhatsApp_Image_2025-11-02_at_22_43__414-9079.png");
+  background-image: url('../assets/Login_WhatsApp_Image_2025-11-02_at_22_43__414-9079.png');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -83,7 +82,7 @@ body {
 }
 
 .auth-page-wrapper::before {
-  content: "";
+  content: '';
   position: absolute;
   inset: 0;
   background: rgba(15, 15, 15, 0.45);
@@ -98,11 +97,9 @@ body {
   z-index: 10;
   width: 100%;
   max-width: 440px;
-  background: #ffffff;
+  background: #FFFFFF;
   border-radius: 20px;
-  box-shadow:
-    0 25px 50px -12px rgba(0, 0, 0, 0.45),
-    0 0 0 1px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.1);
   overflow: hidden;
   animation: cardFadeUp 0.35s ease-out;
 }
@@ -120,8 +117,8 @@ body {
 
 /* Card Header (Beige with Logo) */
 .auth-card-header {
-  background: #faf1e2;
-  background: linear-gradient(180deg, #fbf3e4 0%, #f8ecd5 100%);
+  background: #FAF1E2;
+  background: linear-gradient(180deg, #FBF3E4 0%, #F8ECD5 100%);
   height: 84px;
   display: flex;
   flex-direction: column;
@@ -156,7 +153,7 @@ body {
 
 .auth-subtitle {
   font-size: 11.5px;
-  color: #6b7280;
+  color: #6B7280;
   margin-bottom: 20px;
   line-height: 1.5;
 }
@@ -177,7 +174,7 @@ body {
 .auth-label {
   font-size: 12px;
   font-weight: 600;
-  color: #1f2937;
+  color: #1F2937;
 }
 
 .auth-input-wrap {
@@ -188,21 +185,19 @@ body {
 .auth-input {
   width: 100%;
   height: 44px;
-  border: 1px solid #e5e7eb;
+  border: 1px solid #E5E7EB;
   border-radius: 8px;
-  background: #ffffff;
+  background: #FFFFFF;
   font-family: inherit;
   font-size: 12.5px;
   color: #111827;
   outline: none;
-  transition:
-    border-color 0.2s,
-    box-shadow 0.2s;
+  transition: border-color 0.2s, box-shadow 0.2s;
   padding: 0 14px;
 }
 
 .auth-input:focus {
-  border-color: #fdba33;
+  border-color: #FDBA33;
   box-shadow: 0 0 0 3px rgba(253, 186, 51, 0.15);
 }
 
@@ -215,7 +210,7 @@ body {
 
 .auth-input-email::placeholder {
   text-align: left;
-  color: #9ca3af;
+  color: #9CA3AF;
   font-size: 12px;
 }
 
@@ -226,7 +221,7 @@ body {
   transform: translateY(-50%);
   width: 18px;
   height: 18px;
-  color: #9ca3af;
+  color: #9CA3AF;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -249,7 +244,7 @@ body {
   transform: translateY(-50%);
   width: 18px;
   height: 18px;
-  color: #9ca3af;
+  color: #9CA3AF;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -265,7 +260,7 @@ body {
   height: 24px;
   border: none;
   background: transparent;
-  color: #9ca3af;
+  color: #9CA3AF;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -274,14 +269,14 @@ body {
 }
 
 .btn-toggle-eye:hover {
-  color: #4b5563;
+  color: #4B5563;
 }
 
 /* Primary Button (Gold/Orange) */
 .btn-auth-submit {
   width: 100%;
   height: 44px;
-  background: #fdba33;
+  background: #FDBA33;
   border: none;
   border-radius: 8px;
   color: #111827;
@@ -293,13 +288,11 @@ body {
   justify-content: center;
   gap: 8px;
   margin-top: 6px;
-  transition:
-    background 0.2s,
-    transform 0.1s;
+  transition: background 0.2s, transform 0.1s;
 }
 
 .btn-auth-submit:hover {
-  background: #e6a21e;
+  background: #E6A21E;
 }
 
 .btn-auth-submit:active {
@@ -315,14 +308,14 @@ body {
 /* Footer note */
 .auth-footer-text {
   font-size: 11px;
-  color: #9ca3af;
+  color: #9CA3AF;
   text-align: center;
   margin-top: 14px;
 }
 
 .auth-footer-link {
   font-size: 11.5px;
-  color: #4b5563;
+  color: #4B5563;
   text-align: center;
   margin-top: 14px;
   text-decoration: none;
@@ -350,34 +343,32 @@ body {
 .otp-box {
   width: 48px;
   height: 48px;
-  border: 1px solid #e5e7eb;
+  border: 1px solid #E5E7EB;
   border-radius: 8px;
   text-align: center;
   font-size: 18px;
   font-weight: 700;
   color: #111827;
-  background: #ffffff;
+  background: #FFFFFF;
   outline: none;
-  transition:
-    border-color 0.2s,
-    box-shadow 0.2s;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .otp-box:focus {
-  border-color: #fdba33;
+  border-color: #FDBA33;
   box-shadow: 0 0 0 3px rgba(253, 186, 51, 0.2);
 }
 
 .otp-hint {
   font-size: 11px;
-  color: #9ca3af;
+  color: #9CA3AF;
   text-align: center;
   margin-bottom: 8px;
 }
 
 .otp-resend-row {
   font-size: 11.5px;
-  color: #6b7280;
+  color: #6B7280;
   text-align: center;
   margin-top: 14px;
 }
@@ -386,64 +377,66 @@ body {
   text-decoration: underline;
 }
 
-/* AUTH DARK THEME (1:1 Matching */
+/* ==========================================================================
+   AUTH DARK THEME (1:1  Image 1)
+   ========================================================================== */
 [data-theme="dark"] .auth-card {
-  background: #181a20 !important;
-  border: 1px solid #282e3c !important;
+  background: #181A20 !important;
+  border: 1px solid #282E3C !important;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7) !important;
 }
 
 [data-theme="dark"] .auth-card-header {
-  background: linear-gradient(180deg, #322617 0%, #20190f 100%) !important;
+  background: linear-gradient(180deg, #322617 0%, #20190F 100%) !important;
   border-bottom: 1px solid rgba(253, 186, 51, 0.15) !important;
 }
 
 [data-theme="dark"] .auth-card-header img {
-  content: url("../assets/az-studio-logo-white.svg") !important;
+  content: url('../assets/az-studio-logo-white.svg') !important;
 }
 
 [data-theme="dark"] .auth-title {
-  color: #ffffff !important;
+  color: #FFFFFF !important;
 }
 
 [data-theme="dark"] .auth-subtitle {
-  color: #8e98a8 !important;
+  color: #8E98A8 !important;
 }
 
 [data-theme="dark"] .auth-label {
-  color: #d1d5db !important;
+  color: #D1D5DB !important;
 }
 
 [data-theme="dark"] .auth-input {
-  background: #0e1015 !important;
-  border-color: #262b37 !important;
-  color: #ffffff !important;
+  background: #0E1015 !important;
+  border-color: #262B37 !important;
+  color: #FFFFFF !important;
 }
 
 [data-theme="dark"] .auth-input::placeholder {
-  color: #6b7280 !important;
+  color: #6B7280 !important;
 }
 
 [data-theme="dark"] .input-icon-left svg,
 [data-theme="dark"] .input-icon-right svg {
-  color: #6b7280 !important;
+  color: #6B7280 !important;
 }
 
 [data-theme="dark"] .btn-toggle-eye {
-  color: #6b7280 !important;
+  color: #6B7280 !important;
 }
 
 [data-theme="dark"] .btn-toggle-eye:hover {
-  color: #d1d5db !important;
+  color: #D1D5DB !important;
 }
 
 [data-theme="dark"] .auth-footer-text,
 [data-theme="dark"] .auth-footer-link {
-  color: #8e98a8 !important;
+  color: #8E98A8 !important;
 }
 
 [data-theme="dark"] .otp-box {
-  background: #0e1015 !important;
-  border-color: #262b37 !important;
-  color: #ffffff !important;
+  background: #0E1015 !important;
+  border-color: #262B37 !important;
+  color: #FFFFFF !important;
 }

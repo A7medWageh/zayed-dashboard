@@ -1,320 +1,79 @@
-/**
- * AZ Studio - Universal Responsive Stylesheet & Off-Canvas Mobile Drawer
- * Provides:
- * 1. Mobile Sidebar Off-Canvas System (Z-Index 1050, Backdrop Overlay, Clean Close Button)
- * 2. Equal Symmetrical Margins/Padding for Main Container Divs on All Screens
- * 3. 100% Responsive Form Inputs, Textareas, Selects, and Grid/Flex Form Rows
- * 4. Adaptive Tables with Smooth Touch Scrolling
- */
-
 /* ==========================================================================
-   1. Mobile Sidebar Off-Canvas & Backdrop (Z-Index & Hierarchy Fix)
+   Responsive Adaptations
    ========================================================================== */
-.sidebar-backdrop {
-  position: fixed !important;
-  inset: 0 !important;
-  background: rgba(15, 23, 42, 0.75) !important;
-  backdrop-filter: blur(4px) !important;
-  -webkit-backdrop-filter: blur(4px) !important;
-  z-index: 999990 !important;
-  opacity: 0 !important;
-  visibility: hidden !important;
-  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.3s ease !important;
-  pointer-events: none !important;
-  display: block !important;
-}
 
-.sidebar-backdrop.active,
-.sidebar-backdrop.show,
-body.sidebar-open .sidebar-backdrop {
-  opacity: 1 !important;
-  visibility: visible !important;
-  pointer-events: auto !important;
-}
-
-.sidebar-close-btn {
-  display: none !important;
-  position: absolute !important;
-  top: 12px !important;
-  left: 14px !important; /* Left side in RTL */
-  width: 34px !important;
-  height: 34px !important;
-  border-radius: var(--radius-sm, 8px) !important;
-  border: 1px solid var(--border-default, #e2e8f0) !important;
-  background: var(--bg-surface-secondary, #f1f5f9) !important;
-  color: var(--text-primary, #0f172a) !important;
-  align-items: center !important;
-  justify-content: center !important;
-  cursor: pointer !important;
-  z-index: 1000005 !important;
-  transition: all 0.2s ease !important;
-  padding: 0 !important;
-}
-
-.sidebar-close-btn:hover {
-  background: #ef4444 !important;
-  color: #ffffff !important;
-  border-color: #ef4444 !important;
-}
-
-[data-theme="dark"] .sidebar-close-btn {
-  background: #1a243d !important;
-  border-color: #233052 !important;
-  color: #f8fafc !important;
-}
-
-[data-theme="dark"] .sidebar-close-btn:hover {
-  background: #ef4444 !important;
-  color: #ffffff !important;
-  border-color: #ef4444 !important;
-}
-
-.sidebar-logo-area {
-  position: relative !important;
-  width: 100% !important;
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  justify-content: center !important;
-  padding: 10px 48px 14px 48px !important;
-  border-bottom: 1px solid var(--border-default, #f3f4f6) !important;
-  margin-bottom: 12px !important;
-  flex-shrink: 0 !important;
-  min-height: 52px !important;
-}
-
-[data-theme="dark"] .sidebar-logo-area {
-  border-bottom-color: #233052 !important;
-}
-
-/* ==========================================================================
-   2. Responsive Breakpoints: Tablet & Mobile (<= 991px)
-   ========================================================================== */
-@media (max-width: 991px) {
-  /* Sidebar Drawer above everything */
-  .sidebar {
-    position: fixed !important;
-    top: 0 !important;
-    right: 0 !important;
-    bottom: 0 !important;
-    width: 280px !important;
-    max-width: 85vw !important;
-    height: 100vh !important;
-    height: 100dvh !important;
-    z-index: 999999 !important; /* Above Header & All Content */
-    background-color: #ffffff !important;
-    background: #ffffff !important;
-    box-shadow: none !important;
-    transform: translateX(110%) !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
-    transition:
-      transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-      opacity 0.2s ease,
-      visibility 0.3s ease,
-      box-shadow 0.3s ease !important;
-    overflow-y: auto !important;
-  }
-
-  [data-theme="dark"] .sidebar {
-    background-color: #131b2e !important;
-    background: #131b2e !important;
-    border-color: #233052 !important;
-  }
-
-  .sidebar.active,
-  .sidebar.show,
-  body.sidebar-open .sidebar {
-    transform: translateX(0%) !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    pointer-events: auto !important;
-    box-shadow: -15px 0 50px rgba(0, 0, 0, 0.6) !important;
-  }
-
-  .sidebar-close-btn {
-    display: inline-flex !important;
-  }
-
-  body.sidebar-open .main-content,
-  body.sidebar-open .header-bar {
-    pointer-events: none !important;
-  }
-
-  /* Main Content Container - Equal Left and Right Margins */
-  .main-content {
-    margin-right: 0 !important;
-    margin-left: 0 !important;
-    width: 100% !important;
-    max-width: 100vw !important;
-    padding: 20px 16px 60px 16px !important; /* Symmetrical 16px on Left & Right */
-    box-sizing: border-box !important;
-    overflow-x: hidden !important;
-  }
-
-  /* Header Top Bar */
-  .header-top-bar,
-  .dashboard-header {
-    width: 100% !important;
-    max-width: 100% !important;
-    box-sizing: border-box !important;
-    margin-bottom: 20px !important;
-    padding: 12px 14px !important;
-    gap: 12px !important;
-  }
-
-  .header-welcome h1 {
-    font-size: 1.15rem !important;
-  }
-}
-
-/* ==========================================================================
-   3. Responsive Breakpoints: Mobile Phones (<= 768px)
-   ========================================================================== */
-@media (max-width: 768px) {
-  /* Containers & Section Cards */
-  .table-card-container,
-  .settings-section-card,
-  .settings-accordion-card,
-  .stat-card,
-  .chart-card,
-  .profile-view-box,
-  .package-card,
-  .supervisor-card,
-  .role-card,
-  .contact-msg-card,
-  .setting-dynamic-card {
-    width: 100% !important;
-    max-width: 100% !important;
-    padding: 16px 14px !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    box-sizing: border-box !important;
-    border-radius: var(--radius-md, 10px) !important;
-  }
-
-  /* 100% Responsive Form Rows - Convert multi-column rows into clean stacked layouts */
-  .modal-form-row,
-  .form-row,
-  .settings-form-row,
-  .form-group-row,
-  .form-grid,
-  .settings-grid,
-  .kpi-row,
-  .orders-stats-row {
-    display: flex !important;
-    flex-direction: column !important;
-    width: 100% !important;
-    gap: 12px !important;
-    align-items: stretch !important;
-  }
-
-  /* Form Groups & Inputs */
-  .modal-form-group,
-  .form-group,
-  .form-field,
-  .auth-field-group {
-    width: 100% !important;
-    max-width: 100% !important;
-    flex: 1 1 100% !important;
-    box-sizing: border-box !important;
-    margin-bottom: 12px !important;
-  }
-
-  .modal-input,
-  .form-input,
-  .auth-input,
-  .form-select,
-  .form-textarea,
-  input[type="text"],
-  input[type="email"],
-  input[type="password"],
-  input[type="number"],
-  input[type="tel"],
-  input[type="search"],
-  select,
-  textarea {
-    width: 100% !important;
-    max-width: 100% !important;
-    box-sizing: border-box !important;
-    font-size: 14px !important;
-  }
-
-  /* Action Bars & Search Filters */
-  .table-filter-bar,
-  .orders-filter-bar,
-  .table-search-box {
-    width: 100% !important;
-    max-width: 100% !important;
-    box-sizing: border-box !important;
-    flex-direction: column !important;
-    align-items: stretch !important;
-    gap: 10px !important;
-  }
-
-  .table-search-box input {
-    width: 100% !important;
-  }
-
-  /* Header action buttons on mobile */
-  .btn-header-add,
-  .btn-auth-submit,
-  .btn-modal-primary {
-    width: 100% !important;
-    justify-content: center !important;
-    text-align: center !important;
-  }
-
-  /* Pagination Controls on Mobile */
-  .pagination-controls {
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-    width: 100% !important;
-  }
-
-  .table-pagination-footer {
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: 14px !important;
-  }
-
-  /* Accordions on Mobile */
-  .settings-accordion-header {
-    padding: 14px !important;
-  }
-
-  .settings-accordion-body {
-    padding: 14px !important;
-  }
-}
-
-/* ==========================================================================
-   4. Small Mobile Screens (<= 480px)
-   ========================================================================== */
-@media (max-width: 480px) {
-  .main-content {
-    padding: 14px 10px 60px 10px !important; /* Equal 10px side margins */
+@media (max-width: 520px) {
+  body {
+    padding: 16px 12px 90px 12px;
   }
 
   .auth-card {
-    margin: 10px auto !important;
-    width: calc(100% - 20px) !important;
-    padding: 20px 16px !important;
+    border-radius: 20px;
   }
 
+  .auth-header {
+    height: 72px;
+    padding: 12px;
+  }
+
+  .auth-logo {
+    height: 42px;
+  }
+
+  .auth-body {
+    padding: 20px 16px;
+  }
+
+  .auth-title {
+    font-size: 18px;
+  }
+
+  .auth-subtitle {
+    font-size: 11px;
+  }
+
+  .form-group {
+    gap: 6px;
+  }
+
+  .input-wrapper {
+    height: 48px;
+  }
+
+  .btn-submit {
+    height: 46px;
+    font-size: 15px;
+  }
+
+  /* OTP boxes scaling on mobile */
   .otp-container {
-    gap: 4px !important;
+    gap: 6px;
   }
 
   .otp-box {
-    width: 40px !important;
-    height: 44px !important;
-    font-size: 16px !important;
+    width: 44px;
+    height: 48px;
+    font-size: 18px;
+    border-radius: 8px;
   }
 
-  .modal-dialog {
-    margin: 10px !important;
-    max-width: calc(100vw - 20px) !important;
+  .prototype-dock {
+    width: 94vw;
+    overflow-x: auto;
+    padding: 6px 8px;
+    justify-content: flex-start;
+  }
+
+  .dock-item {
+    font-size: 11px;
+    padding: 5px 10px;
+  }
+}
+
+@media (max-width: 360px) {
+  .otp-box {
+    width: 38px;
+    height: 44px;
+    font-size: 16px;
   }
 }

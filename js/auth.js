@@ -1,16 +1,9 @@
 /**
- * AZ Studio - Unified Authentication Module
- * Handles Login, Forgot Password, OTP 6-Digit input, Password Reset, and UI states
+ * AZ Studio Auth Flow - JavaScript Logic
+ * Includes: Form validation, Password toggle, 6-digit OTP handling, Timer countdown, Toasts
  */
 
-import { AuthService } from "./services/authService.js";
-import { toast } from "./components/ToastManager.js";
-
-document.addEventListener("DOMContentLoaded", () => {
-  if (typeof lucide !== "undefined" && lucide.createIcons) {
-    lucide.createIcons();
-  }
-
+document.addEventListener('DOMContentLoaded', () => {
   initPasswordToggles();
   initLoginForm();
   initEnterEmailForm();
@@ -18,298 +11,326 @@ document.addEventListener("DOMContentLoaded", () => {
   initResetPasswordForm();
 });
 
-/**
- * Universal Password Visibility Toggle
- */
+/* ==================== Toast Notifications Start ==================== */
+function showToast(message, type = 'success') {
+  let toast = document.getElementById('toastMsg');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.id = 'toastMsg';
+    toast.className = 'toast-msg';
+    document.body.appendChild(toast);
+  }
+
+  toast.textContent = message;
+  toast.className = `toast-msg ${type} show`;
+
+  setTimeout(() => {
+    toast.classList.remove('show');
+  }, 3500);
+}
+
+/* ==================== Password Toggles Start ==================== */
 function initPasswordToggles() {
-  document.addEventListener("click", (e) => {
-    const toggleBtn = e.target.closest(
-      "#toggleLoginPass, #toggleNewPass, #toggleConfirmPass, .btn-toggle-eye, .btn-toggle-password"
-    );
-    if (!toggleBtn) return;
+  const toggleButtons = document.querySelectorAll('.btn-toggle-password');
+  toggleButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.getAttribute('data-target');
+      const input = document.getElementById(targetId);
+      if (!input) return;
 
-    e.preventDefault();
-    const wrap = toggleBtn.closest(".auth-input-wrap, .form-input-wrap");
-    if (!wrap) return;
+      const isPassword = input.type === 'password';
+      input.type = isPassword ? 'text' : 'password';
 
-    const input = wrap.querySelector('input[type="password"], input[type="text"]');
-    if (!input) return;
-
-    const isPass = input.type === "password";
-    input.type = isPass ? "text" : "password";
-
-    const icon = toggleBtn.querySelector("[data-lucide]");
-    if (icon) {
-      icon.setAttribute("data-lucide", isPass ? "eye-off" : "eye");
-      if (typeof lucide !== "undefined" && lucide.createIcons) {
-        lucide.createIcons({ root: toggleBtn });
+      const img = btn.querySelector('.input-icon-img') || btn.querySelector('img');
+      if (img) {
+        img.src = isPassword ? './assets/icons/eye-off.svg' : './assets/icons/eye.svg';
+        img.alt = isPassword ? 'إخفاء كلمة المرور' : 'إظهار كلمة المرور';
       }
-    }
+    });
   });
 }
 
-/**
- * Screen 1: Login Form
- */
+/* ==================== Login Form Start ==================== */
 function initLoginForm() {
-  const form = document.querySelector("form.auth-form, #loginForm");
-  if (!form || !window.location.pathname.endsWith("login.html")) return;
+  const form = document.getElementById('loginForm');
+  if (!form) return;
 
-  const emailInput = form.querySelector('input[type="email"]');
-  const passInput = form.querySelector('input[type="password"], #loginPassword');
-  const submitBtn = form.querySelector('button[type="submit"]');
+  const emailInput = document.getElementById('loginEmail');
+  const passwordInput = document.getElementById('loginPassword');
+  const emailError = document.getElementById('emailError');
+  const passwordError = document.getElementById('passwordError');
 
-  form.addEventListener("submit", async (e) => {
+  form.addEventListener('submit', (e) => {
     e.preventDefault();
+    let isValid = true;
 
-    const email = emailInput?.value.trim();
-    const password = passInput?.value;
-
-    if (!email || !email.includes("@")) {
-      toast.show("يرجى إدخال بريد إلكتروني صحيح", "error");
-      emailInput?.focus();
-      return;
+    const emailVal = emailInput.value.trim();
+    if (!emailVal || !validateEmail(emailVal)) {
+      showFieldError(emailInput, emailError, 'يرجى إدخال بريد إلكتروني صحيح');
+      isValid = false;
+    } else {
+      clearFieldError(emailInput, emailError);
     }
 
-    if (!password || password.length < 6) {
-      toast.show("كلمة المرور يجب أن لا تقل عن 6 أحرف", "error");
-      passInput?.focus();
-      return;
+    const passVal = passwordInput.value;
+    if (!passVal || passVal.length < 6) {
+      showFieldError(passwordInput, passwordError, 'كلمة المرور يجب ألا تقل عن 6 أحرف');
+      isValid = false;
+    } else {
+      clearFieldError(passwordInput, passwordError);
     }
 
-    // Set Loading state
-    if (submitBtn) {
-      submitBtn.disabled = true;
-      submitBtn.dataset.originalHtml = submitBtn.innerHTML;
-      submitBtn.innerHTML =
-        '<span>جاري التحقق...</span> <i data-lucide="loader" class="animate-spin"></i>';
-      if (typeof lucide !== "undefined") lucide.createIcons({ root: submitBtn });
+    if (isValid) {
+      showToast('تم تسجيل الدخول بنجاح!', 'success');
     }
+  });
 
-    try {
-      await AuthService.login(email, password);
-      toast.show("تم تسجيل الدخول بنجاح! جاري التوجيه...", "success");
-      setTimeout(() => {
-        window.location.href = "index.html";
-      }, 800);
-    } catch (err) {
-      toast.show(err.message || "فشل تسجيل الدخول", "error");
-      if (submitBtn && submitBtn.dataset.originalHtml) {
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = submitBtn.dataset.originalHtml;
-        if (typeof lucide !== "undefined") lucide.createIcons({ root: submitBtn });
-      }
+  [emailInput, passwordInput].forEach(inp => {
+    if (inp) {
+      inp.addEventListener('input', () => {
+        clearFieldError(inp, inp.closest('.form-group')?.querySelector('.field-error'));
+      });
     }
   });
 }
 
-/**
- * Screen 2: Forgot Password / Enter Email Form
- */
+/* ==========================================================================
+   4. Screen 2: Enter Email (Forgot Password)
+   ========================================================================== */
 function initEnterEmailForm() {
-  const form = document.querySelector("form.auth-form");
-  if (!form || !window.location.pathname.endsWith("enter-email.html")) return;
+  const form = document.getElementById('enterEmailForm');
+  if (!form) return;
 
-  const emailInput = form.querySelector('input[type="email"]');
-  const submitBtn = form.querySelector('button[type="submit"]');
+  const emailInput = document.getElementById('resetEmail');
+  const emailError = document.getElementById('emailError');
 
-  form.addEventListener("submit", async (e) => {
+  form.addEventListener('submit', (e) => {
     e.preventDefault();
-    const email = emailInput?.value.trim();
+    const emailVal = emailInput.value.trim();
 
-    if (!email || !email.includes("@")) {
-      toast.show("يرجى كتابة بريد إلكتروني صحيح", "error");
-      emailInput?.focus();
+    if (!emailVal || !validateEmail(emailVal)) {
+      showFieldError(emailInput, emailError, 'يرجى إدخال بريد إلكتروني صحيح');
       return;
     }
 
-    if (submitBtn) {
-      submitBtn.disabled = true;
-      submitBtn.innerHTML = "<span>جاري الإرسال...</span>";
-    }
-
+    clearFieldError(emailInput, emailError);
+    showToast('تم إرسال كود التحقق إلى بريدك الإلكتروني', 'success');
+    
     try {
-      await AuthService.requestOtp(email);
-      toast.show("تم إرسال رمز التحقق بنجاح!", "success");
-      setTimeout(() => {
-        window.location.href = "otp.html";
-      }, 700);
-    } catch (err) {
-      toast.show(err.message || "حدث خطأ في الإرسال", "error");
-      if (submitBtn) {
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = "<span>استمرار</span>";
-      }
-    }
+      sessionStorage.setItem('resetEmail', emailVal);
+    } catch(err) {}
+
+    setTimeout(() => {
+      window.location.href = 'otp.html';
+    }, 1000);
   });
+
+  if (emailInput) {
+    emailInput.addEventListener('input', () => {
+      clearFieldError(emailInput, emailError);
+    });
+  }
 }
 
-/**
- * Screen 3: OTP 6-Digit Form
- */
+/* ==========================================================================
+   5. Screen 3: OTP 6-Digit Verification
+   ========================================================================== */
 function initOtpForm() {
-  if (!window.location.pathname.endsWith("otp.html")) return;
+  const form = document.getElementById('otpForm');
+  if (!form) return;
 
-  const form = document.querySelector("form.auth-form");
-  const otpBoxes = Array.from(document.querySelectorAll(".otp-box"));
-  const submitBtn = form?.querySelector('button[type="submit"]');
+  const otpBoxes = document.querySelectorAll('.otp-box');
+  const otpError = document.getElementById('otpError');
+  const timerElem = document.getElementById('otpTimer');
+  const resendBtn = document.getElementById('btnResend');
 
   if (otpBoxes.length > 0) {
-    otpBoxes.forEach((box, index) => {
-      box.setAttribute("inputmode", "numeric");
-      box.setAttribute("pattern", "[0-9]*");
-      box.setAttribute("aria-label", `رقم رمز الأمان ${index + 1}`);
-
-      box.addEventListener("input", (e) => {
-        const val = e.target.value.replace(/[^0-9]/g, "");
-        e.target.value = val;
-        if (val.length === 1 && index < otpBoxes.length - 1) {
-          otpBoxes[index + 1].focus();
-        }
-      });
-
-      box.addEventListener("keydown", (e) => {
-        if (e.key === "Backspace" && !box.value && index > 0) {
-          otpBoxes[index - 1].focus();
-        }
-      });
-
-      box.addEventListener("paste", (e) => {
-        e.preventDefault();
-        const data = (e.clipboardData || window.clipboardData)
-          .getData("text")
-          .replace(/[^0-9]/g, "");
-        if (data.length > 0) {
-          for (let i = 0; i < Math.min(data.length, otpBoxes.length); i++) {
-            otpBoxes[i].value = data[i];
-          }
-          const nextIdx = Math.min(data.length, otpBoxes.length - 1);
-          otpBoxes[nextIdx].focus();
-        }
-      });
-    });
+    otpBoxes[0].focus();
   }
 
-  // Resend OTP Countdown & Action
-  const resendBtn = document.getElementById("btnResendOtp");
-  if (resendBtn) {
-    let countdown = 60;
-    let timerInterval = null;
-
-    const startTimer = () => {
-      countdown = 60;
-      resendBtn.style.pointerEvents = "none";
-      resendBtn.style.opacity = "0.6";
-      clearInterval(timerInterval);
-      timerInterval = setInterval(() => {
-        countdown--;
-        if (countdown <= 0) {
-          clearInterval(timerInterval);
-          resendBtn.textContent = "إعادة الإرسال";
-          resendBtn.style.pointerEvents = "auto";
-          resendBtn.style.opacity = "1";
-        } else {
-          resendBtn.textContent = `إعادة الإرسال (${countdown} ث)`;
-        }
-      }, 1000);
-    };
-
-    resendBtn.addEventListener("click", async (e) => {
-      e.preventDefault();
-      try {
-        toast.show("تمت إعادة إرسال رمز التحقق إلى بريدك الإلكتروني", "info");
-        startTimer();
-      } catch (err) {
-        toast.show(err.message || "فشلت إعادة الإرسال", "error");
-      }
-    });
-  }
-
-  if (form) {
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const code = otpBoxes.map((b) => b.value).join("");
-
-      if (code.length !== 6) {
-        toast.show("يرجى إدخال رمز التحقق كاملاً المكون من 6 أرقام", "error");
+  otpBoxes.forEach((box, index) => {
+    box.addEventListener('input', (e) => {
+      const val = e.target.value;
+      if (!/^\d*$/.test(val)) {
+        box.value = '';
         return;
       }
 
-      if (submitBtn) {
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = "<span>جاري التحقق...</span>";
+      if (val.length > 0) {
+        box.value = val.slice(-1); // Only keep 1 digit
+        box.classList.add('filled');
+        if (index < otpBoxes.length - 1) {
+          otpBoxes[index + 1].focus();
+        }
+      } else {
+        box.classList.remove('filled');
       }
 
-      try {
-        await AuthService.verifyOtp(code);
-        toast.show("تم التحقق بنجاح! جاري المتابعة...", "success");
-        setTimeout(() => {
-          window.location.href = "new-password.html";
-        }, 600);
-      } catch (err) {
-        toast.show(err.message || "رمز التحقق غير صحيح", "error");
-        if (submitBtn) {
-          submitBtn.disabled = false;
-          submitBtn.innerHTML = "<span>فعل الحساب</span>";
+      if (otpError) otpError.classList.remove('active');
+    });
+
+    box.addEventListener('keydown', (e) => {
+      if (e.key === 'Backspace') {
+        if (!box.value && index > 0) {
+          otpBoxes[index - 1].focus();
+          otpBoxes[index - 1].value = '';
+          otpBoxes[index - 1].classList.remove('filled');
+        } else {
+          box.value = '';
+          box.classList.remove('filled');
         }
+      } else if (e.key === 'ArrowLeft' && index > 0) {
+        otpBoxes[index - 1].focus();
+      } else if (e.key === 'ArrowRight' && index < otpBoxes.length - 1) {
+        otpBoxes[index + 1].focus();
       }
     });
+
+    box.addEventListener('paste', (e) => {
+      e.preventDefault();
+      const pasteData = (e.clipboardData || window.clipboardData).getData('text').trim();
+      const digits = pasteData.replace(/\D/g, '').slice(0, 6);
+
+      if (digits.length > 0) {
+        digits.split('').forEach((digit, i) => {
+          if (otpBoxes[i]) {
+            otpBoxes[i].value = digit;
+            otpBoxes[i].classList.add('filled');
+          }
+        });
+        const nextIndex = Math.min(digits.length, otpBoxes.length - 1);
+        otpBoxes[nextIndex].focus();
+      }
+    });
+  });
+
+  let countdown = 59;
+  let timerInterval = null;
+
+  function startTimer() {
+    if (resendBtn) resendBtn.disabled = true;
+    countdown = 59;
+    updateTimerText();
+
+    if (timerInterval) clearInterval(timerInterval);
+    timerInterval = setInterval(() => {
+      countdown--;
+      updateTimerText();
+      if (countdown <= 0) {
+        clearInterval(timerInterval);
+        if (timerElem) timerElem.textContent = '00:00';
+        if (resendBtn) resendBtn.disabled = false;
+      }
+    }, 1000);
+  }
+
+  function updateTimerText() {
+    if (!timerElem) return;
+    const sec = countdown < 10 ? `0${countdown}` : countdown;
+    timerElem.textContent = `00:${sec}`;
+  }
+
+  startTimer();
+
+  if (resendBtn) {
+    resendBtn.addEventListener('click', () => {
+      showToast('تم إعادة إرسال رمز التحقق بنجاح!', 'success');
+      startTimer();
+    });
+  }
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let otpCode = '';
+    otpBoxes.forEach(b => otpCode += b.value.trim());
+
+    if (otpCode.length < 6) {
+      if (otpError) {
+        otpError.textContent = 'يرجى إدخال الرمز المكون من 6 أرقام بالكامل';
+        otpError.classList.add('active');
+      }
+      return;
+    }
+
+    showToast('تم التحقق من الرمز بنجاح!', 'success');
+    setTimeout(() => {
+      window.location.href = 'new-password.html';
+    }, 1000);
+  });
+}
+
+/* ==================== Password Reset Start ==================== */
+function initResetPasswordForm() {
+  const form = document.getElementById('resetPasswordForm');
+  if (!form) return;
+
+  const newPassInput = document.getElementById('newPassword');
+  const confirmPassInput = document.getElementById('confirmPassword');
+  const newPassError = document.getElementById('newPasswordError');
+  const confirmPassError = document.getElementById('confirmPasswordError');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let isValid = true;
+
+    const newPass = newPassInput.value;
+    const confirmPass = confirmPassInput.value;
+
+    if (!newPass || newPass.length < 8) {
+      showFieldError(newPassInput, newPassError, 'كلمة المرور يجب ألا تقل عن 8 أحرف');
+      isValid = false;
+    } else {
+      clearFieldError(newPassInput, newPassError);
+    }
+
+    if (!confirmPass) {
+      showFieldError(confirmPassInput, confirmPassError, 'يرجى تأكيد كلمة المرور');
+      isValid = false;
+    } else if (newPass !== confirmPass) {
+      showFieldError(confirmPassInput, confirmPassError, 'كلمتا المرور غير متطابقتين');
+      isValid = false;
+    } else {
+      clearFieldError(confirmPassInput, confirmPassError);
+    }
+
+    if (isValid) {
+      showToast('تم تعيين كلمة المرور الجديدة بنجاح! جاري الانتقال...', 'success');
+      setTimeout(() => {
+        window.location.href = 'login.html';
+      }, 1200);
+    }
+  });
+
+  [newPassInput, confirmPassInput].forEach(inp => {
+    if (inp) {
+      inp.addEventListener('input', () => {
+        clearFieldError(inp, inp.closest('.form-group')?.querySelector('.field-error'));
+      });
+    }
+  });
+}
+
+/* ==========================================================================
+   Helper Functions
+   ========================================================================== */
+function validateEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+function showFieldError(input, errorElement, message) {
+  const wrapper = input.closest('.input-wrapper');
+  if (wrapper) wrapper.classList.add('is-invalid');
+  if (errorElement) {
+    errorElement.textContent = message;
+    errorElement.classList.add('active');
   }
 }
 
-/**
- * Screen 4: New / Reset Password Form
- */
-function initResetPasswordForm() {
-  const isReset =
-    window.location.pathname.endsWith("new-password.html") ||
-    window.location.pathname.endsWith("reset-password.html");
-  if (!isReset) return;
-
-  const form = document.querySelector("form.auth-form, #newPasswordForm");
-  if (!form) return;
-
-  const p1Input =
-    document.getElementById("newPassInput") || form.querySelectorAll('input[type="password"]')[0];
-  const p2Input =
-    document.getElementById("confirmPassInput") ||
-    form.querySelectorAll('input[type="password"]')[1];
-  const submitBtn = form.querySelector('button[type="submit"]');
-
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const p1 = p1Input?.value;
-    const p2 = p2Input?.value;
-
-    if (!p1 || p1.length < 6) {
-      toast.show("كلمة المرور يجب أن لا تقل عن 6 أحرف", "error");
-      p1Input?.focus();
-      return;
-    }
-
-    if (p1 !== p2) {
-      toast.show("كلمتا المرور غير متطابقتين!", "error");
-      p2Input?.focus();
-      return;
-    }
-
-    if (submitBtn) {
-      submitBtn.disabled = true;
-      submitBtn.innerHTML = "<span>جاري الحفظ...</span>";
-    }
-
-    try {
-      await AuthService.resetPassword(p1, p2);
-      toast.show("تم تعيين كلمة المرور الجديدة بنجاح! جاري الانتقال لتسجيل الدخول...", "success");
-      setTimeout(() => {
-        window.location.href = "login.html";
-      }, 900);
-    } catch (err) {
-      toast.show(err.message || "فشل تعيين كلمة المرور", "error");
-      if (submitBtn) {
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = "<span>تعيين كلمة مرور جديدة</span>";
-      }
-    }
-  });
+function clearFieldError(input, errorElement) {
+  const wrapper = input.closest('.input-wrapper');
+  if (wrapper) wrapper.classList.remove('is-invalid');
+  if (errorElement) {
+    errorElement.textContent = '';
+    errorElement.classList.remove('active');
+  }
 }
